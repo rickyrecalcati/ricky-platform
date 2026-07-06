@@ -1,0 +1,114 @@
+.booksPage {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 120px 40px 100px;
+}
+
+.booksHero {
+  margin-bottom: 80px;
+}
+
+.booksHero p {
+  color: #c7a347;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  font-size: .85rem;
+  margin-bottom: 18px;
+}
+
+.booksHero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: .95;
+  color: #f5f2ec;
+  max-width: 850px;
+}
+
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 48px;
+}
+
+.booksCard {
+  background: #111;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 28px;
+  overflow: hidden;
+  transition: .3s ease;
+}
+
+.booksCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(199,163,71,.5);
+}
+
+.booksCover {
+  aspect-ratio: 3 / 4;
+  background:
+    radial-gradient(circle at bottom right,#b8872a 0%,transparent 45%),
+    #181512;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px;
+}
+
+.booksCover span {
+  color: #c7a347;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.booksCover strong {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem,3vw,3.5rem);
+  line-height: .9;
+  color: white;
+}
+
+.booksCardBody {
+  padding: 32px;
+}
+
+.booksStatus {
+  color: #c7a347;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  margin-bottom: 12px;
+}
+
+.booksCardBody h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.booksCardBody p {
+  color: #a7a7a7;
+  line-height: 1.8;
+}
+
+.booksCardBody a {
+  display: inline-block;
+  margin-top: 24px;
+  color: #c7a347;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.booksCardBody a:hover {
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .booksPage {
+    padding: 100px 24px 80px;
+  }
+
+  .booksGrid {
+    grid-template-columns: 1fr;
+  }
+}
