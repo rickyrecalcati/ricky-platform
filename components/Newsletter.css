@@ -1,161 +1,80 @@
-.newsletter{
-
-background:#f4efe6;
-
-padding:120px 70px;
-
+.newsletter {
+  background: var(--color-cream);
+  padding: var(--section-pad-y) var(--section-pad-x);
 }
 
-.newsletterCard{
-
-max-width:1100px;
-
-margin:auto;
-
-padding:80px;
-
-border-radius:28px;
-
-background:#0b0b0b;
-
-color:white;
-
-text-align:center;
-
-box-shadow:0 35px 90px rgba(0,0,0,.18);
-
+.newsletter::before {
+  background:
+    radial-gradient(circle at 50% 100%, rgba(202, 166, 76, 0.18), transparent 34%),
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.32));
 }
 
-.newsletterTag{
-
-color:#caa64c;
-
-text-transform:uppercase;
-
-letter-spacing:.22em;
-
-font-size:13px;
-
-font-weight:800;
-
-margin-bottom:20px;
-
+.newsletterCard {
+  max-width: 1100px;
+  margin: auto;
+  padding: clamp(3.25rem, 6vw, 5rem);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(202, 166, 76, 0.14), transparent 36%),
+    #0b0b0b;
+  color: white;
+  text-align: center;
+  box-shadow: 0 35px 90px rgba(0,0,0,.18);
+  transition:
+    transform 0.28s var(--ease-premium),
+    box-shadow 0.28s var(--ease-premium);
+  will-change: transform;
 }
 
-.newsletter h2{
-
-font-family:Georgia,serif;
-
-font-size:clamp(42px,4vw,64px);
-
-line-height:1.05;
-
-letter-spacing:-.04em;
-
-max-width:820px;
-
-margin:0 auto 28px;
-
+.newsletterCard:hover,
+.newsletterCard:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 44px 110px rgba(0,0,0,.25);
 }
 
-.newsletterText{
-
-max-width:650px;
-
-margin:0 auto 42px;
-
-font-size:18px;
-
-line-height:1.75;
-
-color:#cbc4b8;
-
+.newsletterTag {
+  margin-bottom: 20px;
 }
 
-.newsletterForm{
-
-display:flex;
-
-justify-content:center;
-
-gap:16px;
-
-flex-wrap:wrap;
-
+.newsletter h2 {
+  --section-title-size: clamp(42px,4vw,64px);
+  max-width: 820px;
+  margin: 0 auto 28px;
 }
 
-.newsletterForm input{
-
-width:380px;
-
-height:58px;
-
-padding:0 22px;
-
-border-radius:999px;
-
-border:none;
-
-font-size:16px;
-
-outline:none;
-
+.newsletterText {
+  --body-large-color: #cbc4b8;
+  --body-large-size: 18px;
+  --body-large-line: 1.75;
+  max-width: 650px;
+  margin: 0 auto 42px;
 }
 
-.newsletterForm button{
-
-height:58px;
-
-padding:0 34px;
-
-border:none;
-
-border-radius:999px;
-
-background:#caa64c;
-
-color:#111;
-
-font-weight:800;
-
-cursor:pointer;
-
-transition:.25s;
-
+.newsletterForm {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.newsletterForm button:hover{
-
-background:#d9b85f;
-
-transform:translateY(-2px);
-
+.newsletterForm input {
+  width: min(380px, 100%);
+  height: 58px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 239, 230, 0.16);
+  background: #fffdf8;
+  color: #111;
+  font-size: 16px;
 }
 
-@media(max-width:900px){
-
-.newsletter{
-
-padding:80px 28px;
-
+.newsletterForm input::placeholder {
+  color: #7a746b;
 }
 
-.newsletterCard{
-
-padding:50px 28px;
-
-}
-
-.newsletterForm input{
-
-width:100%;
-
-}
-
-.newsletterForm button{
-
-width:100%;
-
-}
-
+@media(max-width:900px) {
+  .newsletterForm input,
+  .newsletterForm button {
+    width: 100%;
+  }
 }

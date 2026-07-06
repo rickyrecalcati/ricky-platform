@@ -56,10 +56,10 @@ export default function ScalingHospitalityPage() {
 
       <section className="scalingHero">
         <div className="scalingHeroContent">
-          <p className="scalingEyebrow">Business Book</p>
-          <h1>Scaling Hospitality</h1>
-          <h2>Build the systems, standards and leadership habits that let a hospitality business grow without losing its soul.</h2>
-          <p className="scalingHeroText">
+          <p className="scalingEyebrow eyebrow">Business Book</p>
+          <h1 className="display-title">Scaling Hospitality</h1>
+          <h2 className="scalingHeroHeadline section-title">Build the systems, standards and leadership habits that let a hospitality business grow without losing its soul.</h2>
+          <p className="scalingHeroText body-large">
             A premium practical guide for owners and operators who are ready to move beyond daily chaos, protect the guest experience and create a business that can perform with consistency.
           </p>
 
@@ -75,40 +75,40 @@ export default function ScalingHospitalityPage() {
 
         <div className="scalingCoverStage" aria-label="Scaling Hospitality book cover placeholder">
           <div className="scalingBookCover">
-            <span>Ricky Recalcati</span>
-            <strong>Scaling Hospitality</strong>
-            <small>Systems for growth, consistency and calm leadership</small>
+            <span className="eyebrow">Ricky Recalcati</span>
+            <strong className="section-title">Scaling Hospitality</strong>
+            <small className="body">Systems for growth, consistency and calm leadership</small>
           </div>
         </div>
       </section>
 
       <section className="scalingCredibility" aria-label="Book credibility">
         {credibilityItems.map((item) => (
-          <p key={item}>{item}</p>
+          <p className="eyebrow" key={item}>{item}</p>
         ))}
       </section>
 
       <section className="scalingCreamSection scalingStory">
         <div>
-          <p className="scalingSectionLabel">Why I Wrote This Book</p>
-          <h2>Hospitality growth should feel intentional, not accidental.</h2>
+          <p className="scalingSectionLabel eyebrow">Why I Wrote This Book</p>
+          <h2 className="section-title">Hospitality growth should feel intentional, not accidental.</h2>
         </div>
-        <p>
+        <p className="body-large">
           Many hospitality businesses reach a point where talent, instinct and hard work are no longer enough. The owner is still solving every problem, standards live in people&apos;s heads, and the guest experience depends too heavily on who is on shift. This book was written to help leaders build the structure that growth demands while preserving the care, warmth and personality that made the business matter in the first place.
         </p>
       </section>
 
       <section className="scalingDarkSection">
         <div className="scalingSectionIntro">
-          <p className="scalingSectionLabel">Who This Book Is For</p>
-          <h2>For operators who want growth with discipline.</h2>
+          <p className="scalingSectionLabel eyebrow">Who This Book Is For</p>
+          <h2 className="section-title">For operators who want growth with discipline.</h2>
         </div>
 
         <div className="scalingAudienceGrid">
           {audienceItems.map((item) => (
             <article key={item} className="scalingAudienceItem">
               <span />
-              <p>{item}</p>
+              <p className="body">{item}</p>
             </article>
           ))}
         </div>
@@ -116,14 +116,14 @@ export default function ScalingHospitalityPage() {
 
       <section className="scalingCreamSection scalingLearn" id="sample">
         <div className="scalingSectionIntro">
-          <p className="scalingSectionLabel">What You&apos;ll Learn</p>
-          <h2>A clear operating lens for the next stage of your business.</h2>
+          <p className="scalingSectionLabel eyebrow">What You&apos;ll Learn</p>
+          <h2 className="section-title">A clear operating lens for the next stage of your business.</h2>
         </div>
 
         <div className="scalingLearnGrid">
           {learningItems.map((item) => (
             <article key={item} className="scalingLearnItem">
-              <p>{item}</p>
+              <p className="body">{item}</p>
             </article>
           ))}
         </div>
@@ -131,9 +131,9 @@ export default function ScalingHospitalityPage() {
 
       <section className="scalingBonus">
         <div>
-          <p className="scalingSectionLabel">Free Bonus</p>
-          <h2>The Scaling Hospitality Operator&apos;s Checklist</h2>
-          <p>
+          <p className="scalingSectionLabel eyebrow">Free Bonus</p>
+          <h2 className="section-title">The Scaling Hospitality Operator&apos;s Checklist</h2>
+          <p className="body-large">
             Readers receive a concise implementation checklist designed to turn the book&apos;s ideas into an immediate review of standards, team rhythms, leadership habits and growth readiness.
           </p>
         </div>
@@ -144,24 +144,24 @@ export default function ScalingHospitalityPage() {
 
       <section className="scalingFaq">
         <div className="scalingSectionIntro">
-          <p className="scalingSectionLabel">FAQ</p>
-          <h2>Questions before you read.</h2>
+          <p className="scalingSectionLabel eyebrow">FAQ</p>
+          <h2 className="section-title">Questions before you read.</h2>
         </div>
 
         <div className="scalingFaqList">
           {faqItems.map((item) => (
             <article key={item.question} className="scalingFaqItem">
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
+              <h3 className="section-title">{item.question}</h3>
+              <p className="body">{item.answer}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section className="scalingFinalCta" id="buy">
-        <p className="scalingSectionLabel">Available Now</p>
-        <h2>Start building a hospitality business that scales with confidence.</h2>
-        <p>
+        <p className="scalingSectionLabel eyebrow">Available Now</p>
+        <h2 className="section-title">Start building a hospitality business that scales with confidence.</h2>
+        <p className="body-large">
           Get the book, read the sample or join the newsletter for more practical operating ideas from Ricky Recalcati.
         </p>
         <div className="scalingHeroActions">

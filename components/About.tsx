@@ -2,22 +2,22 @@ import "./About.css";
 
 export default function About() {
   return (
-    <section className="about">
-      <div className="aboutContent">
-        <p className="aboutTag">About Ricky</p>
+    <section className="about premiumSection">
+      <div className="aboutContent premiumReveal">
+        <p className="aboutTag eyebrow">About Ricky</p>
 
-        <h2>
+        <h2 className="section-title">
           Operations leader, entrepreneur and author building ideas for better
           business and better living.
         </h2>
 
-        <p>
+        <p className="body-large">
           For more than 15 years, Ricky Recalcati has worked across hospitality,
           logistics and operations, helping businesses improve systems, reduce
           complexity and grow sustainably.
         </p>
 
-        <p>
+        <p className="body-large">
           His books combine practical business experience with curiosity across
           leadership, finance, personal growth and storytelling.
         </p>
@@ -27,8 +27,8 @@ export default function About() {
         </a>
       </div>
 
-      <div className="aboutPortrait">
-        <span>Portrait</span>
+      <div className="aboutPortrait premiumReveal premiumRevealDelay">
+        <span className="eyebrow">Portrait</span>
       </div>
     </section>
   );

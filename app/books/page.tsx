@@ -9,24 +9,24 @@ export default function BooksPage() {
     <main>
       <Navbar />
 
-      <section className="booksPage">
-        <div className="booksHero">
-          <p>Books</p>
-          <h1>Practical guides, compelling stories and ideas worth keeping.</h1>
+      <section className="booksPage premiumSection">
+        <div className="booksHero premiumReveal">
+          <p className="eyebrow">Books</p>
+          <h1 className="display-title">Practical guides, compelling stories and ideas worth keeping.</h1>
         </div>
 
         <div className="booksGrid">
           {books.map((book) => (
-            <article className="booksCard" key={book.slug}>
+            <article className="booksCard premiumReveal premiumRevealDelay" key={book.slug}>
               <div className="booksCover">
-                <span>{book.category}</span>
-                <strong>{book.title}</strong>
+                <span className="eyebrow">{book.category}</span>
+                <strong className="section-title">{book.title}</strong>
               </div>
 
               <div className="booksCardBody">
-                <p className="booksStatus">{book.status}</p>
-                <h2>{book.title}</h2>
-                <p>{book.description}</p>
+                <p className="booksStatus eyebrow">{book.status}</p>
+                <h2 className="section-title">{book.title}</h2>
+                <p className="body">{book.description}</p>
                 <Link href={book.slug === "scaling-hospitality" ? "/books/scaling-hospitality" : "#"}>
                   Learn More →
                 </Link>

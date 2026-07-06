@@ -2,19 +2,19 @@ import "./Newsletter.css";
 
 export default function Newsletter() {
   return (
-    <section className="newsletter">
-      <div className="newsletterCard">
+    <section className="newsletter premiumSection" id="newsletter">
+      <div className="newsletterCard premiumReveal">
 
-        <p className="newsletterTag">
+        <p className="newsletterTag eyebrow">
           Newsletter
         </p>
 
-        <h2>
+        <h2 className="section-title">
           Join thousands of readers building better businesses, making smarter
           decisions and discovering new ideas.
         </h2>
 
-        <p className="newsletterText">
+        <p className="newsletterText body-large">
           Get occasional emails with new books, articles, free resources and
           practical ideas. No spam. Just useful thinking.
         </p>
@@ -22,10 +22,11 @@ export default function Newsletter() {
         <form className="newsletterForm">
           <input
             type="email"
+            aria-label="Email address"
             placeholder="Your email address"
           />
 
-          <button>
+          <button className="luxuryButton luxuryButtonPrimary" type="submit">
             Subscribe
           </button>
         </form>

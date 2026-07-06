@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./Footer.css";
 
 export default function Footer() {
@@ -8,9 +9,9 @@ export default function Footer() {
 
         <div className="footerBrand">
 
-          <h2>Ricky Recalcati</h2>
+          <h2 className="section-title">Ricky Recalcati</h2>
 
-          <p>
+          <p className="body">
             Books, ideas and practical resources for people building
             better businesses, making smarter decisions and living with purpose.
           </p>
@@ -20,9 +21,9 @@ export default function Footer() {
         <div className="footerLinks">
 
           <div>
-            <h3>Explore</h3>
+            <h3 className="eyebrow">Explore</h3>
 
-            <a href="#">Books</a>
+            <Link href="/books">Books</Link>
             <a href="#">Library</a>
             <a href="#">Resources</a>
             <a href="#">About</a>
@@ -31,9 +32,9 @@ export default function Footer() {
 
           <div>
 
-            <h3>Books</h3>
+            <h3 className="eyebrow">Books</h3>
 
-            <a href="#">Scaling Hospitality</a>
+            <Link href="/books/scaling-hospitality">Scaling Hospitality</Link>
             <a href="#">The Forgotten Cipher</a>
             <a href="#">The Second Act</a>
 
@@ -41,7 +42,7 @@ export default function Footer() {
 
           <div>
 
-            <h3>Follow</h3>
+            <h3 className="eyebrow">Follow</h3>
 
             <a href="#">Amazon</a>
             <a href="#">Medium</a>
