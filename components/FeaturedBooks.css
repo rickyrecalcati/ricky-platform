@@ -1,0 +1,117 @@
+.featuredBooks {
+  background: #f4efe6;
+  color: #111;
+  padding: 110px 70px;
+}
+
+.featuredHeader {
+  max-width: 780px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.featuredHeader p {
+  color: #9a7627;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.featuredHeader h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 4vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.bookGrid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.bookCard {
+  background: #fffdf8;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bookCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+.miniCover {
+  height: 280px;
+  margin: 18px;
+  border-radius: 14px;
+  padding: 28px;
+  background: radial-gradient(circle at bottom right, #8a6825, #17140f 48%, #0b0b0b);
+  color: #f5f2eb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.miniCover span {
+  color: #caa64c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.miniCover strong {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.bookCardBody {
+  padding: 8px 28px 32px;
+}
+
+.bookCategoryLabel {
+  color: #9a7627;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.bookCardBody h3 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.bookCardBody p {
+  color: #5e574d;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.bookCardBody a {
+  color: #111;
+  font-weight: 800;
+}
+
+@media (max-width: 1000px) {
+  .bookGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredBooks {
+    padding: 80px 28px;
+  }
+}

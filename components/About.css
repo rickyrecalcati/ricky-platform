@@ -1,0 +1,77 @@
+.about {
+  background: #090909;
+  color: #f4efe6;
+  padding: 120px 70px;
+
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.aboutContent {
+  max-width: 850px;
+}
+
+.aboutTag {
+  color: #caa64c;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+.about h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 4.6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 30px;
+}
+
+.about p {
+  max-width: 660px;
+  color: #c7c2b7;
+  font-size: 18px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.aboutButton {
+  display: inline-flex;
+  margin-top: 18px;
+  color: #caa64c;
+  font-weight: 800;
+}
+
+.aboutPortrait {
+  height: 520px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(202,166,76,0.28), transparent 40%),
+    linear-gradient(145deg, #181510, #0b0b0b);
+  border: 1px solid rgba(202,166,76,0.32);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #caa64c;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 13px;
+
+  box-shadow: 0 40px 100px rgba(0,0,0,0.45);
+}
+
+@media (max-width: 1000px) {
+  .about {
+    grid-template-columns: 1fr;
+    padding: 80px 28px;
+  }
+
+  .aboutPortrait {
+    height: 360px;
+  }
+}
