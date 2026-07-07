@@ -27,7 +27,7 @@ export default function BooksPage() {
                 <p className="booksStatus eyebrow">{book.status}</p>
                 <h2 className="section-title">{book.title}</h2>
                 <p className="body">{book.description}</p>
-                <Link href={book.slug === "scaling-hospitality" ? "/books/scaling-hospitality" : "#"}>
+                <Link href={`/books/${book.slug}`}>
                   Learn More →
                 </Link>
               </div>
