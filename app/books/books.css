@@ -29,95 +29,8 @@
 
 .booksGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: clamp(1.75rem, 4vw, 3rem);
-}
-
-.booksCard {
-  background: #fffdf8;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
-  transition:
-    transform 0.28s var(--ease-premium),
-    box-shadow 0.28s var(--ease-premium),
-    border-color 0.28s var(--ease-premium);
-  will-change: transform;
-}
-
-.booksCard:hover,
-.booksCard:focus-within {
-  transform: translateY(-10px);
-  border-color: rgba(202, 166, 76, 0.36);
-  box-shadow: 0 28px 74px rgba(0, 0, 0, 0.24);
-}
-
-.booksCover {
-  aspect-ratio: 3 / 4;
-  margin: 18px;
-  border-radius: 6px;
-  background:
-    radial-gradient(circle at bottom right, #9c772e, #17140f 48%, #0b0b0b),
-    #0b0b0b;
-  color: var(--color-cream-bright);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 28px;
-  transition: transform 0.28s var(--ease-premium);
-}
-
-.booksCard:hover .booksCover,
-.booksCard:focus-within .booksCover {
-  transform: translateY(-2px);
-}
-
-.booksCover span {
-  --eyebrow-size: .8rem;
-  --eyebrow-spacing: .2em;
-}
-
-.booksCover strong {
-  --section-title-size: clamp(2rem,3vw,3.5rem);
-  --section-title-line: .9;
-  --section-title-color: var(--color-cream-bright);
-}
-
-.booksCardBody {
-  padding: 8px 28px 32px;
-}
-
-.booksStatus {
-  --eyebrow-size: .78rem;
-  --eyebrow-spacing: .16em;
-  margin-bottom: 12px;
-}
-
-.booksCardBody h2 {
-  --section-title-size: 32px;
-  --section-title-line: 1;
-  --section-title-color: #111;
-  margin-bottom: 16px;
-}
-
-.booksCardBody p {
-  --body-color: #5e574d;
-  --body-size: 16px;
-  --body-line: 1.6;
-  margin-bottom: 22px;
-}
-
-.booksCardBody a {
-  display: inline-block;
-  color: #111;
-  text-decoration: none;
-  font-weight: 800;
-  transition: color 0.22s var(--ease-premium);
-}
-
-.booksCardBody a:hover {
-  color: var(--color-gold-deep);
 }
 
 @media (max-width: 900px) {
@@ -128,5 +41,6 @@
 
   .booksGrid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
 }

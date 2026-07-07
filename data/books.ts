@@ -39,6 +39,9 @@ export type Book = {
   title: string;
   category: string;
   status: string;
+  publicationYear: string;
+  series: boolean;
+  booksInSeries?: number;
   subtitle: string;
   description: string;
   page: BookPageContent;
@@ -50,18 +53,21 @@ export const books: Book[] = [
     title: "Scaling Hospitality",
     category: "Business",
     status: "Published",
+    publicationYear: "2026",
+    series: true,
+    booksInSeries: 5,
     subtitle:
       "Build resilient teams, sharper systems and more profitable hospitality businesses.",
     description:
-      "Scaling Hospitality is a practical guide for hospitality operators, managers and founders who want to build businesses that grow without sacrificing quality.",
+      "A 5-book e-book series for hospitality operators, managers and founders who want to build businesses that grow without sacrificing quality.",
     page: {
-      heroEyebrow: "Business Book",
+      heroEyebrow: "5-Book E-Book Series",
       heroHeadline:
         "Build the systems, standards and leadership habits that let a hospitality business grow without losing its soul.",
       heroDescription:
-        "Scaling Hospitality combines operational systems, leadership frameworks and real-world experience from more than fifteen years in hospitality and operations.",
+        "Scaling Hospitality is a 5-book e-book series combining operational systems, leadership frameworks and real-world experience from more than fifteen years in hospitality and operations.",
       coverKicker: "Ricky Recalcati",
-      coverTagline: "Systems for growth, consistency and calm leadership",
+      coverTagline: "A 5-book series for growth, consistency and calm leadership",
       credibility: [
         "Built from real hospitality operations",
         "Systems for growing teams",
@@ -138,6 +144,8 @@ export const books: Book[] = [
     title: "The Forgotten Cipher",
     category: "Fiction",
     status: "Coming Soon",
+    publicationYear: "2026",
+    series: false,
     subtitle: "Some secrets were buried for a reason.",
     description:
       "A historical thriller where cryptography, hidden history and impossible secrets collide.",
@@ -208,16 +216,19 @@ export const books: Book[] = [
     title: "The Second Act",
     category: "Personal Growth",
     status: "Coming Soon",
+    publicationYear: "2026",
+    series: true,
+    booksInSeries: 5,
     subtitle: "It's never too late to build the life you actually want.",
     description:
-      "Practical guidance and inspiration for building a meaningful next chapter in life.",
+      "A 5-book e-book series with practical guidance and inspiration for building a meaningful next chapter in life.",
     page: {
-      heroEyebrow: "Personal Growth",
+      heroEyebrow: "5-Book E-Book Series",
       heroHeadline: "It's never too late to build the life you actually want.",
       heroDescription:
-        "A hopeful, warm and practical guide for people creating a more meaningful next chapter.",
+        "A hopeful, warm and practical 5-book e-book series for people creating a more meaningful next chapter.",
       coverKicker: "Ricky Recalcati",
-      coverTagline: "A practical guide to the next chapter",
+      coverTagline: "A 5-book series for the next chapter",
       credibility: [
         "Personal growth",
         "Hopeful and practical",
