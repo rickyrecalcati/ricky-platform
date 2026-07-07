@@ -6,53 +6,79 @@ import "./about.css";
 const experienceItems = [
   {
     title: "Hospitality",
-    text: "Ricky's career started in hospitality, where he learned that exceptional customer experiences are built on great systems, not luck.",
+    text: "Where I learned that every great customer experience begins with great systems.",
   },
   {
-    title: "Operations leadership",
-    text: "He later moved into operations leadership, managing multi-site businesses, improving processes, leading teams and lifting performance through practical systems.",
-  },
-  {
-    title: "Recycling",
-    text: "Today he works in the recycling industry, helping improve collection networks, contractor performance, reporting and operational efficiency.",
+    title: "Operations",
+    text: "Where I learned that measuring the right things changes everything.",
   },
   {
     title: "Writing",
-    text: "Alongside his professional career, Ricky writes books across practical business and operations, and intelligent fiction.",
+    text: "Where I discovered that stories can teach lessons no spreadsheet ever could.",
   },
 ];
 
+const timelineItems = [
+  "Hospitality",
+  "Operations Leadership",
+  "Logistics",
+  "Entrepreneurship",
+  "Author",
+];
+
 const philosophyItems = [
-  "Better systems create better businesses.",
-  "Better decisions create better lives.",
-  "Knowledge becomes valuable only when it is applied.",
-  "Good stories can stay with people for years.",
+  {
+    title: "Build Better Businesses",
+    text: "A business should not depend on heroic effort. It should depend on good systems.",
+  },
+  {
+    title: "Make Smarter Decisions",
+    text: "Better decisions compound quietly over time.",
+  },
+  {
+    title: "Create More Freedom",
+    text: "The point of better systems is not more work. It is more room to think, build and live.",
+  },
+  {
+    title: "Tell Unforgettable Stories",
+    text: "Stories help us understand risk, ambition, consequence and change.",
+  },
 ];
 
 const platformItems = [
   {
     title: "Books",
-    text: "Practical business and operations books, alongside intelligent fiction designed to give readers a different kind of escape.",
+    text: "Practical guides for operators and intelligent fiction for readers who want stories with consequence.",
   },
   {
     title: "Articles",
-    text: "Thoughtful pieces on systems, leadership, operations, decisions and the habits behind sustainable work.",
-  },
-  {
-    title: "Frameworks",
-    text: "Operational frameworks shaped by lessons from hospitality, logistics, recycling and real business pressure.",
-  },
-  {
-    title: "AI workflows",
-    text: "Practical ways to use AI to think, plan, document and improve work without adding unnecessary noise.",
+    text: "Clear thinking on business, systems, decision-making and the lessons hidden inside daily work.",
   },
   {
     title: "Resources",
-    text: "Checklists, guides and tools designed to help useful ideas become applied practice.",
+    text: "Tools, checklists and frameworks people can use, not just read once and forget.",
   },
   {
-    title: "Career lessons",
-    text: "Clear lessons from more than 15 years building, improving and scaling businesses across different industries.",
+    title: "Future tools",
+    text: "AI workflows and digital products that help creators and operators move from thinking to action faster.",
+  },
+];
+
+const currentlyItems = [
+  "Based in Sydney, Australia",
+  "Writing across business, operations and fiction",
+  "Improving operational systems in recycling and logistics",
+  "Exploring AI workflows for creators and operators",
+];
+
+const writingWorlds = [
+  {
+    title: "Business and operations",
+    text: "Books and resources that help readers build better businesses, make clearer decisions and apply systems in the real world.",
+  },
+  {
+    title: "Intelligent fiction",
+    text: "Stories that give readers a different kind of escape while exploring risk, ambition, consequence and change.",
   },
 ];
 
@@ -68,29 +94,27 @@ export default function AboutPage() {
             Practical experience. Clear thinking. Stories worth keeping.
           </h1>
           <p className="body-large">
-            Ricky Recalcati is an operations leader, entrepreneur and author
-            based in Sydney. He has spent more than 15 years building,
-            improving and scaling businesses across hospitality, logistics and
-            recycling. This platform is where he shares practical systems,
-            operational frameworks, AI workflows, useful resources and books
-            shaped by curiosity and real experience.
+            I have spent more than 15 years building, improving and scaling
+            businesses. Along the way I discovered that the same principles
+            that build great companies also shape great stories: clarity,
+            systems and constant improvement.
           </p>
         </div>
 
         <div className="aboutPageSignal premiumReveal premiumRevealDelay" aria-label="Ricky Recalcati profile summary">
-          <span className="eyebrow">Sydney Based</span>
-          <strong className="section-title">Operator, entrepreneur and author.</strong>
+          <span className="eyebrow">Systems Thinking</span>
+          <strong className="section-title">Business, better decisions and stories worth remembering.</strong>
           <p className="body">
-            His work sits at the intersection of systems thinking, better
-            decisions, business growth and storytelling.
+            This platform exists to turn practical experience into books,
+            articles, resources and tools people can actually use.
           </p>
         </div>
       </section>
 
       <section className="aboutPageExperience">
         <div className="aboutPageSectionIntro">
-          <p className="eyebrow">Experience</p>
-          <h2 className="section-title">A career shaped by real operating environments.</h2>
+          <p className="eyebrow">What Shaped My Thinking</p>
+          <h2 className="section-title">The lessons came from real work, not theory.</h2>
         </div>
 
         <div className="aboutPageCardGrid">
@@ -104,23 +128,42 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="aboutPageTimeline" aria-label="Ricky Recalcati career timeline">
+        <div className="aboutPageTimelineTrack">
+          {timelineItems.map((item) => (
+            <div className="aboutPageTimelineItem" key={item}>
+              <span />
+              <p className="eyebrow">{item}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="aboutPagePhilosophy premiumSection">
         <div className="aboutPageSectionIntro">
           <p className="eyebrow">Philosophy</p>
-          <h2 className="section-title">Useful ideas should survive contact with real work.</h2>
+          <h2 className="section-title">The platform is built around applied thinking.</h2>
         </div>
 
         <div className="aboutPagePrinciples" aria-label="Ricky Recalcati philosophy">
           {philosophyItems.map((item) => (
-            <p className="section-title" key={item}>{item}</p>
+            <article key={item.title}>
+              <h3 className="section-title">{item.title}</h3>
+              <p className="body">{item.text}</p>
+            </article>
           ))}
         </div>
       </section>
 
       <section className="aboutPagePlatform">
         <div className="aboutPageSectionIntro">
-          <p className="eyebrow">Author Platform</p>
-          <h2 className="section-title">More than an author website.</h2>
+          <p className="eyebrow">The Platform</p>
+          <h2 className="section-title">This is where the work becomes useful.</h2>
+          <p className="body-large">
+            This website is not simply an author website. It is where Ricky
+            shares books, articles, operational frameworks, AI workflows,
+            practical resources and lessons learned throughout his career.
+          </p>
         </div>
 
         <div className="aboutPagePlatformGrid">
@@ -133,6 +176,35 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="aboutPageWriting premiumSection">
+        <div className="aboutPageSectionIntro">
+          <p className="eyebrow">Writing</p>
+          <h2 className="section-title">Two different worlds. One common thread.</h2>
+        </div>
+
+        <div className="aboutPageWritingGrid">
+          {writingWorlds.map((item) => (
+            <article className="aboutPageWritingItem" key={item.title}>
+              <h3 className="section-title">{item.title}</h3>
+              <p className="body">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="aboutPageCurrently">
+        <div className="aboutPageSectionIntro">
+          <p className="eyebrow">Currently</p>
+          <h2 className="section-title">What Ricky is focused on now.</h2>
+        </div>
+
+        <div className="aboutPageCurrentlyList">
+          {currentlyItems.map((item) => (
+            <p className="body-large" key={item}>{item}</p>
+          ))}
+        </div>
+      </section>
+
       <section className="aboutPageFinalCta">
         <p className="eyebrow">Start Here</p>
         <h2 className="section-title">
@@ -141,6 +213,9 @@ export default function AboutPage() {
         <p className="body-large">
           Explore the books or join the newsletter for thoughtful, practical
           ideas on business, systems, operations and storytelling.
+        </p>
+        <p className="aboutPageClosingLine section-title">
+          Better systems build better businesses. Better stories build better people.
         </p>
         <div className="aboutPageActions">
           <Link className="luxuryButton luxuryButtonPrimary" href="/books">

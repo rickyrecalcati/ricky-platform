@@ -63,7 +63,8 @@
 }
 
 .aboutPageExperience,
-.aboutPagePlatform {
+.aboutPagePlatform,
+.aboutPageCurrently {
   padding: var(--section-pad-y) var(--section-pad-x);
   background: var(--color-cream);
   color: #111;
@@ -79,8 +80,15 @@
   margin-top: 16px;
 }
 
+.aboutPageSectionIntro .body-large {
+  --body-large-color: #4e473f;
+  max-width: 760px;
+  margin-top: 24px;
+}
+
 .aboutPageCardGrid,
-.aboutPagePlatformGrid {
+.aboutPagePlatformGrid,
+.aboutPageWritingGrid {
   max-width: var(--content-max);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -88,7 +96,8 @@
 }
 
 .aboutPageCard,
-.aboutPagePlatformItem {
+.aboutPagePlatformItem,
+.aboutPageWritingItem {
   min-height: 260px;
   padding: 32px;
   border: 1px solid rgba(17, 17, 17, 0.08);
@@ -101,7 +110,8 @@
 }
 
 .aboutPageCard:hover,
-.aboutPagePlatformItem:hover {
+.aboutPagePlatformItem:hover,
+.aboutPageWritingItem:hover {
   transform: translateY(-8px);
   border-color: rgba(154, 118, 39, 0.24);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1);
@@ -116,17 +126,56 @@
 }
 
 .aboutPageCard h3,
-.aboutPagePlatformItem h3 {
+.aboutPagePlatformItem h3,
+.aboutPageWritingItem h3 {
   --section-title-size: 2rem;
   --section-title-line: 1;
   margin-bottom: 18px;
 }
 
 .aboutPageCard p,
-.aboutPagePlatformItem p {
+.aboutPagePlatformItem p,
+.aboutPageWritingItem p {
   --body-color: #4e473f;
   --body-size: 1.02rem;
   --body-line: 1.75;
+}
+
+.aboutPageTimeline {
+  padding: 48px var(--section-pad-x);
+  background: var(--color-cream);
+  color: #111;
+}
+
+.aboutPageTimelineTrack {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.aboutPageTimelineItem {
+  position: relative;
+  padding: 28px 18px 0 0;
+}
+
+.aboutPageTimelineItem span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 3px solid var(--color-cream);
+  box-shadow: 0 0 0 1px rgba(154, 118, 39, 0.35);
+  position: absolute;
+  top: -7px;
+  left: 0;
+}
+
+.aboutPageTimelineItem p {
+  --eyebrow-color: #4e473f;
+  --eyebrow-size: 0.72rem;
+  --eyebrow-spacing: 0.13em;
 }
 
 .aboutPagePhilosophy {
@@ -149,20 +198,71 @@
   border-left: 1px solid rgba(244, 239, 230, 0.1);
 }
 
-.aboutPagePrinciples p {
-  --section-title-size: clamp(1.8rem, 2.6vw, 2.75rem);
-  --section-title-line: 1;
+.aboutPagePrinciples article {
   min-height: 220px;
   padding: 28px;
   border-right: 1px solid rgba(244, 239, 230, 0.1);
   border-bottom: 1px solid rgba(244, 239, 230, 0.1);
-  color: var(--color-cream-bright);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.aboutPagePrinciples h3 {
+  --section-title-size: clamp(1.8rem, 2.6vw, 2.75rem);
+  --section-title-line: 1;
+  --section-title-color: var(--color-cream-bright);
+}
+
+.aboutPagePrinciples p {
+  --body-color: #c7c0b5;
+  --body-size: 1rem;
+  --body-line: 1.7;
+  margin-top: 20px;
 }
 
 .aboutPagePlatformItem {
   min-height: 240px;
+}
+
+.aboutPageWriting {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.aboutPageWriting::before {
+  background:
+    radial-gradient(circle at 18% 35%, rgba(202, 166, 76, 0.13), transparent 32%),
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.025));
+}
+
+.aboutPageWritingItem {
+  background: #111;
+  border-color: rgba(244, 239, 230, 0.09);
+}
+
+.aboutPageWritingItem h3 {
+  --section-title-color: var(--color-cream-bright);
+}
+
+.aboutPageWritingItem p {
+  --body-color: #c7c0b5;
+}
+
+.aboutPageCurrentlyList {
+  max-width: var(--content-max);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(17, 17, 17, 0.1);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+.aboutPageCurrentlyList p {
+  --body-large-color: #2f2923;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.46);
 }
 
 .aboutPageFinalCta {
@@ -185,6 +285,14 @@
   margin: 24px auto 0;
 }
 
+.aboutPageClosingLine {
+  --section-title-size: clamp(2rem, 3.5vw, 3.25rem);
+  --section-title-line: 1.08;
+  --section-title-color: var(--color-cream-bright);
+  max-width: 880px;
+  margin: 44px auto 0;
+}
+
 .aboutPageActions {
   margin-top: 40px;
   display: flex;
@@ -196,7 +304,8 @@
 @media (max-width: 1100px) {
   .aboutPageHero,
   .aboutPageCardGrid,
-  .aboutPagePlatformGrid {
+  .aboutPagePlatformGrid,
+  .aboutPageWritingGrid {
     grid-template-columns: 1fr;
   }
 
@@ -210,6 +319,25 @@
 
   .aboutPagePrinciples {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aboutPageTimelineTrack,
+  .aboutPageCurrentlyList {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutPageTimelineTrack {
+    border-top: none;
+    border-left: 1px solid rgba(17, 17, 17, 0.12);
+  }
+
+  .aboutPageTimelineItem {
+    padding: 0 0 28px 28px;
+  }
+
+  .aboutPageTimelineItem span {
+    top: 0;
+    left: -7px;
   }
 }
 
@@ -232,7 +360,7 @@
     grid-template-columns: 1fr;
   }
 
-  .aboutPagePrinciples p {
+  .aboutPagePrinciples article {
     min-height: 160px;
   }
 

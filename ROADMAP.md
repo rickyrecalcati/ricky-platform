@@ -1,88 +1,94 @@
 # Ricky Recalcati Platform Roadmap
 
-## Current Vision
+---
 
-Build the highest quality personal publishing platform on the web.
+# Version 1.0 Goal
 
-The platform combines:
-- Books
-- Articles
-- Resources
-- AI tools
+Launch a premium personal publishing platform that showcases books, articles and practical resources.
+
+Success criteria:
+
+- Beautiful homepage
+- Premium Books experience
+- About page
+- Resources page
 - Newsletter
-- Future products
+- Responsive design
+- SEO foundations
+- Fast performance
 
 ---
 
-# Sprint 1 — Foundation ✅
+# Milestone 1 — Foundation ✅
 
-- [x] Next.js website
-- [x] GitHub
+- [x] Next.js project
+- [x] GitHub repository
+- [x] GitHub Desktop workflow
 - [x] Vercel deployment
 - [x] Custom domain
-- [x] Homepage
-- [x] Books page
-- [x] Scaling Hospitality page
-- [x] Shared design system
-- [x] Project documentation
+- [x] Local development workflow
 - [x] Codex integration
 
 ---
 
-# Sprint 2 — Architecture (Current)
+# Milestone 2 — Architecture ✅
 
-- [ ] Dynamic book engine (`/books/[slug]`)
-- [ ] Shared book template
-- [ ] Single source of truth (`data/books.ts`)
-- [ ] Dynamic metadata (SEO)
-- [ ] Dynamic Open Graph images
-
----
-
-# Sprint 3 — Books
-
-- [ ] Scaling Hospitality (final version)
-- [ ] The Forgotten Cipher
-- [ ] The Second Act
+- [x] Dynamic book routing (`/books/[slug]`)
+- [x] Shared design system
+- [x] Shared typography
+- [x] Documentation system
+- [x] Book data model
+- [x] Series support
 
 ---
 
-# Sprint 4 — Website
+# Milestone 3 — Core Website (Current)
 
-- [ ] Library
+- [x] Homepage
+- [x] Books
+- [ ] About (polish)
 - [ ] Resources
-- [ ] About
-- [ ] Contact
 - [ ] Newsletter
+
+---
+
+# Milestone 4 — Book Catalogue
+
+- [ ] Scaling Hospitality (5-book series)
+- [ ] The Forgotten Cipher
+- [ ] The Second Act (5-book series)
+
+---
+
+# Milestone 5 — Growth
+
+- [ ] SEO
+- [ ] Search Console
+- [ ] Analytics
+- [ ] Blog / Articles
 - [ ] Search
 
 ---
 
-# Sprint 5 — Growth
+# Parking Lot
 
-- [ ] SEO
-- [ ] Google Search Console
-- [ ] Google Analytics
-- [ ] RSS
-- [ ] Sitemap
-- [ ] Performance optimisation
+Ideas for future versions
 
----
-
-# Sprint 6 — Future
-
-- [ ] Community
-- [ ] Courses
-- [ ] AI tools
-- [ ] Premium resources
-- [ ] Mobile app (optional)
+- AI tools
+- Interactive book previews
+- Printable templates
+- Operations calculators
+- Speaking page
+- Press kit
+- Community
+- Courses
 
 ---
 
-# Rules
+# Development Rules
 
-- Test locally before committing.
-- Commit every completed feature.
-- Push after every successful feature.
-- Keep documentation updated.
-- Read PROJECT.md before every major task.
+- Test locally first
+- Run lint and build
+- Commit every completed feature
+- Push after every feature
+- Read PROJECT.md before every major Codex task
