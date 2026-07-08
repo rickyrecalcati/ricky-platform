@@ -1,0 +1,80 @@
+.resourceCardLink {
+  display: block;
+  height: 100%;
+  color: inherit;
+  perspective: 1200px;
+}
+
+.resourceCard {
+  min-height: 100%;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(202, 166, 76, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    #100f0d;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  transform: translateY(0) rotateX(0deg);
+  transition:
+    transform 0.3s var(--ease-premium),
+    border-color 0.3s var(--ease-premium),
+    box-shadow 0.3s var(--ease-premium),
+    background 0.3s var(--ease-premium);
+  will-change: transform;
+}
+
+.resourceCardLink:hover .resourceCard,
+.resourceCardLink:focus-visible .resourceCard {
+  transform: translateY(-8px) rotateX(1.2deg);
+  border-color: rgba(202, 166, 76, 0.48);
+  background:
+    linear-gradient(145deg, rgba(202, 166, 76, 0.085), rgba(255, 255, 255, 0.024)),
+    #100f0d;
+  box-shadow: 0 34px 92px rgba(0, 0, 0, 0.42);
+}
+
+.resourceCardMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(244, 239, 230, 0.6);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.resourceCardMeta .eyebrow {
+  --eyebrow-size: 0.72rem;
+  --eyebrow-spacing: 0.16em;
+}
+
+.resourceCard h3 {
+  --section-title-size: clamp(1.9rem, 2.6vw, 2.6rem);
+  --section-title-line: 1.04;
+  margin-top: clamp(2rem, 4vw, 3.25rem);
+  color: var(--color-cream-bright);
+}
+
+.resourceCard p {
+  --body-color: #c9c0b3;
+  margin-top: 18px;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.resourceCardCta {
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(244, 239, 230, 0.1);
+  color: var(--color-gold);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .resourceCardMeta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
