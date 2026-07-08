@@ -11,7 +11,7 @@ export default function Navbar() {
 
       <div className="navLinks">
         <Link href="/books">Books</Link>
-        <Link href="/library">Library</Link>
+        <Link href="/articles">Articles</Link>
         <Link href="/resources">Resources</Link>
         <Link href="/about">About</Link>
       </div>

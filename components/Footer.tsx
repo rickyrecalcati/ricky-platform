@@ -24,7 +24,7 @@ export default function Footer() {
             <h3 className="eyebrow">Explore</h3>
 
             <Link href="/books">Books</Link>
-            <a href="#">Library</a>
+            <Link href="/articles">Articles</Link>
             <a href="#">Resources</a>
             <a href="#">About</a>
 

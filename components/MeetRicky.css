@@ -1,0 +1,107 @@
+.meetRicky {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(4.75rem, 8vw, 7.25rem) var(--section-pad-x);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 5.5rem);
+  color: var(--color-cream);
+  overflow: hidden;
+}
+
+.meetRicky::before {
+  background:
+    linear-gradient(180deg, rgba(202, 166, 76, 0.04), transparent 42%),
+    radial-gradient(circle at 82% 42%, rgba(202, 166, 76, 0.14), transparent 32%),
+    radial-gradient(circle at 14% 62%, rgba(244, 239, 230, 0.05), transparent 30%);
+}
+
+.meetRickyContent {
+  max-width: 840px;
+}
+
+.meetRicky h2 {
+  --section-title-size: clamp(42px, 4.8vw, 70px);
+  margin-top: 18px;
+}
+
+.meetRickyText {
+  max-width: 720px;
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.meetRickyText .body-large {
+  --body-large-color: #cbc4b8;
+  --body-large-size: clamp(1.05rem, 1.45vw, 1.16rem);
+  --body-large-line: 1.76;
+}
+
+.meetRickyPillars {
+  max-width: 760px;
+  margin-top: 34px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(202, 166, 76, 0.24);
+  border-radius: 8px;
+  background: rgba(202, 166, 76, 0.18);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
+}
+
+.meetRickyPillars li {
+  --body-color: var(--color-cream-bright);
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.035);
+  font-weight: 700;
+}
+
+.meetRickyActions {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.meetRickyPhotoSpace {
+  min-height: 520px;
+  border: 1px solid rgba(202, 166, 76, 0.3);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 32% 18%, rgba(202, 166, 76, 0.18), transparent 34%),
+    linear-gradient(145deg, rgba(244, 239, 230, 0.055), rgba(255, 255, 255, 0.015) 42%, rgba(202, 166, 76, 0.065)),
+    #0f0e0c;
+  box-shadow:
+    0 42px 100px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(244, 239, 230, 0.08);
+}
+
+@media (max-width: 1000px) {
+  .meetRicky {
+    grid-template-columns: 1fr;
+    padding-top: 4.5rem;
+    padding-bottom: 5.25rem;
+  }
+
+  .meetRickyPhotoSpace {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .meetRicky h2 {
+    --section-title-size: 2.6rem;
+  }
+
+  .meetRickyPillars {
+    grid-template-columns: 1fr;
+  }
+
+  .meetRickyActions .luxuryButton {
+    width: 100%;
+  }
+}

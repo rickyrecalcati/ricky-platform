@@ -1,0 +1,85 @@
+.articleCardLink {
+  color: inherit;
+  display: block;
+  height: 100%;
+  perspective: 1200px;
+}
+
+.articleCard {
+  min-height: 100%;
+  padding: clamp(1.75rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(202, 166, 76, 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    #100f0d;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+  transform: translateY(0) rotateX(0deg);
+  transition:
+    transform 0.3s var(--ease-premium),
+    border-color 0.3s var(--ease-premium),
+    box-shadow 0.3s var(--ease-premium),
+    background 0.3s var(--ease-premium);
+  will-change: transform;
+}
+
+.articleCardLink:hover .articleCard,
+.articleCardLink:focus-visible .articleCard {
+  transform: translateY(-8px) rotateX(1.5deg);
+  border-color: rgba(202, 166, 76, 0.5);
+  background:
+    linear-gradient(145deg, rgba(202, 166, 76, 0.09), rgba(255, 255, 255, 0.024)),
+    #100f0d;
+  box-shadow: 0 34px 92px rgba(0, 0, 0, 0.42);
+}
+
+.articleCardMeta,
+.articleCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(244, 239, 230, 0.58);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.articleCardCategory {
+  --eyebrow-size: 0.72rem;
+  --eyebrow-spacing: 0.18em;
+}
+
+.articleCard h2 {
+  --section-title-size: clamp(2rem, 3vw, 3rem);
+  --section-title-line: 1.02;
+  margin-top: clamp(2.25rem, 5vw, 4rem);
+  color: var(--color-cream-bright);
+}
+
+.articleCard p {
+  --body-color: #c9c0b3;
+  margin-top: 18px;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.articleCardFooter {
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(244, 239, 230, 0.1);
+}
+
+.articleCardFooter span {
+  color: var(--color-gold);
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .articleCardMeta,
+  .articleCardFooter {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
