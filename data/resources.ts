@@ -14,7 +14,7 @@ export type Resource = {
   slug: string;
   title: string;
   category: ResourceCategory;
-  fileType: "PDF";
+  fileType: "PDF" | "Markdown";
   description: string;
   heroDescription: string;
   whoFor: string[];
@@ -71,6 +71,7 @@ export const resources: Resource[] = [
     title: "Weekly Business Review",
     category: "Business",
     fileType: "PDF",
+    fileUrl: "/resources/weekly-business-review.pdf",
     description:
       "A weekly review template to help founders and managers stay focused on what matters most.",
     heroDescription:
@@ -99,6 +100,7 @@ export const resources: Resource[] = [
     title: "Decision Framework",
     category: "Business",
     fileType: "PDF",
+    fileUrl: "/resources/decision-framework.pdf",
     description:
       "A practical framework for making clearer, more confident decisions under uncertainty.",
     heroDescription:
@@ -123,10 +125,11 @@ export const resources: Resource[] = [
     relatedArticles: [decisionsArticle, lifeArticle],
   },
   {
-    slug: "business-health-checklist",
-    title: "Business Health Checklist",
+    slug: "business-health-scorecard",
+    title: "Business Health Scorecard",
     category: "Business",
     fileType: "PDF",
+    fileUrl: "/resources/business-health-scorecard.pdf",
     description:
       "Evaluate your business across operations, finance, people and growth.",
     heroDescription:

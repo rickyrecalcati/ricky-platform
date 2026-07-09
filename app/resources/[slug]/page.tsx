@@ -86,7 +86,11 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
               required.
             </p>
             {resource.fileUrl ? (
-              <a className="luxuryButton luxuryButtonPrimary" href={resource.fileUrl}>
+              <a
+                className="luxuryButton luxuryButtonPrimary"
+                href={resource.fileUrl}
+                download
+              >
                 Get Resource
               </a>
             ) : (
