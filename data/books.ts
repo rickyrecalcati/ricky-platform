@@ -3,11 +3,6 @@ export type BookFaq = {
   answer: string;
 };
 
-export type BookCta = {
-  label: string;
-  href: string;
-};
-
 export type BookPageContent = {
   heroEyebrow: string;
   heroHeadline: string;
@@ -21,24 +16,20 @@ export type BookPageContent = {
   audience: string[];
   learnTitle: string;
   learn: string[];
-  bonusLabel: string;
-  bonusTitle: string;
-  bonusBody: string;
-  bonusCta: BookCta;
   faqTitle: string;
   faq: BookFaq[];
   finalLabel: string;
   finalTitle: string;
   finalBody: string;
-  primaryCta: BookCta;
-  secondaryCta: BookCta;
 };
 
 export type Book = {
   slug: string;
   title: string;
   category: string;
-  status: string;
+  status: "Published" | "Coming Soon";
+  format?: "Kindle";
+  amazonUrl?: string;
   publicationYear: string;
   series: boolean;
   booksInSeries?: number;
@@ -53,21 +44,23 @@ export const books: Book[] = [
     title: "Scaling Hospitality",
     category: "Business",
     status: "Published",
+    format: "Kindle",
+    amazonUrl: "https://www.amazon.com/dp/B0GYV4C57Y",
     publicationYear: "2026",
     series: true,
     booksInSeries: 5,
     subtitle:
       "Build resilient teams, sharper systems and more profitable hospitality businesses.",
     description:
-      "A 5-book e-book series for hospitality operators, managers and founders who want to build businesses that grow without sacrificing quality.",
+      "Practical guidance for hospitality operators, managers and founders who want to build businesses that grow without sacrificing quality.",
     page: {
-      heroEyebrow: "5-Book E-Book Series",
+      heroEyebrow: "5 e-book series",
       heroHeadline:
         "Build the systems, standards and leadership habits that let a hospitality business grow without losing its soul.",
       heroDescription:
-        "Scaling Hospitality is a 5-book e-book series combining operational systems, leadership frameworks and real-world experience from more than fifteen years in hospitality and operations.",
+        "Scaling Hospitality combines operational systems, leadership frameworks and real-world experience from more than fifteen years in hospitality and operations.",
       coverKicker: "Ricky Recalcati",
-      coverTagline: "A 5-book series for growth, consistency and calm leadership",
+      coverTagline: "5 e-book series for growth, consistency and calm leadership",
       credibility: [
         "Built from real hospitality operations",
         "Systems for growing teams",
@@ -93,14 +86,6 @@ export const books: Book[] = [
         "How to create scalable consistency without losing the human warmth of hospitality.",
         "What to document first when your business depends too heavily on memory and heroics.",
       ],
-      bonusLabel: "Free Bonus",
-      bonusTitle: "The Scaling Hospitality Operator's Checklist",
-      bonusBody:
-        "Readers receive a concise implementation checklist designed to turn the book's ideas into an immediate review of standards, team rhythms, leadership habits and growth readiness.",
-      bonusCta: {
-        label: "Get the Bonus",
-        href: "#newsletter",
-      },
       faqTitle: "Questions before you read.",
       faq: [
         {
@@ -121,29 +106,23 @@ export const books: Book[] = [
         {
           question: "Where can I buy it?",
           answer:
-            "Scaling Hospitality is available through Amazon. A sample is also available so readers can preview the tone and approach before buying.",
+            "Scaling Hospitality is available through Amazon Kindle.",
         },
       ],
       finalLabel: "Available Now",
       finalTitle:
         "Start building a hospitality business that scales with confidence.",
       finalBody:
-        "Get the book, read the sample or join the newsletter for more practical operating ideas from Ricky Recalcati.",
-      primaryCta: {
-        label: "Buy on Amazon",
-        href: "https://www.amazon.com/",
-      },
-      secondaryCta: {
-        label: "Read Sample",
-        href: "#sample",
-      },
+        "Get the series on Amazon Kindle or join the newsletter for more practical operating ideas from Ricky Recalcati.",
     },
   },
   {
     slug: "the-forgotten-cipher",
     title: "The Forgotten Cipher",
     category: "Fiction",
-    status: "Coming Soon",
+    status: "Published",
+    format: "Kindle",
+    amazonUrl: "https://www.amazon.com/dp/B0H64ZBYYV",
     publicationYear: "2026",
     series: false,
     subtitle: "Some secrets were buried for a reason.",
@@ -160,7 +139,7 @@ export const books: Book[] = [
         "Historical thriller",
         "Cinematic suspense",
         "Dark and intelligent",
-        "Coming soon",
+        "Published on Kindle",
       ],
       whyTitle: "A story about secrets, consequence and the cost of knowing.",
       whyBody:
@@ -178,62 +157,48 @@ export const books: Book[] = [
         "A suspenseful story with a dark, cinematic tone.",
         "A plot driven by intelligence, secrets and consequence.",
       ],
-      bonusLabel: "Reader Updates",
-      bonusTitle: "Get updates when the book is ready.",
-      bonusBody:
-        "Join the newsletter for publication updates, sample chapters and future reader resources.",
-      bonusCta: {
-        label: "Join the newsletter",
-        href: "#newsletter",
-      },
       faqTitle: "Questions before release.",
       faq: [
         {
           question: "Is The Forgotten Cipher available now?",
-          answer: "No. The Forgotten Cipher is currently coming soon.",
+          answer: "Yes. The Forgotten Cipher is available on Amazon Kindle.",
         },
         {
           question: "What genre is it?",
           answer: "It is a historical thriller.",
         },
       ],
-      finalLabel: "Coming Soon",
-      finalTitle: "Follow the release of The Forgotten Cipher.",
+      finalLabel: "Published",
+      finalTitle: "Read The Forgotten Cipher on Kindle.",
       finalBody:
-        "Join the newsletter for updates on availability, sample chapters and future fiction releases.",
-      primaryCta: {
-        label: "Join the newsletter",
-        href: "#newsletter",
-      },
-      secondaryCta: {
-        label: "Back to books",
-        href: "/books",
-      },
+        "Get the book on Amazon Kindle or join the newsletter for future fiction updates.",
     },
   },
   {
     slug: "the-second-act",
     title: "The Second Act",
     category: "Personal Growth",
-    status: "Coming Soon",
+    status: "Published",
+    format: "Kindle",
+    amazonUrl: "https://www.amazon.com/dp/B0H421SGPW",
     publicationYear: "2026",
     series: true,
     booksInSeries: 5,
     subtitle: "It's never too late to build the life you actually want.",
     description:
-      "A 5-book e-book series with practical guidance and inspiration for building a meaningful next chapter in life.",
+      "Practical guidance and inspiration for building a meaningful next chapter in life.",
     page: {
-      heroEyebrow: "5-Book E-Book Series",
+      heroEyebrow: "5 e-book series",
       heroHeadline: "It's never too late to build the life you actually want.",
       heroDescription:
-        "A hopeful, warm and practical 5-book e-book series for people creating a more meaningful next chapter.",
+        "A hopeful, warm and practical guide for people creating a more meaningful next chapter.",
       coverKicker: "Ricky Recalcati",
-      coverTagline: "A 5-book series for the next chapter",
+      coverTagline: "5 e-book series for the next chapter",
       credibility: [
         "Personal growth",
         "Hopeful and practical",
         "Reflective guidance",
-        "Coming soon",
+        "Published on Kindle",
       ],
       whyTitle: "A practical book for rebuilding with intention.",
       whyBody:
@@ -251,37 +216,21 @@ export const books: Book[] = [
         "Clear prompts for better decisions.",
         "A warm and grounded approach to personal growth.",
       ],
-      bonusLabel: "Reader Updates",
-      bonusTitle: "Get updates when the book is ready.",
-      bonusBody:
-        "Join the newsletter for publication updates, sample chapters and future reader resources.",
-      bonusCta: {
-        label: "Join the newsletter",
-        href: "#newsletter",
-      },
       faqTitle: "Questions before release.",
       faq: [
         {
           question: "Is The Second Act available now?",
-          answer: "No. The Second Act is currently coming soon.",
+          answer: "Yes. The Second Act is available on Amazon Kindle.",
         },
         {
           question: "What is the tone of the book?",
           answer: "Hopeful, warm, reflective and practical.",
         },
       ],
-      finalLabel: "Coming Soon",
-      finalTitle: "Follow the release of The Second Act.",
+      finalLabel: "Published",
+      finalTitle: "Read The Second Act on Kindle.",
       finalBody:
-        "Join the newsletter for updates on availability, sample chapters and future personal growth resources.",
-      primaryCta: {
-        label: "Join the newsletter",
-        href: "#newsletter",
-      },
-      secondaryCta: {
-        label: "Back to books",
-        href: "/books",
-      },
+        "Get the series on Amazon Kindle or join the newsletter for future personal growth resources.",
     },
   },
 ];

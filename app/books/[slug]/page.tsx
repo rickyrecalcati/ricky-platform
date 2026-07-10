@@ -11,6 +11,19 @@ type BookPageProps = {
   }>;
 };
 
+function AmazonBookLink({ href }: { href: string }) {
+  return (
+    <a
+      className="bookDetailButton bookDetailButtonPrimary"
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Read on Amazon Kindle
+    </a>
+  );
+}
+
 export function generateStaticParams() {
   return books.map((book) => ({
     slug: book.slug,
@@ -33,7 +46,12 @@ export default async function BookPage({ params }: BookPageProps) {
 
       <section className="bookDetailHero">
         <div className="bookDetailHeroContent">
-          <p className="bookDetailEyebrow eyebrow">{page.heroEyebrow}</p>
+          <div className="bookDetailMeta">
+            <p className="bookDetailEyebrow eyebrow">{page.heroEyebrow}</p>
+            {book.status === "Published" ? (
+              <span className="bookDetailStatusBadge eyebrow">{book.status}</span>
+            ) : null}
+          </div>
           <h1 className="display-title">{book.title}</h1>
           <h2 className="bookDetailHeroHeadline section-title">
             {page.heroHeadline}
@@ -43,12 +61,7 @@ export default async function BookPage({ params }: BookPageProps) {
           </p>
 
           <div className="bookDetailHeroActions">
-            <a className="bookDetailButton bookDetailButtonPrimary" href={page.primaryCta.href}>
-              {page.primaryCta.label}
-            </a>
-            <a className="bookDetailButton bookDetailButtonSecondary" href={page.secondaryCta.href}>
-              {page.secondaryCta.label}
-            </a>
+            {book.amazonUrl ? <AmazonBookLink href={book.amazonUrl} /> : null}
           </div>
         </div>
 
@@ -91,7 +104,7 @@ export default async function BookPage({ params }: BookPageProps) {
         </div>
       </section>
 
-      <section className="bookDetailCreamSection bookDetailLearn" id="sample">
+      <section className="bookDetailCreamSection bookDetailLearn">
         <div className="bookDetailSectionIntro">
           <p className="bookDetailSectionLabel eyebrow">What You&apos;ll Learn</p>
           <h2 className="section-title">{page.learnTitle}</h2>
@@ -104,17 +117,6 @@ export default async function BookPage({ params }: BookPageProps) {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="bookDetailBonus">
-        <div>
-          <p className="bookDetailSectionLabel eyebrow">{page.bonusLabel}</p>
-          <h2 className="section-title">{page.bonusTitle}</h2>
-          <p className="body-large">{page.bonusBody}</p>
-        </div>
-        <a className="bookDetailButton bookDetailButtonSecondary" href={page.bonusCta.href}>
-          {page.bonusCta.label}
-        </a>
       </section>
 
       <section className="bookDetailFaq">
@@ -138,12 +140,7 @@ export default async function BookPage({ params }: BookPageProps) {
         <h2 className="section-title">{page.finalTitle}</h2>
         <p className="body-large">{page.finalBody}</p>
         <div className="bookDetailHeroActions">
-          <a className="bookDetailButton bookDetailButtonPrimary" href={page.primaryCta.href}>
-            {page.primaryCta.label}
-          </a>
-          <a className="bookDetailButton bookDetailButtonSecondary" href={page.secondaryCta.href}>
-            {page.secondaryCta.label}
-          </a>
+          {book.amazonUrl ? <AmazonBookLink href={book.amazonUrl} /> : null}
         </div>
       </section>
 

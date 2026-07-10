@@ -28,11 +28,18 @@ export default function Hero() {
       </div>
 
       <div className="bookStage premiumReveal premiumRevealDelay">
-        <div className="bookMockup">
-          <div className="bookSpine"></div>
-
+        <div
+          className="bookMockup"
+          aria-label="Scaling Hospitality featured series book cover"
+          role="img"
+          tabIndex={0}
+        >
+          <span className="heroBookBadge eyebrow">Featured Series</span>
           <div className="bookCover">
-            <div className="bookAuthor eyebrow">RICKY RECALCATI</div>
+            <div className="bookCoverTop">
+              <span className="bookCategory eyebrow">Business</span>
+              <span className="bookAuthor eyebrow">Ricky Recalcati</span>
+            </div>
 
             <div className="bookTitleBlock">
               <h2 className="section-title">
@@ -41,13 +48,11 @@ export default function Hero() {
                 Hospitality
               </h2>
               <div className="bookRule"></div>
-              <p className="body">Build a business that runs smoothly.</p>
+              <p className="body">Growth, consistency and calm leadership for hospitality operators.</p>
             </div>
 
-            <div className="bookCategory eyebrow">BUSINESS</div>
+            <div className="bookSeriesLabel eyebrow">5 e-book series</div>
           </div>
-
-          <div className="bookPages"></div>
         </div>
       </div>
     </section>

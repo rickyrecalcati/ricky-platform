@@ -1,4 +1,5 @@
 import Link from "next/link";
+import QuoteRotator from "./QuoteRotator";
 import "./MeetRicky.css";
 
 const platformPillars = [
@@ -50,7 +51,9 @@ export default function MeetRicky() {
         </div>
       </div>
 
-      <div className="meetRickyPhotoSpace premiumReveal premiumRevealDelay" aria-hidden="true" />
+      <div className="meetRickyQuotePanel premiumReveal premiumRevealDelay">
+        <QuoteRotator />
+      </div>
     </section>
   );
 }

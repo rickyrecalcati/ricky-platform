@@ -25,8 +25,8 @@ export default function Footer() {
 
             <Link href="/books">Books</Link>
             <Link href="/articles">Articles</Link>
-            <a href="#">Resources</a>
-            <a href="#">About</a>
+            <Link href="/resources">Resources</Link>
+            <Link href="/about">About</Link>
 
           </div>
 
@@ -35,19 +35,17 @@ export default function Footer() {
             <h3 className="eyebrow">Books</h3>
 
             <Link href="/books/scaling-hospitality">Scaling Hospitality</Link>
-            <a href="#">The Forgotten Cipher</a>
-            <a href="#">The Second Act</a>
+            <Link href="/books/the-forgotten-cipher">The Forgotten Cipher</Link>
+            <Link href="/books/the-second-act">The Second Act</Link>
 
           </div>
 
           <div>
 
-            <h3 className="eyebrow">Follow</h3>
+            <h3 className="eyebrow">Connect</h3>
 
-            <a href="#">Amazon</a>
-            <a href="#">Medium</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">X</a>
+            <a href="https://x.com/rickyrecalcati" rel="noopener noreferrer" target="_blank">X</a>
+            <a href="https://medium.com/@r.recalcati9" rel="noopener noreferrer" target="_blank">Medium</a>
 
           </div>
 

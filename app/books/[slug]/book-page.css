@@ -24,6 +24,26 @@
   max-width: 860px;
 }
 
+.bookDetailMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.bookDetailStatusBadge {
+  --eyebrow-color: #111;
+  --eyebrow-size: 0.68rem;
+  --eyebrow-spacing: 0.14em;
+  min-height: 28px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(244, 239, 230, 0.9);
+  border: 1px solid rgba(202, 166, 76, 0.28);
+  display: inline-flex;
+  align-items: center;
+}
+
 .bookDetailHero h1 {
   margin-top: 18px;
 }
@@ -66,17 +86,6 @@
 
 .bookDetailButtonPrimary:hover {
   background: #d9b85f;
-  transform: translateY(-2px);
-}
-
-.bookDetailButtonSecondary {
-  border: 1px solid rgba(244, 239, 230, 0.24);
-  color: #f4efe6;
-}
-
-.bookDetailButtonSecondary:hover {
-  border-color: rgba(202, 166, 76, 0.7);
-  color: #caa64c;
   transform: translateY(-2px);
 }
 
@@ -160,7 +169,6 @@
 
 .bookDetailCreamSection,
 .bookDetailDarkSection,
-.bookDetailBonus,
 .bookDetailFaq,
 .bookDetailFinalCta {
   padding: 110px 72px;
@@ -202,7 +210,6 @@
 }
 
 .bookDetailSectionIntro h2,
-.bookDetailBonus h2,
 .bookDetailFinalCta h2 {
   margin-top: 16px;
 }
@@ -259,27 +266,6 @@
   --body-line: 1.72;
 }
 
-.bookDetailBonus {
-  --section-title-size: 3.8rem;
-  --section-title-line: 1.02;
-  --body-large-size: 1.08rem;
-  --body-large-line: 1.8;
-  --body-large-color: #c9c0b3;
-  background:
-    linear-gradient(135deg, rgba(9, 9, 9, 0.94), rgba(22, 18, 12, 0.96)),
-    #111;
-  color: #f4efe6;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 50px;
-  align-items: center;
-}
-
-.bookDetailBonus > div {
-  max-width: 840px;
-}
-
-.bookDetailBonus p:not(.bookDetailSectionLabel),
 .bookDetailFinalCta p:not(.bookDetailSectionLabel) {
   margin-top: 22px;
 }
@@ -348,8 +334,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .bookDetailStory,
-  .bookDetailBonus {
+  .bookDetailStory {
     grid-template-columns: 1fr;
   }
 }
@@ -358,7 +343,6 @@
   .bookDetailHero,
   .bookDetailCreamSection,
   .bookDetailDarkSection,
-  .bookDetailBonus,
   .bookDetailFaq,
   .bookDetailFinalCta {
     padding-left: 24px;
@@ -378,7 +362,6 @@
   .bookDetailHero h2,
   .bookDetailStory h2,
   .bookDetailSectionIntro h2,
-  .bookDetailBonus h2,
   .bookDetailFinalCta h2 {
     --section-title-size: 2.45rem;
   }
@@ -407,7 +390,6 @@
 
   .bookDetailCreamSection,
   .bookDetailDarkSection,
-  .bookDetailBonus,
   .bookDetailFaq,
   .bookDetailFinalCta {
     padding-top: 78px;

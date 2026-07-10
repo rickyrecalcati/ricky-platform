@@ -1,0 +1,90 @@
+.quoteRotator {
+  min-height: 520px;
+  padding: clamp(2rem, 4vw, 3rem);
+  border: 1px solid rgba(202, 166, 76, 0.3);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 32% 18%, rgba(202, 166, 76, 0.18), transparent 34%),
+    linear-gradient(145deg, rgba(244, 239, 230, 0.055), rgba(255, 255, 255, 0.015) 42%, rgba(202, 166, 76, 0.065)),
+    #0f0e0c;
+  box-shadow:
+    0 42px 100px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(244, 239, 230, 0.08);
+  color: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quoteRotator:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 6px;
+}
+
+.quoteRotator::after {
+  content: "";
+  position: absolute;
+  inset: auto 28px 28px auto;
+  width: 92px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(202, 166, 76, 0.8));
+}
+
+.quoteRotatorMark {
+  color: rgba(202, 166, 76, 0.62);
+  font-family: var(--serif);
+  font-size: clamp(5rem, 9vw, 7rem);
+  line-height: 0.75;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.quoteRotatorText {
+  max-width: 320px;
+  color: var(--color-cream-bright);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 500;
+  line-height: 1.05;
+  text-wrap: balance;
+  animation: quoteFade 900ms var(--ease-premium) both;
+}
+
+.quoteRotatorAttribution {
+  --eyebrow-size: 0.74rem;
+  --eyebrow-spacing: 0.18em;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+@keyframes quoteFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quoteRotatorText {
+    animation: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .quoteRotator {
+    min-height: 360px;
+  }
+
+  .quoteRotatorText {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  .quoteRotator {
+    padding: 2rem;
+  }
+}
