@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer";
 import Newsletter from "../../../components/Newsletter";
 import { books, getBookBySlug } from "../../../data/books";
+import {
+  bookJsonLd,
+  breadcrumbJsonLd,
+  createPageMetadata,
+  stringifyJsonLd,
+} from "../../../lib/seo";
 import "./book-page.css";
 
 type BookPageProps = {
@@ -30,6 +37,23 @@ export function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({
+  params,
+}: BookPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const book = getBookBySlug(slug);
+
+  if (!book) {
+    notFound();
+  }
+
+  return createPageMetadata({
+    title: book.series ? `${book.title} Series` : book.title,
+    description: book.description,
+    path: `/books/${book.slug}`,
+  });
+}
+
 export default async function BookPage({ params }: BookPageProps) {
   const { slug } = await params;
   const book = getBookBySlug(slug);
@@ -42,6 +66,22 @@ export default async function BookPage({ params }: BookPageProps) {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: stringifyJsonLd(bookJsonLd(book)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Books", path: "/books" },
+              { name: book.title, path: `/books/${book.slug}` },
+            ]),
+          ),
+        }}
+      />
       <Navbar />
 
       <section className="bookDetailHero">

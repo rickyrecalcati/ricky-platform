@@ -2,13 +2,36 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import ArticleCard from "../../components/ArticleCard";
 import { articles } from "../../data/articles";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  stringifyJsonLd,
+} from "../../lib/seo";
 import "./articles.css";
+
+export const metadata = createPageMetadata({
+  title: "Articles",
+  description:
+    "Read Ricky Recalcati's essays on business systems, operations, finance, life and better decision-making.",
+  path: "/articles",
+});
 
 export default function ArticlesPage() {
   const categories = [...new Set(articles.map((article) => article.category))];
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Articles", path: "/articles" },
+            ]),
+          ),
+        }}
+      />
       <Navbar />
 
       <section className="articlesPage premiumSection">

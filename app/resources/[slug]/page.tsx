@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import { getResourceBySlug, resources } from "../../../data/resources";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  resourceJsonLd,
+  stringifyJsonLd,
+} from "../../../lib/seo";
 import "./resource.css";
 
 type ResourcePageProps = {
@@ -15,6 +22,23 @@ export function generateStaticParams() {
   return resources.map((resource) => ({
     slug: resource.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: ResourcePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const resource = getResourceBySlug(slug);
+
+  if (!resource) {
+    notFound();
+  }
+
+  return createPageMetadata({
+    title: resource.title,
+    description: resource.description,
+    path: `/resources/${resource.slug}`,
+  });
 }
 
 function ResourceList({
@@ -69,6 +93,24 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(resourceJsonLd(resource)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Resources", path: "/resources" },
+              { name: resource.title, path: `/resources/${resource.slug}` },
+            ]),
+          ),
+        }}
+      />
       <Navbar />
 
       <article className="resourceDetail">

@@ -2,11 +2,34 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer";
 import BookCard from "../../components/BookCard";
 import { books } from "../../data/books";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  stringifyJsonLd,
+} from "../../lib/seo";
 import "./books.css";
+
+export const metadata = createPageMetadata({
+  title: "Books",
+  description:
+    "Explore Ricky Recalcati's practical business series, personal growth books and intelligent fiction.",
+  path: "/books",
+});
 
 export default function BooksPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Books", path: "/books" },
+            ]),
+          ),
+        }}
+      />
       <Navbar />
 
       <section className="booksPage premiumSection">

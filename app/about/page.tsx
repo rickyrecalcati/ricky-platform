@@ -1,7 +1,20 @@
 import Link from "next/link";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  personJsonLd,
+  stringifyJsonLd,
+} from "../../lib/seo";
 import "./about.css";
+
+export const metadata = createPageMetadata({
+  title: "About Ricky Recalcati",
+  description:
+    "Learn about Ricky Recalcati, a Sydney-based operations leader, entrepreneur, author and systems thinker.",
+  path: "/about",
+});
 
 const experienceItems = [
   {
@@ -85,6 +98,21 @@ const writingWorlds = [
 export default function AboutPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: stringifyJsonLd(personJsonLd()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+            ]),
+          ),
+        }}
+      />
       <Navbar />
 
       <section className="aboutPageHero premiumSection">

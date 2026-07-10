@@ -5,11 +5,34 @@ import {
   getResourcesByCategory,
   resourceCategories,
 } from "../../data/resources";
+import {
+  breadcrumbJsonLd,
+  createPageMetadata,
+  stringifyJsonLd,
+} from "../../lib/seo";
 import "./resources.css";
+
+export const metadata = createPageMetadata({
+  title: "Resources",
+  description:
+    "Download free practical resources, templates and worksheets for business systems, decision-making, AI workflows and personal growth.",
+  path: "/resources",
+});
 
 export default function ResourcesPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Resources", path: "/resources" },
+            ]),
+          ),
+        }}
+      />
       <Navbar />
 
       <section className="resourcesPage premiumSection">

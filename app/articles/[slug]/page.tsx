@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import Newsletter from "../../../components/Newsletter";
 import { articles, getArticleBySlug } from "../../../data/articles";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  createPageMetadata,
+  stringifyJsonLd,
+} from "../../../lib/seo";
 import "./article.css";
 
 type ArticlePageProps = {
@@ -16,6 +23,26 @@ export function generateStaticParams() {
   return articles.map((article) => ({
     slug: article.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
+
+  if (!article) {
+    notFound();
+  }
+
+  return createPageMetadata({
+    title: article.title,
+    description: article.excerpt,
+    path: `/articles/${article.slug}`,
+    type: "article",
+    publishedTime: article.date,
+    authors: [article.author],
+  });
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
@@ -34,6 +61,24 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(articleJsonLd(article)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Articles", path: "/articles" },
+              { name: article.title, path: `/articles/${article.slug}` },
+            ]),
+          ),
+        }}
+      />
       <Navbar />
 
       <article className="articleDetail">
