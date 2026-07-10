@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer";
 import Newsletter from "../../../components/Newsletter";
+import TrackedAmazonLink from "../../../components/TrackedAmazonLink";
 import { books, getBookBySlug } from "../../../data/books";
 import {
   bookJsonLd,
@@ -18,16 +19,15 @@ type BookPageProps = {
   }>;
 };
 
-function AmazonBookLink({ href }: { href: string }) {
+function AmazonBookLink({ bookTitle, href }: { bookTitle: string; href: string }) {
   return (
-    <a
+    <TrackedAmazonLink
+      bookTitle={bookTitle}
       className="bookDetailButton bookDetailButtonPrimary"
       href={href}
-      rel="noopener noreferrer"
-      target="_blank"
     >
       Read on Amazon Kindle
-    </a>
+    </TrackedAmazonLink>
   );
 }
 
@@ -101,7 +101,9 @@ export default async function BookPage({ params }: BookPageProps) {
           </p>
 
           <div className="bookDetailHeroActions">
-            {book.amazonUrl ? <AmazonBookLink href={book.amazonUrl} /> : null}
+            {book.amazonUrl ? (
+              <AmazonBookLink bookTitle={book.title} href={book.amazonUrl} />
+            ) : null}
           </div>
         </div>
 
@@ -180,7 +182,9 @@ export default async function BookPage({ params }: BookPageProps) {
         <h2 className="section-title">{page.finalTitle}</h2>
         <p className="body-large">{page.finalBody}</p>
         <div className="bookDetailHeroActions">
-          {book.amazonUrl ? <AmazonBookLink href={book.amazonUrl} /> : null}
+          {book.amazonUrl ? (
+            <AmazonBookLink bookTitle={book.title} href={book.amazonUrl} />
+          ) : null}
         </div>
       </section>
 

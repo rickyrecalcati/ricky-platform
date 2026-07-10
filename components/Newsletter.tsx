@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { trackNewsletterSignup } from "../lib/analytics";
 import "./Newsletter.css";
 
 type FormState = "idle" | "submitting" | "success" | "alreadySubscribed" | "error";
@@ -27,6 +28,7 @@ export default function Newsletter() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormState("submitting");
+    const source = getNewsletterSource();
 
     try {
       const response = await fetch("/api/newsletter", {
@@ -36,7 +38,7 @@ export default function Newsletter() {
         },
         body: JSON.stringify({
           email,
-          source: getNewsletterSource(),
+          source,
           company: honeypot,
         }),
       });
@@ -47,6 +49,7 @@ export default function Newsletter() {
 
       if (response.ok && result.status === "success") {
         setFormState("success");
+        trackNewsletterSignup(source);
         setEmail("");
         return;
       }

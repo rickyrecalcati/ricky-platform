@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
+import TrackedResourceDownload from "../../../components/TrackedResourceDownload";
 import { getResourceBySlug, resources } from "../../../data/resources";
 import {
   breadcrumbJsonLd,
@@ -128,13 +129,13 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
               required.
             </p>
             {resource.fileUrl ? (
-              <a
+              <TrackedResourceDownload
                 className="luxuryButton luxuryButtonPrimary"
                 href={resource.fileUrl}
-                download
+                resourceTitle={resource.title}
               >
                 Get Resource
-              </a>
+              </TrackedResourceDownload>
             ) : (
               <span className="resourceComingSoon">Coming Soon</span>
             )}

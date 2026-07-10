@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import Newsletter from "../../../components/Newsletter";
+import ArticleCompletionTracker from "../../../components/ArticleCompletionTracker";
 import { articles, getArticleBySlug } from "../../../data/articles";
 import {
   articleJsonLd,
@@ -79,6 +80,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           ),
         }}
       />
+      <ArticleCompletionTracker articleTitle={article.title} />
       <Navbar />
 
       <article className="articleDetail">

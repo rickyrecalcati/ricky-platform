@@ -40,19 +40,58 @@
   gap: 10px;
 }
 
-.articlesCategoryStrip span {
+.articlesCategoryPill {
   --eyebrow-size: 0.72rem;
   --eyebrow-spacing: 0.16em;
+  appearance: none;
   padding: 10px 14px;
   border: 1px solid rgba(202, 166, 76, 0.24);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.035);
+  color: var(--color-gold);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    color 220ms ease;
+}
+
+.articlesCategoryPill:hover,
+.articlesCategoryPill:focus-visible,
+.articlesCategoryPillActive {
+  border-color: rgba(202, 166, 76, 0.62);
+  background: rgba(202, 166, 76, 0.14);
+  color: var(--color-cream);
+  transform: translateY(-1px);
 }
 
 .articlesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: clamp(1.5rem, 3vw, 2rem);
+}
+
+.articlesEmptyState {
+  max-width: 720px;
+  padding: clamp(2rem, 5vw, 3rem);
+  border: 1px solid rgba(202, 166, 76, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    rgba(17, 17, 17, 0.86);
+}
+
+.articlesEmptyState .eyebrow {
+  margin-bottom: 14px;
+}
+
+.articlesEmptyState .body {
+  --body-color: #cbc4b8;
+  max-width: 560px;
+  margin-top: 16px;
 }
 
 @media (max-width: 640px) {

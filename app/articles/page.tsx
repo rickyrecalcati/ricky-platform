@@ -1,6 +1,6 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import ArticleCard from "../../components/ArticleCard";
+import ArticleCategoryFilters from "../../components/ArticleCategoryFilters";
 import { articles } from "../../data/articles";
 import {
   breadcrumbJsonLd,
@@ -16,7 +16,23 @@ export const metadata = createPageMetadata({
   path: "/articles",
 });
 
-export default function ArticlesPage() {
+type ArticlesPageProps = {
+  searchParams?: Promise<{
+    category?: string | string[];
+  }>;
+};
+
+function getCategoryParam(category?: string | string[]) {
+  if (Array.isArray(category)) {
+    return category[0]?.toLowerCase() ?? "";
+  }
+
+  return category?.toLowerCase() ?? "";
+}
+
+export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
+  const params = await searchParams;
+  const activeCategory = getCategoryParam(params?.category);
   const categories = [...new Set(articles.map((article) => article.category))];
 
   return (
@@ -46,19 +62,11 @@ export default function ArticlesPage() {
           </p>
         </div>
 
-        <div className="articlesCategoryStrip" aria-label="Article categories">
-          {categories.map((category) => (
-            <span className="eyebrow" key={category}>
-              {category}
-            </span>
-          ))}
-        </div>
-
-        <div className="articlesGrid">
-          {articles.map((article) => (
-            <ArticleCard article={article} key={article.slug} />
-          ))}
-        </div>
+        <ArticleCategoryFilters
+          activeCategory={activeCategory}
+          articles={articles}
+          categories={categories}
+        />
       </section>
 
       <Footer />
