@@ -2,7 +2,8 @@ import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero";
 import MeetRicky from "../components/MeetRicky";
 import FeaturedBooks from "../components/FeaturedBooks";
-import About from "../components/About";
+import LatestArticles from "../components/LatestArticles";
+import FreeResources from "../components/FreeResources";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 
@@ -11,9 +12,10 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <MeetRicky />
       <FeaturedBooks />
-      <About />
+      <LatestArticles />
+      <FreeResources />
+      <MeetRicky />
       <Newsletter />
       <Footer />
     </main>
