@@ -338,7 +338,9 @@ export const resources: Resource[] = [
     slug: "annual-review-workbook",
     title: "Annual Review Workbook",
     category: "Personal Growth",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/annual-review-workbook.pdf",
     description:
       "Reflect on the past year and build a better one.",
     heroDescription:
@@ -366,7 +368,9 @@ export const resources: Resource[] = [
     slug: "decision-journal",
     title: "Decision Journal",
     category: "Personal Growth",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/decision-journal.pdf",
     description:
       "Record important decisions and improve your thinking over time.",
     heroDescription:
@@ -394,11 +398,13 @@ export const resources: Resource[] = [
     slug: "reading-tracker",
     title: "Reading Tracker",
     category: "Personal Growth",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/reading-tracker.pdf",
     description:
       "Track books, key ideas and lessons worth remembering.",
     heroDescription:
-      "A simple reading tracker for capturing the ideas, lessons and questions that make a book worth keeping.",
+      "Capture the ideas that change how you think.",
     whoFor: [
       "Readers who want to remember more of what they read.",
       "Creators collecting useful ideas.",

@@ -52,7 +52,130 @@ RESOURCES = (
     ("chatgpt-prompt-pack-for-managers", "ChatGPT Prompt Pack for Managers"),
     ("ai-meeting-assistant", "AI Meeting Assistant"),
     ("ai-productivity-toolkit", "AI Productivity Toolkit"),
+    ("annual-review-workbook", "Annual Review Workbook"),
+    ("decision-journal", "Decision Journal"),
+    ("reading-tracker", "Reading Tracker"),
 )
+
+WORKBOOK_FIELD_LABELS = {
+    "Health",
+    "Relationships",
+    "Career",
+    "Business",
+    "Finances",
+    "Personal Growth",
+    "Happiness",
+    "Contribution",
+    "This year taught me…",
+    "I was wrong about…",
+    "I need to stop…",
+    "I need to start…",
+    "The best advice I received…",
+    "Who brought energy into my life?",
+    "Who drained it?",
+    "Who deserves more time?",
+    "Who should I reconnect with?",
+    "Habits I Built",
+    "Habits I Lost",
+    "Habits I Want to Eliminate",
+    "Next year I will stop…",
+    "Because…",
+    "Goal 1",
+    "Goal 2",
+    "Goal 3",
+    "Why it matters",
+    "First action",
+    "Deadline",
+    "Quarter 1",
+    "Quarter 2",
+    "Quarter 3",
+    "Quarter 4",
+    "Objectives",
+    "Projects",
+    "Habits",
+    "This year mattered because…",
+}
+
+WORKBOOK_LONG_RESPONSE_LABELS = {
+    "Write your five biggest achievements.",
+    "List your biggest setbacks.",
+    "Write ten things you’re grateful for.",
+    "Describe your ideal year in these areas:",
+    "Write a letter that you’ll read exactly one year from today.",
+}
+
+WORKBOOK_COMPACT_FIELD_LABELS = {
+    "Health",
+    "Relationships",
+    "Career",
+    "Business",
+    "Finances",
+    "Personal Growth",
+    "Happiness",
+    "Contribution",
+    "Goal 1",
+    "Goal 2",
+    "Goal 3",
+    "Why it matters",
+    "First action",
+    "Deadline",
+    "Quarter 1",
+    "Quarter 2",
+    "Quarter 3",
+    "Quarter 4",
+    "Objectives",
+    "Projects",
+    "Habits",
+}
+
+DECISION_JOURNAL_EMPTY_SECTION_FIELDS = {
+    "The Decision",
+    "Why This Matters",
+    "My Desired Outcome",
+}
+
+DECISION_JOURNAL_LONG_FIELD_LABELS = {
+    "Which of these affects you most often?",
+    "Which option am I choosing?",
+    "Why?",
+    "What could go wrong?",
+    "How could I reduce these risks?",
+    "I’m assuming that…",
+    "If everything went wrong…",
+    "What happened?",
+    "What did I get right?",
+    "What did I miss?",
+    "What would I do differently?",
+}
+
+DECISION_JOURNAL_FIELD_LABELS = {
+    "Confidence",
+    "Evidence Quality",
+    "Emotional Control",
+    "Time Available",
+    "Understanding of Risks",
+    "Decision Number _______",
+    "Date",
+    "Option 1",
+    "Option 2",
+    "Option 3",
+    "Pros",
+    "Cons",
+    "How likely are these?",
+    "How certain am I?",
+    "What would happen?",
+    "How would I recover?",
+    "Would I survive it?",
+    "The strongest reason this decision succeeds is…",
+    "The strongest reason it fails is…",
+    "Date Reviewed",
+    "Did the outcome match my expectations?",
+    "Preparation",
+    "Logic",
+    "Execution",
+    "Outcome",
+    "Overall",
+}
 
 
 class WritingLines(Flowable):
@@ -103,6 +226,227 @@ class SignatureBlock(KeepTogether):
 
 class ResourceTable(Table):
     """A branded table with repeatable headers for long future resources."""
+
+
+class BlankDecisionTemplate(Flowable):
+    def __init__(self, index):
+        super().__init__()
+        self.index = index
+        self.height = CONTENT_HEIGHT - 8 * mm
+
+    def draw_label(self, label, x, y):
+        self.canv.setFillColor(INK)
+        self.canv.setFont("Helvetica-Bold", 8)
+        self.canv.drawString(x, y, label)
+
+    def draw_lines(self, x, y, width, count, gap=6.6 * mm):
+        self.canv.setStrokeColor(RULE)
+        self.canv.setLineWidth(0.55)
+        for line_index in range(count):
+            line_y = y - ((line_index + 1) * gap)
+            self.canv.line(x, line_y, x + width, line_y)
+        return y - (count * gap) - 5 * mm
+
+    def draw_field(self, label, x, y, width, count):
+        self.draw_label(label, x, y)
+        return self.draw_lines(x, y - 1 * mm, width, count)
+
+    def draw(self):
+        self.canv.setFillColor(BLACK)
+        self.canv.setFont(SERIF_BOLD, 18)
+        self.canv.drawString(0, self.height - 8 * mm, f"Blank Decision Template {self.index}")
+        self.canv.setFillColor(colors.HexColor("#5F5A52"))
+        self.canv.setFont("Helvetica", 7.8)
+        self.canv.drawString(
+            0,
+            self.height - 15 * mm,
+            "Use this page before making a meaningful decision. Return to it when the outcome becomes clear.",
+        )
+
+        left_x = 0
+        right_x = 86 * mm
+        col_width = 79 * mm
+        left_y = self.height - 29 * mm
+        right_y = self.height - 29 * mm
+
+        left_y = self.draw_field("Decision", left_x, left_y, col_width, 2)
+        left_y = self.draw_field("Context", left_x, left_y, col_width, 4)
+        left_y = self.draw_field("Options", left_x, left_y, col_width, 5)
+        left_y = self.draw_field("Risks", left_x, left_y, col_width, 3)
+        left_y = self.draw_field("Assumptions", left_x, left_y, col_width, 3)
+
+        right_y = self.draw_field("Final Choice", right_x, right_y, col_width, 3)
+        right_y = self.draw_field("Confidence Rating", right_x, right_y, col_width, 1)
+        right_y = self.draw_field("Future Review", right_x, right_y, col_width, 3)
+        self.draw_field("Lessons Learned", right_x, right_y, col_width, 7)
+
+
+class BookReviewTemplatePage(Flowable):
+    def __init__(self, index, page_number):
+        super().__init__()
+        self.index = index
+        self.template_page = page_number
+        self.height = CONTENT_HEIGHT - 8 * mm
+
+    def title(self, text, x, y, size=17):
+        self.canv.setFillColor(BLACK)
+        self.canv.setFont(SERIF_BOLD, size)
+        self.canv.drawString(x, y, text)
+
+    def label(self, text, x, y):
+        self.canv.setFillColor(INK)
+        self.canv.setFont("Helvetica-Bold", 7.7)
+        self.canv.drawString(x, y, text)
+
+    def body(self, text, x, y):
+        self.canv.setFillColor(colors.HexColor("#5F5A52"))
+        self.canv.setFont("Helvetica", 7.4)
+        self.canv.drawString(x, y, text)
+
+    def lines(self, x, y, width, count, gap=6 * mm):
+        self.canv.setStrokeColor(RULE)
+        self.canv.setLineWidth(0.55)
+        for line_index in range(count):
+            line_y = y - ((line_index + 1) * gap)
+            self.canv.line(x, line_y, x + width, line_y)
+        return y - (count * gap) - 4.5 * mm
+
+    def field(self, label, x, y, width, count):
+        self.label(label, x, y)
+        return self.lines(x, y - 0.8 * mm, width, count)
+
+    def checkbox(self, text, x, y):
+        box_size = 3.2 * mm
+        self.canv.setStrokeColor(GOLD)
+        self.canv.setLineWidth(0.75)
+        self.canv.rect(x, y - box_size + 1.2 * mm, box_size, box_size)
+        self.body(text, x + 6 * mm, y)
+
+    def draw_page_one(self):
+        y = self.height - 7 * mm
+        title = "Book Review" if self.index == 1 else f"Book Review {self.index}"
+        self.title(title, 0, y)
+        y -= 12 * mm
+        self.title("Book Details", 0, y, size=13)
+        y -= 8 * mm
+
+        left_x = 0
+        right_x = 88 * mm
+        col_width = 77 * mm
+        left_y = y
+        right_y = y
+        left_y = self.field("Title", left_x, left_y, col_width, 1)
+        left_y = self.field("Author", left_x, left_y, col_width, 1)
+        right_y = self.field("Date Started", right_x, right_y, col_width, 1)
+        right_y = self.field("Date Finished", right_x, right_y, col_width, 1)
+        right_y = self.field("Overall Rating", right_x, right_y, col_width, 1)
+        self.body("⭐ 1 2 3 4 5", right_x, right_y + 3 * mm)
+
+        y = min(left_y, right_y) - 2 * mm
+        self.title("Why I Picked This Book", 0, y, size=13)
+        y = self.field("Why I Picked This Book", 0, y - 8 * mm, CONTENT_WIDTH, 3)
+        self.title("What did I hope to learn?", 0, y, size=13)
+        y = self.field("What did I hope to learn?", 0, y - 8 * mm, CONTENT_WIDTH, 3)
+        self.title("Summary", 0, y, size=13)
+        self.body("Explain the book in your own words.", 0, y - 6 * mm)
+        self.lines(0, y - 9 * mm, CONTENT_WIDTH, 8)
+
+    def draw_page_two(self):
+        y = self.height - 7 * mm
+        self.title("Five Biggest Ideas", 0, y)
+        y = self.lines(0, y - 2 * mm, CONTENT_WIDTH, 6)
+        self.title("Favourite Quote", 0, y, size=13)
+        y = self.lines(0, y - 2 * mm, CONTENT_WIDTH, 2)
+        y = self.field("Why did it stand out?", 0, y, CONTENT_WIDTH, 2)
+        self.title("What Changed My Thinking?", 0, y, size=13)
+        y = self.lines(0, y - 2 * mm, CONTENT_WIDTH, 4)
+        self.title("Three Actions I’ll Take", 0, y, size=13)
+        y = self.field("Action 1", 0, y - 8 * mm, CONTENT_WIDTH, 1)
+        y = self.field("Action 2", 0, y, CONTENT_WIDTH, 1)
+        y = self.field("Action 3", 0, y, CONTENT_WIDTH, 1)
+        self.title("Would I Recommend It?", 0, y, size=13)
+        y -= 8 * mm
+        self.checkbox("Definitely", 0, y)
+        self.checkbox("Maybe", 34 * mm, y)
+        self.checkbox("Probably Not", 62 * mm, y)
+        self.field("Why?", 0, y - 9 * mm, CONTENT_WIDTH, 3)
+
+    def draw(self):
+        if self.template_page == 1:
+            self.draw_page_one()
+        else:
+            self.draw_page_two()
+
+
+class ReadingGoalsPage(Flowable):
+    def __init__(self):
+        super().__init__()
+        self.height = CONTENT_HEIGHT - 8 * mm
+
+    def title(self, text, x, y, size=18):
+        self.canv.setFillColor(BLACK)
+        self.canv.setFont(SERIF_BOLD, size)
+        self.canv.drawString(x, y, text)
+
+    def label(self, text, x, y):
+        self.canv.setFillColor(INK)
+        self.canv.setFont("Helvetica-Bold", 7.8)
+        self.canv.drawString(x, y, text)
+
+    def line(self, x, y, width):
+        self.canv.setStrokeColor(RULE)
+        self.canv.setLineWidth(0.55)
+        self.canv.line(x, y, x + width, y)
+
+    def field(self, label, x, y, width, count=1, gap=6.4 * mm):
+        self.label(label, x, y)
+        for index in range(count):
+            self.line(x, y - ((index + 1) * gap), width)
+        return y - (count * gap) - 5 * mm
+
+    def checkbox(self, text, x, y):
+        box_size = 3.1 * mm
+        self.canv.setStrokeColor(GOLD)
+        self.canv.setLineWidth(0.75)
+        self.canv.rect(x, y - box_size + 1.2 * mm, box_size, box_size)
+        self.canv.setFillColor(colors.HexColor("#5F5A52"))
+        self.canv.setFont("Helvetica", 7.5)
+        self.canv.drawString(x + 6 * mm, y, text)
+
+    def draw(self):
+        y = self.height - 8 * mm
+        self.title("My Reading Goals", 0, y)
+        y -= 10 * mm
+        self.label("This Year I Want To:", 0, y)
+        y -= 7 * mm
+        y = self.field("Books to read:", 0, y, CONTENT_WIDTH, 2)
+        y = self.field("Minutes per day:", 0, y, CONTENT_WIDTH, 1)
+        self.label("Subjects I want to explore:", 0, y)
+        y -= 7 * mm
+        subjects = [
+            "Business",
+            "Leadership",
+            "Finance",
+            "Investing",
+            "AI",
+            "Personal Growth",
+            "Psychology",
+            "History",
+            "Biography",
+            "Fiction",
+            "Philosophy",
+            "Health",
+        ]
+        for index, subject in enumerate(subjects):
+            col = index % 2
+            row = index // 2
+            self.checkbox(subject, col * 72 * mm, y - row * 6.5 * mm)
+        y -= 44 * mm
+        y = self.field("Other:", 0, y, CONTENT_WIDTH, 1)
+        self.title("Reading Wishlist", 0, y, size=15)
+        y -= 8 * mm
+        y = self.field("Reading Wishlist", 0, y, CONTENT_WIDTH, 5)
+        self.field("Books completed", 0, y, CONTENT_WIDTH, 3)
 
 
 def register_fonts():
@@ -254,11 +598,25 @@ def draw_cover(canvas, doc, title, subtitle):
     canvas.line(22 * mm, 34 * mm, width - 22 * mm, 34 * mm)
     canvas.setFillColor(CREAM)
     canvas.setFont("Helvetica", 8)
+    byline = Paragraph(
+        "By Ricky Recalcati",
+        ParagraphStyle(
+            "CoverByline",
+            fontName="Helvetica",
+            fontSize=10,
+            leading=14,
+            textColor=CREAM,
+        ),
+    )
+    byline.wrapOn(canvas, 142 * mm, 14 * mm)
+    byline.drawOn(canvas, 22 * mm, height - 183 * mm)
     resource_label = (
         "PRACTICAL HOSPITALITY RESOURCE"
         if title.startswith("Restaurant") or title.startswith("Manager")
         else "PRACTICAL AI RESOURCE"
         if title.startswith("AI") or title.startswith("ChatGPT")
+        else "PERSONAL GROWTH WORKBOOK"
+        if title in {"Annual Review Workbook", "Decision Journal", "Reading Tracker"}
         else "PRACTICAL BUSINESS RESOURCE"
     )
     canvas.drawString(22 * mm, 25 * mm, resource_label)
@@ -369,6 +727,10 @@ def note_block(label, line_count=2):
 def line_to_flowables(line, in_principle=False):
     if line.startswith("### "):
         return [Paragraph(escape(line[4:].upper()), STYLES["subsection"])]
+    if line.startswith("☐"):
+        return [CheckboxItem(line[1:].strip(), STYLES["checkbox"]), Spacer(1, 1.5 * mm)]
+    if line.endswith("□"):
+        return [CheckboxItem(line[:-1].strip(), STYLES["checkbox"]), Spacer(1, 1.5 * mm)]
     if line in {"-", "1.", "2.", "3."}:
         prefix = "" if line == "-" else f"{line} "
         return [
@@ -382,6 +744,17 @@ def line_to_flowables(line, in_principle=False):
         ]
     if line.startswith("- "):
         return [CheckboxItem(line[2:], STYLES["checkbox"])]
+    if line in WORKBOOK_LONG_RESPONSE_LABELS:
+        return [note_block(line, 5), Spacer(1, 2 * mm)]
+    if line in WORKBOOK_COMPACT_FIELD_LABELS:
+        return [note_block(line, 1), Spacer(1, 1.5 * mm)]
+    if line in WORKBOOK_FIELD_LABELS:
+        return [note_block(line, 2), Spacer(1, 1.5 * mm)]
+    if line in DECISION_JOURNAL_LONG_FIELD_LABELS:
+        return [note_block(line, 4), Spacer(1, 2 * mm)]
+    if line in DECISION_JOURNAL_FIELD_LABELS:
+        line_count = 1 if line in {"Confidence", "Evidence Quality", "Emotional Control", "Time Available", "Understanding of Risks"} else 2
+        return [note_block(line, line_count), Spacer(1, 1.5 * mm)]
     if line.endswith(":") or line.endswith("?"):
         line_count = 1 if line == "Score:" else 2
         return [note_block(line, line_count), Spacer(1, 1.5 * mm)]
@@ -418,6 +791,9 @@ def chunk_large_section(heading, body_flowables):
 
 
 def section_to_story(heading, body_flowables):
+    if heading in DECISION_JOURNAL_EMPTY_SECTION_FIELDS and not body_flowables:
+        body_flowables = [WritingLines(count=6), Spacer(1, 2 * mm)]
+
     section = [section_heading(heading), *body_flowables]
     section_height = flowables_height(section)
     story = []
@@ -484,12 +860,394 @@ def markdown_to_story(markdown):
     return title, subtitle, story
 
 
+def bullet(text):
+    return paragraph(f"• {text}", "body")
+
+
+def story_page(*flowables):
+    return [PageBreak(), SectionBlock(list(flowables))]
+
+
+def decision_journal_story(markdown):
+    lines = markdown.splitlines()
+    title = lines[0].removeprefix("# ").strip()
+    subtitle = next(line.strip() for line in lines[1:] if line.strip())
+
+    story = []
+    story.extend(
+        story_page(
+            section_heading("Introduction"),
+            paragraph("Every decision teaches you something.", "body"),
+            paragraph(
+                "The problem is that most people only remember the outcome—not what they were thinking when they made it.",
+                "body",
+            ),
+            paragraph(
+                "A Decision Journal helps separate good decisions from lucky outcomes and bad outcomes from bad thinking.",
+                "body",
+            ),
+            paragraph("Over time you’ll begin to notice patterns:", "body"),
+            bullet("recurring mistakes"),
+            bullet("emotional decisions"),
+            bullet("hidden biases"),
+            bullet("better judgement"),
+            paragraph(
+                "Professional investors, CEOs and elite performers have used decision journals for decades.",
+                "body",
+            ),
+            paragraph(
+                "This workbook gives you a practical system you can return to again and again.",
+                "body",
+            ),
+            section_heading("How To Use This Journal"),
+            paragraph("Complete a new entry before making any meaningful decision.", "body"),
+            paragraph("Examples include:", "body"),
+            bullet("accepting a new job"),
+            bullet("investing money"),
+            bullet("hiring someone"),
+            bullet("changing careers"),
+            bullet("buying a house"),
+            bullet("starting a business"),
+            bullet("making an important personal decision"),
+            paragraph(
+                "Once the outcome becomes clear, return to the journal and complete the review.",
+                "body",
+            ),
+            paragraph("Your goal isn’t perfection.", "body"),
+            paragraph("Your goal is improving your thinking.", "body"),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("The Decision Framework"),
+            paragraph("Before every important decision ask yourself:", "body"),
+            *[
+                note_block(question, 1)
+                for question in [
+                    "1. What decision am I making?",
+                    "2. Why does it matter?",
+                    "3. What outcome do I want?",
+                    "4. What assumptions am I making?",
+                    "5. What evidence supports them?",
+                    "6. What evidence challenges them?",
+                    "7. What would make me change my mind?",
+                ]
+            ],
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Common Thinking Traps"),
+            paragraph("Watch for these biases:", "body"),
+            *[
+                CheckboxItem(item, STYLES["checkbox"])
+                for item in [
+                    "Confirmation bias",
+                    "Overconfidence",
+                    "Fear of missing out",
+                    "Sunk cost fallacy",
+                    "Recency bias",
+                    "Anchoring",
+                    "Groupthink",
+                    "Emotional decision-making",
+                ]
+            ],
+            note_block("Reflection:", 1),
+            note_block("Which of these affects you most often?", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Decision Scorecard"),
+            paragraph("Rate yourself before deciding.", "body"),
+            *[
+                note_block(label, 1)
+                for label in [
+                    "Confidence",
+                    "Evidence Quality",
+                    "Emotional Control",
+                    "Time Available",
+                    "Understanding of Risks",
+                    "Confidence",
+                ]
+            ],
+            section_heading("Decision Template"),
+            note_block("Decision Number _______", 1),
+            note_block("Date", 1),
+            note_block("The Decision", 5),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Why This Matters"),
+            note_block("Why This Matters", 6),
+            section_heading("My Desired Outcome"),
+            note_block("My Desired Outcome", 7),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Options Considered"),
+            note_block("Option 1", 1),
+            note_block("Pros", 1),
+            note_block("Cons", 1),
+            note_block("Option 2", 1),
+            note_block("Pros", 1),
+            note_block("Cons", 1),
+            note_block("Option 3", 1),
+            note_block("Pros", 1),
+            note_block("Cons", 1),
+            note_block("Which option am I choosing?", 2),
+            note_block("Why?", 2),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Risks"),
+            note_block("What could go wrong?", 3),
+            paragraph("How likely are these?", "body"),
+            CheckboxItem("Low", STYLES["checkbox"]),
+            CheckboxItem("Medium", STYLES["checkbox"]),
+            CheckboxItem("High", STYLES["checkbox"]),
+            note_block("How could I reduce these risks?", 3),
+            section_heading("Assumptions"),
+            note_block("I’m assuming that…", 3),
+            paragraph("How certain am I?", "body"),
+            CheckboxItem("Low", STYLES["checkbox"]),
+            CheckboxItem("Medium", STYLES["checkbox"]),
+            CheckboxItem("High", STYLES["checkbox"]),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Worst-Case Scenario"),
+            note_block("If everything went wrong…", 2),
+            note_block("What would happen?", 3),
+            note_block("How would I recover?", 3),
+            paragraph("Would I survive it?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            section_heading("Confidence Check"),
+            paragraph("Complete the sentences.", "body"),
+            note_block("The strongest reason this decision succeeds is…", 3),
+            note_block("The strongest reason it fails is…", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Future Review"),
+            paragraph("Review this decision after:", "body"),
+            CheckboxItem("1 Month", STYLES["checkbox"]),
+            CheckboxItem("3 Months", STYLES["checkbox"]),
+            CheckboxItem("6 Months", STYLES["checkbox"]),
+            CheckboxItem("12 Months", STYLES["checkbox"]),
+            section_heading("Outcome Review"),
+            note_block("Date Reviewed", 1),
+            note_block("What happened?", 4),
+            paragraph("Did the outcome match my expectations?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("Partly", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Lessons Learned"),
+            note_block("What did I get right?", 3),
+            note_block("What did I miss?", 3),
+            note_block("What would I do differently?", 3),
+            section_heading("Decision Rating"),
+            paragraph("Rate this decision.", "body"),
+            *[
+                paragraph(f"{label}     ★★★★★", "body")
+                for label in ["Preparation", "Logic", "Execution", "Outcome", "Overall"]
+            ],
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Blank Decision Templates"),
+            paragraph(
+                "The remainder of the workbook should contain six identical full-page decision templates using the same structure:",
+                "body",
+            ),
+            bullet("Decision"),
+            bullet("Context"),
+            bullet("Options"),
+            bullet("Risks"),
+            bullet("Assumptions"),
+            bullet("Final Choice"),
+            bullet("Confidence Rating"),
+            bullet("Future Review"),
+            bullet("Lessons Learned"),
+            paragraph(
+                "Each template should start on a new page and leave generous writing space.",
+                "body",
+            ),
+        )
+    )
+
+    return title, subtitle, story
+
+
+def reading_review_pages(index):
+    return [
+        PageBreak(),
+        BookReviewTemplatePage(index, 1),
+        PageBreak(),
+        BookReviewTemplatePage(index, 2),
+    ]
+
+
+def reading_tracker_story(markdown):
+    lines = markdown.splitlines()
+    title = lines[0].removeprefix("# ").strip()
+    subtitle = next(line.strip() for line in lines[1:] if line.strip())
+
+    story = []
+    story.extend(
+        story_page(
+            section_heading("Welcome"),
+            paragraph("Reading books is easy.", "body"),
+            paragraph("Applying what you learn is much harder.", "body"),
+            paragraph(
+                "Most people remember the title of a book but forget the ideas that made it valuable.",
+                "body",
+            ),
+            paragraph(
+                "This Reading Tracker helps you slow down, think more deeply and turn good ideas into lasting habits.",
+                "body",
+            ),
+            paragraph("Its purpose isn’t to help you read more books.", "body"),
+            paragraph(
+                "Its purpose is to help you get more value from every book you read.",
+                "body",
+            ),
+            section_heading("How To Use This Tracker"),
+            paragraph("Use this journal throughout the year.", "body"),
+            paragraph("Before reading:", "body"),
+            bullet("Record why you chose the book."),
+            bullet("Write down what you hope to learn."),
+            paragraph("While reading:", "body"),
+            bullet("Capture ideas worth remembering."),
+            bullet("Highlight concepts that challenge your thinking."),
+            bullet("Mark practical actions."),
+            paragraph("After reading:", "body"),
+            bullet("Summarise the book."),
+            bullet("Decide what you’ll implement."),
+            bullet("Record whether you would recommend it."),
+            paragraph("Remember:", "body"),
+            paragraph("Reading changes nothing. Applying what you read changes everything.", "body"),
+        )
+    )
+
+    story.extend([PageBreak(), ReadingGoalsPage()])
+
+    for index in range(1, 4):
+        story.extend(reading_review_pages(index))
+
+    story.extend(
+        story_page(
+            section_heading("Monthly Reading Review"),
+            note_block("Month:", 1),
+            note_block("Books completed:", 1),
+            note_block("Best book:", 1),
+            note_block("Biggest lesson learned:", 3),
+            note_block("One idea I actually applied:", 3),
+            note_block("What can I improve next month?", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Quarterly Reading Review"),
+            paragraph("Quarter", "body"),
+            CheckboxItem("Q1", STYLES["checkbox"]),
+            CheckboxItem("Q2", STYLES["checkbox"]),
+            CheckboxItem("Q3", STYLES["checkbox"]),
+            CheckboxItem("Q4", STYLES["checkbox"]),
+            note_block("Books completed:", 1),
+            note_block("Favourite book:", 1),
+            note_block("Three ideas worth remembering:", 4),
+            note_block("One habit I developed because of reading:", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Annual Reading Review"),
+            note_block("Books completed", 1),
+            note_block("Favourite book of the year", 1),
+            note_block("Most useful book", 1),
+            note_block("Most enjoyable book", 1),
+            note_block("Book that changed my thinking the most", 1),
+            note_block("The five biggest lessons from this year:", 6),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Reading Next Year"),
+            note_block("Books I want to prioritise:", 6),
+            note_block("One reading habit I’ll improve:", 3),
+            section_heading("Final Reflection"),
+            paragraph("Complete these sentences.", "body"),
+            note_block("The best idea I discovered this year was…", 2),
+            note_block("The book I’m most grateful I read was…", 2),
+            note_block("Next year I want reading to help me become…", 2),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Continue Exploring"),
+            paragraph(
+                "If you enjoyed this resource, explore more free guides, practical articles and book series at:",
+                "body",
+            ),
+            paragraph("[rickyrecalcati.com](https://www.rickyrecalcati.com)", "body"),
+            paragraph("Also recommended:", "body"),
+            paragraph("[The Second Act series](https://www.rickyrecalcati.com/books/the-second-act)", "body"),
+            paragraph("[No Robots Required series](https://www.rickyrecalcati.com/books/no-robots-required)", "body"),
+            paragraph("[Scaling Hospitality series](https://www.rickyrecalcati.com/books/scaling-hospitality)", "body"),
+            paragraph("[Better Decisions Compound Quietly](https://www.rickyrecalcati.com/articles/better-decisions-compound-quietly)", "body"),
+            paragraph("[Your Life Is the Sum of Small Decisions](https://www.rickyrecalcati.com/articles/your-life-is-the-sum-of-small-decisions)", "body"),
+        )
+    )
+
+    return title, subtitle, story
+
+
+def blank_decision_template(index):
+    return [PageBreak(), BlankDecisionTemplate(index)]
+
+
 def generate_resource(slug, expected_title):
     source = RESOURCE_DIR / f"{slug}.md"
     output = RESOURCE_DIR / f"{slug}.pdf"
-    title, subtitle, story = markdown_to_story(source.read_text(encoding="utf-8"))
+    markdown = source.read_text(encoding="utf-8")
+    if slug == "decision-journal":
+        title, subtitle, story = decision_journal_story(markdown)
+    elif slug == "reading-tracker":
+        title, subtitle, story = reading_tracker_story(markdown)
+    else:
+        title, subtitle, story = markdown_to_story(markdown)
     if title != expected_title:
         raise ValueError(f"Unexpected title in {source}: {title}")
+
+    if slug == "decision-journal":
+        for index in range(1, 7):
+            story.extend(blank_decision_template(index))
 
     doc = SimpleDocTemplate(
         str(output),
