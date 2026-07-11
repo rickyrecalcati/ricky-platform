@@ -14,6 +14,7 @@ export type Resource = {
   slug: string;
   title: string;
   category: ResourceCategory;
+  status?: "Available" | "Coming Soon";
   fileType: "PDF" | "Markdown";
   description: string;
   heroDescription: string;
@@ -157,7 +158,9 @@ export const resources: Resource[] = [
     slug: "restaurant-opening-checklist",
     title: "Restaurant Opening Checklist",
     category: "Hospitality",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/restaurant-opening-checklist.pdf",
     description:
       "A practical opening checklist to improve consistency across every shift.",
     heroDescription:
@@ -185,7 +188,9 @@ export const resources: Resource[] = [
     slug: "restaurant-closing-checklist",
     title: "Restaurant Closing Checklist",
     category: "Hospitality",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/restaurant-closing-checklist.pdf",
     description:
       "A structured closing checklist that helps teams finish every day the right way.",
     heroDescription:
@@ -213,7 +218,9 @@ export const resources: Resource[] = [
     slug: "manager-handover-template",
     title: "Manager Handover Template",
     category: "Hospitality",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/manager-handover-template.pdf",
     description:
       "A clear shift handover template that improves communication between managers.",
     heroDescription:

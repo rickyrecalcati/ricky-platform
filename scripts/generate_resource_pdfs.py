@@ -2,6 +2,7 @@
 """Generate branded resource PDFs from the editable Markdown source files."""
 
 from pathlib import Path
+import re
 from xml.sax.saxutils import escape
 
 from reportlab.lib import colors
@@ -12,6 +13,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
+    CondPageBreak,
     Flowable,
     KeepTogether,
     PageBreak,
@@ -33,11 +35,20 @@ SOFT_GREY = colors.HexColor("#A7A7A7")
 INK = colors.HexColor("#25231F")
 RULE = colors.HexColor("#D8D0C1")
 PAPER = colors.HexColor("#FCFAF5")
+CONTENT_WIDTH = 166 * mm
+CONTENT_HEIGHT = A4[1] - 47 * mm
+MAJOR_SECTION_LIMIT = CONTENT_HEIGHT - 6 * mm
+SECTION_START_MINIMUM = 72 * mm
+CONTINUATION_CHUNK_LIMIT = 178 * mm
+FORCED_PAGE_BREAK_BEFORE = {"Continue Exploring"}
 
 RESOURCES = (
     ("weekly-business-review", "Weekly Business Review"),
     ("decision-framework", "Decision Framework"),
     ("business-health-scorecard", "Business Health Scorecard"),
+    ("restaurant-opening-checklist", "Restaurant Opening Checklist"),
+    ("restaurant-closing-checklist", "Restaurant Closing Checklist"),
+    ("manager-handover-template", "Manager Handover Template"),
 )
 
 
@@ -75,6 +86,22 @@ class CheckboxItem(Flowable):
         self.paragraph.drawOn(self.canv, 7 * mm, 1.2 * mm)
 
 
+class SectionBlock(KeepTogether):
+    """A named keep-together block used for deliberate PDF pagination."""
+
+
+class NoteBlock(KeepTogether):
+    """A prompt plus writable lines that must not split across pages."""
+
+
+class SignatureBlock(KeepTogether):
+    """Signature or sign-off fields that should stay with their labels."""
+
+
+class ResourceTable(Table):
+    """A branded table with repeatable headers for long future resources."""
+
+
 def register_fonts():
     georgia = Path("/System/Library/Fonts/Supplemental/Georgia.ttf")
     georgia_bold = Path("/System/Library/Fonts/Supplemental/Georgia Bold.ttf")
@@ -101,6 +128,8 @@ def make_styles():
             spaceBefore=8 * mm,
             spaceAfter=4 * mm,
             keepWithNext=True,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "subsection": ParagraphStyle(
             "Subsection",
@@ -112,6 +141,8 @@ def make_styles():
             spaceBefore=5 * mm,
             spaceAfter=2.5 * mm,
             keepWithNext=True,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "body": ParagraphStyle(
             "Body",
@@ -121,6 +152,8 @@ def make_styles():
             leading=15,
             textColor=INK,
             spaceAfter=3.5 * mm,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "prompt": ParagraphStyle(
             "Prompt",
@@ -132,6 +165,8 @@ def make_styles():
             spaceBefore=1.5 * mm,
             spaceAfter=1.5 * mm,
             keepWithNext=True,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "checkbox": ParagraphStyle(
             "Checkbox",
@@ -140,6 +175,8 @@ def make_styles():
             fontSize=9,
             leading=12,
             textColor=INK,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "principle": ParagraphStyle(
             "Principle",
@@ -154,6 +191,8 @@ def make_styles():
             borderPadding=(1 * mm, 0, 1 * mm, 4 * mm),
             spaceBefore=2 * mm,
             spaceAfter=4 * mm,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "table": ParagraphStyle(
             "Table",
@@ -162,6 +201,8 @@ def make_styles():
             fontSize=7.5,
             leading=10,
             textColor=INK,
+            allowWidows=0,
+            allowOrphans=0,
         ),
     }
 
@@ -210,7 +251,12 @@ def draw_cover(canvas, doc, title, subtitle):
     canvas.line(22 * mm, 34 * mm, width - 22 * mm, 34 * mm)
     canvas.setFillColor(CREAM)
     canvas.setFont("Helvetica", 8)
-    canvas.drawString(22 * mm, 25 * mm, "PRACTICAL BUSINESS RESOURCE")
+    resource_label = (
+        "PRACTICAL HOSPITALITY RESOURCE"
+        if title.startswith("Restaurant") or title.startswith("Manager")
+        else "PRACTICAL BUSINESS RESOURCE"
+    )
+    canvas.drawString(22 * mm, 25 * mm, resource_label)
     canvas.setFillColor(GOLD)
     canvas.drawRightString(width - 22 * mm, 25 * mm, "rickyrecalcati.com")
     canvas.restoreState()
@@ -240,12 +286,24 @@ def draw_content_page(canvas, doc):
 def parse_table(lines, index):
     rows = []
     while index < len(lines) and lines[index].strip().startswith("|"):
-        cells = [cell.strip() for cell in lines[index].strip().strip("|").split("|")]
-        if not all(set(cell) <= {"-", ":"} for cell in cells):
+        raw_cells = [cell.strip() for cell in lines[index].strip().strip("|").split("|")]
+        cells = [
+            format_inline(cell)
+            for cell in raw_cells
+        ]
+        is_separator = all(cell and set(cell) <= {"-", ":"} for cell in raw_cells)
+        if not is_separator:
             rows.append(cells)
         index += 1
-    widths = [60 * mm, 32 * mm, 32 * mm, 32 * mm]
-    table = Table(rows, colWidths=widths, repeatRows=1)
+    column_count = len(rows[0]) if rows else 4
+    total_width = 166 * mm
+    if column_count == 4:
+        widths = [58 * mm, 36 * mm, 36 * mm, 36 * mm]
+    elif column_count == 5:
+        widths = [54 * mm, 30 * mm, 28 * mm, 26 * mm, 28 * mm]
+    else:
+        widths = [total_width / column_count] * column_count
+    table = ResourceTable(rows, colWidths=widths, repeatRows=1, hAlign="LEFT")
     table.setStyle(
         TableStyle(
             [
@@ -269,6 +327,119 @@ def parse_table(lines, index):
     return table, index
 
 
+def paragraph(text, style_name):
+    return Paragraph(format_inline(text), STYLES[style_name])
+
+
+def section_heading(text, continued=False):
+    label = f"{text} continued" if continued else text
+    return Paragraph(escape(label), STYLES["section"])
+
+
+def continuation_heading(text):
+    return Paragraph(escape(f"{text} continued").upper(), STYLES["subsection"])
+
+
+def flowable_height(flowable, width=CONTENT_WIDTH):
+    if hasattr(flowable, "_content"):
+        return flowables_height(flowable._content)
+    _, height = flowable.wrap(width, CONTENT_HEIGHT)
+    return height
+
+
+def flowables_height(flowables):
+    return sum(flowable_height(flowable) for flowable in flowables)
+
+
+def note_block(label, line_count=2):
+    block_class = SignatureBlock if "signature" in label.lower() or "signed off" in label.lower() else NoteBlock
+    return block_class(
+        [
+            Paragraph(escape(label), STYLES["prompt"]),
+            WritingLines(count=line_count),
+        ]
+    )
+
+
+def line_to_flowables(line, in_principle=False):
+    if line.startswith("### "):
+        return [Paragraph(escape(line[4:].upper()), STYLES["subsection"])]
+    if line in {"-", "1.", "2.", "3."}:
+        prefix = "" if line == "-" else f"{line} "
+        return [
+            NoteBlock(
+                [
+                    Paragraph(escape(prefix), STYLES["prompt"]),
+                    WritingLines(count=1),
+                ]
+            ),
+            Spacer(1, 1.5 * mm),
+        ]
+    if line.startswith("- "):
+        return [CheckboxItem(line[2:], STYLES["checkbox"])]
+    if line.endswith(":") or line.endswith("?"):
+        line_count = 1 if line == "Score:" else 2
+        return [note_block(line, line_count), Spacer(1, 1.5 * mm)]
+
+    style = "principle" if in_principle else "body"
+    return [paragraph(line, style)]
+
+
+def chunk_large_section(heading, body_flowables):
+    chunks = []
+    current = [section_heading(heading)]
+    current_height = flowables_height(current)
+
+    for flowable in body_flowables:
+        height = flowable_height(flowable)
+        if (
+            len(current) > 1
+            and current_height + height > CONTINUATION_CHUNK_LIMIT
+        ):
+            chunks.append(current)
+            current = [continuation_heading(heading), flowable]
+            current_height = flowables_height(current)
+        else:
+            current.append(flowable)
+            current_height += height
+
+    if current:
+        chunks.append(current)
+
+    story = []
+    for chunk in chunks:
+        story.extend([CondPageBreak(min(flowables_height(chunk), SECTION_START_MINIMUM)), SectionBlock(chunk)])
+    return story
+
+
+def section_to_story(heading, body_flowables):
+    section = [section_heading(heading), *body_flowables]
+    section_height = flowables_height(section)
+    story = []
+
+    if heading in FORCED_PAGE_BREAK_BEFORE:
+        story.append(PageBreak())
+
+    if section_height <= MAJOR_SECTION_LIMIT:
+        story.extend([CondPageBreak(section_height), SectionBlock(section)])
+        return story
+
+    story.append(CondPageBreak(SECTION_START_MINIMUM))
+    story.extend(chunk_large_section(heading, body_flowables))
+    return story
+
+
+def format_inline(text):
+    escaped = escape(text)
+
+    def replace_link(match):
+        label = escape(match.group(1))
+        url = escape(match.group(2), {'"': "&quot;"})
+        return f'<a href="{url}" color="#8A6F22"><u>{label}</u></a>'
+
+    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", replace_link, escaped)
+
+
 def markdown_to_story(markdown):
     lines = markdown.splitlines()
     title = lines[0].removeprefix("# ").strip()
@@ -276,7 +447,16 @@ def markdown_to_story(markdown):
     start = next(index for index, line in enumerate(lines) if line.startswith("## "))
     story = [PageBreak()]
     index = start
+    current_heading = None
+    current_flowables = []
     in_principle = False
+
+    def flush_section():
+        nonlocal current_heading, current_flowables
+        if current_heading is not None:
+            story.extend(section_to_story(current_heading, current_flowables))
+        current_heading = None
+        current_flowables = []
 
     while index < len(lines):
         line = lines[index].strip()
@@ -284,42 +464,18 @@ def markdown_to_story(markdown):
             index += 1
             continue
         if line.startswith("## "):
-            heading = line[3:]
-            in_principle = "principle" in heading.lower()
-            story.append(Paragraph(escape(heading), STYLES["section"]))
-        elif line.startswith("### "):
-            story.append(Paragraph(escape(line[4:].upper()), STYLES["subsection"]))
+            flush_section()
+            current_heading = line[3:]
+            in_principle = "principle" in current_heading.lower()
         elif line.startswith("|"):
             table, index = parse_table(lines, index)
-            story.extend([Spacer(1, 2 * mm), table, Spacer(1, 4 * mm)])
+            current_flowables.extend([Spacer(1, 2 * mm), table, Spacer(1, 4 * mm)])
             continue
-        elif line in {"-", "1.", "2.", "3."}:
-            prefix = "" if line == "-" else f"{line} "
-            story.extend(
-                [
-                    Paragraph(prefix, STYLES["prompt"]),
-                    WritingLines(count=1),
-                    Spacer(1, 1.5 * mm),
-                ]
-            )
-        elif line.startswith("- "):
-            story.append(CheckboxItem(line[2:], STYLES["checkbox"]))
-        elif line.endswith(":") or line.endswith("?"):
-            line_count = 1 if line == "Score:" else 2
-            story.append(
-                KeepTogether(
-                    [
-                        Paragraph(escape(line), STYLES["prompt"]),
-                        WritingLines(count=line_count),
-                    ]
-                )
-            )
-            story.append(Spacer(1, 1.5 * mm))
         else:
-            style = STYLES["principle"] if in_principle else STYLES["body"]
-            story.append(Paragraph(escape(line), style))
+            current_flowables.extend(line_to_flowables(line, in_principle))
         index += 1
 
+    flush_section()
     return title, subtitle, story
 
 
