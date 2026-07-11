@@ -37,8 +37,8 @@ export async function generateMetadata({
   }
 
   return createPageMetadata({
-    title: article.title,
-    description: article.excerpt,
+    title: article.metaTitle ?? article.title,
+    description: article.metaDescription ?? article.excerpt,
     path: `/articles/${article.slug}`,
     type: "article",
     publishedTime: article.date,
@@ -94,9 +94,23 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <time dateTime={article.date}>{formattedDate}</time>
             <span>{article.readingTime}</span>
           </div>
+
+          {article.tags ? (
+            <div className="articleDetailTags" aria-label="Article tags">
+              {article.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          ) : null}
         </header>
 
         <div className="articleDetailBody">
+          {article.pullQuote ? (
+            <blockquote className="articlePullQuote">
+              <p>{article.pullQuote}</p>
+            </blockquote>
+          ) : null}
+
           {article.sections.map((section) => (
             <section className="articleDetailSection" key={section.heading}>
               <h2 className="section-title">{section.heading}</h2>
@@ -115,9 +129,65 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   ))}
                 </ul>
               ) : null}
+
+              {section.table ? (
+                <div className="articleDetailTableWrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        {section.table.headers.map((header) => (
+                          <th scope="col" key={header}>
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {section.table.rows.map((row, rowIndex) => (
+                        <tr key={`row-${rowIndex}`}>
+                          {row.map((cell, cellIndex) => (
+                            <td key={`${rowIndex}-${cellIndex}`}>{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : null}
+
+              {section.callout ? (
+                <div className="articleDetailCallout">
+                  <p>{section.callout}</p>
+                </div>
+              ) : null}
+
+              {section.quote ? (
+                <blockquote className="articleDetailQuote">
+                  <p>{section.quote}</p>
+                </blockquote>
+              ) : null}
             </section>
           ))}
         </div>
+
+        {article.relatedContent ? (
+          <section className="articleRelatedContent" aria-label="Related reading">
+            <p className="eyebrow">Related Reading</p>
+            <h2 className="section-title">Go deeper into the systems.</h2>
+            <div className="articleRelatedGrid">
+              {article.relatedContent.map((item) => (
+                <Link
+                  className="articleRelatedCard"
+                  href={item.href}
+                  key={item.href}
+                >
+                  <span>{item.title}</span>
+                  <p>{item.description}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="articleDetailCta" aria-label="Next steps">
           <p className="eyebrow">Keep Reading</p>

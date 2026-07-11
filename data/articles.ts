@@ -2,20 +2,364 @@ export type ArticleContentSection = {
   heading: string;
   body: string[];
   points?: string[];
+  quote?: string;
+  callout?: string;
+  table?: {
+    headers: string[];
+    rows: string[][];
+  };
+};
+
+export type ArticleRelatedContent = {
+  title: string;
+  href: string;
+  description: string;
 };
 
 export type Article = {
   slug: string;
   title: string;
   category: string;
+  tags?: string[];
   excerpt: string;
+  metaTitle?: string;
+  metaDescription?: string;
   date: string;
   readingTime: string;
   author: string;
+  pullQuote?: string;
   sections: ArticleContentSection[];
+  relatedContent?: ArticleRelatedContent[];
 };
 
+function countWordsInValue(value: unknown): number {
+  if (typeof value === "string") {
+    return value.trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  if (Array.isArray(value)) {
+    return value.reduce((count, item) => count + countWordsInValue(item), 0);
+  }
+
+  if (value && typeof value === "object") {
+    return Object.values(value).reduce(
+      (count, item) => count + countWordsInValue(item),
+      0,
+    );
+  }
+
+  return 0;
+}
+
+function estimateReadingTime(...content: unknown[]) {
+  const wordCount = countWordsInValue(content);
+  return `${Math.max(1, Math.ceil(wordCount / 220))} min read`;
+}
+
+const hiddenCostOfComplexitySections: ArticleContentSection[] = [
+  {
+    heading: "Every struggling business I’ve worked with had the same instinct.",
+    body: [
+      "Sales slowed.",
+      "Customers complained.",
+      "Projects slipped behind schedule.",
+      "The team looked overwhelmed.",
+      "So the business reacted in the only way it knew how.",
+      "Hire another person.",
+      "Buy another software subscription.",
+      "Schedule another weekly meeting.",
+      "Create another report.",
+      "Add another approval.",
+      "Introduce another KPI.",
+      "On the surface, these changes feel responsible. Leaders want to demonstrate they’re taking action, and adding something is visible. It gives the impression that the problem is being managed.",
+      "But after fifteen years working across hospitality, logistics and operations, I’ve noticed something surprising.",
+      "The businesses that become difficult to run rarely suffer because they’re missing something.",
+      "They suffer because they’ve accumulated too much.",
+      "Complexity rarely arrives overnight. It grows quietly, one “good idea” at a time, until the business becomes harder to operate than anyone remembers.",
+    ],
+  },
+  {
+    heading: "Complexity feels productive",
+    body: [
+      "Adding things is psychologically satisfying.",
+      "Buying new software feels like innovation.",
+      "Creating another report feels like accountability.",
+      "Holding another meeting feels collaborative.",
+      "Adding another approval feels safer.",
+      "Every addition has a logical explanation.",
+      "The problem is that businesses rarely remove anything.",
+      "Instead of replacing an old process, they layer a new one on top.",
+      "Instead of simplifying a workflow, they create an exception.",
+      "Instead of clarifying ownership, they involve another department.",
+      "Nothing seems unreasonable on its own.",
+      "But together, they create friction.",
+    ],
+  },
+  {
+    heading: "Every extra step has a cost",
+    body: [
+      "Imagine a restaurant opening procedure.",
+      "Originally it consisted of ten simple tasks.",
+      "Unlock the venue.",
+      "Turn on equipment.",
+      "Prepare the dining room.",
+      "Complete food safety checks.",
+      "Brief the team.",
+      "Open the doors.",
+      "Over time, new requirements are added.",
+      "A second checklist.",
+      "A third sign-off.",
+      "An email confirmation.",
+      "A photo upload.",
+      "A daily report.",
+      "A manager approval.",
+      "Eventually the opening process becomes forty steps long.",
+      "Ironically, the more complicated the checklist becomes, the less likely anyone is to complete it properly.",
+    ],
+  },
+  {
+    heading: "Complexity compounds quietly",
+    body: [
+      "One of the most dangerous characteristics of complexity is that nobody notices it happening.",
+      "Each change seems reasonable.",
+      "Each additional report has a purpose.",
+      "Each meeting addresses a genuine issue.",
+      "Each spreadsheet answers a legitimate question.",
+      "The problem only becomes obvious when someone new joins the business.",
+      "They ask simple questions like:",
+      "“Why do we enter the same information into three systems?”",
+      "Nobody knows.",
+      "“Why do four people approve this purchase?”",
+      "Nobody remembers.",
+      "“Who actually owns this process?”",
+      "Silence.",
+      "When experienced employees can no longer explain why something exists, complexity has become institutional.",
+    ],
+  },
+  {
+    heading: "The hidden costs nobody measures",
+    body: [
+      "Businesses love measuring visible costs.",
+      "Labour.",
+      "Rent.",
+      "Utilities.",
+      "Software subscriptions.",
+    ],
+    callout:
+      "But complexity creates invisible costs that rarely appear on a financial statement.",
+  },
+  {
+    heading: "Decision fatigue",
+    body: [
+      "Managers spend their day making small decisions that should never have reached them.",
+      "Every unnecessary approval steals attention from important work.",
+    ],
+  },
+  {
+    heading: "Longer onboarding",
+    body: [
+      "New employees don’t struggle because the work is difficult.",
+      "They struggle because every task has three exceptions, two workarounds and an unwritten rule.",
+      "The system exists mostly inside experienced people’s heads.",
+    ],
+  },
+  {
+    heading: "Slower execution",
+    body: [
+      "When everything requires another conversation, another signature or another meeting, nothing moves quickly.",
+      "Speed isn’t created by rushing.",
+      "It’s created by removing friction.",
+    ],
+  },
+  {
+    heading: "More mistakes",
+    body: [
+      "Ironically, complicated systems produce more errors.",
+      "People skip steps.",
+      "Interpret procedures differently.",
+      "Forget which version is current.",
+      "Take shortcuts.",
+      "Not because they’re careless.",
+      "Because the system asks too much.",
+    ],
+  },
+  {
+    heading: "Burnout",
+    body: [
+      "Managers often believe they’re overwhelmed because they have too much work.",
+      "In reality, they’re overwhelmed because they’re managing too much complexity.",
+      "Those aren’t the same problem.",
+    ],
+  },
+  {
+    heading: "Simple businesses aren’t simplistic",
+    body: [
+      "When I talk about simplicity, I don’t mean cutting corners.",
+      "Simple businesses usually have high standards.",
+      "Their systems are well designed.",
+      "Their expectations are clear.",
+      "Their documentation is consistent.",
+      "The difference is that everything has a reason to exist.",
+      "If a report isn’t used, it’s removed.",
+      "If a meeting creates no value, it’s cancelled.",
+      "If software duplicates another system, it’s replaced.",
+      "Simplicity isn’t about doing less.",
+      "It’s about doing only what matters.",
+    ],
+  },
+  {
+    heading: "Questions every leader should ask",
+    body: [
+      "Every quarter, I think leaders should perform a simplicity review.",
+      "Ask questions like:",
+    ],
+    points: [
+      "Which report does nobody read?",
+      "Which meeting could become a five-minute update?",
+      "Which approval exists because we don’t trust the process?",
+      "Which software duplicates another tool?",
+      "Which KPI influences behaviour?",
+      "Which process creates more work than value?",
+      "What frustrates new employees most?",
+      "What task would disappear if we redesigned the process from scratch?",
+    ],
+    callout:
+      "Most businesses already know where the friction is. They simply haven’t given themselves permission to remove it.",
+  },
+  {
+    heading: "A simplicity audit",
+    body: [
+      "One exercise I recommend is remarkably straightforward.",
+      "List your ten most common operational processes.",
+      "For each one, answer:",
+    ],
+    table: {
+      headers: [
+        "Process",
+        "Purpose",
+        "Owner",
+        "Complexity (1–10)",
+        "Can it be simplified?",
+        "First action",
+      ],
+      rows: [["", "", "", "", "", ""]],
+    },
+    callout:
+      "Then ask one final question. “If we were designing this today, would we build it this way?” If the answer is no, you’ve found an opportunity.",
+  },
+  {
+    heading: "Four businesses, one lesson",
+    body: [
+      "A restaurant reduced its opening checklist by removing duplicated tasks. Staff completed it more consistently, and managers spent less time chasing missed items.",
+      "A warehouse replaced four separate daily reports with a single dashboard. Meetings became shorter because everyone was looking at the same information.",
+      "A professional services firm removed three approval steps for routine work. Turnaround times improved without increasing errors because clear limits replaced unnecessary oversight.",
+      "A small retailer stopped tracking twenty different KPIs and focused on five that actually influenced decisions. Weekly management meetings became conversations about improvement instead of presentations of numbers.",
+      "Different industries.",
+      "Same principle.",
+    ],
+    quote: "Removing complexity creates capacity.",
+  },
+  {
+    heading: "Complexity is often disguised as professionalism",
+    body: [
+      "I’ve seen organisations proudly display enormous procedure manuals.",
+      "Hundreds of pages.",
+      "Countless forms.",
+      "Multiple approval layers.",
+      "At first glance it looks impressive.",
+      "Until you ask one simple question.",
+      "“Does anybody actually use this?”",
+      "Professionalism isn’t measured by how many documents you produce.",
+      "It’s measured by how consistently your business delivers results.",
+    ],
+  },
+  {
+    heading: "The best systems disappear",
+    body: [
+      "The most effective operating systems are almost invisible.",
+      "Employees know what good looks like.",
+      "Managers know what requires attention.",
+      "Customers receive a consistent experience.",
+      "Nobody spends time wondering which spreadsheet to update or who should approve the next step.",
+      "The system quietly supports the work instead of becoming the work.",
+      "That’s the goal.",
+    ],
+  },
+  {
+    heading: "One process this week",
+    body: [
+      "You don’t need a company-wide transformation to benefit from simplicity.",
+      "Start with one process.",
+      "Choose the one that causes the most frustration.",
+      "Map it.",
+      "Question every step.",
+      "Remove anything that no longer creates value.",
+      "Standardise what remains.",
+      "Then repeat.",
+      "Over time, businesses don’t become exceptional because they add more.",
+      "They become exceptional because they become easier to run.",
+    ],
+  },
+  {
+    heading: "Final thought",
+    body: [
+      "Complexity feels like progress because we’re adding.",
+      "Real progress usually comes from removing.",
+      "Businesses rarely fail because they were too simple.",
+      "They struggle because complexity quietly became the operating system.",
+      "If you improve just one process this week by making it simpler, you’ll probably create more value than adding another meeting, another report or another piece of software ever could.",
+    ],
+  },
+];
+
 export const articles: Article[] = [
+  {
+    slug: "the-hidden-cost-of-complexity",
+    title: "The Hidden Cost of Complexity",
+    category: "Business",
+    tags: ["Business", "Operations", "Leadership", "Productivity"],
+    excerpt:
+      "Why most businesses don’t need more people, more software or more meetings—they need fewer moving parts.",
+    metaTitle: "The Hidden Cost of Complexity",
+    metaDescription:
+      "Why most businesses don’t need more people, more software or more meetings—they need fewer moving parts.",
+    date: "2026-07-11",
+    readingTime: estimateReadingTime(
+      "The Hidden Cost of Complexity",
+      "Why most businesses don’t need more people, more software or more meetings—they need fewer moving parts.",
+      "Complexity feels like progress because we’re adding. Real progress often comes from removing.",
+      hiddenCostOfComplexitySections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "Complexity feels like progress because we’re adding. Real progress often comes from removing.",
+    sections: hiddenCostOfComplexitySections,
+    relatedContent: [
+      {
+        title: "Scaling Hospitality",
+        href: "/books/scaling-hospitality",
+        description: "Build systems that make businesses easier to operate.",
+      },
+      {
+        title: "AI Productivity Toolkit",
+        href: "/resources/ai-productivity-toolkit",
+        description:
+          "Learn where AI can remove repetitive work without removing accountability.",
+      },
+      {
+        title: "ChatGPT Prompt Pack for Managers",
+        href: "/resources/chatgpt-prompt-pack-for-managers",
+        description:
+          "Practical prompts to improve planning, communication and decision-making.",
+      },
+      {
+        title: "Business Health Scorecard",
+        href: "/resources/business-health-scorecard",
+        description:
+          "Assess the operational health of your business in under 30 minutes.",
+      },
+    ],
+  },
   {
     slug: "why-better-systems-build-better-businesses",
     title: "Why Better Systems Build Better Businesses",

@@ -179,7 +179,7 @@ export function articleJsonLd(article: Article) {
     "@type": "Article",
     "@id": `${absoluteUrl(`/articles/${article.slug}`)}#article`,
     headline: article.title,
-    description: article.excerpt,
+    description: article.metaDescription ?? article.excerpt,
     url: absoluteUrl(`/articles/${article.slug}`),
     datePublished: article.date,
     dateModified: article.date,
@@ -191,6 +191,7 @@ export function articleJsonLd(article: Article) {
     },
     image: absoluteUrl(ogImagePath),
     articleSection: article.category,
+    keywords: article.tags,
   };
 }
 
