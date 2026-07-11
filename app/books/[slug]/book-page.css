@@ -170,6 +170,7 @@
 .bookDetailCreamSection,
 .bookDetailDarkSection,
 .bookDetailFaq,
+.bookDetailRelatedResources,
 .bookDetailFinalCta {
   padding: 110px 72px;
 }
@@ -181,6 +182,7 @@
 
 .bookDetailDarkSection,
 .bookDetailFaq,
+.bookDetailRelatedResources,
 .bookDetailFinalCta {
   background: #090909;
   color: #f4efe6;
@@ -251,6 +253,80 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.bookDetailSeriesGrid,
+.bookDetailResourceGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.bookDetailSeriesGrid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.bookDetailSeriesItem,
+.bookDetailResourceLink {
+  border-radius: 8px;
+  border: 1px solid rgba(244, 239, 230, 0.1);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    #111;
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.bookDetailSeriesItem {
+  min-height: 310px;
+  padding: 28px;
+}
+
+.bookDetailSeriesItem:hover,
+.bookDetailResourceLink:hover,
+.bookDetailResourceLink:focus-visible {
+  border-color: rgba(202, 166, 76, 0.34);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  transform: translateY(-3px);
+}
+
+.bookDetailSeriesItem h3 {
+  --section-title-color: var(--color-cream-bright);
+  --section-title-size: 1.85rem;
+  --section-title-line: 1.05;
+  margin-top: 22px;
+}
+
+.bookDetailSeriesItem .body {
+  --body-color: #cfc6b8;
+  --body-line: 1.68;
+  margin-top: 18px;
+}
+
+.bookDetailSeriesItem .bookDetailSeriesSubtitle {
+  --body-color: #caa64c;
+  margin-top: 10px;
+}
+
+.bookDetailResourceGrid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bookDetailResourceLink {
+  min-height: 220px;
+  padding: 30px;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bookDetailResourceLink strong {
+  --section-title-color: var(--color-cream-bright);
+  --section-title-size: 1.9rem;
+  --section-title-line: 1.12;
 }
 
 .bookDetailLearnItem {
@@ -330,7 +406,9 @@
 
   .bookDetailCredibility,
   .bookDetailAudienceGrid,
-  .bookDetailLearnGrid {
+  .bookDetailLearnGrid,
+  .bookDetailSeriesGrid,
+  .bookDetailResourceGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -344,6 +422,7 @@
   .bookDetailCreamSection,
   .bookDetailDarkSection,
   .bookDetailFaq,
+  .bookDetailRelatedResources,
   .bookDetailFinalCta {
     padding-left: 24px;
     padding-right: 24px;
@@ -391,6 +470,7 @@
   .bookDetailCreamSection,
   .bookDetailDarkSection,
   .bookDetailFaq,
+  .bookDetailRelatedResources,
   .bookDetailFinalCta {
     padding-top: 78px;
     padding-bottom: 78px;
@@ -398,12 +478,16 @@
 
   .bookDetailAudienceGrid,
   .bookDetailLearnGrid,
+  .bookDetailSeriesGrid,
+  .bookDetailResourceGrid,
   .bookDetailFaqList {
     grid-template-columns: 1fr;
   }
 
   .bookDetailAudienceItem,
-  .bookDetailLearnItem {
+  .bookDetailLearnItem,
+  .bookDetailSeriesItem,
+  .bookDetailResourceLink {
     min-height: auto;
   }
 }

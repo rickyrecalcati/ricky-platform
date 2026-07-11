@@ -9,8 +9,8 @@ type BookCardProps = {
 export default function BookCard({ book }: BookCardProps) {
   const formatLabel = book.series && book.booksInSeries
     ? `${book.booksInSeries} e-book series`
-    : "Standalone Novel";
-  const ctaLabel = book.series ? "Explore Series" : "Learn More";
+    : book.page.heroEyebrow;
+  const ctaLabel = book.cardCtaLabel ?? (book.series ? "Explore Series" : "Learn More");
 
   return (
     <Link

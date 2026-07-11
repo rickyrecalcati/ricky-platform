@@ -248,7 +248,9 @@ export const resources: Resource[] = [
     slug: "chatgpt-prompt-pack-for-managers",
     title: "ChatGPT Prompt Pack for Managers",
     category: "AI",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/chatgpt-prompt-pack-for-managers.pdf",
     description:
       "A curated collection of prompts for meetings, planning, reporting and daily management.",
     heroDescription:
@@ -276,7 +278,9 @@ export const resources: Resource[] = [
     slug: "ai-meeting-assistant",
     title: "AI Meeting Assistant",
     category: "AI",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/ai-meeting-assistant.pdf",
     description:
       "Use AI to capture meetings, identify actions and improve accountability.",
     heroDescription:
@@ -304,7 +308,9 @@ export const resources: Resource[] = [
     slug: "ai-productivity-toolkit",
     title: "AI Productivity Toolkit",
     category: "AI",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/ai-productivity-toolkit.pdf",
     description:
       "Practical AI workflows that save time without adding complexity.",
     heroDescription:

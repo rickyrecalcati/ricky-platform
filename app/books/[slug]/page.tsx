@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer";
 import Newsletter from "../../../components/Newsletter";
+import BookSeriesSection from "../../../components/BookSeriesSection";
 import TrackedAmazonLink from "../../../components/TrackedAmazonLink";
 import { books, getBookBySlug } from "../../../data/books";
 import {
@@ -130,6 +132,14 @@ export default async function BookPage({ params }: BookPageProps) {
         <p className="body-large">{page.whyBody}</p>
       </section>
 
+      {page.seriesBooks ? (
+        <BookSeriesSection
+          books={page.seriesBooks}
+          eyebrow={page.seriesSectionEyebrow ?? "The Five Books"}
+          title={page.seriesSectionTitle ?? "A practical path through the series."}
+        />
+      ) : null}
+
       <section className="bookDetailDarkSection">
         <div className="bookDetailSectionIntro">
           <p className="bookDetailSectionLabel eyebrow">Who This Book Is For</p>
@@ -160,6 +170,24 @@ export default async function BookPage({ params }: BookPageProps) {
           ))}
         </div>
       </section>
+
+      {page.relatedResources ? (
+        <section className="bookDetailRelatedResources">
+          <div className="bookDetailSectionIntro">
+            <p className="bookDetailSectionLabel eyebrow">Related Resources</p>
+            <h2 className="section-title">Free tools to put the ideas to work.</h2>
+          </div>
+
+          <div className="bookDetailResourceGrid">
+            {page.relatedResources.map((resource) => (
+              <Link className="bookDetailResourceLink" href={resource.href} key={resource.href}>
+                <span className="eyebrow">Free Resource</span>
+                <strong className="section-title">{resource.title}</strong>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="bookDetailFaq">
         <div className="bookDetailSectionIntro">
