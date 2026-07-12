@@ -208,5 +208,5 @@ Also recommended:
 - The Second Act series
 - No Robots Required series
 - Scaling Hospitality series
-- Better Decisions Compound Quietly
+- Why Better Systems Build Better Businesses
 - Your Life Is the Sum of Small Decisions

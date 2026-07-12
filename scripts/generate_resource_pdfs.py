@@ -55,6 +55,9 @@ RESOURCES = (
     ("annual-review-workbook", "Annual Review Workbook"),
     ("decision-journal", "Decision Journal"),
     ("reading-tracker", "Reading Tracker"),
+    ("investment-thesis-template", "Investment Thesis Template"),
+    ("company-research-worksheet", "Company Research Worksheet"),
+    ("portfolio-review-template", "Portfolio Review Template"),
 )
 
 WORKBOOK_FIELD_LABELS = {
@@ -729,6 +732,8 @@ def line_to_flowables(line, in_principle=False):
         return [Paragraph(escape(line[4:].upper()), STYLES["subsection"])]
     if line.startswith("☐"):
         return [CheckboxItem(line[1:].strip(), STYLES["checkbox"]), Spacer(1, 1.5 * mm)]
+    if line.startswith("□"):
+        return [CheckboxItem(line[1:].strip(), STYLES["checkbox"]), Spacer(1, 1.5 * mm)]
     if line.endswith("□"):
         return [CheckboxItem(line[:-1].strip(), STYLES["checkbox"]), Spacer(1, 1.5 * mm)]
     if line in {"-", "1.", "2.", "3."}:
@@ -1220,8 +1225,503 @@ def reading_tracker_story(markdown):
             paragraph("[The Second Act series](https://www.rickyrecalcati.com/books/the-second-act)", "body"),
             paragraph("[No Robots Required series](https://www.rickyrecalcati.com/books/no-robots-required)", "body"),
             paragraph("[Scaling Hospitality series](https://www.rickyrecalcati.com/books/scaling-hospitality)", "body"),
-            paragraph("[Better Decisions Compound Quietly](https://www.rickyrecalcati.com/articles/better-decisions-compound-quietly)", "body"),
+            paragraph("[Why Better Systems Build Better Businesses](https://www.rickyrecalcati.com/articles/why-better-systems-build-better-businesses)", "body"),
             paragraph("[Your Life Is the Sum of Small Decisions](https://www.rickyrecalcati.com/articles/your-life-is-the-sum-of-small-decisions)", "body"),
+        )
+    )
+
+    return title, subtitle, story
+
+
+def investment_thesis_story(markdown):
+    lines = markdown.splitlines()
+    title = lines[0].removeprefix("# ").strip()
+    subtitle = next(line.strip() for line in lines[1:] if line.strip())
+
+    story = []
+    story.extend(
+        story_page(
+            section_heading("Before You Invest"),
+            paragraph(
+                "The biggest investing mistakes usually happen before money is invested—not after.",
+                "body",
+            ),
+            paragraph(
+                "This worksheet is designed to slow your thinking down. It forces you to explain your investment before emotion takes over.",
+                "body",
+            ),
+            paragraph("Good investors don’t just buy good companies.", "body"),
+            paragraph(
+                "They buy them for the right reasons, at the right price, with the right expectations.",
+                "body",
+            ),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Investment Summary"),
+            note_block("Company:", 1),
+            note_block("Ticker:", 1),
+            note_block("Date:", 1),
+            note_block("Current Price:", 1),
+            note_block("Target Allocation:", 1),
+            note_block("Expected Holding Period:", 1),
+            paragraph("Investment Type:", "body"),
+            CheckboxItem("Growth", STYLES["checkbox"]),
+            CheckboxItem("Value", STYLES["checkbox"]),
+            CheckboxItem("Income", STYLES["checkbox"]),
+            CheckboxItem("ETF", STYLES["checkbox"]),
+            CheckboxItem("Crypto", STYLES["checkbox"]),
+            CheckboxItem("Other", STYLES["checkbox"]),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Why This Investment?"),
+            paragraph(
+                "In one paragraph, explain why you are interested in this investment.",
+                "body",
+            ),
+            note_block("What opportunity does the market appear to be missing?", 6),
+            section_heading("Investment Thesis"),
+            paragraph("Complete the sentence:", "body"),
+            note_block("“I believe this investment will outperform because…”", 6),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Competitive Advantage"),
+            paragraph(
+                "Does the business have an advantage competitors struggle to copy?",
+                "body",
+            ),
+            CheckboxItem("Brand", STYLES["checkbox"]),
+            CheckboxItem("Network Effects", STYLES["checkbox"]),
+            CheckboxItem("Cost Advantage", STYLES["checkbox"]),
+            CheckboxItem("Switching Costs", STYLES["checkbox"]),
+            CheckboxItem("Scale", STYLES["checkbox"]),
+            CheckboxItem("Intellectual Property", STYLES["checkbox"]),
+            CheckboxItem("None", STYLES["checkbox"]),
+            note_block("Notes", 3),
+            section_heading("Financial Quality"),
+            note_block("Revenue Growth", 1),
+            note_block("Operating Margin", 1),
+            note_block("Free Cash Flow", 1),
+            note_block("Debt Level", 1),
+            paragraph("Low / Medium / High", "body"),
+            note_block("Return on Equity", 1),
+            note_block("Comments", 2),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Valuation"),
+            note_block("Current Price", 1),
+            note_block("Estimated Fair Value", 1),
+            note_block("Margin of Safety", 1),
+            paragraph("Would you still buy if it increased 20%?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            note_block("Why?", 3),
+            section_heading("Risks"),
+            note_block("What could make this investment fail?", 2),
+            note_block("Risk 1", 1),
+            note_block("Risk 2", 1),
+            note_block("Risk 3", 1),
+            note_block("Probability", 1),
+            paragraph("Low / Medium / High", "body"),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Position Size"),
+            paragraph("How much of your portfolio should this represent?", "body"),
+            note_block("Target %", 1),
+            note_block("Maximum %", 1),
+            note_block("Why?", 3),
+            section_heading("What Would Make You Sell?"),
+            paragraph("Choose objective reasons.", "body"),
+            CheckboxItem("Thesis broken", STYLES["checkbox"]),
+            CheckboxItem("Better opportunity", STYLES["checkbox"]),
+            CheckboxItem("Overvalued", STYLES["checkbox"]),
+            CheckboxItem("Management deteriorates", STYLES["checkbox"]),
+            CheckboxItem("Financial performance weakens", STYLES["checkbox"]),
+            CheckboxItem("Risk changes", STYLES["checkbox"]),
+            note_block("Other", 2),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Decision"),
+            paragraph("Will you invest?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            CheckboxItem("Wait", STYLES["checkbox"]),
+            note_block("Reason", 4),
+            section_heading("Review"),
+            note_block("Review Date", 1),
+            note_block("What has changed?", 3),
+            paragraph("Is the original thesis still valid?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            paragraph("Would you buy again today?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            note_block("Notes", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Final Reminder"),
+            paragraph("A good investment is not simply a good company.", "body"),
+            paragraph(
+                "It is a good company, bought at a sensible price, for reasons that remain true over time.",
+                "body",
+            ),
+            paragraph("Write your thesis before you invest.", "body"),
+            paragraph("Read it again before you sell.", "body"),
+        )
+    )
+
+    return title, subtitle, story
+
+
+def company_research_story(markdown):
+    lines = markdown.splitlines()
+    title = lines[0].removeprefix("# ").strip()
+    subtitle = next(line.strip() for line in lines[1:] if line.strip())
+
+    story = []
+    story.extend(
+        story_page(
+            section_heading("Understand the Business Before You Buy"),
+            paragraph("The best investors don’t start with the stock price.", "body"),
+            paragraph("They start by understanding the business.", "body"),
+            paragraph(
+                "This worksheet helps you research a company consistently so every investment is judged using the same framework.",
+                "body",
+            ),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Company Overview"),
+            note_block("Company", 1),
+            note_block("Ticker", 1),
+            note_block("Industry", 1),
+            note_block("Market Cap", 1),
+            note_block("Date Researched", 1),
+            section_heading("What Does This Business Do?"),
+            note_block("Describe the company’s products or services.", 3),
+            note_block("Who are its customers?", 2),
+            note_block("How does it make money?", 2),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Business Quality"),
+            paragraph("Can you explain the business to someone in one minute?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            paragraph("Does it have recurring revenue?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            paragraph("Does it benefit from long-term trends?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            note_block("Comments", 3),
+            section_heading("Competitive Advantage"),
+            paragraph("Does the company have a durable moat?", "body"),
+            CheckboxItem("Strong Brand", STYLES["checkbox"]),
+            CheckboxItem("Network Effects", STYLES["checkbox"]),
+            CheckboxItem("Cost Leadership", STYLES["checkbox"]),
+            CheckboxItem("High Switching Costs", STYLES["checkbox"]),
+            CheckboxItem("Intellectual Property", STYLES["checkbox"]),
+            CheckboxItem("Scale Advantage", STYLES["checkbox"]),
+            note_block("Evidence", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Management"),
+            note_block("CEO", 1),
+            note_block("Years in Role", 1),
+            paragraph("Founder-led?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            paragraph("Does management allocate capital well?", "body"),
+            CheckboxItem("Excellent", STYLES["checkbox"]),
+            CheckboxItem("Good", STYLES["checkbox"]),
+            CheckboxItem("Average", STYLES["checkbox"]),
+            CheckboxItem("Poor", STYLES["checkbox"]),
+            note_block("Notes", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Financial Snapshot"),
+            note_block("Revenue Growth", 1),
+            note_block("Operating Margin", 1),
+            note_block("Free Cash Flow", 1),
+            note_block("Debt", 1),
+            paragraph("Low / Medium / High", "body"),
+            note_block("Return on Equity", 1),
+            note_block("Gross Margin", 1),
+            note_block("Comments", 2),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Growth Drivers"),
+            note_block(
+                "What could make this business significantly larger over the next five years?",
+                2,
+            ),
+            note_block("Driver 1", 1),
+            note_block("Driver 2", 1),
+            note_block("Driver 3", 1),
+            section_heading("Risks"),
+            paragraph("What could permanently damage the business?", "body"),
+            paragraph("Competition", "body"),
+            CheckboxItem("Low", STYLES["checkbox"]),
+            CheckboxItem("Medium", STYLES["checkbox"]),
+            CheckboxItem("High", STYLES["checkbox"]),
+            paragraph("Regulation", "body"),
+            CheckboxItem("Low", STYLES["checkbox"]),
+            CheckboxItem("Medium", STYLES["checkbox"]),
+            CheckboxItem("High", STYLES["checkbox"]),
+            paragraph("Technology Disruption", "body"),
+            CheckboxItem("Low", STYLES["checkbox"]),
+            CheckboxItem("Medium", STYLES["checkbox"]),
+            CheckboxItem("High", STYLES["checkbox"]),
+        )
+    )
+
+    story.extend(
+        story_page(
+            continuation_heading("Risks"),
+            paragraph("Execution Risk", "body"),
+            CheckboxItem("Low", STYLES["checkbox"]),
+            CheckboxItem("Medium", STYLES["checkbox"]),
+            CheckboxItem("High", STYLES["checkbox"]),
+            note_block("Other", 2),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Valuation"),
+            note_block("Current Price", 1),
+            note_block("Estimated Fair Value", 1),
+            paragraph("Undervalued?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            paragraph("Unsure", "body"),
+            CheckboxItem("", STYLES["checkbox"]),
+            note_block("Notes", 3),
+            section_heading("Overall Rating"),
+            paragraph("Business Quality     ★★★★★", "body"),
+            paragraph("Management     ★★★★★", "body"),
+            paragraph("Financial Strength     ★★★★★", "body"),
+            paragraph("Competitive Advantage     ★★★★★", "body"),
+            paragraph("Long-Term Potential     ★★★★★", "body"),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Final Decision"),
+            paragraph("Would you buy today?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("Watchlist", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            note_block("Why?", 4),
+            section_heading("Next Review Date"),
+            WritingLines(count=2),
+            section_heading("Final Reminder"),
+            paragraph("A stock is only a small piece of a business.", "body"),
+            paragraph("Study the business first.", "body"),
+            paragraph("The share price comes second.", "body"),
+        )
+    )
+
+    return title, subtitle, story
+
+
+def portfolio_review_story(markdown):
+    lines = markdown.splitlines()
+    title = lines[0].removeprefix("# ").strip()
+    subtitle = next(line.strip() for line in lines[1:] if line.strip())
+
+    story = []
+    story.extend(
+        story_page(
+            section_heading("Your Portfolio Deserves a Performance Review"),
+            paragraph("The best investors don’t just review stocks—they review their decisions.", "body"),
+            paragraph(
+                "Use this worksheet every quarter to evaluate your portfolio objectively, identify mistakes, and ensure every holding still deserves its place.",
+                "body",
+            ),
+            paragraph(
+                "Small improvements, repeated consistently, compound into exceptional long-term results.",
+                "body",
+            ),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Portfolio Snapshot"),
+            note_block("Review Date", 1),
+            note_block("Portfolio Value", 1),
+            note_block("Cash Allocation", 1),
+            note_block("Number of Holdings", 1),
+            note_block("Benchmark", 1),
+        )
+    )
+
+    allocation_table = ResourceTable(
+        [
+            [
+                Paragraph("Assset", STYLES["table"]),
+                Paragraph("Portfolio %", STYLES["table"]),
+                Paragraph("Target %", STYLES["table"]),
+            ],
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ],
+        colWidths=[82 * mm, 42 * mm, 42 * mm],
+        hAlign="LEFT",
+        repeatRows=1,
+    )
+    allocation_table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), BLACK),
+                ("TEXTCOLOR", (0, 0), (-1, 0), CREAM),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("GRID", (0, 0), (-1, -1), 0.5, RULE),
+                ("BACKGROUND", (0, 1), (-1, -1), colors.white),
+                ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                ("TOPPADDING", (0, 0), (-1, -1), 5 * mm),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5 * mm),
+                ("LEFTPADDING", (0, 0), (-1, -1), 3 * mm),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 3 * mm),
+            ]
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Current Allocation"),
+            allocation_table,
+            Spacer(1, 5 * mm),
+            section_heading("Performance Review"),
+            note_block("Portfolio Return", 1),
+            note_block("Benchmark Return", 1),
+            note_block("Difference", 1),
+            note_block("Am I outperforming because of skill or luck?", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Thesis Review"),
+            paragraph("For every major holding ask:", "body"),
+            paragraph("Does the original investment thesis still hold?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("Partially", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            note_block("Has anything fundamentally changed?", 3),
+            paragraph("Would I buy this investment again today?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Portfolio Risks"),
+            paragraph("Am I overexposed to:", "body"),
+            CheckboxItem("One company", STYLES["checkbox"]),
+            CheckboxItem("One sector", STYLES["checkbox"]),
+            CheckboxItem("One country", STYLES["checkbox"]),
+            CheckboxItem("One theme", STYLES["checkbox"]),
+            CheckboxItem("One currency", STYLES["checkbox"]),
+            note_block("Comments", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Biggest Winners"),
+            note_block("Why did they perform well?", 3),
+            paragraph("Did I expect this outcome?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            section_heading("Biggest Losers"),
+            note_block("Why did they underperform?", 3),
+            paragraph("Is the original thesis broken?", "body"),
+            CheckboxItem("Yes", STYLES["checkbox"]),
+            CheckboxItem("No", STYLES["checkbox"]),
+            paragraph("Unsure", "body"),
+            CheckboxItem("", STYLES["checkbox"]),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Mistakes This Quarter"),
+            note_block("What investing mistakes did I make?", 4),
+            note_block("What lessons will I carry forward?", 4),
+            section_heading("Opportunities"),
+            note_block("Companies to research next", 3),
+            note_block("Ideas worth monitoring", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Action Plan"),
+            CheckboxItem("Increase a position", STYLES["checkbox"]),
+            CheckboxItem("Reduce a position", STYLES["checkbox"]),
+            CheckboxItem("Sell a holding", STYLES["checkbox"]),
+            CheckboxItem("Add to watchlist", STYLES["checkbox"]),
+            CheckboxItem("Continue holding", STYLES["checkbox"]),
+            note_block("Notes", 4),
+            section_heading("Next Review"),
+            note_block("Next Review Date", 1),
+            note_block("Top priorities before then", 3),
+        )
+    )
+
+    story.extend(
+        story_page(
+            section_heading("Final Reminder"),
+            paragraph("The goal is not to own more stocks.", "body"),
+            paragraph(
+                "The goal is to own better businesses with greater conviction.",
+                "body",
+            ),
+            paragraph(
+                "Review your portfolio with the same discipline you used when you first invested.",
+                "body",
+            ),
         )
     )
 
@@ -1240,6 +1740,12 @@ def generate_resource(slug, expected_title):
         title, subtitle, story = decision_journal_story(markdown)
     elif slug == "reading-tracker":
         title, subtitle, story = reading_tracker_story(markdown)
+    elif slug == "investment-thesis-template":
+        title, subtitle, story = investment_thesis_story(markdown)
+    elif slug == "company-research-worksheet":
+        title, subtitle, story = company_research_story(markdown)
+    elif slug == "portfolio-review-template":
+        title, subtitle, story = portfolio_review_story(markdown)
     else:
         title, subtitle, story = markdown_to_story(markdown)
     if title != expected_title:

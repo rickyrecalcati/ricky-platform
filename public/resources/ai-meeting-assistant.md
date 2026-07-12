@@ -120,7 +120,7 @@ Next review date:
 ## Continue Exploring
 [Scaling Hospitality](https://www.rickyrecalcati.com/books/scaling-hospitality)
 
-[Better Decisions Compound Quietly](https://www.rickyrecalcati.com/articles/better-decisions-compound-quietly)
+[Why Better Systems Build Better Businesses](https://www.rickyrecalcati.com/articles/why-better-systems-build-better-businesses)
 
 [Why Better Systems Build Better Businesses](https://www.rickyrecalcati.com/articles/why-better-systems-build-better-businesses)
 

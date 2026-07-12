@@ -146,7 +146,7 @@ Incoming manager signature:
 
 [The System Is the Service](https://www.rickyrecalcati.com/articles/the-system-is-the-service)
 
-[Better Decisions Compound Quietly](https://www.rickyrecalcati.com/articles/better-decisions-compound-quietly)
+[Why Better Systems Build Better Businesses](https://www.rickyrecalcati.com/articles/why-better-systems-build-better-businesses)
 
 [Resources Library](https://www.rickyrecalcati.com/resources)
 

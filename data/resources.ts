@@ -46,9 +46,9 @@ const serviceArticle = {
   href: "/articles/the-system-is-the-service",
 };
 
-const decisionsArticle = {
-  title: "Better Decisions Compound Quietly",
-  href: "/articles/better-decisions-compound-quietly",
+const complexityArticle = {
+  title: "The Hidden Cost of Complexity",
+  href: "/articles/the-hidden-cost-of-complexity",
 };
 
 const ownershipArticle = {
@@ -94,7 +94,7 @@ export const resources: Resource[] = [
       "Founder operating rhythms.",
     ],
     relatedBooks: [scalingHospitality],
-    relatedArticles: [systemsArticle, decisionsArticle],
+    relatedArticles: [systemsArticle, complexityArticle],
   },
   {
     slug: "decision-framework",
@@ -123,7 +123,7 @@ export const resources: Resource[] = [
       "Investment and growth choices.",
     ],
     relatedBooks: [scalingHospitality, secondAct],
-    relatedArticles: [decisionsArticle, lifeArticle],
+    relatedArticles: [lifeArticle, systemsArticle],
   },
   {
     slug: "business-health-scorecard",
@@ -152,7 +152,7 @@ export const resources: Resource[] = [
       "Leadership offsites.",
     ],
     relatedBooks: [scalingHospitality],
-    relatedArticles: [systemsArticle, decisionsArticle],
+    relatedArticles: [systemsArticle, complexityArticle],
   },
   {
     slug: "restaurant-opening-checklist",
@@ -242,7 +242,7 @@ export const resources: Resource[] = [
       "Weekly operational reviews.",
     ],
     relatedBooks: [scalingHospitality],
-    relatedArticles: [serviceArticle, decisionsArticle],
+    relatedArticles: [serviceArticle, systemsArticle],
   },
   {
     slug: "chatgpt-prompt-pack-for-managers",
@@ -272,7 +272,7 @@ export const resources: Resource[] = [
       "Team planning sessions.",
     ],
     relatedBooks: [scalingHospitality],
-    relatedArticles: [systemsArticle, decisionsArticle],
+    relatedArticles: [systemsArticle, complexityArticle],
   },
   {
     slug: "ai-meeting-assistant",
@@ -302,7 +302,7 @@ export const resources: Resource[] = [
       "Project check-ins.",
     ],
     relatedBooks: [scalingHospitality],
-    relatedArticles: [decisionsArticle, systemsArticle],
+    relatedArticles: [systemsArticle, serviceArticle],
   },
   {
     slug: "ai-productivity-toolkit",
@@ -362,7 +362,7 @@ export const resources: Resource[] = [
       "Quarterly life reviews.",
     ],
     relatedBooks: [secondAct],
-    relatedArticles: [lifeArticle, decisionsArticle],
+    relatedArticles: [lifeArticle, systemsArticle],
   },
   {
     slug: "decision-journal",
@@ -392,7 +392,7 @@ export const resources: Resource[] = [
       "Investment reviews.",
     ],
     relatedBooks: [secondAct, scalingHospitality],
-    relatedArticles: [decisionsArticle, lifeArticle],
+    relatedArticles: [lifeArticle, systemsArticle],
   },
   {
     slug: "reading-tracker",
@@ -428,7 +428,9 @@ export const resources: Resource[] = [
     slug: "investment-thesis-template",
     title: "Investment Thesis Template",
     category: "Investing",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/investment-thesis-template.pdf",
     description:
       "Create a structured investment thesis before buying any asset.",
     heroDescription:
@@ -450,13 +452,15 @@ export const resources: Resource[] = [
       "Decision journaling.",
     ],
     relatedBooks: [scalingHospitality],
-    relatedArticles: [ownershipArticle, decisionsArticle],
+    relatedArticles: [ownershipArticle, lifeArticle],
   },
   {
     slug: "company-research-worksheet",
     title: "Company Research Worksheet",
     category: "Investing",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/company-research-worksheet.pdf",
     description:
       "Research businesses using a repeatable framework.",
     heroDescription:
@@ -481,38 +485,12 @@ export const resources: Resource[] = [
     relatedArticles: [ownershipArticle, systemsArticle],
   },
   {
-    slug: "bitcoin-thesis-worksheet",
-    title: "Bitcoin Thesis Worksheet",
-    category: "Investing",
-    fileType: "PDF",
-    description:
-      "Think critically about Bitcoin's role in a long-term portfolio.",
-    heroDescription:
-      "A worksheet for separating Bitcoin research, risk, conviction and portfolio role from short-term price emotion.",
-    whoFor: [
-      "Investors studying Bitcoin without hype.",
-      "People deciding whether Bitcoin fits their long-term plan.",
-      "Readers who want a balanced research framework.",
-    ],
-    included: [
-      "Bitcoin thesis prompts.",
-      "Risk and misconception checks.",
-      "Position sizing and time horizon questions.",
-      "Review criteria for future decisions.",
-    ],
-    worksWellWith: [
-      "Investment thesis writing.",
-      "Portfolio reviews.",
-      "Decision journaling.",
-    ],
-    relatedBooks: [scalingHospitality],
-    relatedArticles: [bitcoinArticle, ownershipArticle],
-  },
-  {
     slug: "portfolio-review-template",
     title: "Portfolio Review Template",
     category: "Investing",
+    status: "Available",
     fileType: "PDF",
+    fileUrl: "/resources/portfolio-review-template.pdf",
     description:
       "Review your portfolio objectively instead of emotionally.",
     heroDescription:
@@ -534,7 +512,7 @@ export const resources: Resource[] = [
       "Decision journaling.",
     ],
     relatedBooks: [scalingHospitality],
-    relatedArticles: [ownershipArticle, decisionsArticle, bitcoinArticle],
+    relatedArticles: [ownershipArticle, bitcoinArticle],
   },
 ];
 

@@ -137,7 +137,7 @@ Use this before relying on any output.
 
 [Why Better Systems Build Better Businesses](https://www.rickyrecalcati.com/articles/why-better-systems-build-better-businesses)
 
-[Better Decisions Compound Quietly](https://www.rickyrecalcati.com/articles/better-decisions-compound-quietly)
+[Why Better Systems Build Better Businesses](https://www.rickyrecalcati.com/articles/why-better-systems-build-better-businesses)
 
 [Resources Library](https://www.rickyrecalcati.com/resources)
 
