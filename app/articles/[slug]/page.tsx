@@ -80,14 +80,34 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           ),
         }}
       />
-      <ArticleCompletionTracker articleTitle={article.title} />
+      <ArticleCompletionTracker
+        articleTitle={article.title}
+        issueNumber={article.issueNumber}
+        series={article.series}
+      />
       <Navbar />
 
       <article className="articleDetail">
         <header className="articleDetailHero premiumReveal">
-          <p className="eyebrow">{article.category}</p>
+          {article.series === "Balance Sheet" ? (
+            <div className="articleSeriesHeader" aria-label="Balance Sheet issue">
+              <span className="eyebrow">{article.series}</span>
+              <span>
+                Issue #{String(article.issueNumber ?? 0).padStart(3, "0")}
+              </span>
+              {article.weekCovered ? <span>{article.weekCovered}</span> : null}
+            </div>
+          ) : (
+            <p className="eyebrow">{article.category}</p>
+          )}
           <h1 className="display-title">{article.title}</h1>
           <p className="body-large">{article.excerpt}</p>
+
+          {article.seriesDescription ? (
+            <p className="articleSeriesDescription body">
+              {article.seriesDescription}
+            </p>
+          ) : null}
 
           <div className="articleDetailMeta">
             <span>{article.author}</span>
@@ -169,6 +189,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </section>
           ))}
         </div>
+
+        {article.series === "Balance Sheet" ? (
+          <section className="articleDisclaimer" aria-label="Financial disclaimer">
+            <p>
+              This publication is for general information and commentary only.
+              It does not constitute personal financial advice, investment
+              advice or a recommendation to buy or sell any asset. Always
+              conduct your own research and consider seeking advice appropriate
+              to your circumstances.
+            </p>
+          </section>
+        ) : null}
 
         {article.relatedContent ? (
           <section className="articleRelatedContent" aria-label="Related reading">

@@ -2,11 +2,18 @@
   color: inherit;
   display: block;
   height: 100%;
+  min-width: 0;
+  max-width: 100%;
   perspective: 1200px;
 }
 
 .articleCard {
-  min-height: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 430px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
   padding: clamp(1.75rem, 3vw, 2.25rem);
   display: flex;
   flex-direction: column;
@@ -52,16 +59,24 @@
 }
 
 .articleCard h2 {
-  --section-title-size: clamp(2rem, 3vw, 3rem);
-  --section-title-line: 1.02;
-  margin-top: clamp(2.25rem, 5vw, 4rem);
+  --section-title-size: clamp(1.9rem, 2.6vw, 2.65rem);
+  --section-title-line: 1.14;
+  min-height: 4.9em;
+  margin-top: clamp(2rem, 4.5vw, 3.5rem);
+  padding-bottom: 0.18em;
   color: var(--color-cream-bright);
+  overflow: visible;
+  overflow-wrap: anywhere;
 }
 
 .articleCard p {
   --body-color: #c9c0b3;
+  --body-line: 1.68;
+  min-height: 5.25em;
   margin-top: 18px;
   margin-bottom: clamp(2rem, 4vw, 3rem);
+  overflow: visible;
+  overflow-wrap: anywhere;
 }
 
 .articleCardFooter {
@@ -76,6 +91,11 @@
 }
 
 @media (max-width: 640px) {
+  .articleCard {
+    min-height: 390px;
+    padding: 1.6rem;
+  }
+
   .articleCardMeta,
   .articleCardFooter {
     align-items: flex-start;

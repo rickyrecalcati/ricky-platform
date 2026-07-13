@@ -76,17 +76,16 @@ export default function Newsletter() {
       <div className="newsletterCard premiumReveal">
 
         <p className="newsletterTag eyebrow">
-          Newsletter
+          Balance Sheet
         </p>
 
         <h2 className="section-title">
-          Join thousands of readers building better businesses, making smarter
-          decisions and discovering new ideas.
+          Every Monday, get a clear review of markets, business and investing.
         </h2>
 
         <p className="newsletterText body-large">
-          Get occasional emails with new books, articles, free resources and
-          practical ideas. No spam. Just useful thinking.
+          Get a clear review of the previous week — including what mattered,
+          what may have been overlooked and what I&apos;m watching next.
         </p>
 
         <form className="newsletterForm" onSubmit={handleSubmit}>

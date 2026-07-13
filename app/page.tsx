@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero";
 import MeetRicky from "../components/MeetRicky";
 import FeaturedBooks from "../components/FeaturedBooks";
+import BalanceSheetFeature from "../components/BalanceSheetFeature";
 import LatestArticles from "../components/LatestArticles";
 import FreeResources from "../components/FreeResources";
 import Newsletter from "../components/Newsletter";
@@ -34,6 +35,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeaturedBooks />
+      <BalanceSheetFeature />
       <LatestArticles />
       <FreeResources />
       <MeetRicky />

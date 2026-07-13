@@ -5,10 +5,14 @@ import { trackArticleComplete } from "../lib/analytics";
 
 type ArticleCompletionTrackerProps = {
   articleTitle: string;
+  issueNumber?: number;
+  series?: string;
 };
 
 export default function ArticleCompletionTracker({
   articleTitle,
+  issueNumber,
+  series,
 }: ArticleCompletionTrackerProps) {
   const hasTracked = useRef(false);
 
@@ -29,7 +33,10 @@ export default function ArticleCompletionTracker({
 
       if (scrollProgress >= 0.9) {
         hasTracked.current = true;
-        trackArticleComplete(articleTitle);
+        trackArticleComplete(articleTitle, {
+          issue_number: issueNumber,
+          series,
+        });
         window.removeEventListener("scroll", handleScroll);
       }
     }
@@ -38,7 +45,7 @@ export default function ArticleCompletionTracker({
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [articleTitle]);
+  }, [articleTitle, issueNumber, series]);
 
   return null;
 }

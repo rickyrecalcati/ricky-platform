@@ -4,6 +4,7 @@ import { articles } from "../data/articles";
 import "./LatestArticles.css";
 
 const latestArticles = [...articles]
+  .filter((article) => article.series !== "Balance Sheet")
   .sort((firstArticle, secondArticle) => {
     return (
       new Date(secondArticle.date).getTime() -

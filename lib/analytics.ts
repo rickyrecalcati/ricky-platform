@@ -52,8 +52,12 @@ export function trackResourceDownload(
   });
 }
 
-export function trackArticleComplete(articleTitle: string) {
+export function trackArticleComplete(
+  articleTitle: string,
+  params: EventParams = {},
+) {
   trackEvent("article_complete", {
     article_title: articleTitle,
+    ...params,
   });
 }

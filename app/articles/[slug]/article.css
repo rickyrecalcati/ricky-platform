@@ -12,6 +12,30 @@
   margin-bottom: 18px;
 }
 
+.articleSeriesHeader {
+  margin-bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: center;
+  color: rgba(244, 239, 230, 0.68);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.articleSeriesHeader .eyebrow {
+  padding: 7px 10px;
+  border: 1px solid rgba(202, 166, 76, 0.34);
+  border-radius: 999px;
+  background: rgba(202, 166, 76, 0.1);
+}
+
+.articleSeriesHeader span:not(.eyebrow) {
+  padding-left: 14px;
+  border-left: 1px solid rgba(244, 239, 230, 0.14);
+}
+
 .articleDetailHero h1 {
   --display-title-size: clamp(3.2rem, 6vw, 6.4rem);
   --display-title-line: 0.96;
@@ -21,6 +45,12 @@
   --body-large-color: #cbc4b8;
   max-width: 760px;
   margin-top: 28px;
+}
+
+.articleSeriesDescription {
+  --body-color: rgba(244, 239, 230, 0.7);
+  max-width: 720px;
+  margin-top: 20px;
 }
 
 .articleDetailMeta {
@@ -213,6 +243,23 @@
   max-width: 980px;
   margin: 0 auto clamp(4rem, 7vw, 6rem);
   padding: 0 var(--section-pad-x);
+}
+
+.articleDisclaimer {
+  max-width: 820px;
+  margin: calc(clamp(4rem, 8vw, 6rem) * -0.55) auto clamp(3rem, 6vw, 4.5rem);
+  padding: 0 var(--section-pad-x);
+}
+
+.articleDisclaimer p {
+  margin: 0;
+  padding: 18px 20px;
+  border: 1px solid rgba(244, 239, 230, 0.1);
+  border-radius: 8px;
+  background: rgba(244, 239, 230, 0.035);
+  color: rgba(244, 239, 230, 0.58);
+  font-size: 0.86rem;
+  line-height: 1.65;
 }
 
 .articleRelatedContent h2 {

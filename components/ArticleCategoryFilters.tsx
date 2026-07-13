@@ -11,6 +11,8 @@ type ArticleCategoryFiltersProps = {
   categories: string[];
 };
 
+const BALANCE_SHEET_FILTER = "balance-sheet";
+
 function normalizeCategory(category: string) {
   return category.toLowerCase();
 }
@@ -27,11 +29,17 @@ export default function ArticleCategoryFilters({
   const [selectedCategory, setSelectedCategory] = useOptimistic(urlCategory);
 
   const filteredArticles = useMemo(() => {
-    return selectedCategory
-      ? articles.filter(
-          (article) => article.category.toLowerCase() === selectedCategory,
-        )
-      : articles;
+    if (!selectedCategory) {
+      return articles;
+    }
+
+    if (selectedCategory === BALANCE_SHEET_FILTER) {
+      return articles.filter((article) => article.series === "Balance Sheet");
+    }
+
+    return articles.filter(
+      (article) => article.category.toLowerCase() === selectedCategory,
+    );
   }, [articles, selectedCategory]);
 
   function updateCategory(category: string) {
@@ -56,6 +64,19 @@ export default function ArticleCategoryFilters({
           type="button"
         >
           All
+        </button>
+
+        <button
+          aria-pressed={selectedCategory === BALANCE_SHEET_FILTER}
+          className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
+            selectedCategory === BALANCE_SHEET_FILTER
+              ? " articlesCategoryPillActive"
+              : ""
+          }`}
+          onClick={() => updateCategory(BALANCE_SHEET_FILTER)}
+          type="button"
+        >
+          Balance Sheet
         </button>
 
         {categories.map((category) => {

@@ -19,8 +19,17 @@ export type ArticleRelatedContent = {
 export type Article = {
   slug: string;
   title: string;
+  cardTitle?: string;
+  cardExcerpt?: string;
   category: string;
   tags?: string[];
+  series?: "Balance Sheet";
+  seriesDescription?: string;
+  issueNumber?: number;
+  weekCovered?: string;
+  weekEnding?: string;
+  headline?: string;
+  featured?: boolean;
   excerpt: string;
   metaTitle?: string;
   metaDescription?: string;
@@ -314,12 +323,144 @@ const hiddenCostOfComplexitySections: ArticleContentSection[] = [
 
 export const articles: Article[] = [
   {
+    slug: "balance-sheet-001-markets-shrugged-off-broken-ceasefire",
+    title:
+      "Balance Sheet #001 — Markets shrugged off a broken ceasefire this week. That should worry you a little.",
+    cardTitle: "Markets Shrugged Off the Ceasefire",
+    cardExcerpt:
+      "Markets rose again, but record leverage and renewed geopolitical risk made the calm worth questioning.",
+    category: "Finance",
+    tags: ["Balance Sheet", "Markets", "Business", "Investing", "Finance"],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing — with context, interpretation and a long-term perspective.",
+    issueNumber: 1,
+    weekCovered: "Week of July 6–10, 2026",
+    weekEnding: "2026-07-10",
+    headline:
+      "Markets shrugged off a broken ceasefire this week. That should worry you a little.",
+    featured: true,
+    excerpt:
+      "US equities closed out another winning week, but record calm, record leverage and renewed Middle East risk made the market’s confidence worth questioning.",
+    metaTitle:
+      "Balance Sheet #001: Markets Shrugged Off a Broken Ceasefire",
+    metaDescription:
+      "Balance Sheet #001 reviews the week of July 6–10, 2026 across US equities, oil, AI IPO appetite, earnings expectations and market risk.",
+    date: "2026-07-13",
+    readingTime: estimateReadingTime(
+      `Balance Sheet — Week of July 6–10, 2026
+
+Markets shrugged off a broken ceasefire this week. That should worry you a little.
+
+Let's start with the headline: US equities closed out their second straight winning week. The S&P 500 finished up roughly 1.2%, the Nasdaq added close to 2%, and it marked the fourth positive week out of five for both indices. On paper, that's a market in rude health. Under the surface, it's a market that's stopped flinching — and that's a different thing entirely.
+
+The story nobody's pricing in properly
+
+The US-Iran ceasefire broke down mid-week. Iran hit vessels in the Strait of Hormuz — the corridor that a huge share of the world's oil physically has to pass through — and the US had already struck Iran again days earlier. Brent crude jumped as much as 5%, the 10-year Treasury yield climbed for the ninth session out of ten, and then... traders shrugged, oil drifted back down toward $71, and the S&P closed the week near its highs anyway.
+
+That's not calm. That's a market that has decided geopolitical risk in the Middle East is background noise until proven otherwise. I've seen that assumption get expensive before. It might be right this time — Qatar is reportedly brokering renewed talks — but "might be right" and "priced correctly" aren't the same thing, and right now the VIX is sitting at 15, near a six-month low, while a live shipping lane is under attack. Someone is mispricing something.
+
+The IPO that actually mattered
+
+SK Hynix listed on the Nasdaq Friday and raised about $26.5 billion — one of the largest listings anywhere this year — and popped roughly 13–14% on debut. That's not just a good IPO print. It's a signal about where the AI capital cycle actually sits: two years into this boom, the market is still hungry enough to absorb a $26 billion memory-chip raise in a single session, on a Friday, into a week that also had a broken ceasefire in it.
+
+Worth sitting with: KBW noted that the S&P 500 has historically dipped a median 1.3% in the two weeks before IPOs this size, as capital rotates to fund the deal, then rebounds after. If that pattern holds, any near-term chop in tech isn't a story — it's plumbing.
+
+The number that actually explains the mood
+
+Analysts now expect Q2 S&P 500 earnings growth of 23.6%, up from 23.3% a week earlier — the second straight quarter above 20%. That's the real reason nobody's panicking about oil. The market isn't betting geopolitics doesn't matter. It's betting earnings will matter more, starting next week when the big banks report, followed by the tech giants later in July.
+
+That's the honest framing for where we are: the market has moved from an interest-rate story to an earnings story, and it's about to find out if it's right. Meta jumped nearly 15% on the week on reports its AI cost structure is improving — that's the kind of proof point the bulls need to see repeated a dozen more times over the next three weeks for this rally to hold.
+
+My read
+
+None of this is bearish. Breadth actually improved — 63% of S&P 500 stocks now trade above their 50-day average, up from 50% a month ago, which is a healthier signal than "the Mag 7 carried everything again." But margin debt hit a record $1.42 trillion in May, up over 50% year-on-year. Record leverage plus record calm plus an active war zone sitting on the world's oil chokepoint is not a combination I'd get comfortable with. It's fine right up until it isn't.
+
+Earnings season starts now. That's the actual test. Everything else this week was noise the market chose not to hear.`,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The market has moved from an interest-rate story to an earnings story, and it's about to find out if it's right.",
+    sections: [
+      {
+        heading:
+          "Markets shrugged off a broken ceasefire this week. That should worry you a little.",
+        body: [
+          "Let's start with the headline: US equities closed out their second straight winning week. The S&P 500 finished up roughly 1.2%, the Nasdaq added close to 2%, and it marked the fourth positive week out of five for both indices. On paper, that's a market in rude health. Under the surface, it's a market that's stopped flinching — and that's a different thing entirely.",
+        ],
+      },
+      {
+        heading: "The story nobody's pricing in properly",
+        body: [
+          "The US-Iran ceasefire broke down mid-week. Iran hit vessels in the Strait of Hormuz — the corridor that a huge share of the world's oil physically has to pass through — and the US had already struck Iran again days earlier. Brent crude jumped as much as 5%, the 10-year Treasury yield climbed for the ninth session out of ten, and then... traders shrugged, oil drifted back down toward $71, and the S&P closed the week near its highs anyway.",
+          "That's not calm. That's a market that has decided geopolitical risk in the Middle East is background noise until proven otherwise. I've seen that assumption get expensive before. It might be right this time — Qatar is reportedly brokering renewed talks — but \"might be right\" and \"priced correctly\" aren't the same thing, and right now the VIX is sitting at 15, near a six-month low, while a live shipping lane is under attack. Someone is mispricing something.",
+        ],
+        callout:
+          "That's not calm. That's a market that has decided geopolitical risk in the Middle East is background noise until proven otherwise.",
+      },
+      {
+        heading: "The IPO that actually mattered",
+        body: [
+          "SK Hynix listed on the Nasdaq Friday and raised about $26.5 billion — one of the largest listings anywhere this year — and popped roughly 13–14% on debut. That's not just a good IPO print. It's a signal about where the AI capital cycle actually sits: two years into this boom, the market is still hungry enough to absorb a $26 billion memory-chip raise in a single session, on a Friday, into a week that also had a broken ceasefire in it.",
+          "Worth sitting with: KBW noted that the S&P 500 has historically dipped a median 1.3% in the two weeks before IPOs this size, as capital rotates to fund the deal, then rebounds after. If that pattern holds, any near-term chop in tech isn't a story — it's plumbing.",
+        ],
+      },
+      {
+        heading: "The number that actually explains the mood",
+        body: [
+          "Analysts now expect Q2 S&P 500 earnings growth of 23.6%, up from 23.3% a week earlier — the second straight quarter above 20%. That's the real reason nobody's panicking about oil. The market isn't betting geopolitics doesn't matter. It's betting earnings will matter more, starting next week when the big banks report, followed by the tech giants later in July.",
+          "That's the honest framing for where we are: the market has moved from an interest-rate story to an earnings story, and it's about to find out if it's right. Meta jumped nearly 15% on the week on reports its AI cost structure is improving — that's the kind of proof point the bulls need to see repeated a dozen more times over the next three weeks for this rally to hold.",
+        ],
+        quote:
+          "The market has moved from an interest-rate story to an earnings story, and it's about to find out if it's right.",
+      },
+      {
+        heading: "My read",
+        body: [
+          "None of this is bearish. Breadth actually improved — 63% of S&P 500 stocks now trade above their 50-day average, up from 50% a month ago, which is a healthier signal than \"the Mag 7 carried everything again.\" But margin debt hit a record $1.42 trillion in May, up over 50% year-on-year. Record leverage plus record calm plus an active war zone sitting on the world's oil chokepoint is not a combination I'd get comfortable with. It's fine right up until it isn't.",
+          "Earnings season starts now. That's the actual test. Everything else this week was noise the market chose not to hear.",
+        ],
+        callout:
+          "Record leverage plus record calm plus an active war zone sitting on the world's oil chokepoint is not a combination I'd get comfortable with.",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "The Wealth Gap Isn't About Income. It's About Ownership.",
+        href: "/articles/the-wealth-gap-isnt-about-income-its-about-ownership",
+        description:
+          "Why lasting wealth is usually built through ownership, not salary alone.",
+      },
+      {
+        title: "Bitcoin: The First Truly Global Form of Money",
+        href: "/articles/bitcoin-the-first-truly-global-form-of-money",
+        description:
+          "A balanced explanation of Bitcoin, scarcity, decentralisation and long-term utility.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Create a structured investment thesis before buying any asset.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio objectively instead of emotionally.",
+      },
+    ],
+  },
+  {
     slug: "the-hidden-cost-of-complexity",
     title: "The Hidden Cost of Complexity",
+    cardTitle: "The Hidden Cost of Complexity",
     category: "Business",
     tags: ["Business", "Operations", "Leadership", "Productivity"],
     excerpt:
       "Why most businesses don’t need more people, more software or more meetings—they need fewer moving parts.",
+    cardExcerpt:
+      "Most businesses do not need more people, software or meetings. They need fewer moving parts.",
     metaTitle: "The Hidden Cost of Complexity",
     metaDescription:
       "Why most businesses don’t need more people, more software or more meetings—they need fewer moving parts.",
@@ -363,10 +504,13 @@ export const articles: Article[] = [
   {
     slug: "why-better-systems-build-better-businesses",
     title: "Why Better Systems Build Better Businesses",
+    cardTitle: "Why Better Systems Build Better Businesses",
     category: "Business",
     tags: ["Business", "Operations", "Leadership", "Systems", "Productivity"],
     excerpt:
       "The best businesses don’t rely on exceptional people every day. They build systems that allow ordinary people to deliver extraordinary consistency.",
+    cardExcerpt:
+      "Great businesses make consistency repeatable instead of relying on heroic effort.",
     metaTitle: "Why Better Systems Build Better Businesses",
     metaDescription:
       "The best businesses don’t rely on exceptional people every day. They build systems that allow ordinary people to deliver extraordinary consistency.",
@@ -1452,4 +1596,18 @@ And in the long run, that’s what they’ll remember.`,
 
 export function getArticleBySlug(slug: string) {
   return articles.find((article) => article.slug === slug);
+}
+
+export function getBalanceSheetIssues() {
+  return articles
+    .filter((article) => article.series === "Balance Sheet")
+    .sort((firstArticle, secondArticle) => {
+      return (
+        (secondArticle.issueNumber ?? 0) - (firstArticle.issueNumber ?? 0)
+      );
+    });
+}
+
+export function getLatestBalanceSheetIssue() {
+  return getBalanceSheetIssues()[0];
 }
