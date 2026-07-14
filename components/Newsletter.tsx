@@ -5,10 +5,15 @@ import { trackNewsletterSignup } from "../lib/analytics";
 import "./Newsletter.css";
 
 type FormState = "idle" | "submitting" | "success" | "alreadySubscribed" | "error";
+type NewsletterResponse = {
+  status?: "success" | "duplicate" | "error";
+  message?: string;
+  code?: string;
+};
 
 const formMessages: Record<Exclude<FormState, "idle" | "submitting">, string> = {
-  success: "You’re on the list. Welcome.",
-  alreadySubscribed: "You’re already subscribed.",
+  success: "You're subscribed to Balance Sheet.",
+  alreadySubscribed: "You're already subscribed to Balance Sheet.",
   error: "Something went wrong. Please try again.",
 };
 
@@ -22,12 +27,14 @@ function getNewsletterSource() {
 
 export default function Newsletter() {
   const [formState, setFormState] = useState<FormState>("idle");
+  const [formMessage, setFormMessage] = useState("");
   const [email, setEmail] = useState("");
   const [honeypot, setHoneypot] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormState("submitting");
+    setFormMessage("");
     const source = getNewsletterSource();
 
     try {
@@ -43,12 +50,22 @@ export default function Newsletter() {
         }),
       });
 
-      const result = (await response.json()) as {
-        status?: "success" | "duplicate" | "error";
-      };
+      const responseText = await response.text();
+      let result: NewsletterResponse = {};
+
+      try {
+        result = responseText ? (JSON.parse(responseText) as NewsletterResponse) : {};
+      } catch {
+        result = {
+          status: "error",
+          message: formMessages.error,
+          code: "invalid_response",
+        };
+      }
 
       if (response.ok && result.status === "success") {
         setFormState("success");
+        setFormMessage(result.message ?? formMessages.success);
         trackNewsletterSignup(source);
         setEmail("");
         return;
@@ -56,19 +73,35 @@ export default function Newsletter() {
 
       if (response.ok && result.status === "duplicate") {
         setFormState("alreadySubscribed");
+        setFormMessage(result.message ?? formMessages.alreadySubscribed);
         return;
       }
 
+      if (process.env.NODE_ENV !== "production") {
+        console.warn("[newsletter] non-success response", JSON.stringify({
+          httpStatus: response.status,
+          apiStatus: result.status,
+          code: result.code,
+          message: result.message,
+        }));
+      }
+
       setFormState("error");
-    } catch {
+      setFormMessage(result.message ?? formMessages.error);
+    } catch (error) {
+      if (process.env.NODE_ENV !== "production") {
+        console.error("[newsletter] network error", error);
+      }
+
       setFormState("error");
+      setFormMessage(formMessages.error);
     }
   }
 
   const isSubmitting = formState === "submitting";
   const message =
     formState === "success" || formState === "alreadySubscribed" || formState === "error"
-      ? formMessages[formState]
+      ? formMessage || formMessages[formState]
       : null;
 
   return (
@@ -76,17 +109,25 @@ export default function Newsletter() {
       <div className="newsletterCard premiumReveal">
 
         <p className="newsletterTag eyebrow">
-          Balance Sheet
+          Join Balance Sheet
         </p>
 
         <h2 className="section-title">
-          Every Monday, get a clear review of markets, business and investing.
+          Every Monday, get a clear review of business, markets and investing.
         </h2>
 
         <p className="newsletterText body-large">
-          Get a clear review of the previous week — including what mattered,
-          what may have been overlooked and what I&apos;m watching next.
+          Every Monday you&apos;ll receive the biggest business and market
+          stories, long-term investing insights, one business worth studying and
+          practical lessons you can apply immediately.
         </p>
+
+        <ul className="newsletterBenefits body">
+          <li>The biggest business and market stories</li>
+          <li>Long-term investing insights</li>
+          <li>One business worth studying</li>
+          <li>Practical lessons you can apply immediately</li>
+        </ul>
 
         <form className="newsletterForm" onSubmit={handleSubmit}>
           <input
@@ -109,6 +150,7 @@ export default function Newsletter() {
               setEmail(event.target.value);
               if (formState !== "idle") {
                 setFormState("idle");
+                setFormMessage("");
               }
             }}
             placeholder="Your email address"
@@ -120,6 +162,10 @@ export default function Newsletter() {
             {isSubmitting ? "Subscribing..." : "Subscribe"}
           </button>
         </form>
+
+        <p className="newsletterAssurance body">
+          Free. No spam. Unsubscribe anytime.
+        </p>
 
         {message ? (
           <p className="newsletterMessage body" role="status">

@@ -294,7 +294,7 @@ const bookCatalog: Book[] = [
       finalTitle:
         "Start building a hospitality business that scales with confidence.",
       finalBody:
-        "Get the series on Amazon Kindle or join the newsletter for more practical operating ideas from Ricky Recalcati.",
+        "Get the series on Amazon Kindle or join Balance Sheet for practical operating and investing ideas from Ricky Recalcati.",
     },
   },
   {
@@ -393,7 +393,7 @@ const bookCatalog: Book[] = [
       finalLabel: "Published",
       finalTitle: "Read The Second Act on Kindle.",
       finalBody:
-        "Get the series on Amazon Kindle or join the newsletter for future personal growth resources.",
+        "Get the series on Amazon Kindle or join Balance Sheet for thoughtful ideas on business, investing and better decisions.",
     },
   },
   {
@@ -451,7 +451,7 @@ const bookCatalog: Book[] = [
       finalLabel: "Published",
       finalTitle: "Read The Forgotten Cipher on Kindle.",
       finalBody:
-        "Get the book on Amazon Kindle or join the newsletter for future fiction updates.",
+        "Get the book on Amazon Kindle or join Balance Sheet for thoughtful ideas from Ricky Recalcati.",
     },
   },
 ];

@@ -239,7 +239,7 @@ export default function AboutPage() {
           Read what Ricky is building.
         </h2>
         <p className="body-large">
-          Explore the books or join the newsletter for thoughtful, practical
+          Explore the books or join Balance Sheet for thoughtful, practical
           ideas on business, systems, operations and storytelling.
         </p>
         <p className="aboutPageClosingLine section-title">
@@ -250,7 +250,7 @@ export default function AboutPage() {
             Explore Books
           </Link>
           <Link className="luxuryButton luxuryButtonSecondary" href="/#newsletter">
-            Join the Newsletter
+            Join Balance Sheet
           </Link>
         </div>
       </section>

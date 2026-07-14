@@ -225,7 +225,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <p className="eyebrow">Keep Reading</p>
           <h2 className="section-title">Books and essays for clearer work.</h2>
           <p className="body-large">
-            Explore Ricky&apos;s books or join the newsletter for practical
+            Explore Ricky&apos;s books or join Balance Sheet for practical
             ideas on business, systems and better decisions.
           </p>
           <div className="articleDetailActions">
@@ -233,7 +233,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               Explore Books
             </Link>
             <a className="luxuryButton luxuryButtonSecondary" href="#newsletter">
-              Join Newsletter
+              Join Balance Sheet
             </a>
           </div>
         </section>
