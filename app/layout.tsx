@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { defaultDescription, defaultTitle, siteName, siteUrl } from "../lib/seo";
+import {
+  absoluteUrl,
+  defaultDescription,
+  defaultTitle,
+  ogImagePath,
+  siteName,
+  siteUrl,
+} from "../lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,6 +46,14 @@ export const metadata: Metadata = {
     description: defaultDescription,
     url: siteUrl,
     siteName,
+    images: [
+      {
+        url: absoluteUrl(ogImagePath),
+        width: 1200,
+        height: 630,
+        alt: `${siteName} editorial platform`,
+      },
+    ],
     locale: "en_AU",
     type: "website",
   },
@@ -46,6 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
+    images: [absoluteUrl(ogImagePath)],
     creator: "@rickyrecalcati",
   },
 };

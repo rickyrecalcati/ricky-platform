@@ -25,6 +25,12 @@ type BreadcrumbItem = {
   path: string;
 };
 
+type ItemListEntry = {
+  name: string;
+  path: string;
+  description?: string;
+};
+
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
 }
@@ -96,6 +102,7 @@ export function websiteJsonLd() {
     publisher: {
       "@id": `${siteUrl}/#person`,
     },
+    inLanguage: "en-AU",
   };
 }
 
@@ -122,6 +129,8 @@ export function personJsonLd() {
       "Decision-making",
       "Writing",
       "AI workflows",
+      "Investing",
+      "Personal growth",
     ],
   };
 }
@@ -139,14 +148,42 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
   };
 }
 
-export function bookJsonLd(book: Book) {
+export function itemListJsonLd(
+  name: string,
+  path: string,
+  items: ItemListEntry[],
+) {
   return {
     "@context": "https://schema.org",
-    "@type": "Book",
-    "@id": `${absoluteUrl(`/books/${book.slug}`)}#book`,
+    "@type": "ItemList",
+    "@id": `${absoluteUrl(path)}#item-list`,
+    name,
+    url: absoluteUrl(path),
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(item.path),
+      name: item.name,
+      description: item.description,
+    })),
+  };
+}
+
+export function bookJsonLd(book: Book) {
+  const url = absoluteUrl(`/books/${book.slug}`);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": book.series ? ["Book", "CreativeWorkSeries"] : "Book",
+    "@id": `${url}#book`,
     name: book.title,
-    url: absoluteUrl(`/books/${book.slug}`),
+    url,
     description: book.description,
+    image: absoluteUrl(ogImagePath),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
     author: {
       "@id": `${siteUrl}/#person`,
     },
@@ -156,13 +193,7 @@ export function bookJsonLd(book: Book) {
     datePublished: book.publicationYear,
     bookFormat: book.format ? `https://schema.org/${book.format}` : undefined,
     genre: book.category,
-    isPartOf: book.series
-      ? {
-          "@type": "BookSeries",
-          name: book.title,
-          numberOfItems: book.booksInSeries,
-        }
-      : undefined,
+    numberOfItems: book.series ? book.booksInSeries : undefined,
     offers: book.amazonUrl
       ? {
           "@type": "Offer",
@@ -170,19 +201,26 @@ export function bookJsonLd(book: Book) {
           url: book.amazonUrl,
         }
       : undefined,
+    sameAs: book.amazonUrl ? [book.amazonUrl] : undefined,
   };
 }
 
 export function articleJsonLd(article: Article) {
+  const url = absoluteUrl(`/articles/${article.slug}`);
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `${absoluteUrl(`/articles/${article.slug}`)}#article`,
+    "@id": `${url}#article`,
     headline: article.title,
     description: article.metaDescription ?? article.excerpt,
-    url: absoluteUrl(`/articles/${article.slug}`),
+    url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
     datePublished: article.date,
-    dateModified: article.date,
+    dateModified: article.dateModified ?? article.date,
     author: {
       "@id": `${siteUrl}/#person`,
     },
@@ -192,21 +230,43 @@ export function articleJsonLd(article: Article) {
     image: absoluteUrl(ogImagePath),
     articleSection: article.category,
     keywords: article.tags,
+    inLanguage: "en-AU",
+    isPartOf: article.series
+      ? {
+          "@type": "Periodical",
+          name: article.series,
+        }
+      : undefined,
+    issueNumber: article.issueNumber,
   };
 }
 
 export function resourceJsonLd(resource: Resource) {
+  const url = absoluteUrl(`/resources/${resource.slug}`);
+
   return {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "@id": `${absoluteUrl(`/resources/${resource.slug}`)}#resource`,
+    "@type": resource.fileUrl ? "DigitalDocument" : "CreativeWork",
+    "@id": `${url}#resource`,
     name: resource.title,
-    url: absoluteUrl(`/resources/${resource.slug}`),
+    url,
     description: resource.description,
+    image: absoluteUrl(ogImagePath),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
     creator: {
+      "@id": `${siteUrl}/#person`,
+    },
+    publisher: {
       "@id": `${siteUrl}/#person`,
     },
     isAccessibleForFree: true,
     learningResourceType: resource.fileType,
+    genre: resource.category,
+    encodingFormat: resource.fileType === "PDF" ? "application/pdf" : undefined,
+    contentUrl: resource.fileUrl ? absoluteUrl(resource.fileUrl) : undefined,
+    inLanguage: "en-AU",
   };
 }

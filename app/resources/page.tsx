@@ -8,6 +8,7 @@ import {
 import {
   breadcrumbJsonLd,
   createPageMetadata,
+  itemListJsonLd,
   stringifyJsonLd,
 } from "../../lib/seo";
 import "./resources.css";
@@ -30,6 +31,24 @@ export default function ResourcesPage() {
               { name: "Home", path: "/" },
               { name: "Resources", path: "/resources" },
             ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            itemListJsonLd(
+              "Free resources by Ricky Recalcati",
+              "/resources",
+              resourceCategories.flatMap((category) =>
+                getResourcesByCategory(category).map((resource) => ({
+                  name: resource.title,
+                  path: `/resources/${resource.slug}`,
+                  description: resource.description,
+                })),
+              ),
+            ),
           ),
         }}
       />

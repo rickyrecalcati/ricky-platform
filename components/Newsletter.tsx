@@ -116,18 +116,24 @@ export default function Newsletter() {
           Every Monday, get a clear review of business, markets and investing.
         </h2>
 
-        <p className="newsletterText body-large">
-          Every Monday you&apos;ll receive the biggest business and market
-          stories, long-term investing insights, one business worth studying and
-          practical lessons you can apply immediately.
-        </p>
+        <div className="newsletterEditorial">
+          <p className="newsletterText body-large">
+            Every Monday you&apos;ll receive one carefully written issue that
+            cuts through the noise. Instead of trying to keep up with hundreds
+            of headlines, you&apos;ll get the stories that mattered, why they
+            matter, and the lessons worth carrying into the week ahead.
+          </p>
 
-        <ul className="newsletterBenefits body">
-          <li>The biggest business and market stories</li>
-          <li>Long-term investing insights</li>
-          <li>One business worth studying</li>
-          <li>Practical lessons you can apply immediately</li>
-        </ul>
+          <p className="newsletterText body-large">
+            Whether you&apos;re building a business, investing for the long term
+            or simply trying to make better decisions, Balance Sheet is designed
+            to save you time while helping you think more clearly.
+          </p>
+        </div>
+
+        <p className="newsletterEmphasis body">
+          One email. Every Monday. Always free.
+        </p>
 
         <form className="newsletterForm" onSubmit={handleSubmit}>
           <input

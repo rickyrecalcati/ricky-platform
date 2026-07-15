@@ -202,6 +202,25 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </section>
         ) : null}
 
+        {article.sources ? (
+          <section className="articleSources" aria-label="Sources">
+            <p className="eyebrow">Sources</p>
+            <ol>
+              {article.sources.map((source) => (
+                <li key={source.href}>
+                  <a
+                    href={source.href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {source.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ) : null}
+
         {article.relatedContent ? (
           <section className="articleRelatedContent" aria-label="Related reading">
             <p className="eyebrow">Related Reading</p>

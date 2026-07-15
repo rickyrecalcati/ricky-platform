@@ -5,6 +5,7 @@ import { books } from "../../data/books";
 import {
   breadcrumbJsonLd,
   createPageMetadata,
+  itemListJsonLd,
   stringifyJsonLd,
 } from "../../lib/seo";
 import "./books.css";
@@ -27,6 +28,22 @@ export default function BooksPage() {
               { name: "Home", path: "/" },
               { name: "Books", path: "/books" },
             ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            itemListJsonLd(
+              "Books by Ricky Recalcati",
+              "/books",
+              books.map((book) => ({
+                name: book.title,
+                path: `/books/${book.slug}`,
+                description: book.description,
+              })),
+            ),
           ),
         }}
       />

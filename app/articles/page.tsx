@@ -5,6 +5,7 @@ import { articles } from "../../data/articles";
 import {
   breadcrumbJsonLd,
   createPageMetadata,
+  itemListJsonLd,
   stringifyJsonLd,
 } from "../../lib/seo";
 import "./articles.css";
@@ -45,6 +46,22 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
               { name: "Home", path: "/" },
               { name: "Articles", path: "/articles" },
             ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(
+            itemListJsonLd(
+              "Articles by Ricky Recalcati",
+              "/articles",
+              articles.map((article) => ({
+                name: article.title,
+                path: `/articles/${article.slug}`,
+                description: article.metaDescription ?? article.excerpt,
+              })),
+            ),
           ),
         }}
       />
