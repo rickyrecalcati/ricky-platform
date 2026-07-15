@@ -47,6 +47,15 @@
   margin-top: 28px;
 }
 
+.articleSeriesKicker {
+  --body-color: rgba(202, 166, 76, 0.86);
+  margin-top: 18px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .articleSeriesDescription {
   --body-color: rgba(244, 239, 230, 0.7);
   max-width: 720px;

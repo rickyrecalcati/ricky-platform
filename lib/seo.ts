@@ -207,6 +207,9 @@ export function bookJsonLd(book: Book) {
 
 export function articleJsonLd(article: Article) {
   const url = absoluteUrl(`/articles/${article.slug}`);
+  const keywords = article.series
+    ? [...(article.tags ?? []), article.series]
+    : article.tags;
 
   return {
     "@context": "https://schema.org",
@@ -229,12 +232,18 @@ export function articleJsonLd(article: Article) {
     },
     image: absoluteUrl(ogImagePath),
     articleSection: article.category,
-    keywords: article.tags,
+    keywords,
     inLanguage: "en-AU",
     isPartOf: article.series
       ? {
           "@type": "Periodical",
           name: article.series,
+          publicationFrequency:
+            article.series === "Business Breakdown" ? "Weekly" : undefined,
+          description:
+            article.series === "Business Breakdown"
+              ? "A weekly business breakdown published every Wednesday."
+              : undefined,
         }
       : undefined,
     issueNumber: article.issueNumber,

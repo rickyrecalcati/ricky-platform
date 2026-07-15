@@ -12,6 +12,7 @@ type ArticleCategoryFiltersProps = {
 };
 
 const BALANCE_SHEET_FILTER = "balance-sheet";
+const BUSINESS_BREAKDOWN_FILTER = "business-breakdown";
 
 function normalizeCategory(category: string) {
   return category.toLowerCase();
@@ -35,6 +36,12 @@ export default function ArticleCategoryFilters({
 
     if (selectedCategory === BALANCE_SHEET_FILTER) {
       return articles.filter((article) => article.series === "Balance Sheet");
+    }
+
+    if (selectedCategory === BUSINESS_BREAKDOWN_FILTER) {
+      return articles.filter(
+        (article) => article.series === "Business Breakdown",
+      );
     }
 
     return articles.filter(
@@ -77,6 +84,19 @@ export default function ArticleCategoryFilters({
           type="button"
         >
           Balance Sheet
+        </button>
+
+        <button
+          aria-pressed={selectedCategory === BUSINESS_BREAKDOWN_FILTER}
+          className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
+            selectedCategory === BUSINESS_BREAKDOWN_FILTER
+              ? " articlesCategoryPillActive"
+              : ""
+          }`}
+          onClick={() => updateCategory(BUSINESS_BREAKDOWN_FILTER)}
+          type="button"
+        >
+          Business Breakdown
         </button>
 
         {categories.map((category) => {

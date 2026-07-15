@@ -8,7 +8,9 @@ type ArticleCardProps = {
 
 export default function ArticleCard({ article }: ArticleCardProps) {
   const isBalanceSheet = article.series === "Balance Sheet";
-  const displayCategory = isBalanceSheet ? article.series : article.category;
+  const isBusinessBreakdown = article.series === "Business Breakdown";
+  const displayCategory =
+    isBalanceSheet || isBusinessBreakdown ? article.series : article.category;
   const displayTitle = article.cardTitle ?? article.title;
   const displayExcerpt = article.cardExcerpt ?? article.excerpt;
 

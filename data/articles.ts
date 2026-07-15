@@ -21,6 +21,8 @@ export type ArticleSource = {
   href: string;
 };
 
+export type ArticleSeries = "Balance Sheet" | "Business Breakdown";
+
 export type Article = {
   slug: string;
   title: string;
@@ -28,7 +30,7 @@ export type Article = {
   cardExcerpt?: string;
   category: string;
   tags?: string[];
-  series?: "Balance Sheet" | "Business Breakdown Wednesday";
+  series?: ArticleSeries;
   seriesDescription?: string;
   issueNumber?: number;
   weekCovered?: string;
@@ -423,12 +425,13 @@ export const articles: Article[] = [
     category: "Business",
     tags: [
       "Business",
+      "Business Breakdown",
       "Retail",
       "Strategy",
       "Operations",
       "Customer Trust",
     ],
-    series: "Business Breakdown Wednesday",
+    series: "Business Breakdown",
     excerpt:
       "Plenty of retailers can sell large packs at low prices. Very few can recreate the operating model that makes customers trust Costco before they even enter the warehouse.",
     metaTitle: "Why Costco Is Harder to Copy Than It Looks",

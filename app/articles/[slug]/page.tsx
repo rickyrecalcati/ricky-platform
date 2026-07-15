@@ -101,6 +101,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <p className="eyebrow">{article.category}</p>
           )}
           <h1 className="display-title">{article.title}</h1>
+          {article.series === "Business Breakdown" ? (
+            <p className="articleSeriesKicker body">
+              Business Breakdown • Every Wednesday
+            </p>
+          ) : null}
           <p className="body-large">{article.excerpt}</p>
 
           {article.seriesDescription ? (
