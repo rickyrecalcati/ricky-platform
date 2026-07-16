@@ -40,6 +40,20 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  align-items: end;
+}
+
+.articlesSeriesFilter {
+  display: grid;
+  gap: 5px;
+}
+
+.articlesWeeklyLabel {
+  --eyebrow-size: 0.56rem;
+  --eyebrow-spacing: 0.16em;
+  margin-left: 14px;
+  color: rgba(202, 166, 76, 0.72);
+  line-height: 1;
 }
 
 .articlesCategoryPill {
@@ -145,6 +159,10 @@
   }
 
   .articlesCategoryPill {
+    flex: 0 0 auto;
+  }
+
+  .articlesSeriesFilter {
     flex: 0 0 auto;
   }
 }

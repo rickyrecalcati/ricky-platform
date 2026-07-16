@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { articleSeriesDetails } from "../data/articleSeries";
 import type { Article } from "../data/articles";
 import "./ArticleCard.css";
 
@@ -7,10 +8,10 @@ type ArticleCardProps = {
 };
 
 export default function ArticleCard({ article }: ArticleCardProps) {
-  const isBalanceSheet = article.series === "Balance Sheet";
-  const isBusinessBreakdown = article.series === "Business Breakdown";
-  const displayCategory =
-    isBalanceSheet || isBusinessBreakdown ? article.series : article.category;
+  const seriesDetails = article.series
+    ? articleSeriesDetails[article.series]
+    : null;
+  const displayCategory = seriesDetails?.label ?? article.category;
   const displayTitle = article.cardTitle ?? article.title;
   const displayExcerpt = article.cardExcerpt ?? article.excerpt;
 
@@ -22,7 +23,12 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     >
       <article className="articleCard">
         <div className="articleCardMeta">
-          <span className="articleCardCategory eyebrow">{displayCategory}</span>
+          <span className="articleCardSeriesBlock">
+            {seriesDetails ? (
+              <span className="articleCardWeeklyLabel eyebrow">Weekly</span>
+            ) : null}
+            <span className="articleCardCategory eyebrow">{displayCategory}</span>
+          </span>
           <span>{article.readingTime}</span>
         </div>
 

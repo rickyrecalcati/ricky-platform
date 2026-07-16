@@ -73,31 +73,37 @@ export default function ArticleCategoryFilters({
           All
         </button>
 
-        <button
-          aria-pressed={selectedCategory === BALANCE_SHEET_FILTER}
-          className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
-            selectedCategory === BALANCE_SHEET_FILTER
-              ? " articlesCategoryPillActive"
-              : ""
-          }`}
-          onClick={() => updateCategory(BALANCE_SHEET_FILTER)}
-          type="button"
-        >
-          Balance Sheet
-        </button>
+        <div className="articlesSeriesFilter">
+          <span className="articlesWeeklyLabel eyebrow">Weekly</span>
+          <button
+            aria-pressed={selectedCategory === BALANCE_SHEET_FILTER}
+            className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
+              selectedCategory === BALANCE_SHEET_FILTER
+                ? " articlesCategoryPillActive"
+                : ""
+            }`}
+            onClick={() => updateCategory(BALANCE_SHEET_FILTER)}
+            type="button"
+          >
+            Balance Sheet
+          </button>
+        </div>
 
-        <button
-          aria-pressed={selectedCategory === BUSINESS_BREAKDOWN_FILTER}
-          className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
-            selectedCategory === BUSINESS_BREAKDOWN_FILTER
-              ? " articlesCategoryPillActive"
-              : ""
-          }`}
-          onClick={() => updateCategory(BUSINESS_BREAKDOWN_FILTER)}
-          type="button"
-        >
-          Business Breakdown
-        </button>
+        <div className="articlesSeriesFilter">
+          <span className="articlesWeeklyLabel eyebrow">Weekly</span>
+          <button
+            aria-pressed={selectedCategory === BUSINESS_BREAKDOWN_FILTER}
+            className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
+              selectedCategory === BUSINESS_BREAKDOWN_FILTER
+                ? " articlesCategoryPillActive"
+                : ""
+            }`}
+            onClick={() => updateCategory(BUSINESS_BREAKDOWN_FILTER)}
+            type="button"
+          >
+            Business Breakdown
+          </button>
+        </div>
 
         {categories.map((category) => {
           const normalizedCategory = normalizeCategory(category);

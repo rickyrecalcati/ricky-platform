@@ -1,3 +1,5 @@
+import type { ArticleSeries } from "./articleSeries";
+
 export type ArticleContentSection = {
   heading: string;
   body: string[];
@@ -20,8 +22,6 @@ export type ArticleSource = {
   title: string;
   href: string;
 };
-
-export type ArticleSeries = "Balance Sheet" | "Business Breakdown";
 
 export type Article = {
   slug: string;

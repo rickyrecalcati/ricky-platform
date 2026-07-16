@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { articleSeriesDetails } from "../data/articleSeries";
 import type { Article } from "../data/articles";
 import type { Book } from "../data/books";
 import type { Resource } from "../data/resources";
@@ -207,8 +208,11 @@ export function bookJsonLd(book: Book) {
 
 export function articleJsonLd(article: Article) {
   const url = absoluteUrl(`/articles/${article.slug}`);
+  const seriesDetails = article.series
+    ? articleSeriesDetails[article.series]
+    : null;
   const keywords = article.series
-    ? [...(article.tags ?? []), article.series]
+    ? [...new Set([...(article.tags ?? []), article.series])]
     : article.tags;
 
   return {
@@ -237,13 +241,9 @@ export function articleJsonLd(article: Article) {
     isPartOf: article.series
       ? {
           "@type": "Periodical",
-          name: article.series,
-          publicationFrequency:
-            article.series === "Business Breakdown" ? "Weekly" : undefined,
-          description:
-            article.series === "Business Breakdown"
-              ? "A weekly business breakdown published every Wednesday."
-              : undefined,
+          name: seriesDetails?.label ?? article.series,
+          publicationFrequency: seriesDetails?.publicationFrequency,
+          description: seriesDetails?.pageDescription,
         }
       : undefined,
     issueNumber: article.issueNumber,

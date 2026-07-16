@@ -5,6 +5,7 @@ import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import Newsletter from "../../../components/Newsletter";
 import ArticleCompletionTracker from "../../../components/ArticleCompletionTracker";
+import { articleSeriesDetails } from "../../../data/articleSeries";
 import { articles, getArticleBySlug } from "../../../data/articles";
 import {
   articleJsonLd,
@@ -59,6 +60,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     month: "long",
     year: "numeric",
   }).format(new Date(article.date));
+  const seriesDetails = article.series
+    ? articleSeriesDetails[article.series]
+    : null;
 
   return (
     <main>
@@ -89,22 +93,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       <article className="articleDetail">
         <header className="articleDetailHero premiumReveal">
-          {article.series === "Balance Sheet" ? (
-            <div className="articleSeriesHeader" aria-label="Balance Sheet issue">
-              <span className="eyebrow">{article.series}</span>
-              <span>
-                Issue #{String(article.issueNumber ?? 0).padStart(3, "0")}
-              </span>
-              {article.weekCovered ? <span>{article.weekCovered}</span> : null}
-            </div>
-          ) : (
-            <p className="eyebrow">{article.category}</p>
-          )}
+          <p className="eyebrow">{article.category}</p>
           <h1 className="display-title">{article.title}</h1>
-          {article.series === "Business Breakdown" ? (
-            <p className="articleSeriesKicker body">
-              Business Breakdown • Every Wednesday
-            </p>
+          {seriesDetails ? (
+            <div className="articleSeriesKicker" aria-label="Article series">
+              <span className="eyebrow">{seriesDetails.label}</span>
+              <span>{seriesDetails.pageDescription}</span>
+            </div>
           ) : null}
           <p className="body-large">{article.excerpt}</p>
 

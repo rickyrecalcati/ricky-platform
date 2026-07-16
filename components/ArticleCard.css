@@ -58,6 +58,18 @@
   --eyebrow-spacing: 0.18em;
 }
 
+.articleCardSeriesBlock {
+  display: grid;
+  gap: 3px;
+}
+
+.articleCardWeeklyLabel {
+  --eyebrow-size: 0.56rem;
+  --eyebrow-spacing: 0.16em;
+  color: rgba(202, 166, 76, 0.72);
+  line-height: 1;
+}
+
 .articleCard h2 {
   --section-title-size: clamp(1.9rem, 2.6vw, 2.65rem);
   --section-title-line: 1.14;
