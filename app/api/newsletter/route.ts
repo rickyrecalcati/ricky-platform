@@ -15,14 +15,20 @@ type NewsletterErrorCode =
   | "spam_detected"
   | "invalid_email"
   | "missing_resend_api_key"
-  | "resend_contact_lookup_error"
-  | "resend_contact_lookup_exception"
+  | "missing_resend_segment_id"
   | "resend_contact_error"
-  | "resend_contact_exception";
+  | "resend_contact_exception"
+  | "resend_rate_limit"
+  | "resend_segment_error"
+  | "resend_segment_exception";
 type ContactCreateResult = Awaited<ReturnType<Resend["contacts"]["create"]>>;
+type ContactSegmentResult = Awaited<
+  ReturnType<Resend["contacts"]["segments"]["add"]>
+>;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ERROR_MESSAGE = "Something went wrong. Please try again.";
+const RATE_LIMIT_MESSAGE = "Too many attempts. Please wait a minute and try again.";
 const SUCCESS_MESSAGE = "You're subscribed to Balance Sheet.";
 const DUPLICATE_MESSAGE = "You're already subscribed to Balance Sheet.";
 const RESEND_FROM = "Ricky Recalcati <balancesheet@updates.rickyrecalcati.com>";
@@ -34,6 +40,27 @@ function errorMessage(code: NewsletterErrorCode) {
   }
 
   return `${ERROR_MESSAGE} [${code}]`;
+}
+
+function resendErrorMessage(
+  code: NewsletterErrorCode,
+  error: { name?: string; statusCode?: number | null },
+) {
+  if (process.env.NODE_ENV === "production") {
+    return ERROR_MESSAGE;
+  }
+
+  return `${ERROR_MESSAGE} [${code}:${error.name ?? "unknown"}:${
+    error.statusCode ?? "unknown"
+  }]`;
+}
+
+function rateLimitMessage() {
+  if (process.env.NODE_ENV === "production") {
+    return RATE_LIMIT_MESSAGE;
+  }
+
+  return `${RATE_LIMIT_MESSAGE} [resend_rate_limit]`;
 }
 
 function jsonResponse(
@@ -70,6 +97,14 @@ function getResendClient() {
   }
 
   return new Resend(apiKey);
+}
+
+function getResendSegmentId() {
+  const segmentId =
+    process.env.RESEND_SEGMENT_ID?.trim() ||
+    process.env.RESEND_AUDIENCE_ID?.trim();
+
+  return segmentId || null;
 }
 
 function normalizeEmail(email: unknown) {
@@ -127,15 +162,22 @@ function isDuplicateContactError(error: {
   );
 }
 
-function isContactPropertyValidationError(error: {
-  name?: string;
-  statusCode?: number | null;
-}) {
-  return error.name === "validation_error" && error.statusCode === 422;
+function isRateLimitError(error: { name?: string; statusCode?: number | null }) {
+  return error.statusCode === 429 || error.name === "rate_limit_exceeded";
 }
 
-function isNotFoundError(error: { name?: string; statusCode?: number | null }) {
-  return error.name === "not_found" || error.statusCode === 404;
+function isAlreadyInSegmentError(error: {
+  message?: string;
+  statusCode?: number | null;
+}) {
+  const message = error.message?.toLowerCase() ?? "";
+
+  return (
+    error.statusCode === 409 ||
+    message.includes("already in segment") ||
+    message.includes("already exists") ||
+    message.includes("duplicate")
+  );
 }
 
 function latestBalanceSheetUrl() {
@@ -188,34 +230,31 @@ async function sendWelcomeEmail(resend: Resend, email: string) {
 async function createBalanceSheetContact(
   resend: Resend,
   email: string,
-  source: string,
+  segmentId: string,
 ) {
-  const contactWithProperties = await resend.contacts.create({
+  return resend.contacts.create({
     email,
     unsubscribed: false,
-    // If the Resend account has matching custom contact properties, keep
-    // this metadata available for future segmentation and Broadcasts.
-    properties: {
-      newsletter: "balance_sheet",
-      source,
-    },
+    segments: [
+      {
+        id: segmentId,
+      },
+    ],
   });
+}
 
-  if (
-    contactWithProperties.error &&
-    isContactPropertyValidationError(contactWithProperties.error)
-  ) {
-    logNewsletterEvent("contact_property_retry_without_metadata", {
-      statusCode: contactWithProperties.error.statusCode,
-    });
+function resendRateLimitResponse() {
+  logNewsletterError("resend_rate_limited");
 
-    return resend.contacts.create({
-      email,
-      unsubscribed: false,
-    });
-  }
-
-  return contactWithProperties;
+  return jsonResponse(
+    {
+      ok: false,
+      status: "error",
+      message: rateLimitMessage(),
+      code: "resend_rate_limit",
+    },
+    { status: 429 },
+  );
 }
 
 export async function POST(request: Request) {
@@ -289,64 +328,34 @@ export async function POST(request: Request) {
   }
 
   const source = normalizeSource(body.source, request);
-  let existingContactResult: Awaited<ReturnType<typeof resend.contacts.get>>;
+  const segmentId = getResendSegmentId();
 
-  try {
-    existingContactResult = await resend.contacts.get({ email });
-  } catch (error) {
-    logNewsletterError("contact_lookup_exception", {
-      errorName: error instanceof Error ? error.name : "unknown",
-    });
+  if (!segmentId) {
+    logNewsletterError("missing_resend_segment_id");
 
     return jsonResponse(
       {
         ok: false,
         status: "error",
-        message: errorMessage("resend_contact_lookup_exception"),
-        code: "resend_contact_lookup_exception",
+        message: errorMessage("missing_resend_segment_id"),
+        code: "missing_resend_segment_id",
       },
-      { status: 502 },
+      { status: 503 },
     );
   }
 
-  if (existingContactResult.data) {
-    logNewsletterEvent("contact_already_exists", {
-      email: safeEmailSummary(email),
-    });
-
-    return jsonResponse({
-      ok: true,
-      status: "duplicate",
-      message: DUPLICATE_MESSAGE,
-    });
-  }
-
-  if (
-    existingContactResult.error &&
-    !isNotFoundError(existingContactResult.error)
-  ) {
-    logNewsletterError("contact_lookup_failed", {
-      name: existingContactResult.error.name,
-      statusCode: existingContactResult.error.statusCode,
-    });
-
-    return jsonResponse(
-      {
-        ok: false,
-        status: "error",
-        message: errorMessage("resend_contact_lookup_error"),
-        code: "resend_contact_lookup_error",
-      },
-      { status: 502 },
-    );
-  }
-
-  logNewsletterEvent("contact_not_found");
+  logNewsletterEvent("creating_contact", {
+    source,
+  });
 
   let contactResult: ContactCreateResult;
 
   try {
-    contactResult = await createBalanceSheetContact(resend, email, source);
+    contactResult = await createBalanceSheetContact(
+      resend,
+      email,
+      segmentId,
+    );
   } catch (error) {
     logNewsletterError("contact_create_exception", {
       errorName: error instanceof Error ? error.name : "unknown",
@@ -364,9 +373,60 @@ export async function POST(request: Request) {
   }
 
   if (contactResult.error) {
+    if (isRateLimitError(contactResult.error)) {
+      return resendRateLimitResponse();
+    }
+
     if (isDuplicateContactError(contactResult.error)) {
+      let segmentResult: ContactSegmentResult;
+
+      try {
+        segmentResult = await resend.contacts.segments.add({
+          email,
+          segmentId,
+        });
+      } catch (error) {
+        logNewsletterError("segment_add_exception", {
+          errorName: error instanceof Error ? error.name : "unknown",
+        });
+
+        return jsonResponse(
+          {
+            ok: false,
+            status: "error",
+            message: errorMessage("resend_segment_exception"),
+            code: "resend_segment_exception",
+          },
+          { status: 502 },
+        );
+      }
+
+      if (segmentResult.error) {
+        if (isRateLimitError(segmentResult.error)) {
+          return resendRateLimitResponse();
+        }
+
+        if (!isAlreadyInSegmentError(segmentResult.error)) {
+          logNewsletterError("segment_add_failed", {
+            name: segmentResult.error.name,
+            statusCode: segmentResult.error.statusCode,
+          });
+
+          return jsonResponse(
+            {
+              ok: false,
+              status: "error",
+              message: errorMessage("resend_segment_error"),
+              code: "resend_segment_error",
+            },
+            { status: 502 },
+          );
+        }
+      }
+
       logNewsletterEvent("contact_already_exists", {
         email: safeEmailSummary(email),
+        segmentAdded: !segmentResult.error,
       });
 
       return jsonResponse({
@@ -385,7 +445,7 @@ export async function POST(request: Request) {
       {
         ok: false,
         status: "error",
-        message: errorMessage("resend_contact_error"),
+        message: resendErrorMessage("resend_contact_error", contactResult.error),
         code: "resend_contact_error",
       },
       { status: 502 },
