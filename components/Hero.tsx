@@ -8,14 +8,12 @@ export default function Hero() {
         <p className="heroTag eyebrow">BUSINESS • OPERATIONS • INVESTING • FICTION</p>
 
         <h1 className="display-title">
-          A premium publication for practical business thinking and sharper
-          decisions.
+          Writing for operators, founders and readers who think long term.
         </h1>
 
         <p className="heroText body-large">
-          RickyRecalcati.com brings together essays, books and free resources
-          on operations, leadership, investing and decision making, with
-          intelligent fiction as a quieter second thread.
+          Books, essays and free tools on operations, leadership, investing and
+          considered decision making.
         </p>
 
         <div className="heroButtons">

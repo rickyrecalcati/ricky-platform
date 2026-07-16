@@ -20,7 +20,7 @@ export default function LatestArticles() {
         <div>
           <p className="eyebrow">Latest Articles</p>
           <h2 id="latest-articles-title" className="section-title">
-            Clear thinking for better work and better decisions.
+            Essays for clearer work and stronger judgement.
           </h2>
         </div>
 

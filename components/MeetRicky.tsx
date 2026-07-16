@@ -3,10 +3,10 @@ import QuoteRotator from "./QuoteRotator";
 import "./MeetRicky.css";
 
 const platformPillars = [
-  "Build better businesses",
-  "Make smarter decisions",
-  "Create more freedom",
-  "Discover unforgettable stories",
+  "Build stronger companies",
+  "Improve judgement",
+  "Create more room to think",
+  "Find stories worth keeping",
 ];
 
 export default function MeetRicky() {
@@ -15,21 +15,21 @@ export default function MeetRicky() {
       <div className="meetRickyContent premiumReveal">
         <p className="eyebrow">Meet Ricky</p>
         <h2 id="meet-ricky-title" className="section-title">
-          Operator, author and systems thinker.
+          Operator, author and practical thinker.
         </h2>
 
         <div className="meetRickyText">
           <p className="body-large">
-            Ricky Recalcati is an operations leader, author and systems thinker
-            based in Sydney.
+            Ricky Recalcati is an operations leader and author based in Sydney.
           </p>
           <p className="body-large">
-            Over the past 15+ years he has helped businesses improve operations,
-            build better systems and make smarter decisions.
+            Over more than 15 years across hospitality, logistics and recycling,
+            he has learned how clearer routines, sharper measures and steady
+            leadership change the way a business feels to run.
           </p>
           <p className="body-large">
-            Today he writes practical business books, intelligent fiction and
-            shares the frameworks, tools and lessons that have shaped his career.
+            Today he writes business books, intelligent fiction and useful
+            field notes from the work that shaped his career.
           </p>
         </div>
 

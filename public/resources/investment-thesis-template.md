@@ -4,7 +4,7 @@ Before You Invest
 
 ## Before You Invest
 
-The biggest investing mistakes usually happen before money is invested—not after.
+The biggest investing mistakes usually happen before money is invested. They rarely begin after.
 
 This worksheet is designed to slow your thinking down. It forces you to explain your investment before emotion takes over.
 

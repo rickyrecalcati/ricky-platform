@@ -16,56 +16,38 @@
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-.footerBrand h2 {
-  --section-title-size: clamp(2.5rem, 4vw, 2.875rem);
-  margin-bottom: 20px;
-}
-
-.footerBrand p {
-  --body-color: var(--color-muted);
-  --body-size: 17px;
-  --body-line: 1.8;
-  max-width: 520px;
-}
-
 .footerNewsletter {
-  max-width: 520px;
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,.08);
+  max-width: 460px;
 }
 
-.footerNewsletter > .eyebrow {
+.footerNewsletterTag {
   --eyebrow-size: 12px;
   --eyebrow-spacing: .18em;
   margin-bottom: 10px;
-  color: var(--color-gold);
 }
 
-.footerNewsletter > .body {
-  --body-color: #aaa299;
-  --body-size: 15px;
-  --body-line: 1.65;
-  max-width: 480px;
+.footerNewsletter h2 {
+  --section-title-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  max-width: 420px;
   margin-bottom: 18px;
 }
 
 .footerNewsletterForm {
   display: flex;
-  max-width: 500px;
+  max-width: 440px;
   gap: 10px;
 }
 
 .footerNewsletterForm input {
   width: 100%;
   min-width: 0;
-  height: 48px;
-  padding: 0 18px;
+  height: 44px;
+  padding: 0 16px;
   border-radius: 999px;
   border: 1px solid rgba(244, 239, 230, 0.14);
   background: rgba(244, 239, 230, 0.96);
   color: #111;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .footerNewsletterForm input::placeholder {
@@ -73,8 +55,9 @@
 }
 
 .footerNewsletterForm button {
-  min-width: 112px;
-  padding-inline: 22px;
+  min-width: 106px;
+  min-height: 44px;
+  padding-inline: 20px;
 }
 
 .footerNewsletterForm button:disabled,

@@ -10,24 +10,16 @@ export default function Footer() {
 
         <div className="footerBrand">
 
-          <h2 className="section-title">Ricky Recalcati</h2>
-
-          <p className="body">
-            Field notes for operators, investors and readers who prefer clear
-            thinking over noise.
-          </p>
-
           <div className="footerNewsletter" id="footer-newsletter">
-            <p className="eyebrow">Balance Sheet</p>
-            <p className="body">
-              A calm Monday note on markets, business and decisions worth
-              carrying into the week.
-            </p>
+            <p className="footerNewsletterTag eyebrow">Join Balance Sheet</p>
+            <h2 className="section-title">
+              A clear Monday review of business, markets and investing.
+            </h2>
             <NewsletterSignupForm
-              buttonText="Join"
+              buttonText="Subscribe"
               className="footerNewsletterForm"
               messageClassName="footerNewsletterMessage body"
-              placeholder="Email address"
+              placeholder="Your email address"
               sourceAnchor="footer-newsletter"
             />
           </div>

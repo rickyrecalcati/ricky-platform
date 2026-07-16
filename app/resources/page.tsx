@@ -58,11 +58,11 @@ export default function ResourcesPage() {
         <div className="resourcesHero premiumReveal">
           <p className="eyebrow">Resources</p>
           <h1 className="display-title">
-            Practical tools for clearer work, better decisions and calmer growth.
+            Free tools for clearer reviews, planning and reflection.
           </h1>
           <p className="body-large">
-            A free library of templates, checklists and worksheets built to help
-            people act immediately. No login. No gate. No pop-ups.
+            A free library of templates, checklists and worksheets you can use
+            without a login, a gate or a pop-up.
           </p>
         </div>
 

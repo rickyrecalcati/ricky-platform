@@ -228,7 +228,7 @@ export default function WelcomeEmail({
               <Text style={textStyle}>Thanks for subscribing.</Text>
 
               <Text style={textStyle}>
-                Every Monday you&apos;ll receive Balance Sheet — my weekly
+                Every Monday you&apos;ll receive Balance Sheet, my weekly
                 review of what mattered in markets, business and investing.
               </Text>
 
@@ -341,7 +341,7 @@ export default function WelcomeEmail({
               </Text>
 
               <Text style={{ ...textStyle, marginBottom: 0 }}>
-                — Ricky Recalcati
+                Ricky Recalcati
               </Text>
             </Section>
           </Section>

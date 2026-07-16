@@ -191,20 +191,20 @@ const bookCatalog: Book[] = [
     series: true,
     booksInSeries: 5,
     subtitle:
-      "Build resilient teams, sharper systems and more profitable hospitality businesses.",
+      "Build resilient teams, sharper routines and more profitable hospitality businesses.",
     description:
-      "Practical guidance for hospitality operators, managers and founders who want to build businesses that grow without sacrificing quality.",
+      "A series for hospitality operators, managers and founders who want growth without losing quality, pace or care.",
     page: {
       heroEyebrow: "5 e-book series",
       heroHeadline:
-        "Build the systems, standards and leadership habits that let a hospitality business grow without losing its soul.",
+        "Build the standards, routines and leadership habits that let a hospitality business grow without losing its soul.",
       heroDescription:
-        "Scaling Hospitality combines operational systems, leadership frameworks and real-world experience from more than fifteen years in hospitality and operations.",
+        "Scaling Hospitality combines operating discipline, leadership frameworks and real-world experience from more than fifteen years in hospitality and operations.",
       coverKicker: "Ricky Recalcati",
       coverTagline: "5 e-book series for growth, consistency and calm leadership",
       credibility: [
         "Built from real hospitality operations",
-        "Systems for growing teams",
+        "Routines for growing teams",
         "Practical frameworks, not theory",
         "Written for owners and operators",
       ],
@@ -236,14 +236,14 @@ const bookCatalog: Book[] = [
           title: "Opening a Restaurant Without Chaos",
           subtitle: "",
           description:
-            "A practical guide to planning, launching and opening a hospitality venue with clearer systems, stronger preparation and fewer expensive surprises.",
+            "A guide to planning, launching and opening a hospitality venue with stronger preparation and fewer expensive surprises.",
         },
         {
           label: "Book 2",
           title: "Hospitality Systems That Actually Work",
           subtitle: "",
           description:
-            "Learn how to build practical operating systems, routines and standards that improve consistency without creating unnecessary bureaucracy.",
+            "Learn how to build routines and standards that improve consistency without creating unnecessary bureaucracy.",
         },
         {
           label: "Book 3",
@@ -257,7 +257,7 @@ const bookCatalog: Book[] = [
           title: "Scaling From One Venue to Multiple Locations",
           subtitle: "",
           description:
-            "Understand the systems, leadership structures and operating disciplines required to expand without losing control, quality or culture.",
+            "Understand the leadership structures and operating disciplines required to expand without losing control, quality or culture.",
         },
         {
           label: "Book 5",
@@ -277,12 +277,12 @@ const bookCatalog: Book[] = [
         {
           question: "Do I need to be scaling right now?",
           answer:
-            "No. The strongest time to build the systems is before growth starts stretching the business. The book is useful whether you are preparing, expanding or stabilizing.",
+            "No. The strongest time to strengthen the operating model is before growth starts stretching the business. The book is useful whether you are preparing, expanding or stabilizing.",
         },
         {
           question: "Is it strategy or practical execution?",
           answer:
-            "Both, with a bias toward practical execution. The goal is to help owners make better decisions and translate them into habits their teams can actually use.",
+            "Both, with a bias toward practical execution. The goal is to help owners think clearly and translate those choices into habits their teams can actually use.",
         },
         {
           question: "Where can I buy it?",

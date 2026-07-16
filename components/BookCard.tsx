@@ -34,7 +34,6 @@ export default function BookCard({ book }: BookCardProps) {
             <span className="premiumBookYear">{book.publicationYear}</span>
           </div>
 
-          <h2 className="section-title">{book.title}</h2>
           <p className="body">{book.description}</p>
 
           <span className="premiumBookCta">{ctaLabel} →</span>

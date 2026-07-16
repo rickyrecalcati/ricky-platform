@@ -71,11 +71,11 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
         <div className="articlesHero premiumReveal">
           <p className="eyebrow">Articles</p>
           <h1 className="display-title">
-            Clear thinking on business, systems and better decisions.
+            Clear writing on business, operations and judgement.
           </h1>
           <p className="body-large">
-            Practical essays on operations, systems, decision-making and the
-            lessons behind sustainable work.
+            Essays on company building, investing, service, leadership and the
+            habits behind durable work.
           </p>
         </div>
 

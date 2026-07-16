@@ -19,7 +19,7 @@ Success criteria:
 
 ---
 
-# Milestone 1 — Foundation ✅
+# Milestone 1: Foundation ✅
 
 - [x] Next.js project
 - [x] GitHub repository
@@ -31,7 +31,7 @@ Success criteria:
 
 ---
 
-# Milestone 2 — Architecture ✅
+# Milestone 2: Architecture ✅
 
 - [x] Dynamic book routing (`/books/[slug]`)
 - [x] Shared design system
@@ -42,7 +42,7 @@ Success criteria:
 
 ---
 
-# Milestone 3 — Core Website (Current)
+# Milestone 3: Core Website (Current)
 
 - [x] Homepage
 - [x] Books
@@ -52,7 +52,7 @@ Success criteria:
 
 ---
 
-# Milestone 4 — Book Catalogue
+# Milestone 4: Book Catalogue
 
 - [ ] Scaling Hospitality (5 e-book series)
 - [ ] The Forgotten Cipher
@@ -60,7 +60,7 @@ Success criteria:
 
 ---
 
-# Milestone 5 — Growth
+# Milestone 5: Growth
 
 - [ ] SEO
 - [ ] Search Console

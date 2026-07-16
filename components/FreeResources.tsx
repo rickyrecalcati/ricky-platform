@@ -12,11 +12,11 @@ export default function FreeResources() {
         <div>
           <p className="eyebrow">Free Resources</p>
           <h2 id="free-resources-title" className="section-title">
-            Practical tools you can use immediately.
+            Useful tools for the work in front of you.
           </h2>
           <p className="body-large">
-            Templates, worksheets and checklists built for clearer work,
-            better decisions and calmer growth.
+            Templates, worksheets and checklists for reviews, planning,
+            operations and personal reflection.
           </p>
         </div>
 

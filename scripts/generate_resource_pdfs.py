@@ -884,7 +884,7 @@ def decision_journal_story(markdown):
             section_heading("Introduction"),
             paragraph("Every decision teaches you something.", "body"),
             paragraph(
-                "The problem is that most people only remember the outcome—not what they were thinking when they made it.",
+                "The problem is that most people only remember the outcome. They forget what they were thinking when they made it.",
                 "body",
             ),
             paragraph(
@@ -1243,7 +1243,7 @@ def investment_thesis_story(markdown):
         story_page(
             section_heading("Before You Invest"),
             paragraph(
-                "The biggest investing mistakes usually happen before money is invested—not after.",
+                "The biggest investing mistakes usually happen before money is invested. They rarely begin after.",
                 "body",
             ),
             paragraph(
@@ -1569,7 +1569,7 @@ def portfolio_review_story(markdown):
     story.extend(
         story_page(
             section_heading("Your Portfolio Deserves a Performance Review"),
-            paragraph("The best investors don’t just review stocks—they review their decisions.", "body"),
+            paragraph("The best investors don’t just review stocks. They review their decisions.", "body"),
             paragraph(
                 "Use this worksheet every quarter to evaluate your portfolio objectively, identify mistakes, and ensure every holding still deserves its place.",
                 "body",

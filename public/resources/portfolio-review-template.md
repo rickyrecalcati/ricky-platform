@@ -8,7 +8,7 @@ By Ricky Recalcati
 
 ## Your Portfolio Deserves a Performance Review
 
-The best investors don’t just review stocks—they review their decisions.
+The best investors don’t just review stocks. They review their decisions.
 
 Use this worksheet every quarter to evaluate your portfolio objectively, identify mistakes, and ensure every holding still deserves its place.
 

@@ -224,7 +224,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         {article.relatedContent ? (
           <section className="articleRelatedContent" aria-label="Related reading">
             <p className="eyebrow">Related Reading</p>
-            <h2 className="section-title">Go deeper into the systems.</h2>
+            <h2 className="section-title">Keep following the thread.</h2>
             <div className="articleRelatedGrid">
               {article.relatedContent.map((item) => (
                 <Link
@@ -244,8 +244,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <p className="eyebrow">Keep Reading</p>
           <h2 className="section-title">Books and essays for clearer work.</h2>
           <p className="body-large">
-            Explore Ricky&apos;s books or join Balance Sheet for practical
-            ideas on business, systems and better decisions.
+            Explore Ricky&apos;s books or join Balance Sheet for notes on
+            business, operations and long-term judgement.
           </p>
           <div className="articleDetailActions">
             <Link className="luxuryButton luxuryButtonPrimary" href="/books">

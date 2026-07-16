@@ -23,9 +23,8 @@ export default function Newsletter() {
           </p>
 
           <p className="newsletterText body-large">
-            Whether you&apos;re building a business, investing for the long term
-            or simply trying to make better decisions, Balance Sheet is designed
-            to save you time while helping you think more clearly.
+            For founders, operators, long-term investors and curious readers,
+            Balance Sheet is written to save time and sharpen the week ahead.
           </p>
         </div>
 

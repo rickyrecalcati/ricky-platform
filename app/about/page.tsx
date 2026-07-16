@@ -19,11 +19,11 @@ export const metadata = createPageMetadata({
 const experienceItems = [
   {
     title: "Hospitality",
-    text: "Where I learned that every great customer experience begins with great systems.",
+    text: "Where I learned that every great customer experience starts long before the customer arrives.",
   },
   {
     title: "Operations",
-    text: "Where I learned that measuring the right things changes everything.",
+    text: "Where I learned that measuring the right things changes how people act.",
   },
   {
     title: "Writing",
@@ -41,16 +41,16 @@ const timelineItems = [
 
 const philosophyItems = [
   {
-    title: "Build Better Businesses",
-    text: "A business should not depend on heroic effort. It should depend on good systems.",
+    title: "Build Stronger Companies",
+    text: "A company should not depend on heroic effort. It should be easy enough to run well on an ordinary day.",
   },
   {
-    title: "Make Smarter Decisions",
-    text: "Better decisions compound quietly over time.",
+    title: "Improve Judgement",
+    text: "Good judgement compounds quietly over time.",
   },
   {
-    title: "Create More Freedom",
-    text: "The point of better systems is not more work. It is more room to think, build and live.",
+    title: "Create More Room",
+    text: "The point of improving the work is not to create more work. It is to make space to think, build and live.",
   },
   {
     title: "Tell Unforgettable Stories",
@@ -65,7 +65,7 @@ const platformItems = [
   },
   {
     title: "Articles",
-    text: "Clear thinking on business, systems, decision-making and the lessons hidden inside daily work.",
+    text: "Notes on business, operating discipline, judgement and the lessons hidden inside daily work.",
   },
   {
     title: "Resources",
@@ -80,14 +80,14 @@ const platformItems = [
 const currentlyItems = [
   "Based in Sydney, Australia",
   "Writing across business, operations and fiction",
-  "Improving operational systems in recycling and logistics",
+  "Improving collection networks, reporting and contractor performance",
   "Exploring AI workflows for creators and operators",
 ];
 
 const writingWorlds = [
   {
     title: "Business and operations",
-    text: "Books and resources that help readers build better businesses, make clearer decisions and apply systems in the real world.",
+    text: "Books and resources for people who want stronger operations, clearer judgement and tools they can put to work.",
   },
   {
     title: "Intelligent fiction",
@@ -124,17 +124,17 @@ export default function AboutPage() {
           <p className="body-large">
             I have spent more than 15 years building, improving and scaling
             businesses. Along the way I discovered that the same principles
-            that build great companies also shape great stories: clarity,
-            systems and constant improvement.
+            that help companies run well also shape great stories: clarity,
+            consequence and constant improvement.
           </p>
         </div>
 
         <div className="aboutPageSignal premiumReveal premiumRevealDelay" aria-label="Ricky Recalcati profile summary">
-          <span className="eyebrow">Systems Thinking</span>
-          <strong className="section-title">Business, better decisions and stories worth remembering.</strong>
+          <span className="eyebrow">Applied Thinking</span>
+          <strong className="section-title">Business, judgement and stories worth remembering.</strong>
           <p className="body">
             This platform exists to turn practical experience into books,
-            articles, resources and tools people can actually use.
+            articles and tools people can actually use.
           </p>
         </div>
       </section>
@@ -190,7 +190,7 @@ export default function AboutPage() {
           <p className="body-large">
             This website is not simply an author website. It is where Ricky
             shares books, articles, operational frameworks, AI workflows,
-            practical resources and lessons learned throughout his career.
+            useful tools and lessons learned throughout his career.
           </p>
         </div>
 
@@ -239,11 +239,11 @@ export default function AboutPage() {
           Read what Ricky is building.
         </h2>
         <p className="body-large">
-          Explore the books or join Balance Sheet for thoughtful, practical
-          ideas on business, systems, operations and storytelling.
+          Explore the books or join Balance Sheet for thoughtful notes on
+          business, operations, judgement and storytelling.
         </p>
         <p className="aboutPageClosingLine section-title">
-          Better systems build better businesses. Better stories build better people.
+          Stronger operating habits create stronger companies. Good stories make people harder to forget.
         </p>
         <div className="aboutPageActions">
           <Link className="luxuryButton luxuryButtonPrimary" href="/books">

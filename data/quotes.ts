@@ -5,11 +5,11 @@ export type Quote = {
 
 export const quotes: Quote[] = [
   {
-    text: "Better systems create better businesses.",
+    text: "A calmer business usually has clearer routines behind it.",
     attribution: "Ricky Recalcati",
   },
   {
-    text: "Growth without systems is simply organised chaos.",
+    text: "Growth without operating discipline quickly becomes organised chaos.",
     attribution: "Ricky Recalcati",
   },
   {
@@ -25,7 +25,7 @@ export const quotes: Quote[] = [
     attribution: "Ricky Recalcati",
   },
   {
-    text: "Freedom is built through systems, not shortcuts.",
+    text: "Freedom is built through repeatable habits, not shortcuts.",
     attribution: "Ricky Recalcati",
   },
   {

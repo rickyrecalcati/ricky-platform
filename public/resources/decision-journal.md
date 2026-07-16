@@ -8,7 +8,7 @@ By Ricky Recalcati
 
 Every decision teaches you something.
 
-The problem is that most people only remember the outcome—not what they were thinking when they made it.
+The problem is that most people only remember the outcome. They forget what they were thinking when they made it.
 
 A Decision Journal helps separate good decisions from lucky outcomes and bad outcomes from bad thinking.
 
