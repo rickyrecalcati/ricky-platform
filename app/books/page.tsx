@@ -13,7 +13,7 @@ import "./books.css";
 export const metadata = createPageMetadata({
   title: "Books",
   description:
-    "Explore Ricky Recalcati's practical business series, personal growth books and intelligent fiction.",
+    "Explore Ricky Recalcati's books on business, operations, AI and personal growth.",
   path: "/books",
 });
 
@@ -52,7 +52,7 @@ export default function BooksPage() {
       <section className="booksPage premiumSection">
         <div className="booksHero premiumReveal">
           <p className="eyebrow">Books</p>
-          <h1 className="display-title">Practical guides, compelling stories and ideas worth keeping.</h1>
+          <h1 className="display-title">Practical guides for operators, creators and long-term thinkers.</h1>
         </div>
 
         <div className="booksGrid">

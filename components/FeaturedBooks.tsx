@@ -7,7 +7,7 @@ function bookCardLabel(book: (typeof books)[number]) {
     return `${book.booksInSeries}-ebook series`;
   }
 
-  return "Standalone novel";
+  return "Book";
 }
 
 export default function FeaturedBooks() {

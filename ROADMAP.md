@@ -55,7 +55,6 @@ Success criteria:
 # Milestone 4: Book Catalogue
 
 - [ ] Scaling Hospitality (5 e-book series)
-- [ ] The Forgotten Cipher
 - [ ] The Second Act (5 e-book series)
 
 ---

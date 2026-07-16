@@ -54,7 +54,7 @@ Ricky Recalcati
 
 Tagline:
 
-Helping people build better businesses, make smarter decisions and discover unforgettable stories.
+Helping people build stronger companies, improve judgement and work with more discipline.
 
 ---
 
@@ -71,7 +71,6 @@ Primary
 Secondary
 
 - Readers of business books
-- Fiction readers
 - Investors
 - People interested in personal growth
 
@@ -171,8 +170,6 @@ Books
 Scaling Hospitality
 
 Future:
-
-The Forgotten Cipher
 
 The Second Act
 

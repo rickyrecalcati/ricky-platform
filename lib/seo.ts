@@ -9,7 +9,7 @@ export const siteName = "Ricky Recalcati";
 export const defaultTitle =
   "Ricky Recalcati | Books, Articles and Practical Resources";
 export const defaultDescription =
-  "Books, articles and practical resources on business systems, better decisions, operations and intelligent fiction from Ricky Recalcati.";
+  "Books, articles and practical resources on business, operations, investing, AI and personal growth from Ricky Recalcati.";
 export const ogImagePath = "/opengraph-image";
 
 type MetadataInput = {

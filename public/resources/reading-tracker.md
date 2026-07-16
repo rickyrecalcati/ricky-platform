@@ -71,7 +71,7 @@ Subjects I want to explore:
 
 ☐ Biography
 
-☐ Fiction
+☐ Essays
 
 ☐ Philosophy
 

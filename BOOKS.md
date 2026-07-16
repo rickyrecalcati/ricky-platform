@@ -52,36 +52,6 @@ Buy on Amazon
 
 Read Sample
 
----
-
-# The Forgotten Cipher
-
-Status:
-Coming Soon
-
-Category:
-Fiction
-
-Genre:
-
-Historical Thriller
-
-Subtitle:
-
-Some secrets were buried for a reason.
-
-Tone:
-
-Cinematic
-
-Dark
-
-Intelligent
-
-Suspenseful
-
----
-
 # The Second Act
 
 Status:

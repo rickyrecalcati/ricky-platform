@@ -61,7 +61,7 @@ export default function Image() {
                 maxWidth: 840,
               }}
             >
-              Practical systems, better decisions and stories worth remembering.
+              Business, operations, investing and clearer thinking.
             </div>
           </div>
           <div style={{ color: "#caa45f", fontSize: 24 }}>

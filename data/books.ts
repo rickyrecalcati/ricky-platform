@@ -396,71 +396,12 @@ const bookCatalog: Book[] = [
         "Get the series on Amazon Kindle or join Balance Sheet for thoughtful ideas on business, investing and better decisions.",
     },
   },
-  {
-    slug: "the-forgotten-cipher",
-    title: "The Forgotten Cipher",
-    category: "Fiction",
-    status: "Published",
-    format: "Kindle",
-    amazonUrl: "https://www.amazon.com/dp/B0H64ZBYYV",
-    publicationYear: "2026",
-    series: false,
-    subtitle: "Some secrets were buried for a reason.",
-    description:
-      "A historical thriller where cryptography, hidden history and impossible secrets collide.",
-    page: {
-      heroEyebrow: "Historical Thriller",
-      heroHeadline: "Some secrets were buried for a reason.",
-      heroDescription:
-        "A cinematic, intelligent thriller built around hidden history, consequence and suspense.",
-      coverKicker: "Ricky Recalcati",
-      coverTagline: "A historical thriller",
-      credibility: [
-        "Historical thriller",
-        "Cinematic suspense",
-        "Dark and intelligent",
-        "Published on Kindle",
-      ],
-      whyTitle: "A story about secrets, consequence and the cost of knowing.",
-      whyBody:
-        "The Forgotten Cipher is being developed as an elegant historical thriller where tension comes from consequence, not spectacle.",
-      audienceTitle: "For readers who like intelligent suspense.",
-      audience: [
-        "Readers of historical thrillers.",
-        "Readers who enjoy cryptography and hidden history.",
-        "Fiction readers who prefer atmosphere, intelligence and consequence.",
-        "Readers following Ricky Recalcati's upcoming fiction releases.",
-      ],
-      learnTitle: "What to expect from the story.",
-      learn: [
-        "A historical mystery shaped by buried information.",
-        "A suspenseful story with a dark, cinematic tone.",
-        "A plot driven by intelligence, secrets and consequence.",
-      ],
-      faqTitle: "Questions before release.",
-      faq: [
-        {
-          question: "Is The Forgotten Cipher available now?",
-          answer: "Yes. The Forgotten Cipher is available on Amazon Kindle.",
-        },
-        {
-          question: "What genre is it?",
-          answer: "It is a historical thriller.",
-        },
-      ],
-      finalLabel: "Published",
-      finalTitle: "Read The Forgotten Cipher on Kindle.",
-      finalBody:
-        "Get the book on Amazon Kindle or join Balance Sheet for thoughtful ideas from Ricky Recalcati.",
-    },
-  },
 ];
 
 const bookOrder = [
   "scaling-hospitality",
   "no-robots-required",
   "the-second-act",
-  "the-forgotten-cipher",
 ];
 
 export const books: Book[] = bookOrder.map((slug) => {

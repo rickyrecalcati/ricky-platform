@@ -368,8 +368,8 @@ const costcoBusinessBreakdownSections: ArticleContentSection[] = [
     body: [
       "The business would risk becoming predictable if every visit consisted solely of buying the same household staples in large quantities. Costco counters this with what is often described as the “treasure-hunt” experience: rotating products, seasonal opportunities and unexpected high-value items that may disappear quickly.",
       "This creates urgency without requiring constant discount theatrics. Customers learn that if they see an attractive item, waiting may mean losing it. A routine shopping trip can therefore include discovery, which encourages people to move through more of the warehouse and visit more frequently than their bulk purchases alone might require.",
-      "The clever part is that this sense of discovery sits on top of an otherwise highly disciplined operation. The core promise remains dependable, while a changing portion of the assortment introduces novelty. Costco combines operational consistency with merchandising surprise.",
-      "That balance is difficult to reproduce. Too much predictability makes a retailer boring; too much change makes it unreliable. Costco gives members enough stability to trust the warehouse and enough novelty to remain curious about what might be there next time.",
+      "The clever part is that this sense of discovery sits on top of an otherwise highly disciplined operation. The core promise remains dependable, while a changing portion of the assortment introduces freshness. Costco combines operational consistency with merchandising surprise.",
+      "That balance is difficult to reproduce. Too much predictability makes a retailer boring; too much change makes it unreliable. Costco gives members enough stability to trust the warehouse and enough surprise to remain curious about what might be there next time.",
     ],
   },
   {

@@ -418,7 +418,7 @@ export const resources: Resource[] = [
     ],
     worksWellWith: [
       "Business reading.",
-      "Fiction reflection.",
+      "Personal reading.",
       "Personal learning systems.",
     ],
     relatedBooks: [secondAct, scalingHospitality],

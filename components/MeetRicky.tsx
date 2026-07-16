@@ -6,7 +6,7 @@ const platformPillars = [
   "Build stronger companies",
   "Improve judgement",
   "Create more room to think",
-  "Find stories worth keeping",
+  "Use experience well",
 ];
 
 export default function MeetRicky() {
@@ -28,8 +28,8 @@ export default function MeetRicky() {
             leadership change the way a business feels to run.
           </p>
           <p className="body-large">
-            Today he writes business books, intelligent fiction and useful
-            field notes from the work that shaped his career.
+            Today he writes business books and useful field notes from the work
+            that shaped his career.
           </p>
         </div>
 

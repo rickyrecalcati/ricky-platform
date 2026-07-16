@@ -84,15 +84,15 @@ Respect the reader's intelligence.
 
 ---
 
-# Fiction
+# Editorial Style
 
-Elegant.
+Calm.
 
-Cinematic.
+Specific.
 
-Never melodramatic.
+Never inflated.
 
-Create tension through consequence, not excessive description.
+Create value through clear examples, useful questions and disciplined thinking.
 
 ---
 
@@ -130,6 +130,6 @@ Make smarter decisions.
 
 Create more freedom.
 
-Enjoy unforgettable stories.
+Use practical experience well.
 
 Everything should reinforce that mission.
