@@ -12,22 +12,22 @@ import "./about.css";
 export const metadata = createPageMetadata({
   title: "About Ricky Recalcati",
   description:
-    "Learn about Ricky Recalcati, a Sydney-based operations leader, entrepreneur, author and systems thinker.",
+    "Learn about Ricky Recalcati, a Sydney-based operations leader and author writing about business, operations, investing and decision making.",
   path: "/about",
 });
 
 const experienceItems = [
   {
     title: "Hospitality",
-    text: "Where I learned that every great customer experience starts long before the customer arrives.",
+    text: "Where I learned how much the guest experience depends on preparation, standards and the way a team works under pressure.",
   },
   {
-    title: "Operations",
-    text: "Where I learned that measuring the right things changes how people act.",
+    title: "Operations leadership",
+    text: "Where I moved from doing the work to improving how the work was planned, measured and led across teams.",
   },
   {
-    title: "Writing",
-    text: "Where I discovered that stories can teach lessons no spreadsheet ever could.",
+    title: "Recycling and logistics",
+    text: "Where I work on collection networks, contractor performance, reporting and day-to-day operating discipline.",
   },
 ];
 
@@ -35,63 +35,68 @@ const timelineItems = [
   "Hospitality",
   "Operations Leadership",
   "Logistics",
+  "Recycling",
   "Entrepreneurship",
   "Author",
 ];
 
 const philosophyItems = [
   {
-    title: "Build Stronger Companies",
-    text: "A company should not depend on heroic effort. It should be easy enough to run well on an ordinary day.",
+    title: "Reduce confusion",
+    text: "Leadership should make the work easier to understand. If people are guessing what matters, the problem usually starts higher up.",
   },
   {
-    title: "Improve Judgement",
-    text: "Good judgement compounds quietly over time.",
+    title: "Support growth properly",
+    text: "Growth only helps when the operation underneath it can carry the weight. Otherwise, scale just exposes the weak points faster.",
   },
   {
-    title: "Create More Room",
-    text: "The point of improving the work is not to create more work. It is to make space to think, build and live.",
+    title: "Stay close to the work",
+    text: "The best decisions usually come from understanding what actually happens on the floor, in the truck, with the customer or inside the team.",
   },
   {
-    title: "Tell Unforgettable Stories",
-    text: "Stories help us understand risk, ambition, consequence and change.",
+    title: "Keep solutions usable",
+    text: "A simple fix that people use is worth more than a polished framework that never leaves the meeting room.",
   },
 ];
 
 const platformItems = [
   {
     title: "Books",
-    text: "Practical guides for operators and intelligent fiction for readers who want stories with consequence.",
+    text: "Short, useful books on operations, AI, leadership and personal growth.",
   },
   {
     title: "Articles",
-    text: "Notes on business, operating discipline, judgement and the lessons hidden inside daily work.",
+    text: "Long-form essays on business, leadership, investing and how good operators think.",
+  },
+  {
+    title: "Business Breakdown",
+    text: "A Wednesday series studying companies, operating models and the details competitors struggle to copy.",
+  },
+  {
+    title: "Balance Sheet",
+    text: "A Monday note on markets, business and investing, written for readers who prefer context over noise.",
   },
   {
     title: "Resources",
-    text: "Tools, checklists and frameworks people can use, not just read once and forget.",
-  },
-  {
-    title: "Future tools",
-    text: "AI workflows and digital products that help creators and operators move from thinking to action faster.",
+    text: "Free templates, checklists and worksheets built for people who want to put ideas into motion.",
   },
 ];
 
 const currentlyItems = [
   "Based in Sydney, Australia",
-  "Writing across business, operations and fiction",
+  "Writing across business, operations, investing and personal growth",
   "Improving collection networks, reporting and contractor performance",
-  "Exploring AI workflows for creators and operators",
+  "Exploring useful AI workflows for operators, creators and small teams",
 ];
 
 const writingWorlds = [
   {
-    title: "Business and operations",
-    text: "Books and resources for people who want stronger operations, clearer judgement and tools they can put to work.",
+    title: "Operations and leadership",
+    text: "What happens when teams, processes, customers, contractors and growth all meet in the real world.",
   },
   {
-    title: "Intelligent fiction",
-    text: "Stories that give readers a different kind of escape while exploring risk, ambition, consequence and change.",
+    title: "Investing and decision making",
+    text: "How long-term thinking, ownership and small choices shape the results people eventually live with.",
   },
 ];
 
@@ -119,30 +124,50 @@ export default function AboutPage() {
         <div className="aboutPageHeroContent premiumReveal">
           <p className="eyebrow">About Ricky</p>
           <h1 className="display-title">
-            Practical experience. Clear thinking. Stories worth keeping.
+            I write about the work behind businesses that run well.
           </h1>
           <p className="body-large">
-            I have spent more than 15 years building, improving and scaling
-            businesses. Along the way I discovered that the same principles
-            that help companies run well also shape great stories: clarity,
-            consequence and constant improvement.
+            Most of my work has been about helping businesses operate with less
+            confusion and more consistency. Sometimes that means clearer
+            routines. Sometimes it means stronger teams, cleaner reporting,
+            steadier leadership or simply making a decision with incomplete
+            information and owning the result.
+          </p>
+          <p className="body-large">
+            RickyRecalcati.com is where I share the lessons I have found useful
+            across hospitality, operations, logistics, recycling, investing and
+            personal growth.
           </p>
         </div>
 
         <div className="aboutPageSignal premiumReveal premiumRevealDelay" aria-label="Ricky Recalcati profile summary">
-          <span className="eyebrow">Applied Thinking</span>
-          <strong className="section-title">Business, judgement and stories worth remembering.</strong>
+          <span className="eyebrow">Based in Sydney</span>
+          <strong className="section-title">Operations leader, entrepreneur and author.</strong>
           <p className="body">
-            This platform exists to turn practical experience into books,
-            articles and tools people can actually use.
+            Around 15 years of hands-on and leadership work across hospitality,
+            recycling, logistics and contractor management.
           </p>
         </div>
       </section>
 
       <section className="aboutPageExperience">
         <div className="aboutPageSectionIntro">
-          <p className="eyebrow">What Shaped My Thinking</p>
-          <h2 className="section-title">The lessons came from real work, not theory.</h2>
+          <p className="eyebrow">Background</p>
+          <h2 className="section-title">The lessons came from the floor, not a playbook.</h2>
+          <p className="body-large">
+            My career started in hospitality, close to customers and close to
+            the pressure of service. Over time, the work moved into broader
+            operational leadership: running teams, fixing broken processes,
+            managing growth and trying to make performance more consistent
+            without adding unnecessary noise.
+          </p>
+          <p className="body-large">
+            That work has since stretched across recycling, logistics and
+            contractor management. Different industries, same pattern. The
+            details change, but the hard problems often come back to how the
+            work is designed, how people communicate and what leaders choose to
+            measure.
+          </p>
         </div>
 
         <div className="aboutPageCardGrid">
@@ -169,8 +194,20 @@ export default function AboutPage() {
 
       <section className="aboutPagePhilosophy premiumSection">
         <div className="aboutPageSectionIntro">
-          <p className="eyebrow">Philosophy</p>
-          <h2 className="section-title">The platform is built around applied thinking.</h2>
+          <p className="eyebrow">How I Think About Business</p>
+          <h2 className="section-title">Good operations should make the work feel less chaotic.</h2>
+          <p className="body-large">
+            I do not think most businesses need more theatre around leadership.
+            They need fewer unclear handovers, fewer duplicated reports, fewer
+            meetings that create no decision and fewer processes that only one
+            person understands.
+          </p>
+          <p className="body-large">
+            Useful improvement usually begins by watching how the work actually
+            happens. From there, the aim is to remove friction, set standards
+            people can follow and build enough rhythm that the business does not
+            depend on constant heroics.
+          </p>
         </div>
 
         <div className="aboutPagePrinciples" aria-label="Ricky Recalcati philosophy">
@@ -186,11 +223,18 @@ export default function AboutPage() {
       <section className="aboutPagePlatform">
         <div className="aboutPageSectionIntro">
           <p className="eyebrow">The Platform</p>
-          <h2 className="section-title">This is where the work becomes useful.</h2>
+          <h2 className="section-title">Why this site exists.</h2>
           <p className="body-large">
-            This website is not simply an author website. It is where Ricky
-            shares books, articles, operational frameworks, AI workflows,
-            useful tools and lessons learned throughout his career.
+            I built this site to collect the parts of my work that might be
+            useful to someone else: books, articles, Business Breakdown,
+            Balance Sheet and free resources. Some pieces are about operations.
+            Some are about leadership, investing, decision making or personal
+            growth.
+          </p>
+          <p className="body-large">
+            The common thread is usefulness. If something appears here, it
+            should help a reader think more carefully, run something more
+            calmly or make a choice with a little more discipline.
           </p>
         </div>
 
@@ -207,7 +251,7 @@ export default function AboutPage() {
       <section className="aboutPageWriting premiumSection">
         <div className="aboutPageSectionIntro">
           <p className="eyebrow">Writing</p>
-          <h2 className="section-title">Two different worlds. One common thread.</h2>
+          <h2 className="section-title">The subjects are connected by how people make things work.</h2>
         </div>
 
         <div className="aboutPageWritingGrid">
@@ -236,14 +280,15 @@ export default function AboutPage() {
       <section className="aboutPageFinalCta">
         <p className="eyebrow">Start Here</p>
         <h2 className="section-title">
-          Read what Ricky is building.
+          Start with the work that is useful to you.
         </h2>
         <p className="body-large">
-          Explore the books or join Balance Sheet for thoughtful notes on
-          business, operations, judgement and storytelling.
+          Read the books, browse the articles, download a resource or join
+          Balance Sheet. Take what helps and leave the rest.
         </p>
         <p className="aboutPageClosingLine section-title">
-          Stronger operating habits create stronger companies. Good stories make people harder to forget.
+          The point is simple: share what I have learned from real work, and
+          make it useful enough to return to.
         </p>
         <div className="aboutPageActions">
           <Link className="luxuryButton luxuryButtonPrimary" href="/books">

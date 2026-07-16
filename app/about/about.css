@@ -151,7 +151,7 @@
   max-width: var(--content-max);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   border-top: 1px solid rgba(17, 17, 17, 0.12);
 }
 
