@@ -16,6 +16,8 @@ type NewsletterErrorCode =
   | "invalid_email"
   | "missing_resend_api_key"
   | "missing_resend_segment_id"
+  | "resend_contact_lookup_error"
+  | "resend_contact_lookup_exception"
   | "resend_contact_error"
   | "resend_contact_exception"
   | "resend_rate_limit"
@@ -25,6 +27,7 @@ type ContactCreateResult = Awaited<ReturnType<Resend["contacts"]["create"]>>;
 type ContactSegmentResult = Awaited<
   ReturnType<Resend["contacts"]["segments"]["add"]>
 >;
+type ContactGetResult = Awaited<ReturnType<Resend["contacts"]["get"]>>;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ERROR_MESSAGE = "Something went wrong. Please try again.";
@@ -166,6 +169,10 @@ function isRateLimitError(error: { name?: string; statusCode?: number | null }) 
   return error.statusCode === 429 || error.name === "rate_limit_exceeded";
 }
 
+function isNotFoundError(error: { name?: string; statusCode?: number | null }) {
+  return error.name === "not_found" || error.statusCode === 404;
+}
+
 function isAlreadyInSegmentError(error: {
   message?: string;
   statusCode?: number | null;
@@ -240,6 +247,17 @@ async function createBalanceSheetContact(
         id: segmentId,
       },
     ],
+  });
+}
+
+async function addContactToBalanceSheetSegment(
+  resend: Resend,
+  email: string,
+  segmentId: string,
+) {
+  return resend.contacts.segments.add({
+    email,
+    segmentId,
   });
 }
 
@@ -344,6 +362,109 @@ export async function POST(request: Request) {
     );
   }
 
+  let existingContactResult: ContactGetResult;
+
+  try {
+    existingContactResult = await resend.contacts.get({ email });
+  } catch (error) {
+    logNewsletterError("contact_lookup_exception", {
+      errorName: error instanceof Error ? error.name : "unknown",
+    });
+
+    return jsonResponse(
+      {
+        ok: false,
+        status: "error",
+        message: errorMessage("resend_contact_lookup_exception"),
+        code: "resend_contact_lookup_exception",
+      },
+      { status: 502 },
+    );
+  }
+
+  if (existingContactResult.error) {
+    if (isRateLimitError(existingContactResult.error)) {
+      return resendRateLimitResponse();
+    }
+
+    if (!isNotFoundError(existingContactResult.error)) {
+      logNewsletterError("contact_lookup_failed", {
+        name: existingContactResult.error.name,
+        statusCode: existingContactResult.error.statusCode,
+      });
+
+      return jsonResponse(
+        {
+          ok: false,
+          status: "error",
+          message: errorMessage("resend_contact_lookup_error"),
+          code: "resend_contact_lookup_error",
+        },
+        { status: 502 },
+      );
+    }
+  }
+
+  if (existingContactResult.data) {
+    let segmentResult: ContactSegmentResult;
+
+    try {
+      segmentResult = await addContactToBalanceSheetSegment(
+        resend,
+        email,
+        segmentId,
+      );
+    } catch (error) {
+      logNewsletterError("segment_add_exception", {
+        errorName: error instanceof Error ? error.name : "unknown",
+      });
+
+      return jsonResponse(
+        {
+          ok: false,
+          status: "error",
+          message: errorMessage("resend_segment_exception"),
+          code: "resend_segment_exception",
+        },
+        { status: 502 },
+      );
+    }
+
+    if (segmentResult.error) {
+      if (isRateLimitError(segmentResult.error)) {
+        return resendRateLimitResponse();
+      }
+
+      if (!isAlreadyInSegmentError(segmentResult.error)) {
+        logNewsletterError("segment_add_failed", {
+          name: segmentResult.error.name,
+          statusCode: segmentResult.error.statusCode,
+        });
+
+        return jsonResponse(
+          {
+            ok: false,
+            status: "error",
+            message: errorMessage("resend_segment_error"),
+            code: "resend_segment_error",
+          },
+          { status: 502 },
+        );
+      }
+    }
+
+    logNewsletterEvent("contact_already_exists", {
+      email: safeEmailSummary(email),
+      segmentAdded: !segmentResult.error,
+    });
+
+    return jsonResponse({
+      ok: true,
+      status: "duplicate",
+      message: DUPLICATE_MESSAGE,
+    });
+  }
+
   logNewsletterEvent("creating_contact", {
     source,
   });
@@ -381,10 +502,11 @@ export async function POST(request: Request) {
       let segmentResult: ContactSegmentResult;
 
       try {
-        segmentResult = await resend.contacts.segments.add({
+        segmentResult = await addContactToBalanceSheetSegment(
+          resend,
           email,
           segmentId,
-        });
+        );
       } catch (error) {
         logNewsletterError("segment_add_exception", {
           errorName: error instanceof Error ? error.name : "unknown",
