@@ -5,16 +5,17 @@ export default function Hero() {
   return (
     <section className="hero premiumSection">
       <div className="heroContent premiumReveal">
-        <p className="heroTag eyebrow">BUSINESS • FICTION • FINANCE • LIFE</p>
+        <p className="heroTag eyebrow">BUSINESS • OPERATIONS • INVESTING • FICTION</p>
 
         <h1 className="display-title">
-          Ideas that help people build better businesses, make smarter
-          decisions, and discover unforgettable stories.
+          A premium publication for practical business thinking and sharper
+          decisions.
         </h1>
 
         <p className="heroText body-large">
-          Practical books, proven frameworks and thought-provoking stories to
-          help you grow in business and in life.
+          RickyRecalcati.com brings together essays, books and free resources
+          on operations, leadership, investing and decision making, with
+          intelligent fiction as a quieter second thread.
         </p>
 
         <div className="heroButtons">

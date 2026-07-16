@@ -78,13 +78,6 @@
   flex-wrap: nowrap;
 }
 
-.newsletterHoneypot {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .newsletterForm input {
   width: 100%;
   max-width: 540px;

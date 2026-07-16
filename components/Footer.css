@@ -28,6 +28,68 @@
   max-width: 520px;
 }
 
+.footerNewsletter {
+  max-width: 520px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.footerNewsletter > .eyebrow {
+  --eyebrow-size: 12px;
+  --eyebrow-spacing: .18em;
+  margin-bottom: 10px;
+  color: var(--color-gold);
+}
+
+.footerNewsletter > .body {
+  --body-color: #aaa299;
+  --body-size: 15px;
+  --body-line: 1.65;
+  max-width: 480px;
+  margin-bottom: 18px;
+}
+
+.footerNewsletterForm {
+  display: flex;
+  max-width: 500px;
+  gap: 10px;
+}
+
+.footerNewsletterForm input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 239, 230, 0.14);
+  background: rgba(244, 239, 230, 0.96);
+  color: #111;
+  font-size: 15px;
+}
+
+.footerNewsletterForm input::placeholder {
+  color: #7a746b;
+}
+
+.footerNewsletterForm button {
+  min-width: 112px;
+  padding-inline: 22px;
+}
+
+.footerNewsletterForm button:disabled,
+.footerNewsletterForm input:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.footerNewsletterMessage {
+  --body-color: var(--color-cream-bright);
+  --body-size: 14px;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
 .footerLinks {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -80,5 +142,15 @@
   .footerBottom {
     flex-direction: column;
     gap: 14px;
+  }
+
+  .footerNewsletterForm {
+    max-width: 560px;
+    flex-wrap: wrap;
+  }
+
+  .footerNewsletterForm input,
+  .footerNewsletterForm button {
+    width: 100%;
   }
 }

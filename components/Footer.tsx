@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NewsletterSignupForm from "./NewsletterSignupForm";
 import "./Footer.css";
 
 export default function Footer() {
@@ -12,9 +13,24 @@ export default function Footer() {
           <h2 className="section-title">Ricky Recalcati</h2>
 
           <p className="body">
-            Books, ideas and practical resources for people building
-            better businesses, making smarter decisions and living with purpose.
+            Field notes for operators, investors and readers who prefer clear
+            thinking over noise.
           </p>
+
+          <div className="footerNewsletter" id="footer-newsletter">
+            <p className="eyebrow">Balance Sheet</p>
+            <p className="body">
+              A calm Monday note on markets, business and decisions worth
+              carrying into the week.
+            </p>
+            <NewsletterSignupForm
+              buttonText="Join"
+              className="footerNewsletterForm"
+              messageClassName="footerNewsletterMessage body"
+              placeholder="Email address"
+              sourceAnchor="footer-newsletter"
+            />
+          </div>
 
         </div>
 
@@ -55,9 +71,7 @@ export default function Footer() {
 
       <div className="footerBottom">
 
-        <span>© {new Date().getFullYear()} Ricky Recalcati</span>
-
-        <span>Built with Next.js</span>
+        <span>© {new Date().getFullYear()} Ricky Recalcati. All rights reserved.</span>
 
       </div>
 
