@@ -82,13 +82,6 @@ const platformItems = [
   },
 ];
 
-const currentlyItems = [
-  "Based in Sydney, Australia",
-  "Writing across business, operations, investing and personal growth",
-  "Improving collection networks, reporting and contractor performance",
-  "Exploring useful AI workflows for operators, creators and small teams",
-];
-
 const writingWorlds = [
   {
     title: "Operations and leadership",
@@ -260,19 +253,6 @@ export default function AboutPage() {
               <h3 className="section-title">{item.title}</h3>
               <p className="body">{item.text}</p>
             </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="aboutPageCurrently">
-        <div className="aboutPageSectionIntro">
-          <p className="eyebrow">Currently</p>
-          <h2 className="section-title">What Ricky is focused on now.</h2>
-        </div>
-
-        <div className="aboutPageCurrentlyList">
-          {currentlyItems.map((item) => (
-            <p className="body-large" key={item}>{item}</p>
           ))}
         </div>
       </section>
