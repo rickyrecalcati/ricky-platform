@@ -25,7 +25,9 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         <div className="articleCardMeta">
           <span className="articleCardSeriesBlock">
             {seriesDetails ? (
-              <span className="articleCardWeeklyLabel eyebrow">Weekly</span>
+              <span className="articleCardWeeklyLabel eyebrow">
+                {seriesDetails.cardLabel}
+              </span>
             ) : null}
             <span className="articleCardCategory eyebrow">{displayCategory}</span>
           </span>

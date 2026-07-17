@@ -2,6 +2,7 @@
 
 import { startTransition, useMemo, useOptimistic } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { articleSeriesDetails } from "../data/articleSeries";
 import type { Article } from "../data/articles";
 import ArticleCard from "./ArticleCard";
 
@@ -74,7 +75,9 @@ export default function ArticleCategoryFilters({
         </button>
 
         <div className="articlesSeriesFilter">
-          <span className="articlesWeeklyLabel eyebrow">Weekly</span>
+          <span className="articlesWeeklyLabel eyebrow">
+            {articleSeriesDetails["Balance Sheet"].cardLabel}
+          </span>
           <button
             aria-pressed={selectedCategory === BALANCE_SHEET_FILTER}
             className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
@@ -90,7 +93,9 @@ export default function ArticleCategoryFilters({
         </div>
 
         <div className="articlesSeriesFilter">
-          <span className="articlesWeeklyLabel eyebrow">Weekly</span>
+          <span className="articlesWeeklyLabel eyebrow">
+            {articleSeriesDetails["Business Breakdown"].cardLabel}
+          </span>
           <button
             aria-pressed={selectedCategory === BUSINESS_BREAKDOWN_FILTER}
             className={`eyebrow articlesCategoryPill articlesCategoryPillSeries${
