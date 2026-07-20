@@ -429,6 +429,87 @@ const realEstateVsSp500Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue002Sections: ArticleContentSection[] = [
+  {
+    heading: "Quick recap",
+    body: [
+      "The rally finally took a breath. After three straight winning weeks, the S&P 500 finished lower, the Nasdaq took the heavier hit, and the week’s most crowded trade was forced to answer a question investors had been postponing: what happens if the American AI advantage is not as wide, durable or proprietary as the market has been pricing?",
+    ],
+    table: {
+      headers: ["Market", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,475.69", "-1.6%"],
+        ["Nasdaq Composite", "25,520.24", "-2.9%"],
+        ["Dow Jones Industrial Average", "52,146.42", "-0.9%"],
+        ["Bitcoin", "Around $63,800", "Choppy, after briefly topping $65K"],
+        ["Crude oil", "Around $81 per barrel", "Up sharply on renewed Middle East risk"],
+        ["Gold", "Around $4,010", "Lower on the week"],
+      ],
+    },
+  },
+  {
+    heading: "The AI trade finally met a credible question",
+    body: [
+      "This was not a broad market collapse. That distinction matters.",
+      "Eight of the eleven S&P 500 sectors reportedly rose for the week. Energy and consumer staples led. Value and equal-weight strategies held up better than growth. The damage was concentrated in the part of the market that had benefited most from the same story for the past year: artificial intelligence, semiconductors and the companies investors had treated as the picks-and-shovels winners of the next computing cycle.",
+      "The trigger was the release of a new open model from China’s Moonshot AI. The model does not need to permanently beat the best American systems to matter for markets. It only needs to be good enough to make investors question the return on the enormous capital being poured into AI infrastructure.",
+      "That is the important point. The AI trade has not been priced merely for growth. It has been priced for dominance, scarcity and unusually high future returns on capital. A strong open-weight model from a Chinese competitor pushes against all three assumptions. If frontier capability becomes more widely available, cheaper to access or harder to defend, then the market has to ask whether every data centre, chip order and infrastructure plan will earn what investors have already capitalised into today’s prices.",
+      "That question was always going to appear eventually. It appeared this week.",
+    ],
+    callout:
+      "The model does not need to win the AI race outright. It only needs to make investors question how much certainty was already priced in.",
+  },
+  {
+    heading: "Rotation is not the same as panic",
+    body: [
+      "The index finished red, but the market underneath it was more balanced than the headline suggested. Earnings did not collapse. According to the source draft, 95% of the 47 S&P 500 companies that had reported by that point had beaten estimates. That figure needs manual verification before being treated as final, but the broader point is still useful: the selling looked more like a positioning reset than an earnings recession.",
+      "When the leaders fall and the rest of the market holds up, the message is different from a normal risk-off week. It tells you investors are not abandoning equities altogether. They are asking whether too much of the recent return has been sitting in too few names, attached to too narrow a narrative.",
+      "That is how crowded trades usually begin to unwind. Not because the entire thesis is disproven in one session, but because the market no longer agrees to pay the same price for certainty.",
+    ],
+  },
+  {
+    heading: "Netflix shows why disclosure matters",
+    body: [
+      "Netflix was the week’s business case study. The company reported higher second-quarter profit and revenue, but investors focused on softer guidance, questions around growth and a quieter but important disclosure change: Netflix will move its What We Watched engagement reports from a six-month cadence to an annual one starting in 2027.",
+      "The company’s explanation is reasonable on its face. Netflix wants investors focused on primary financial metrics such as revenue and operating profit rather than treating viewing hours as the whole story. That is fair. Hours watched are not the same as pricing power, margins or free cash flow.",
+      "Still, changes in disclosure deserve attention. Netflix spent years teaching the market to care about engagement, scale and evidence of viewing dominance. When a company reduces the frequency of a metric investors have learned to watch, the move becomes information in itself.",
+      "This does not mean Netflix is hiding a problem. It does mean the burden of proof shifts a little. When a company gives investors less operating detail, the financial results have to do more of the talking.",
+    ],
+    quote:
+      "Watch what a company stops telling you, not just what it says.",
+  },
+  {
+    heading: "Oil was the second story, not a small one",
+    body: [
+      "The tech selloff was loud enough to absorb most of the attention, but oil’s move deserved its own headline. Crude prices rose sharply as Middle East tensions escalated, adding another reminder that geopolitical risk can reprice faster than investors want to believe.",
+      "In a quieter week, an oil spike of that size would have dominated the market conversation. This week it became the second story because AI was the cleaner narrative. That is how attention works in markets. Investors can monitor many risks, but they usually only argue about one at a time.",
+      "The problem is that risks do not disappear because they are not the lead story. They wait.",
+      "Higher oil prices matter because they can feed inflation expectations, pressure consumers and complicate the interest-rate picture. Whether that becomes a sustained problem depends on duration, not the first move. A one-week spike is a warning. A persistent rise is a different kind of problem.",
+    ],
+  },
+  {
+    heading: "My take",
+    body: [
+      "The story this week is not that technology suddenly became a bad business. It is that the market found a credible reason to question whether the AI trade had become priced for perfection.",
+      "That is a healthier question than it may feel in the moment. Great investment themes often begin with a real insight, then get carried into lazy extrapolation. AI is real. The capital cycle is real. The productivity potential is real. None of that means every company attached to the theme deserves to be valued as if competition, cost curves and return on capital no longer apply.",
+      "Investors should separate the technology from the trade. The technology can keep improving while the trade corrects. A company can benefit from AI while still being overvalued. A data-centre boom can be strategically important while still producing uneven returns for the companies funding it.",
+      "That distinction matters because the best long-term investors are not paid for believing every good story. They are paid for understanding what is already in the price.",
+    ],
+    callout:
+      "AI can keep improving while the AI trade still corrects.",
+  },
+  {
+    heading: "One lesson",
+    body: [
+      "Concentration risk cuts both ways.",
+      "The Nasdaq’s outsized drop against the broader S&P 500 was not mainly about the economy weakening. It was about how much of the index’s recent strength had gathered around a small group of AI-adjacent companies. When a narrow group carries the upside, it also carries the disappointment.",
+      "The same principle applies inside a business. If growth depends too heavily on one narrative, one supplier, one customer segment, one channel or one unusually favourable assumption, the correction will look larger than the underlying problem.",
+      "Diversification is often discussed as a defensive idea, but its real value is psychological and operational. It buys time. It stops one shock from becoming the whole story.",
+      "The AI trade did not end this week. It simply became less effortless. That is usually where the more useful analysis begins.",
+    ],
+  },
+];
+
 const costcoBusinessBreakdownSections: ArticleContentSection[] = [
   {
     heading: "The answer begins with trust",
@@ -515,6 +596,81 @@ const costcoBusinessBreakdownSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-002-ai-trade-finally-blinked",
+    title: "Balance Sheet #002: The AI Trade Finally Blinked",
+    cardTitle: "Issue 002: The AI Trade Finally Blinked",
+    cardExcerpt:
+      "Tech sold off, oil surged and investors finally questioned whether the AI trade had been priced for perfection.",
+    category: "Finance",
+    tags: ["Balance Sheet", "Markets", "AI", "Investing", "Finance"],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 2,
+    weekCovered: "Week of July 13–17, 2026",
+    weekEnding: "2026-07-17",
+    headline: "The AI trade finally blinked.",
+    featured: true,
+    excerpt:
+      "Tech sold off, oil surged and investors finally questioned whether the AI trade had been priced for perfection.",
+    metaTitle: "Balance Sheet #002: The AI Trade Finally Blinked",
+    metaDescription:
+      "Balance Sheet #002 reviews July 13-17, 2026: tech’s AI reset, oil’s Middle East surge, Netflix disclosure changes and concentration risk in markets today.",
+    date: "2026-07-20",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #002: The AI Trade Finally Blinked",
+      "Tech sold off, oil surged and investors finally questioned whether the AI trade had been priced for perfection.",
+      balanceSheetIssue002Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The model does not need to win the AI race outright. It only needs to make investors question how much certainty was already priced in.",
+    sections: balanceSheetIssue002Sections,
+    sources: [
+      {
+        title:
+          "AP, US stocks close lower for first losing week in three",
+        href: "https://apnews.com/",
+      },
+      {
+        title:
+          "Netflix second-quarter 2026 earnings and shareholder materials",
+        href: "https://ir.netflix.net/financials/quarterly-earnings/default.aspx",
+      },
+      {
+        title:
+          "Netflix What We Watched engagement reports",
+        href: "https://www.netflix.com/tudum/what-we-watched",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Real Estate vs. the S&P 500: What Long-Term Returns Really Show",
+        href: "/articles/real-estate-vs-sp-500-long-term-returns",
+        description:
+          "Why returns are only one part of the investing story.",
+      },
+      {
+        title: "The Wealth Gap Isn't About Income. It's About Ownership.",
+        href: "/articles/the-wealth-gap-isnt-about-income-its-about-ownership",
+        description:
+          "Why lasting wealth usually comes from owning productive assets.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio objectively instead of emotionally.",
+      },
+    ],
+  },
   {
     slug: "real-estate-vs-sp-500-long-term-returns",
     title: "Real Estate vs. the S&P 500: What Long-Term Returns Really Show",
