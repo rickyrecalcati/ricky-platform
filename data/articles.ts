@@ -510,6 +510,77 @@ const balanceSheetIssue002Sections: ArticleContentSection[] = [
   },
 ];
 
+const broadcomBusinessBreakdownSections: ArticleContentSection[] = [
+  {
+    heading: "The setup is more interesting than the selloff",
+    body: [
+      "Broadcom has become one of the more revealing companies in the AI trade because it is not quite the business many investors still imagine.",
+      "The old shorthand is easy: Broadcom is a chip company. It sells networking hardware, wireless components and other semiconductor products into large technology markets. That description is still true, but it is no longer complete enough to explain the business.",
+      "Today Broadcom is closer to a two-engine infrastructure company. One engine is semiconductors, increasingly tied to custom AI accelerators and the networking fabric that lets large clusters of chips function as one machine. The other is infrastructure software, strengthened by the VMware acquisition, which sells essential enterprise tools into customers that do not swap out core systems lightly.",
+      "That mix makes the recent selloff worth studying. Broadcom has fallen from its highs during a broader semiconductor reset, with investors questioning whether the US AI infrastructure trade had become too crowded. The question is not whether the share price moved. It did. The better question is whether the business changed as much as the mood did.",
+    ],
+  },
+  {
+    heading: "Broadcom sells the less glamorous layer of the AI boom",
+    body: [
+      "The most visible company in AI infrastructure is Nvidia because processors are easy to understand. They are the expensive, scarce, headline-grabbing part of the system. Broadcom plays in a less glamorous part of the stack, but that does not make it less important.",
+      "AI data centres do not become powerful simply by buying more chips. At scale, performance depends on how efficiently thousands of processors communicate with one another. Networking, switching, custom silicon, interconnects and system design begin to matter as much as individual chips. Broadcom’s position is strongest in this plumbing layer.",
+      "Plumbing is not a flattering word in technology, but it is often where durable economics live. Once a hyperscaler designs a large infrastructure program around a particular networking architecture or custom silicon roadmap, change becomes slow, expensive and operationally disruptive. The customer is not choosing a peripheral. It is choosing part of the nervous system.",
+      "That is why Broadcom’s AI exposure should be understood differently from a pure accelerator story. The company is not only trying to sell the most fashionable chip of the moment. It is trying to embed itself in the infrastructure choices that make the whole AI machine work.",
+    ],
+    callout:
+      "Broadcom’s real edge is not simply a faster chip. It is the infrastructure layer that lets thousands of chips act like one machine.",
+  },
+  {
+    heading: "The Apple agreement shows the value of boring revenue",
+    body: [
+      "The AI story gets most of the attention, but Broadcom’s renewed partnership with Apple is a useful reminder of how the company actually compounds. In July 2026, Apple announced a new multiyear commitment with Broadcom expected to exceed $30 billion, covering custom silicon components and wireless connectivity technologies for Apple products.",
+      "The strategic point is still clear. Broadcom has spent years becoming a supplier of components that sit inside high-volume, high-stakes customer products. These are not casual relationships. They involve engineering cycles, qualification processes, supply reliability and the kind of trust that is difficult for a new competitor to win quickly.",
+      "That kind of revenue is not exciting in the way a new AI product demo is exciting. It is valuable for a different reason. It gives the company a base of demand tied to large customers, long product cycles and deep technical integration.",
+      "Investors often underestimate boring revenue during euphoric markets and rediscover it when the exciting part of the story starts to wobble.",
+    ],
+  },
+  {
+    heading: "VMware changed the shape of the company",
+    body: [
+      "The VMware acquisition made Broadcom harder to classify. It also made it more interesting.",
+      "Infrastructure software is a very different business from semiconductors. Chips are cyclical, capital-intensive and exposed to product cycles. Enterprise infrastructure software can be slower growing, but it is often sticky, high-margin and deeply embedded in customer operations. Once a large organisation runs critical workloads, security, virtualisation or cloud infrastructure on a platform, the cost of switching is not only financial. It is operational.",
+      "Broadcom has a particular style with software acquisitions. It tends to focus on mature, mission-critical assets, reduce sprawl, prioritise large enterprise customers and push for stronger margins. That approach can frustrate some customers and attract criticism, but it also explains why the software segment matters to shareholders. It is designed to produce cash.",
+      "That cash flow gives Broadcom a second engine that many semiconductor peers do not have. If AI infrastructure spending slows, the software business does not make Broadcom immune. It does, however, make the company less dependent on one cycle than a pure-play AI hardware supplier.",
+    ],
+  },
+  {
+    heading: "The valuation debate is really about duration",
+    body: [
+      "The bullish case is straightforward. Broadcom has strong margins, deep customer relationships, AI infrastructure exposure, a large software base and a record of disciplined capital allocation. Broadcom reported fiscal 2025 revenue of $63.887 billion, up from $51.574 billion in fiscal 2024. That kind of scale does not remove cyclicality, but it does explain why the market treats the company as more than a conventional semiconductor supplier.",
+      "The bearish case is not that Broadcom is a weak company. It is that a strong company can still be priced for too much future certainty. A trailing P/E around the mid-60s is not a bargain simply because other semiconductor names trade higher. It is a statement about how much growth investors believe can continue.",
+      "This is where the disagreement becomes more useful. Bulls and bears are not really arguing about whether Broadcom is a quality business. They are arguing about duration. How many more years of high AI infrastructure spending are already embedded in the price? How concentrated is the customer base behind that growth? How much of the software cash flow should offset semiconductor cyclicality? How much confidence should investors place in estimates that depend on hyperscaler capital budgets staying enormous?",
+      "Those are not questions a peer multiple can answer cleanly. A DCF model can appear more precise, but it is just as sensitive to assumptions about growth, margins and terminal value. The wide gap between optimistic price targets and more conservative fair-value estimates is not a modelling inconvenience. It is the investment question.",
+    ],
+    quote:
+      "The bull and bear cases are not disagreeing about whether Broadcom is a good business. They are disagreeing about how much of the future is safe to own today.",
+  },
+  {
+    heading: "Customer concentration is the quiet risk",
+    body: [
+      "Broadcom’s AI opportunity is tied to a small group of very large customers. That is not unusual in advanced semiconductors. The customers capable of spending tens of billions on AI infrastructure are, by definition, few.",
+      "The benefit is obvious. Large customers can create enormous, visible demand. They can support custom programs, multiyear roadmaps and technical integration that smaller customers could never justify. The risk is equally obvious. If a handful of hyperscalers slow spending, shift architecture, bring more design work in-house or pressure suppliers on economics, the revenue impact can be large.",
+      "This is the same concentration risk investors often ignore while a theme is working. Concentration looks efficient on the way up because the company is tied to the right customers. It looks fragile on the way down because the same few customers have too much influence.",
+      "Broadcom’s defence is that its products are not easily replaced once designed into complex systems. That is a real advantage. It is not the same thing as having no risk.",
+    ],
+  },
+  {
+    heading: "My take",
+    body: [
+      "What I find most underrated about Broadcom is not the AI story. That story is already visible. The more interesting feature is the combination of AI infrastructure exposure with dull, recurring, high-margin software cash flow underneath it.",
+      "That does not make the stock cheap. It does make the business more resilient than a simple AI-chip narrative suggests. If the AI capex cycle cools, Broadcom still has enterprise software, Apple-linked component demand and a broader infrastructure role than many of the names sold alongside it.",
+      "The uncomfortable part is price. This is not an obvious mispricing where the market has abandoned a great business for no reason. It is closer to a fair-price-for-high-expectations situation. Investors are being asked to believe that several years of AI infrastructure demand will arrive roughly on schedule, and that Broadcom’s software engine will keep producing enough cash to support the story if hardware enthusiasm fades.",
+      "That is a reasonable thesis. It is not a risk-free one.",
+      "Broadcom is not the first name I would point to if the AI trade truly cracked. Its revenue is more contracted, more diversified and more infrastructural than the pure-play accelerator names. But the lesson is broader than the stock. The best businesses in a boom are often not the loudest ones. They are the companies selling the infrastructure everyone else eventually depends on.",
+    ],
+  },
+];
+
 const costcoBusinessBreakdownSections: ArticleContentSection[] = [
   {
     heading: "The answer begins with trust",
@@ -596,6 +667,82 @@ const costcoBusinessBreakdownSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "why-broadcom-is-no-longer-just-a-chip-company",
+    title: "Why Broadcom Is No Longer Just a Chip Company",
+    cardTitle: "Why Broadcom Is No Longer Just a Chip Company",
+    cardExcerpt:
+      "Broadcom looks like an AI chip winner, but its real strength may be the infrastructure and software plumbing beneath the AI boom.",
+    category: "Business",
+    tags: [
+      "Business",
+      "Business Breakdown",
+      "Broadcom",
+      "Semiconductors",
+      "AI",
+      "Infrastructure Software",
+      "Strategy",
+    ],
+    series: "Business Breakdown",
+    excerpt:
+      "Broadcom looks like an AI chip winner, but its real strength may be the infrastructure and software plumbing beneath the AI boom.",
+    metaTitle: "Why Broadcom Is No Longer Just a Chip Company",
+    metaDescription:
+      "Broadcom looks like an AI chip winner, but its real strength may be the less glamorous infrastructure and software plumbing beneath the AI boom itself.",
+    date: "2026-07-22",
+    readingTime: estimateReadingTime(
+      "Why Broadcom Is No Longer Just a Chip Company",
+      "Broadcom looks like an AI chip winner, but its real strength may be the infrastructure and software plumbing beneath the AI boom.",
+      broadcomBusinessBreakdownSections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The best businesses in a boom are often not the loudest ones. They are the companies selling the infrastructure everyone else eventually depends on.",
+    sections: broadcomBusinessBreakdownSections,
+    sources: [
+      {
+        title:
+          "Apple newsroom, Apple to increase spend with Broadcom to produce billions more U.S. chips",
+        href: "https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/",
+      },
+      {
+        title:
+          "Broadcom, Fourth Quarter and Fiscal Year 2025 Financial Results",
+        href: "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-fourth-quarter-and-fiscal-year-2025",
+      },
+      {
+        title:
+          "Broadcom, Second Quarter Fiscal Year 2026 Financial Results",
+        href: "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Why Costco Is Harder to Copy Than It Looks",
+        href: "/articles/why-costco-is-harder-to-copy-than-it-looks",
+        description:
+          "How Costco turns operating discipline into customer trust.",
+      },
+      {
+        title: "The Hidden Cost of Complexity",
+        href: "/articles/the-hidden-cost-of-complexity",
+        description:
+          "Why many businesses need fewer moving parts, not more.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+      {
+        title: "Company Research Worksheet",
+        href: "/resources/company-research-worksheet",
+        description:
+          "Research businesses using a repeatable framework.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-002-ai-trade-finally-blinked",
     title: "Balance Sheet #002: The AI Trade Finally Blinked",
