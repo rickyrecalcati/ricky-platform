@@ -429,6 +429,89 @@ const realEstateVsSp500Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue003Sections: ArticleContentSection[] = [
+  {
+    heading: "Quick recap",
+    body: [
+      "The market’s calm broke in the place that had carried most of the recent enthusiasm: AI spending. Major indexes finished lower for the week, the Nasdaq took the heaviest hit, oil briefly crossed an uncomfortable threshold, and a strong labor print gave investors one more reason to worry the Fed may not be in a hurry to ease.",
+    ],
+    table: {
+      headers: ["Market", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,411.98", "-0.6%"],
+        ["Nasdaq Composite", "24,975.82", "-2.1%"],
+        ["Dow Jones Industrial Average", "51,947.25", "-0.4%"],
+        ["Bitcoin", "Around $65,000", "Choppy, with late-week ETF outflows"],
+        ["Gold", "Around $4,050 per ounce", "Up roughly 1%"],
+        ["Brent crude", "Around $96 per barrel", "Touched $100 before easing Friday"],
+      ],
+    },
+  },
+  {
+    heading: "The AI trade met the cash test",
+    body: [
+      "This was the week investors stopped rewarding AI ambition automatically.",
+      "Alphabet and Tesla both gave the market versions of the same problem. Revenue growth was not enough. Investors looked past the headline numbers and focused on the capital spending required to keep the AI story moving. When a company says growth is strong but the bill to fund that growth keeps rising, the market eventually asks a harder question: what will the return on that spending actually be?",
+      "That question landed heavily. Tesla’s post-earnings selloff was severe, and the broader group of mega-cap technology leaders suffered one of its largest one-day losses in recent memory. The exact market-value figure varies by source, but the direction was not subtle. Investors sold the companies most closely associated with the assumption that bigger AI spending would eventually translate into bigger profits.",
+      "That is a different kind of selloff from a normal earnings disappointment. The market was not rejecting AI. It was rejecting the idea that every dollar spent on AI infrastructure should be treated as value created before the evidence arrives.",
+      "For two years, the dominant trade rewarded scale. The company with the largest data centers, the largest model budgets, the largest chip orders and the largest capital plans often received the benefit of the doubt. This week that bargain changed. Scale still matters, but investors are beginning to separate productive investment from expensive commitment.",
+    ],
+    callout:
+      "The question is no longer whether companies are spending enough on AI. It is whether the spending can earn enough.",
+  },
+  {
+    heading: "Open-source AI complicates the story",
+    body: [
+      "The open-source AI conversation matters because it changes where investors should look for durable advantage.",
+      "If models become cheaper, more capable and more widely available, then owning the model weights may not be the moat investors once assumed. The advantage may shift toward infrastructure, distribution, developer ecosystems, enterprise relationships, proprietary data, chips, networking and the ability to turn capability into product.",
+      "That does not make the large AI platforms weak. In some ways it makes them more important. The companies with the deepest infrastructure, strongest customer access and largest distribution channels may still capture enormous value. But it does mean the economics could become less clean. More competition at the model layer can pressure pricing, shorten periods of advantage and make it harder to justify every new dollar of capital spending with a simple story about scarcity.",
+      "This is why the reported support for open-source AI from major technology executives is more than diplomatic language. It reflects a market structure where the moat may not sit in one place. The model may matter, but the system around the model may matter more.",
+      "Long-term investors should pay attention to that shift. The early phase of a technology cycle often rewards the obvious bottleneck. Later phases reward the companies that control the customer relationship, the workflow or the infrastructure layer that everyone else quietly depends on.",
+    ],
+  },
+  {
+    heading: "Oil and tariffs made the macro picture less forgiving",
+    body: [
+      "The AI story dominated the week, but it was not the only pressure point.",
+      "Brent crude touched $100 a barrel before easing back toward $96 on Friday. One spike does not make an inflation cycle, but oil is one of the few prices that can move quickly from a market story into a household story. It changes transport costs, fuel bills, inflation expectations and the political mood faster than most asset classes.",
+      "Trade policy added another layer. New tariffs on dozens of trading partners created a fresh reminder that supply chains remain exposed to policy risk, not just business risk. Tariffs do not need to dominate every earnings call to matter. They can slowly alter margins, sourcing decisions and pricing power.",
+      "Then came the labor data. Initial jobless claims fell to 187,000 for the week ending July 18, a remarkably strong reading and well below forecasts. In a different environment, that would have been welcomed without hesitation. In this environment, strong labor data can read as permission for the Federal Reserve to stay restrictive for longer.",
+      "That is the strange market logic of 2026. Good economic data is not always good market news when investors are worried about inflation, oil and policy rates. The number itself matters, but the story surrounding the number matters just as much.",
+    ],
+  },
+  {
+    heading: "The next earnings week matters more than usual",
+    body: [
+      "The coming week will test whether this was a brief reset or the beginning of a more demanding phase for the AI trade.",
+      "Meta and Microsoft are scheduled to report before Apple and Amazon. That lineup matters because investors will be looking less at enthusiasm and more at evidence. Capex guidance, cloud margins, AI revenue contribution, free cash flow and commentary around demand will carry more weight than broad statements about opportunity.",
+      "The market does not need every AI investment to pay off immediately. That would be unrealistic. Large technology transitions require upfront spending before returns become visible. Railroads, electricity, telecom networks and cloud computing all had phases where capital arrived before the final economics were obvious.",
+      "The problem is not that AI requires investment. The problem is that the market spent much of the last two years acting as if the investment case had already been solved. This week suggested investors are ready to ask for proof again.",
+    ],
+    quote:
+      "The market did not fall because AI stopped mattering. It fell because AI started requiring math again.",
+  },
+  {
+    heading: "My take",
+    body: [
+      "The most useful way to read this week is not as an anti-AI moment. It is a capital discipline moment.",
+      "AI can still be one of the defining business stories of the decade while individual AI trades become overcrowded, expensive or poorly underwritten. Those ideas are not in conflict. Technology adoption and investment returns are related, but they are not the same thing.",
+      "For long-term investors, the question is moving from who is exposed to AI to who can convert that exposure into durable economics. That means watching returns on invested capital, free cash flow, customer demand, pricing power and the balance between infrastructure spending and actual product revenue.",
+      "The better businesses will not simply spend the most. They will spend in ways that deepen their advantage. They will turn infrastructure into distribution, distribution into usage, and usage into cash flow. The weaker stories will keep asking investors to trust the size of the opportunity while the cash burn grows.",
+      "That distinction is easy to ignore during a rising market because rising prices make every strategy look intelligent. It becomes obvious when the market stops paying for the story and starts asking for the invoice.",
+    ],
+  },
+  {
+    heading: "One lesson",
+    body: [
+      "Context decides how the same fact is interpreted.",
+      "A strong jobs number can be good news if investors are worried about recession. The same number can be bad news if investors are worried about inflation and interest rates. Rising capital spending can be exciting if returns look obvious. The same spending can be punished if investors begin to doubt the payoff.",
+      "This is why reacting to data in isolation is dangerous. Markets do not respond only to facts. They respond to facts compared with expectations, positioning and the story investors were already telling themselves.",
+      "The lesson reaches beyond investing. In business, the same metric can mean different things depending on the operating context. Higher revenue is good unless it comes with worse margins, heavier working capital needs or lower customer quality. Faster growth is attractive unless the operation cannot support it.",
+      "Numbers matter. The story they are being read against matters too.",
+    ],
+  },
+];
+
 const balanceSheetIssue002Sections: ArticleContentSection[] = [
   {
     heading: "Quick recap",
@@ -667,6 +750,85 @@ const costcoBusinessBreakdownSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-003-ai-cash-test",
+    title: "Balance Sheet #003: The AI Cash Test",
+    cardTitle: "Issue 003: The AI Cash Test",
+    cardExcerpt:
+      "Markets punished AI spending, oil stayed tense and strong labor data made the rate path harder to ignore.",
+    category: "Finance",
+    tags: ["Balance Sheet", "Markets", "AI", "Investing", "Finance"],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 3,
+    weekCovered: "Week of July 20–24, 2026",
+    weekEnding: "2026-07-24",
+    headline: "The AI cash test arrived.",
+    featured: true,
+    excerpt:
+      "Markets punished AI spending, oil stayed tense and strong labor data made the rate path harder to ignore.",
+    metaTitle: "Balance Sheet #003: The AI Cash Test",
+    metaDescription:
+      "Balance Sheet #003 examines AI capex scrutiny, tech weakness, oil pressure, strong labor data and why investors are asking harder questions about cash flow.",
+    date: "2026-07-27",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #003: The AI Cash Test",
+      "Markets punished AI spending, oil stayed tense and strong labor data made the rate path harder to ignore.",
+      balanceSheetIssue003Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The market did not fall because AI stopped mattering. It fell because AI started requiring math again.",
+    sections: balanceSheetIssue003Sections,
+    sources: [
+      {
+        title: "AP, How major US stock indexes fared Friday 7/24/2026",
+        href: "https://apnews.com/article/02d01b8f38ccd51f605c4414cdd4fa9b",
+      },
+      {
+        title:
+          "Business Insider, Tesla and Alphabet punished for lofty AI capex plans",
+        href: "https://www.businessinsider.com/tesla-alphabet-stock-price-q2-earnings-capex-ai-spending-tsla-2026-7",
+      },
+      {
+        title:
+          "MarketWatch, Magnificent Seven market value loss after Alphabet and Tesla results",
+        href: "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-alphabet-tesla-results-magnificent-seven-900-billion/card/nasdaq-set-for-decline-after-magnificent-seven-loses-900-billion-WqBcqsZcg9n9fTbIQVEM",
+      },
+      {
+        title:
+          "Reuters via Investing.com, US weekly jobless claims fall sharply",
+        href: "https://www.investing.com/news/economy-news/us-weekly-jobless-claims-fall-sharply-in-latest-week-4808908",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Why Broadcom Is No Longer Just a Chip Company",
+        href: "/articles/why-broadcom-is-no-longer-just-a-chip-company",
+        description:
+          "Why Broadcom’s less glamorous infrastructure layer may matter more than the AI headline.",
+      },
+      {
+        title: "Balance Sheet #002: The AI Trade Finally Blinked",
+        href: "/articles/balance-sheet-002-ai-trade-finally-blinked",
+        description:
+          "The previous issue on the first serious reset in the AI trade.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio objectively instead of emotionally.",
+      },
+    ],
+  },
   {
     slug: "why-broadcom-is-no-longer-just-a-chip-company",
     title: "Why Broadcom Is No Longer Just a Chip Company",
