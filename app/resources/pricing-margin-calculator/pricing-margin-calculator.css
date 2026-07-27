@@ -162,6 +162,7 @@
 
 .calculatorHeroMetric span,
 .calculatorSummaryCards span,
+.advancedResults span,
 .discountCards span,
 .marginExample span {
   display: block;
@@ -191,10 +192,11 @@
 }
 
 .calculatorSummaryCards,
+.advancedResults,
 .discountCards,
 .marginExample {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
   border: 1px solid rgba(244, 239, 230, 0.1);
@@ -203,6 +205,7 @@
 }
 
 .calculatorSummaryCards article,
+.advancedResults article,
 .discountCards article,
 .marginExample article {
   min-height: 128px;
@@ -214,6 +217,7 @@
 }
 
 .calculatorSummaryCards strong,
+.advancedResults strong,
 .discountCards strong,
 .marginExample strong {
   color: var(--color-cream-bright);
@@ -221,6 +225,61 @@
   font-size: clamp(1.6rem, 2.3vw, 2.35rem);
   font-weight: 500;
   line-height: 1.05;
+}
+
+.advancedCalculatorPanel {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid rgba(202, 166, 76, 0.24);
+  border-radius: 8px;
+  background: rgba(244, 239, 230, 0.035);
+}
+
+.advancedCalculatorPanel summary {
+  min-height: 78px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--color-cream-bright);
+  cursor: pointer;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.advancedCalculatorPanel summary::marker {
+  color: var(--color-gold);
+}
+
+.advancedCalculatorPanel summary span {
+  display: grid;
+  gap: 5px;
+}
+
+.advancedCalculatorPanel summary .eyebrow {
+  --eyebrow-size: 0.68rem;
+  --eyebrow-spacing: 0.18em;
+}
+
+.advancedCalculatorPanel[open] summary {
+  border-bottom: 1px solid rgba(244, 239, 230, 0.1);
+}
+
+.advancedFieldsGrid,
+.advancedResults,
+.advancedSummary {
+  margin: 20px;
+}
+
+.advancedResults {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.advancedSummary {
+  --body-color: #c9c0b3;
+  padding: 18px 20px;
+  border-left: 3px solid var(--color-gold);
+  background: rgba(244, 239, 230, 0.04);
 }
 
 .calculatorBreakdownPanel {
@@ -258,13 +317,6 @@
   filter: brightness(1.12);
 }
 
-.costSegment span {
-  padding: 0 8px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .segmentProduct {
   background: #8fa77d;
 }
@@ -291,6 +343,10 @@
 
 .segmentProfit {
   background: #caa64c;
+  border-left: 4px solid rgba(9, 9, 9, 0.72);
+  box-shadow:
+    -1px 0 0 rgba(255, 250, 240, 0.45),
+    inset 8px 0 14px rgba(9, 9, 9, 0.16);
 }
 
 .costLegend {
@@ -306,6 +362,18 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  transform: scale(1);
+  transform-origin: left center;
+  transition:
+    color 0.2s var(--ease-premium),
+    font-weight 0.2s var(--ease-premium),
+    transform 0.2s var(--ease-premium);
+}
+
+.costLegend .costLegendActive {
+  color: var(--color-cream-bright);
+  font-weight: 800;
+  transform: scale(1.045);
 }
 
 .costLegend i {
@@ -445,7 +513,8 @@
 }
 
 @media (max-width: 1100px) {
-  .calculatorSummaryCards {
+  .calculatorSummaryCards,
+  .advancedResults {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -474,6 +543,7 @@
   }
 
   .calculatorSummaryCards,
+  .advancedResults,
   .marginExample {
     grid-template-columns: 1fr;
   }
@@ -482,7 +552,4 @@
     min-height: 58px;
   }
 
-  .costSegment span {
-    display: none;
-  }
 }

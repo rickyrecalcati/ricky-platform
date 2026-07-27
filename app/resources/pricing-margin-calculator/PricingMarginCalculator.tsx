@@ -22,7 +22,7 @@ const percentFormatter = new Intl.NumberFormat("en-AU", {
   minimumFractionDigits: 1,
 });
 
-const costInputs: CostInput[] = [
+const basicInputs: CostInput[] = [
   {
     key: "productCost",
     label: "Product Cost",
@@ -65,6 +65,16 @@ const costInputs: CostInput[] = [
     help: "Current price charged to the customer.",
     prefix: "$",
   },
+];
+
+const marginInput: CostInput = {
+  key: "grossMargin",
+  label: "Gross Margin",
+  help: "The percentage of each sale left after variable costs.",
+  suffix: "%",
+};
+
+const advancedInputs: CostInput[] = [
   {
     key: "fixedCosts",
     label: "Monthly Fixed Costs",
@@ -84,12 +94,6 @@ const costInputs: CostInput[] = [
     help: "Target profit after variable costs and fixed costs.",
     prefix: "$",
   },
-  {
-    key: "targetMargin",
-    label: "Target Margin",
-    help: "Desired gross margin for the recommended selling price.",
-    suffix: "%",
-  },
 ];
 
 const initialValues: Record<string, number> = {
@@ -103,7 +107,6 @@ const initialValues: Record<string, number> = {
   fixedCosts: 8000,
   monthlySales: 300,
   profitGoal: 10000,
-  targetMargin: 60,
 };
 
 const discountOptions = [0, 5, 10, 15, 20, 25];
@@ -130,6 +133,29 @@ function units(value: number) {
   }
 
   return `${Math.ceil(value).toLocaleString("en-AU")} sales`;
+}
+
+function getVariableCostBeforeFee(values: Record<string, number>) {
+  return (
+    values.productCost +
+    values.labourCost +
+    values.packaging +
+    values.shipping +
+    values.otherCosts
+  );
+}
+
+function getPriceForMargin(values: Record<string, number>, margin: number) {
+  const variableCostBeforeFee = getVariableCostBeforeFee(values);
+  const feeRate = values.paymentFee / 100;
+  const marginRate = margin / 100;
+  const denominator = 1 - feeRate - marginRate;
+
+  if (denominator <= 0) {
+    return Infinity;
+  }
+
+  return variableCostBeforeFee / denominator;
 }
 
 function NumericInput({
@@ -167,14 +193,12 @@ function NumericInput({
 export default function PricingMarginCalculator() {
   const [values, setValues] = useState(initialValues);
   const [discount, setDiscount] = useState(0);
+  const [activeBreakdownLabel, setActiveBreakdownLabel] = useState<string | null>(
+    null,
+  );
 
   const calculations = useMemo(() => {
-    const variableCostBeforeFee =
-      values.productCost +
-      values.labourCost +
-      values.packaging +
-      values.shipping +
-      values.otherCosts;
+    const variableCostBeforeFee = getVariableCostBeforeFee(values);
     const paymentFeeAmount = values.sellingPrice * (values.paymentFee / 100);
     const trueCost = variableCostBeforeFee + paymentFeeAmount;
     const profitPerSale = values.sellingPrice - trueCost;
@@ -191,13 +215,7 @@ export default function PricingMarginCalculator() {
       profitPerSale > 0
         ? (values.fixedCosts + values.profitGoal) / profitPerSale
         : Infinity;
-    const targetMarginRate = values.targetMargin / 100;
     const feeRate = values.paymentFee / 100;
-    const recommendedDenominator = 1 - feeRate - targetMarginRate;
-    const recommendedPrice =
-      recommendedDenominator > 0
-        ? variableCostBeforeFee / recommendedDenominator
-        : Infinity;
     const discountedPrice = values.sellingPrice * (1 - discount / 100);
     const discountedFeeAmount = discountedPrice * feeRate;
     const discountedTrueCost = variableCostBeforeFee + discountedFeeAmount;
@@ -221,7 +239,6 @@ export default function PricingMarginCalculator() {
       estimatedMonthlyProfit,
       breakEvenSales,
       targetProfitSales,
-      recommendedPrice,
       discountedPrice,
       discountedProfit,
       discountedMargin,
@@ -241,7 +258,23 @@ export default function PricingMarginCalculator() {
     setDiscount(Number.isFinite(value) ? Math.max(0, Math.min(25, value)) : 0);
   };
 
-  const breakdown = [
+  const handleMarginChange = (margin: number) => {
+    setValues((current) => {
+      const clampedMargin = Number.isFinite(margin)
+        ? Math.max(0, Math.min(95, margin))
+        : 0;
+      const sellingPrice = getPriceForMargin(current, clampedMargin);
+
+      return {
+        ...current,
+        sellingPrice: Number.isFinite(sellingPrice)
+          ? Number(sellingPrice.toFixed(2))
+          : current.sellingPrice,
+      };
+    });
+  };
+
+  const costBreakdown = [
     {
       label: "Product",
       value: values.productCost,
@@ -272,6 +305,10 @@ export default function PricingMarginCalculator() {
       value: calculations.paymentFeeAmount,
       className: "segmentFees",
     },
+  ].sort((first, second) => second.value - first.value);
+
+  const breakdown = [
+    ...costBreakdown,
     {
       label: "Profit",
       value: Math.max(0, calculations.profitPerSale),
@@ -285,12 +322,12 @@ export default function PricingMarginCalculator() {
         <div className="calculatorPanelHeader">
           <p className="eyebrow">Inputs</p>
           <h2 id="calculator-inputs" className="section-title">
-            Cost, price and target assumptions.
+            Start with one sale.
           </h2>
         </div>
 
         <div className="calculatorFieldsGrid">
-          {costInputs.map((input) => (
+          {basicInputs.map((input) => (
             <NumericInput
               input={input}
               key={input.key}
@@ -298,7 +335,63 @@ export default function PricingMarginCalculator() {
               value={values[input.key]}
             />
           ))}
+
+          <NumericInput
+            input={marginInput}
+            onChange={(_, value) => handleMarginChange(value)}
+            value={Number(calculations.grossMargin.toFixed(1))}
+          />
         </div>
+
+        <details className="advancedCalculatorPanel">
+          <summary>
+            <span>
+              <span className="eyebrow">Advanced Inputs</span>
+              Add monthly fixed costs, sales volume and profit goals.
+            </span>
+          </summary>
+
+          <div className="calculatorFieldsGrid advancedFieldsGrid">
+            {advancedInputs.map((input) => (
+              <NumericInput
+                input={input}
+                key={input.key}
+                onChange={handleChange}
+                value={values[input.key]}
+              />
+            ))}
+          </div>
+
+          <div className="advancedResults">
+            <article>
+              <span>Monthly Revenue</span>
+              <strong>{money(calculations.monthlyRevenue)}</strong>
+            </article>
+            <article>
+              <span>Monthly Gross Profit</span>
+              <strong>{money(calculations.monthlyGrossProfit)}</strong>
+            </article>
+            <article>
+              <span>Estimated Monthly Profit</span>
+              <strong>{money(calculations.estimatedMonthlyProfit)}</strong>
+            </article>
+            <article>
+              <span>Break-even Sales</span>
+              <strong>{units(calculations.breakEvenSales)}</strong>
+            </article>
+            <article>
+              <span>Sales for Target Profit</span>
+              <strong>{units(calculations.targetProfitSales)}</strong>
+            </article>
+          </div>
+
+          <p className="body advancedSummary">
+            With monthly fixed costs of {money(values.fixedCosts)}, you need
+            approximately {units(calculations.breakEvenSales)} to break even.
+            To earn {money(values.profitGoal)} in monthly profit, you need
+            roughly {units(calculations.targetProfitSales)}.
+          </p>
+        </details>
       </section>
 
       <section className="calculatorResultsPanel" aria-labelledby="calculator-results">
@@ -335,30 +428,6 @@ export default function PricingMarginCalculator() {
             <span>Markup</span>
             <strong>{percent(calculations.markup)}</strong>
           </article>
-          <article>
-            <span>Monthly Revenue</span>
-            <strong>{money(calculations.monthlyRevenue)}</strong>
-          </article>
-          <article>
-            <span>Monthly Gross Profit</span>
-            <strong>{money(calculations.monthlyGrossProfit)}</strong>
-          </article>
-          <article>
-            <span>Estimated Monthly Profit</span>
-            <strong>{money(calculations.estimatedMonthlyProfit)}</strong>
-          </article>
-          <article>
-            <span>Break-even Sales</span>
-            <strong>{units(calculations.breakEvenSales)}</strong>
-          </article>
-          <article>
-            <span>Sales for Target Profit</span>
-            <strong>{units(calculations.targetProfitSales)}</strong>
-          </article>
-          <article>
-            <span>Recommended Selling Price</span>
-            <strong>{money(calculations.recommendedPrice)}</strong>
-          </article>
         </div>
       </section>
 
@@ -385,22 +454,35 @@ export default function PricingMarginCalculator() {
                 ? Math.max(0, (item.value / values.sellingPrice) * 100)
                 : 0;
 
+            if (width <= 0) {
+              return null;
+            }
+
             return (
               <span
                 className={`costSegment ${item.className}`}
                 key={item.label}
+                onBlur={() => setActiveBreakdownLabel(null)}
+                onFocus={() => setActiveBreakdownLabel(item.label)}
+                onMouseEnter={() => setActiveBreakdownLabel(item.label)}
+                onMouseLeave={() => setActiveBreakdownLabel(null)}
                 style={{ width: `${Math.min(100, width)}%` }}
                 title={`${item.label}: ${money(item.value)}`}
-              >
-                <span>{item.label}</span>
-              </span>
+                aria-label={`${item.label}: ${money(item.value)}`}
+                tabIndex={0}
+              />
             );
           })}
         </div>
 
         <div className="costLegend">
           {breakdown.map((item) => (
-            <span key={item.label}>
+            <span
+              className={
+                activeBreakdownLabel === item.label ? "costLegendActive" : undefined
+              }
+              key={item.label}
+            >
               <i className={item.className} aria-hidden="true" />
               {item.label}: {money(item.value)}
             </span>
@@ -419,13 +501,8 @@ export default function PricingMarginCalculator() {
           giving you a {percent(calculations.grossMargin)} gross margin.
         </p>
         <p className="body-large">
-          With monthly fixed costs of {money(values.fixedCosts)}, you will need
-          approximately {units(calculations.breakEvenSales)} each month to break
-          even.
-        </p>
-        <p className="body-large">
-          To earn {money(values.profitGoal)} in monthly profit, you will need
-          roughly {units(calculations.targetProfitSales)}.
+          Adjust the selling price to see the margin change, or enter the
+          margin you want and the calculator will solve the price for you.
         </p>
       </section>
 
