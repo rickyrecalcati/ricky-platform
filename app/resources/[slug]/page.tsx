@@ -20,9 +20,11 @@ type ResourcePageProps = {
 };
 
 export function generateStaticParams() {
-  return resources.map((resource) => ({
-    slug: resource.slug,
-  }));
+  return resources
+    .filter((resource) => resource.resourceType !== "tool")
+    .map((resource) => ({
+      slug: resource.slug,
+    }));
 }
 
 export async function generateMetadata({

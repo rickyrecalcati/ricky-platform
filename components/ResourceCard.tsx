@@ -7,11 +7,13 @@ type ResourceCardProps = {
 };
 
 export default function ResourceCard({ resource }: ResourceCardProps) {
+  const ctaLabel = resource.resourceType === "tool" ? "Open Tool" : "Get Resource";
+
   return (
     <Link
       className="resourceCardLink premiumReveal premiumRevealDelay"
       href={`/resources/${resource.slug}`}
-      aria-label={`Get ${resource.title}`}
+      aria-label={`${ctaLabel}: ${resource.title}`}
     >
       <article className="resourceCard">
         <div className="resourceCardMeta">
@@ -22,7 +24,7 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
         <h3 className="section-title">{resource.title}</h3>
         <p className="body">{resource.description}</p>
 
-        <span className="resourceCardCta">Get Resource</span>
+        <span className="resourceCardCta">{ctaLabel}</span>
       </article>
     </Link>
   );

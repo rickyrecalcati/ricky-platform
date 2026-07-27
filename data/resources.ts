@@ -14,8 +14,9 @@ export type Resource = {
   slug: string;
   title: string;
   category: ResourceCategory;
+  resourceType?: "download" | "tool";
   status?: "Available" | "Coming Soon";
-  fileType: "PDF" | "Markdown";
+  fileType: "PDF" | "Markdown" | "Interactive Tool";
   description: string;
   heroDescription: string;
   whoFor: string[];
@@ -67,6 +68,36 @@ const lifeArticle = {
 };
 
 export const resources: Resource[] = [
+  {
+    slug: "pricing-margin-calculator",
+    title: "Pricing & Margin Calculator",
+    category: "Business",
+    resourceType: "tool",
+    status: "Available",
+    fileType: "Interactive Tool",
+    description:
+      "Calculate true cost per sale, profit, margin, break-even volume and target pricing.",
+    heroDescription:
+      "A client-side pricing tool for understanding what each sale costs, what to charge and how many sales are needed to reach a profit goal.",
+    whoFor: [
+      "Business owners setting or reviewing product pricing.",
+      "Operators checking whether discounts protect enough margin.",
+      "Managers who need a clearer view of cost, price and profit per sale.",
+    ],
+    included: [
+      "True cost per sale calculation.",
+      "Profit, margin, markup and break-even outputs.",
+      "Discount impact testing.",
+      "Recommended selling price based on a target margin.",
+    ],
+    worksWellWith: [
+      "New product pricing.",
+      "Menu or service reviews.",
+      "Monthly profit planning.",
+    ],
+    relatedBooks: [scalingHospitality],
+    relatedArticles: [systemsArticle, complexityArticle],
+  },
   {
     slug: "weekly-business-review",
     title: "Weekly Business Review",
