@@ -831,6 +831,37 @@
     --display-title-size: 2.8rem;
   }
 
+  .calculatorShell {
+    gap: 1.15rem;
+  }
+
+  .calculatorModePanel {
+    width: 100%;
+    display: grid;
+    gap: 6px;
+    border-radius: 8px;
+    overflow: visible;
+  }
+
+  .calculatorModePanel button {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 12px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.075em;
+  }
+
+  .presetActions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .presetActions button {
+    width: 100%;
+    justify-content: center;
+  }
+
   .calculatorSummaryCards,
   .calculatorResultsPanel .calculatorSummaryCards,
   .discountCards,
@@ -848,8 +879,24 @@
   .calculatorNarrative,
   .discountPanel,
   .calculatorPresetPanel,
-  .pricingHealthPanel {
+  .pricingHealthPanel,
+  .marginEducation,
+  .calculatorFaq {
     padding: 1.25rem;
+  }
+
+  .calculatorPanelHeader {
+    margin-bottom: 1.25rem;
+  }
+
+  .calculatorPanelHeader .section-title,
+  .calculatorBreakdownPanel .section-title,
+  .calculatorNarrative .section-title,
+  .pricingHealthPanel .section-title,
+  .marginEducation .section-title,
+  .calculatorFaq .section-title {
+    --section-title-size: clamp(1.75rem, 8vw, 2.15rem);
+    --section-title-line: 1.08;
   }
 
   .calculatorHeroMetric {
@@ -860,8 +907,29 @@
     font-size: clamp(2.75rem, 14vw, 4rem);
   }
 
+  .calculatorSummaryCards article,
+  .discountCards article,
+  .marginExample article {
+    min-height: 108px;
+    padding: 18px;
+  }
+
+  .educationTextCard,
+  .educationMetricGrid article {
+    padding: 1.1rem;
+  }
+
   .costStack {
     min-height: 58px;
+  }
+
+  .discountTicks {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .discountTicks button {
+    min-width: 48px;
   }
 
 }
