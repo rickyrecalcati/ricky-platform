@@ -44,11 +44,74 @@
   min-width: 0;
 }
 
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.calculatorModePanel {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: 6px;
+  border: 1px solid rgba(202, 166, 76, 0.24);
+  border-radius: 999px;
+  background: rgba(244, 239, 230, 0.045);
+  overflow-x: auto;
+}
+
+.calculatorModePanel button,
+.presetActions button {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(244, 239, 230, 0.68);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    background 0.22s var(--ease-premium),
+    color 0.22s var(--ease-premium),
+    transform 0.22s var(--ease-premium);
+  white-space: nowrap;
+}
+
+.calculatorModePanel button {
+  min-height: 44px;
+  padding: 0 18px;
+}
+
+.calculatorModePanel button:hover,
+.calculatorModePanel button:focus-visible,
+.calculatorModePanel .calculatorModeActive,
+.presetActions button:hover,
+.presetActions button:focus-visible {
+  background: rgba(202, 166, 76, 0.16);
+  color: var(--color-gold);
+}
+
+.calculatorModePanel .calculatorModeActive {
+  color: var(--color-cream-bright);
+}
+
 .calculatorInputsPanel,
 .calculatorResultsPanel,
 .calculatorBreakdownPanel,
 .calculatorNarrative,
 .discountPanel,
+.calculatorPresetPanel,
+.calculatorModePanel,
+.pricingHealthPanel,
 .marginEducation,
 .calculatorFaq {
   border: 1px solid rgba(244, 239, 230, 0.12);
@@ -63,8 +126,54 @@
 .calculatorResultsPanel,
 .calculatorBreakdownPanel,
 .calculatorNarrative,
-.discountPanel {
+.discountPanel,
+.calculatorPresetPanel,
+.pricingHealthPanel {
   padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.calculatorPresetPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  align-items: start;
+  gap: clamp(1.35rem, 3vw, 2rem);
+}
+
+.calculatorPresetPanel .section-title {
+  --section-title-size: clamp(1.7rem, 2.4vw, 2.45rem);
+  --section-title-line: 1.08;
+  color: var(--color-cream-bright);
+}
+
+.calculatorPresetPanel .body {
+  --body-color: #c9c0b3;
+  margin-top: 12px;
+}
+
+.presetActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.presetActions button {
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid rgba(244, 239, 230, 0.1);
+}
+
+.presetActions .presetActionActive {
+  border-color: rgba(202, 166, 76, 0.42);
+  background: rgba(202, 166, 76, 0.16);
+  color: var(--color-cream-bright);
+  box-shadow: inset 0 0 0 1px rgba(202, 166, 76, 0.16);
+}
+
+.calculatorWorkspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+  gap: clamp(1.5rem, 3vw, 2rem);
 }
 
 .calculatorPanelHeader {
@@ -75,6 +184,7 @@
 .calculatorPanelHeader .section-title,
 .calculatorBreakdownPanel .section-title,
 .calculatorNarrative .section-title,
+.pricingHealthPanel .section-title,
 .marginEducation .section-title,
 .calculatorFaq .section-title {
   --section-title-size: clamp(2.1rem, 3.4vw, 3.6rem);
@@ -85,6 +195,7 @@
 .calculatorPanelHeader .eyebrow,
 .calculatorBreakdownPanel .eyebrow,
 .calculatorNarrative .eyebrow,
+.pricingHealthPanel .eyebrow,
 .marginEducation .eyebrow,
 .calculatorFaq .eyebrow {
   margin-bottom: 14px;
@@ -98,6 +209,7 @@
 
 .calculatorField {
   display: grid;
+  align-content: start;
   gap: 9px;
 }
 
@@ -155,14 +267,21 @@
   padding: clamp(1.35rem, 3vw, 2rem);
   border: 1px solid rgba(202, 166, 76, 0.28);
   border-radius: 8px;
+  display: grid;
+  place-items: center;
+  min-height: clamp(190px, 21vw, 245px);
+  text-align: center;
   background:
     radial-gradient(circle at 100% 0%, rgba(202, 166, 76, 0.18), transparent 35%),
     rgba(244, 239, 230, 0.05);
+  transition:
+    border-color 0.25s var(--ease-premium),
+    background 0.25s var(--ease-premium),
+    transform 0.25s var(--ease-premium);
 }
 
 .calculatorHeroMetric span,
 .calculatorSummaryCards span,
-.advancedResults span,
 .discountCards span,
 .marginExample span {
   display: block;
@@ -176,12 +295,16 @@
 
 .calculatorHeroMetric strong {
   display: block;
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 0.04em 0 0.08em;
   color: var(--color-cream-bright);
   font-family: var(--serif);
-  font-size: clamp(3.4rem, 7vw, 6rem);
+  font-size: clamp(2.95rem, 5.7vw, 5.3rem);
   font-weight: 500;
-  line-height: 0.95;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+  transition: color 0.25s var(--ease-premium);
 }
 
 .calculatorHeroMetric p {
@@ -192,7 +315,6 @@
 }
 
 .calculatorSummaryCards,
-.advancedResults,
 .discountCards,
 .marginExample {
   display: grid;
@@ -205,7 +327,6 @@
 }
 
 .calculatorSummaryCards article,
-.advancedResults article,
 .discountCards article,
 .marginExample article {
   min-height: 128px;
@@ -217,69 +338,78 @@
 }
 
 .calculatorSummaryCards strong,
-.advancedResults strong,
 .discountCards strong,
 .marginExample strong {
   color: var(--color-cream-bright);
   font-family: var(--serif);
-  font-size: clamp(1.6rem, 2.3vw, 2.35rem);
+  font-size: clamp(1.45rem, 2vw, 2.15rem);
   font-weight: 500;
-  line-height: 1.05;
+  line-height: 1.16;
+  overflow-wrap: anywhere;
 }
 
-.advancedCalculatorPanel {
-  margin-top: clamp(1.5rem, 3vw, 2rem);
-  border: 1px solid rgba(202, 166, 76, 0.24);
-  border-radius: 8px;
-  background: rgba(244, 239, 230, 0.035);
+.calculatorResultsPanel .calculatorSummaryCards strong,
+.discountCards strong,
+.marginExample strong,
+.educationMetricGrid strong {
+  white-space: nowrap;
 }
 
-.advancedCalculatorPanel summary {
-  min-height: 78px;
-  padding: 20px;
-  display: flex;
+.calculatorResultsPanel .calculatorSummaryCards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.calculatorResultsPanel .calculatorSummaryCards article {
+  min-height: 116px;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  color: var(--color-cream-bright);
-  cursor: pointer;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.calculatorResultsPanel .calculatorSummaryCards strong {
+  font-size: clamp(1.45rem, 1.85vw, 1.95rem);
+  line-height: 1.18;
+}
+
+.calculatorSummaryCards small,
+.discountCards small {
+  color: rgba(244, 239, 230, 0.52);
+  font-size: 0.78rem;
   font-weight: 800;
-  line-height: 1.45;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
 }
 
-.advancedCalculatorPanel summary::marker {
-  color: var(--color-gold);
-}
-
-.advancedCalculatorPanel summary span {
+.pricingHealthPanel {
   display: grid;
-  gap: 5px;
+  grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
+  gap: clamp(1.4rem, 3vw, 2rem);
+  border-color: rgba(202, 166, 76, 0.24);
 }
 
-.advancedCalculatorPanel summary .eyebrow {
-  --eyebrow-size: 0.68rem;
-  --eyebrow-spacing: 0.18em;
+.pricingHealthPanel ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
 }
 
-.advancedCalculatorPanel[open] summary {
-  border-bottom: 1px solid rgba(244, 239, 230, 0.1);
+.pricingHealthPanel li {
+  --body-color: #d6cec1;
+  position: relative;
+  padding-left: 22px;
 }
 
-.advancedFieldsGrid,
-.advancedResults,
-.advancedSummary {
-  margin: 20px;
-}
-
-.advancedResults {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.advancedSummary {
-  --body-color: #c9c0b3;
-  padding: 18px 20px;
-  border-left: 3px solid var(--color-gold);
-  background: rgba(244, 239, 230, 0.04);
+.pricingHealthPanel li::before {
+  content: "";
+  position: absolute;
+  top: 0.78em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-gold);
 }
 
 .calculatorBreakdownPanel {
@@ -302,6 +432,8 @@
 }
 
 .costSegment {
+  border: 0;
+  padding: 0;
   min-width: 1px;
   display: flex;
   align-items: center;
@@ -313,7 +445,8 @@
   transition: filter 0.22s var(--ease-premium);
 }
 
-.costSegment:hover {
+.costSegment:hover,
+.costSegment:focus-visible {
   filter: brightness(1.12);
 }
 
@@ -321,8 +454,16 @@
   background: #8fa77d;
 }
 
+.segmentSecondary {
+  background: #b8a070;
+}
+
 .segmentLabour {
   background: #8aa1b4;
+}
+
+.segmentServiceLabour {
+  background: #9a8ba9;
 }
 
 .segmentPackaging {
@@ -337,8 +478,16 @@
   background: #a98b72;
 }
 
+.segmentReturns {
+  background: #a9777b;
+}
+
 .segmentFees {
   background: #b96f64;
+}
+
+.segmentMarketplace {
+  background: #b58556;
 }
 
 .segmentProfit {
@@ -350,36 +499,73 @@
 }
 
 .costLegend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 10px;
   color: rgba(244, 239, 230, 0.7);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
-.costLegend span {
-  display: inline-flex;
+.costLegend button {
+  min-height: 64px;
+  padding: 12px 14px;
+  border: 1px solid rgba(244, 239, 230, 0.1);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 8px;
+  gap: 4px 10px;
+  background: rgba(244, 239, 230, 0.035);
+  color: rgba(244, 239, 230, 0.7);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
   transform: scale(1);
   transform-origin: left center;
   transition:
+    border-color 0.2s var(--ease-premium),
+    background 0.2s var(--ease-premium),
     color 0.2s var(--ease-premium),
     font-weight 0.2s var(--ease-premium),
     transform 0.2s var(--ease-premium);
 }
 
 .costLegend .costLegendActive {
+  border-color: rgba(202, 166, 76, 0.48);
+  background: rgba(202, 166, 76, 0.1);
   color: var(--color-cream-bright);
   font-weight: 800;
-  transform: scale(1.045);
+  transform: scale(1.025);
 }
 
 .costLegend i {
   width: 10px;
   height: 10px;
   border-radius: 999px;
+}
+
+.costLegend small {
+  grid-column: 2;
+  color: rgba(244, 239, 230, 0.55);
+  font-size: 0.78rem;
+}
+
+.breakdownTooltip {
+  min-height: 78px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--color-gold);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  background: rgba(244, 239, 230, 0.045);
+  color: #d6cec1;
+  line-height: 1.6;
+}
+
+.breakdownTooltip strong {
+  color: var(--color-cream-bright);
 }
 
 .calculatorNarrative {
@@ -402,6 +588,20 @@
 .discountSlider input {
   width: 100%;
   accent-color: var(--color-gold);
+}
+
+.discountManualInput {
+  max-width: 260px;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 10px;
+  color: var(--color-cream-bright);
+  font-weight: 800;
+}
+
+.discountManualInput > span:first-child {
+  color: rgba(244, 239, 230, 0.68);
+  font-size: 0.88rem;
 }
 
 .discountTicks {
@@ -435,7 +635,7 @@
 }
 
 .discountCards {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .calculatorInsight {
@@ -447,6 +647,11 @@
 
 .calculatorInsight .body {
   --body-color: #d6cec1;
+  margin-top: 10px;
+}
+
+.calculatorInsight .body:first-child {
+  margin-top: 0;
 }
 
 .marginEducation,
@@ -457,16 +662,86 @@
 
 .marginEducation {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
+  gap: clamp(1.25rem, 3vw, 2rem);
 }
 
-.marginEducation > div:first-child {
-  grid-column: 1 / -1;
+.educationHeader {
+  max-width: 860px;
+}
+
+.educationHeader .body {
+  --body-color: #c9c0b3;
+  max-width: 760px;
+  margin-top: 14px;
 }
 
 .marginExample {
+  max-width: 760px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.marginExample article {
+  min-height: 112px;
+  justify-content: center;
+  gap: 14px;
+}
+
+.educationCopyGrid,
+.educationMetricGrid,
+.mistakeGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.educationCopyGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.educationMetricGrid,
+.mistakeGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.educationTextCard,
+.educationMetricGrid article {
+  min-width: 0;
+  padding: clamp(1.15rem, 2.4vw, 1.5rem);
+  border: 1px solid rgba(244, 239, 230, 0.1);
+  border-radius: 8px;
+  background: rgba(244, 239, 230, 0.035);
+}
+
+.educationTextCard span,
+.educationMetricGrid span {
+  display: block;
+  margin-bottom: 12px;
+  color: rgba(244, 239, 230, 0.58);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.educationMetricGrid strong {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--color-cream-bright);
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.16;
+}
+
+.educationTextCard .body,
+.educationMetricGrid .body {
+  --body-color: #c9c0b3;
+}
+
+.educationTextCard .body-large {
+  --body-large-color: #d6cec1;
+  font-size: clamp(1rem, 1.4vw, 1.14rem);
+  line-height: 1.65;
 }
 
 .marginExplanation {
@@ -513,22 +788,36 @@
 }
 
 @media (max-width: 1100px) {
+  .calculatorWorkspace,
   .calculatorSummaryCards,
-  .advancedResults {
+  .discountCards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 900px) {
+  .calculatorPresetPanel,
+  .calculatorWorkspace,
+  .pricingHealthPanel,
   .calculatorFieldsGrid,
   .discountCards,
-  .marginEducation,
+  .educationCopyGrid,
+  .educationMetricGrid,
+  .mistakeGrid,
   .calculatorFaqGrid {
     grid-template-columns: 1fr;
   }
 
   .calculatorFieldHelp {
     min-height: auto;
+  }
+
+  .presetActions {
+    justify-content: flex-start;
+  }
+
+  .calculatorPresetPanel {
+    align-items: stretch;
   }
 }
 
@@ -543,9 +832,32 @@
   }
 
   .calculatorSummaryCards,
-  .advancedResults,
+  .calculatorResultsPanel .calculatorSummaryCards,
+  .discountCards,
   .marginExample {
     grid-template-columns: 1fr;
+  }
+
+  .marginExample {
+    max-width: none;
+  }
+
+  .calculatorInputsPanel,
+  .calculatorResultsPanel,
+  .calculatorBreakdownPanel,
+  .calculatorNarrative,
+  .discountPanel,
+  .calculatorPresetPanel,
+  .pricingHealthPanel {
+    padding: 1.25rem;
+  }
+
+  .calculatorHeroMetric {
+    min-height: 172px;
+  }
+
+  .calculatorHeroMetric strong {
+    font-size: clamp(2.75rem, 14vw, 4rem);
   }
 
   .costStack {

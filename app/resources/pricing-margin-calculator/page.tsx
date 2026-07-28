@@ -118,53 +118,12 @@ export default function PricingMarginCalculatorPage() {
           <p className="eyebrow">Free Business Tool</p>
           <h1 className="display-title">Pricing & Margin Calculator</h1>
           <p className="body-large">
-            Calculate your true cost per sale, set profitable prices with
-            confidence, and understand exactly how every dollar of revenue is
-            allocated.
+            Calculate true cost per sale, set a target margin and see what each
+            discount does to profit.
           </p>
         </header>
 
         <PricingMarginCalculator />
-
-        <section className="marginEducation" aria-labelledby="margin-markup">
-          <div>
-            <p className="eyebrow">Margin vs Markup</p>
-            <h2 id="margin-markup" className="section-title">
-              Two numbers that are easy to confuse.
-            </h2>
-          </div>
-
-          <div className="marginExample">
-            <article>
-              <span>Cost</span>
-              <strong>$50</strong>
-            </article>
-            <article>
-              <span>Selling Price</span>
-              <strong>$75</strong>
-            </article>
-            <article>
-              <span>Profit</span>
-              <strong>$25</strong>
-            </article>
-          </div>
-
-          <div className="marginExplanation">
-            <p className="body-large">
-              Margin compares profit with the selling price. In this example,
-              $25 profit divided by a $75 selling price creates a 33.3% margin.
-            </p>
-            <p className="body-large">
-              Markup compares profit with the cost. The same $25 profit divided
-              by a $50 cost creates a 50% markup.
-            </p>
-            <p className="body-large">
-              This is why margin and markup should never be used
-              interchangeably. They describe the same sale from different
-              angles.
-            </p>
-          </div>
-        </section>
 
         <section className="calculatorFaq" aria-labelledby="calculator-faq">
           <div className="calculatorFaqHeader">
