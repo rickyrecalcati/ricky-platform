@@ -128,6 +128,7 @@
 .calculatorNarrative,
 .discountPanel,
 .calculatorPresetPanel,
+.scenarioPanel,
 .pricingHealthPanel {
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
@@ -168,6 +169,13 @@
   background: rgba(202, 166, 76, 0.16);
   color: var(--color-cream-bright);
   box-shadow: inset 0 0 0 1px rgba(202, 166, 76, 0.16);
+}
+
+.presetNote {
+  --body-color: rgba(244, 239, 230, 0.64);
+  grid-column: 1 / -1;
+  margin-top: -0.4rem;
+  font-size: 0.92rem;
 }
 
 .calculatorWorkspace {
@@ -214,9 +222,100 @@
 }
 
 .calculatorFieldLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--color-cream-bright);
   font-weight: 800;
   line-height: 1.35;
+}
+
+.tooltipWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-bottom: 0;
+  color: inherit;
+  font-size: initial;
+  font-weight: initial;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+  vertical-align: middle;
+}
+
+.tooltipTrigger {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(202, 166, 76, 0.36);
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(202, 166, 76, 0.08);
+  color: var(--color-gold);
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+  transition:
+    background 0.2s var(--ease-premium),
+    border-color 0.2s var(--ease-premium),
+    color 0.2s var(--ease-premium);
+}
+
+.tooltipTrigger:hover,
+.tooltipTrigger:focus-visible,
+.tooltipActive .tooltipTrigger {
+  border-color: rgba(202, 166, 76, 0.72);
+  background: rgba(202, 166, 76, 0.18);
+  color: var(--color-cream-bright);
+}
+
+.tooltipBubble {
+  position: fixed;
+  z-index: 100;
+  top: var(--tooltip-top, 96px);
+  left: var(--tooltip-left, 50%);
+  width: var(--tooltip-width, min(280px, calc(100vw - 32px)));
+  padding: 12px 14px;
+  border: 1px solid rgba(202, 166, 76, 0.3);
+  border-radius: 8px;
+  background: #181510;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.36);
+  color: #d6cec1;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.45;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: none;
+  white-space: normal;
+  transition:
+    opacity 0.2s var(--ease-premium),
+    transform 0.2s var(--ease-premium);
+}
+
+.tooltipTitle {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-cream-bright);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.tooltipWrap:hover .tooltipBubble,
+.tooltipWrap:focus-within .tooltipBubble,
+.tooltipActive .tooltipBubble {
+  opacity: 1;
+  transform: translateX(-50%);
 }
 
 .calculatorFieldHelp {
@@ -280,10 +379,10 @@
     transform 0.25s var(--ease-premium);
 }
 
-.calculatorHeroMetric span,
-.calculatorSummaryCards span,
-.discountCards span,
-.marginExample span {
+.calculatorHeroMetric > span,
+.calculatorSummaryCards article > span,
+.discountCards article > span,
+.marginExample article > span {
   display: block;
   color: rgba(244, 239, 230, 0.58);
   font-size: 0.78rem;
@@ -320,7 +419,6 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
-  overflow: hidden;
   border: 1px solid rgba(244, 239, 230, 0.1);
   border-radius: 8px;
   background: rgba(244, 239, 230, 0.1);
@@ -337,9 +435,9 @@
   background: #12110f;
 }
 
-.calculatorSummaryCards strong,
-.discountCards strong,
-.marginExample strong {
+.calculatorSummaryCards article > strong,
+.discountCards article > strong,
+.marginExample article > strong {
   color: var(--color-cream-bright);
   font-family: var(--serif);
   font-size: clamp(1.45rem, 2vw, 2.15rem);
@@ -348,10 +446,9 @@
   overflow-wrap: anywhere;
 }
 
-.calculatorResultsPanel .calculatorSummaryCards strong,
-.discountCards strong,
-.marginExample strong,
-.educationMetricGrid strong {
+.calculatorResultsPanel .calculatorSummaryCards article > strong,
+.discountCards article > strong,
+.marginExample article > strong {
   white-space: nowrap;
 }
 
@@ -367,7 +464,7 @@
   text-align: center;
 }
 
-.calculatorResultsPanel .calculatorSummaryCards strong {
+.calculatorResultsPanel .calculatorSummaryCards article > strong {
   font-size: clamp(1.45rem, 1.85vw, 1.95rem);
   line-height: 1.18;
 }
@@ -387,6 +484,142 @@
   grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
   gap: clamp(1.4rem, 3vw, 2rem);
   border-color: rgba(202, 166, 76, 0.24);
+}
+
+.breakEvenHighlight,
+.scenarioPanel {
+  border: 1px solid rgba(244, 239, 230, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.046), rgba(255, 255, 255, 0.018)),
+    #100f0d;
+  box-shadow: 0 30px 86px rgba(0, 0, 0, 0.28);
+}
+
+.breakEvenHighlight {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-color: rgba(202, 166, 76, 0.24);
+  display: grid;
+  grid-template-columns: minmax(180px, 0.32fr) minmax(0, 0.68fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.breakEvenHighlight .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.breakEvenHighlight .section-title {
+  --section-title-size: clamp(2.5rem, 4.5vw, 4.2rem);
+  --section-title-line: 1;
+  color: var(--color-cream-bright);
+}
+
+.breakEvenHighlight .body-large {
+  --body-large-color: #d6cec1;
+}
+
+.breakEvenHighlight a,
+.textButton {
+  width: fit-content;
+  border: 0;
+  background: transparent;
+  color: var(--color-gold);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.breakEvenHighlight a {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.scenarioPanel {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.scenarioHeader {
+  max-width: 860px;
+}
+
+.scenarioHeader .section-title {
+  --section-title-size: clamp(2.1rem, 3.4vw, 3.6rem);
+  --section-title-line: 1;
+  color: var(--color-cream-bright);
+}
+
+.scenarioHeader .body {
+  --body-color: #c9c0b3;
+  max-width: 760px;
+  margin-top: 14px;
+}
+
+.volumeTableWrap {
+  overflow-x: auto;
+  border: 1px solid rgba(244, 239, 230, 0.1);
+  border-radius: 8px;
+  background: rgba(244, 239, 230, 0.04);
+}
+
+.volumeTable {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+
+.volumeTable th,
+.volumeTable td {
+  padding: 15px 16px;
+  border-bottom: 1px solid rgba(244, 239, 230, 0.09);
+  color: #d6cec1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.volumeTable th {
+  color: rgba(244, 239, 230, 0.62);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.calculatorSummaryCards article > span .tooltipWrap,
+.discountCards article > span .tooltipWrap,
+.marginExample article > span .tooltipWrap,
+.volumeTable th .tooltipWrap,
+.educationTextCard > span .tooltipWrap {
+  margin-left: 8px;
+}
+
+.volumeTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.volumeTable input {
+  width: 110px;
+  min-height: 42px;
+  border: 1px solid rgba(244, 239, 230, 0.14);
+  border-radius: 8px;
+  background: rgba(9, 9, 9, 0.46);
+  color: var(--color-cream-bright);
+  font: inherit;
+  outline: 0;
+  padding: 0 12px;
+}
+
+.volumeTable input:focus-visible {
+  border-color: rgba(202, 166, 76, 0.72);
 }
 
 .pricingHealthPanel ul {
@@ -687,7 +920,6 @@
 }
 
 .educationCopyGrid,
-.educationMetricGrid,
 .mistakeGrid {
   display: grid;
   gap: 12px;
@@ -697,13 +929,11 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.educationMetricGrid,
 .mistakeGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.educationTextCard,
-.educationMetricGrid article {
+.educationTextCard {
   min-width: 0;
   padding: clamp(1.15rem, 2.4vw, 1.5rem);
   border: 1px solid rgba(244, 239, 230, 0.1);
@@ -711,8 +941,7 @@
   background: rgba(244, 239, 230, 0.035);
 }
 
-.educationTextCard span,
-.educationMetricGrid span {
+.educationTextCard > span {
   display: block;
   margin-bottom: 12px;
   color: rgba(244, 239, 230, 0.58);
@@ -723,18 +952,7 @@
   text-transform: uppercase;
 }
 
-.educationMetricGrid strong {
-  display: block;
-  margin-bottom: 14px;
-  color: var(--color-cream-bright);
-  font-family: var(--serif);
-  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
-  font-weight: 500;
-  line-height: 1.16;
-}
-
-.educationTextCard .body,
-.educationMetricGrid .body {
+.educationTextCard .body {
   --body-color: #c9c0b3;
 }
 
@@ -799,10 +1017,10 @@
   .calculatorPresetPanel,
   .calculatorWorkspace,
   .pricingHealthPanel,
+  .breakEvenHighlight,
   .calculatorFieldsGrid,
   .discountCards,
   .educationCopyGrid,
-  .educationMetricGrid,
   .mistakeGrid,
   .calculatorFaqGrid {
     grid-template-columns: 1fr;
@@ -879,6 +1097,8 @@
   .calculatorNarrative,
   .discountPanel,
   .calculatorPresetPanel,
+  .scenarioPanel,
+  .breakEvenHighlight,
   .pricingHealthPanel,
   .marginEducation,
   .calculatorFaq {
@@ -914,8 +1134,7 @@
     padding: 18px;
   }
 
-  .educationTextCard,
-  .educationMetricGrid article {
+  .educationTextCard {
     padding: 1.1rem;
   }
 
@@ -930,6 +1149,10 @@
 
   .discountTicks button {
     min-width: 48px;
+  }
+
+  .volumeTable {
+    min-width: 640px;
   }
 
 }

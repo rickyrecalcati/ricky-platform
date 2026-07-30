@@ -1,6 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import {
   calculatePricing,
   clampNumber,
@@ -45,6 +52,11 @@ type IndustryPreset = {
   breakdownLabels: PricingBreakdownLabels;
 };
 
+type TooltipContent = {
+  title: string;
+  text: string;
+};
+
 const currencyFormatter = new Intl.NumberFormat("en-AU", {
   style: "currency",
   currency: "AUD",
@@ -58,6 +70,32 @@ const percentFormatter = new Intl.NumberFormat("en-AU", {
   maximumFractionDigits: 1,
   minimumFractionDigits: 1,
 });
+
+const blankPricingInputs: PricingInputs = {
+  productCost: 0,
+  secondaryCost: 0,
+  labourCost: 0,
+  frontOfHouseLabour: 0,
+  labourHours: 0,
+  hourlyCost: 0,
+  packaging: 0,
+  shipping: 0,
+  otherCosts: 0,
+  paymentFee: 0,
+  marketplaceFee: 0,
+  returnsAllowance: 0,
+  sellingPrice: 0,
+  targetMargin: 0,
+  fixedCosts: 0,
+  monthlyRent: 0,
+  utilities: 0,
+  monthlyOverheads: 0,
+  softwareCost: 0,
+  marketingCost: 0,
+  monthlySales: 0,
+  profitGoal: 0,
+  discount: 10,
+};
 
 const modes: CalculatorMode[] = [
   "Calculate Margin",
@@ -81,6 +119,100 @@ const targetMarginInput: CostInput = {
 };
 
 const discountOptions = [0, 5, 10, 15, 20, 25];
+
+const tooltipByKey: Partial<Record<keyof PricingInputs, TooltipContent>> = {
+  targetMargin: {
+    title: "Target Gross Margin",
+    text: "The share of selling price left after direct costs. Example: $40 profit on a $100 sale is a 40% margin.",
+  },
+  paymentFee: {
+    title: "Card Processing Fee",
+    text: "The percentage charged by a payment provider. Example: a 2% fee on a $100 sale costs $2.",
+  },
+  marketplaceFee: {
+    title: "Marketplace Fees",
+    text: "The commission charged by a selling platform. Example: a 12% marketplace fee on a $100 sale costs $12.",
+  },
+  returnsAllowance: {
+    title: "Returns Allowance",
+    text: "A per-sale estimate for refunds, replacements or returns. Example: allowing $3 per unit protects margin before returns happen.",
+  },
+  fixedCosts: {
+    title: "Monthly Fixed Costs",
+    text: "Costs that stay even when sales are low. Example: $8,000 in rent and software must be covered before profit begins.",
+  },
+  monthlyRent: {
+    title: "Monthly Rent",
+    text: "A fixed monthly cost for the site or venue. Example: $7,000 rent still exists before the first sale.",
+  },
+  monthlyOverheads: {
+    title: "Monthly Overheads",
+    text: "Recurring costs outside direct production. Example: insurance, cleaning and subscriptions might add $2,000 per month.",
+  },
+  softwareCost: {
+    title: "Software Cost",
+    text: "Monthly tools needed to run or deliver the work. Example: $500 in subscriptions is a fixed cost, not a per-sale cost.",
+  },
+  marketingCost: {
+    title: "Marketing Cost",
+    text: "Monthly spend used to attract customers. Example: $2,000 in ads must be covered by gross profit.",
+  },
+  monthlySales: {
+    title: "Expected Monthly Volume",
+    text: "The number of units you expect to sell in a month. Example: 300 units at $50 equals $15,000 revenue.",
+  },
+  profitGoal: {
+    title: "Monthly Profit Goal",
+    text: "The profit target after variable and fixed costs. Example: $10,000 profit requires enough volume after break-even.",
+  },
+};
+
+function tooltipForLabel(label: string): TooltipContent | undefined {
+  const normalized = label.toLowerCase();
+
+  if (normalized.includes("markup")) {
+    return {
+      title: "Markup",
+      text: "Markup compares profit with cost. Example: $50 cost sold for $75 has a 50% markup.",
+    };
+  }
+
+  if (normalized.includes("margin")) {
+    return tooltipByKey.targetMargin;
+  }
+
+  if (normalized.includes("variable cost")) {
+    return {
+      title: "Variable Cost",
+      text: "Costs that move with each sale. Example: product, packaging and card fees increase when volume increases.",
+    };
+  }
+
+  if (normalized.includes("break-even")) {
+    return {
+      title: "Break-even",
+      text: "The sales volume where gross profit covers fixed costs. Example: $8,000 fixed costs divided by $40 profit needs 200 sales.",
+    };
+  }
+
+  if (normalized.includes("card") || normalized.includes("processing")) {
+    return tooltipByKey.paymentFee;
+  }
+
+  if (normalized.includes("marketplace")) {
+    return tooltipByKey.marketplaceFee;
+  }
+
+  if (normalized.includes("returns")) {
+    return tooltipByKey.returnsAllowance;
+  }
+
+  if (normalized.includes("fixed cost")) {
+    return tooltipByKey.fixedCosts;
+  }
+
+  return undefined;
+}
 
 const industryPresets: Record<PresetKey, IndustryPreset> = {
   coffee: {
@@ -412,6 +544,10 @@ function percent(value: number) {
   return `${percentFormatter.format(Object.is(value, -0) ? 0 : value)}%`;
 }
 
+function markupFromCost(profit: number, cost: number) {
+  return cost > 0 && Number.isFinite(profit) ? (profit / cost) * 100 : 0;
+}
+
 function countWithUnit(value: number, singular = "sale", plural = "sales") {
   if (!Number.isFinite(value) || value < 0) {
     return "Not viable";
@@ -431,8 +567,39 @@ function salesNumber(value: number) {
   return numberFormatter.format(Math.ceil(value));
 }
 
+function numericValue(value: number) {
+  if (!Number.isFinite(value) || value < 0) {
+    return "Not viable";
+  }
+
+  return numberFormatter.format(Math.ceil(value));
+}
+
 function titleCaseFirst(value: string) {
   return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function buildVolumeScenarios(monthlySales: number) {
+  const baseVolume = Math.max(1, Math.round(monthlySales || 100));
+  const multipliers = [0.5, 1, 1.5, 2];
+
+  return multipliers.map((multiplier) =>
+    Math.max(1, Math.round(baseVolume * multiplier)),
+  );
+}
+
+function calculateAtVolume(
+  inputs: PricingInputs,
+  volume: number,
+  labels: PricingBreakdownLabels,
+) {
+  return calculatePricing(
+    {
+      ...inputs,
+      monthlySales: Math.max(0, Math.round(volume)),
+    },
+    labels,
+  );
 }
 
 function safeInputValue(value: number) {
@@ -440,17 +607,34 @@ function safeInputValue(value: number) {
 }
 
 function NumericInput({
+  activeTooltip,
   input,
+  onTooltipToggle,
   value,
   onChange,
 }: {
+  activeTooltip: string | null;
   input: CostInput;
+  onTooltipToggle: (id: string) => void;
   value: number;
   onChange: (key: keyof PricingInputs, value: number) => void;
 }) {
+  const tooltip = tooltipByKey[input.key] ?? tooltipForLabel(input.label);
+  const tooltipId = `input-${String(input.key)}`;
+
   return (
     <label className="calculatorField">
-      <span className="calculatorFieldLabel">{input.label}</span>
+      <span className="calculatorFieldLabel">
+        {input.label}
+        {tooltip ? (
+          <InfoTooltip
+            active={activeTooltip === tooltipId}
+            content={tooltip}
+            id={tooltipId}
+            onToggle={onTooltipToggle}
+          />
+        ) : null}
+      </span>
       <span className="calculatorFieldHelp">{input.help}</span>
       <span className="calculatorInputWrap">
         {input.prefix ? <span aria-hidden="true">{input.prefix}</span> : null}
@@ -473,20 +657,189 @@ function NumericInput({
 }
 
 function MetricCard({
+  activeTooltip,
   label,
+  onTooltipToggle,
+  tooltipId,
   unit,
   value,
 }: {
+  activeTooltip?: string | null;
   label: string;
+  onTooltipToggle?: (id: string) => void;
+  tooltipId?: string;
   unit?: string;
   value: string;
 }) {
+  const tooltip = tooltipForLabel(label);
+  const cardTooltipId =
+    tooltipId ?? `metric-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
   return (
     <article>
-      <span>{label}</span>
+      <span>
+        {label}
+        {tooltip && onTooltipToggle ? (
+          <InfoTooltip
+            active={activeTooltip === cardTooltipId}
+            content={tooltip}
+            id={cardTooltipId}
+            onToggle={onTooltipToggle}
+          />
+        ) : null}
+      </span>
       <strong>{value}</strong>
       {unit && value !== "Not viable" ? <small>{unit}</small> : null}
     </article>
+  );
+}
+
+function InfoTooltip({
+  active,
+  content,
+  id,
+  onToggle,
+}: {
+  active: boolean;
+  content: TooltipContent;
+  id: string;
+  onToggle: (id: string) => void;
+}) {
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [bubbleStyle, setBubbleStyle] = useState<CSSProperties>({});
+
+  const updateBubblePosition = useCallback((button: HTMLButtonElement) => {
+    const rect = button.getBoundingClientRect();
+    const width = Math.min(280, window.innerWidth - 32);
+    const horizontalPadding = 16;
+    const estimatedHeight = 134;
+    const verticalPadding = 16;
+    const left = Math.min(
+      window.innerWidth - width / 2 - horizontalPadding,
+      Math.max(width / 2 + horizontalPadding, rect.left + rect.width / 2),
+    );
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const shouldOpenAbove =
+      spaceBelow < estimatedHeight + verticalPadding &&
+      rect.top > estimatedHeight + verticalPadding;
+    const top = shouldOpenAbove
+      ? Math.max(verticalPadding, rect.top - estimatedHeight - 12)
+      : Math.min(
+          window.innerHeight - verticalPadding - estimatedHeight,
+          rect.bottom + 12,
+        );
+
+    setBubbleStyle({
+      "--tooltip-left": `${left}px`,
+      "--tooltip-top": `${top}px`,
+      "--tooltip-width": `${width}px`,
+    } as CSSProperties);
+  }, []);
+
+  const openTooltip = useCallback(
+    (button: HTMLButtonElement) => {
+      updateBubblePosition(button);
+      onToggle(id);
+    },
+    [id, onToggle, updateBubblePosition],
+  );
+
+  const closeTooltipForHover = () => {
+    if (window.matchMedia("(hover: hover)").matches) {
+      onToggle("");
+    }
+  };
+
+  useEffect(() => {
+    const button = triggerRef.current;
+
+    if (!button) {
+      return undefined;
+    }
+
+    const openFromNativeEvent = (event: Event) => {
+      event.stopPropagation();
+      openTooltip(button);
+    };
+
+    button.addEventListener("click", openFromNativeEvent);
+    button.addEventListener("pointerdown", openFromNativeEvent);
+    button.addEventListener("touchstart", openFromNativeEvent);
+
+    return () => {
+      button.removeEventListener("click", openFromNativeEvent);
+      button.removeEventListener("pointerdown", openFromNativeEvent);
+      button.removeEventListener("touchstart", openFromNativeEvent);
+    };
+  }, [openTooltip]);
+
+  return (
+    <span
+      className={`tooltipWrap${active ? " tooltipActive" : ""}`}
+      style={bubbleStyle}
+    >
+      <button
+        aria-describedby={`${id}-tooltip`}
+        aria-expanded={active}
+        aria-label={`Explain ${content.title}`}
+        className="tooltipTrigger"
+        ref={triggerRef}
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openTooltip(event.currentTarget);
+        }}
+        onFocus={(event) => {
+          openTooltip(event.currentTarget);
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            onToggle("");
+          }
+        }}
+        onMouseEnter={(event) => {
+          openTooltip(event.currentTarget);
+        }}
+        onMouseLeave={closeTooltipForHover}
+        onMouseDown={(event) => {
+          event.stopPropagation();
+          openTooltip(event.currentTarget);
+        }}
+        onMouseMove={(event) => {
+          openTooltip(event.currentTarget);
+        }}
+        onMouseOver={(event) => {
+          openTooltip(event.currentTarget);
+        }}
+        onPointerDown={(event) => {
+          event.stopPropagation();
+          openTooltip(event.currentTarget);
+        }}
+        onPointerEnter={(event) => {
+          openTooltip(event.currentTarget);
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse") {
+            closeTooltipForHover();
+          }
+        }}
+        onPointerMove={(event) => {
+          openTooltip(event.currentTarget);
+        }}
+        onTouchStart={(event) => {
+          event.stopPropagation();
+          openTooltip(event.currentTarget);
+        }}
+        type="button"
+      >
+        ?
+      </button>
+      <span className="tooltipBubble" id={`${id}-tooltip`} role="tooltip">
+        <strong className="tooltipTitle">{content.title}</strong>
+        {content.text}
+      </span>
+    </span>
   );
 }
 
@@ -602,6 +955,10 @@ export default function PricingMarginCalculator() {
   const [activeBreakdownLabel, setActiveBreakdownLabel] = useState<string | null>(
     null,
   );
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+  const [volumeScenarios, setVolumeScenarios] = useState<number[]>(() =>
+    buildVolumeScenarios(pricingPresets.retail.values.monthlySales),
+  );
 
   const activePreset = industryPresets[activePresetKey];
   const results = useMemo(
@@ -622,10 +979,26 @@ export default function PricingMarginCalculator() {
   const activeBreakdown = results.breakdown.find(
     (item) => item.label === activeBreakdownLabel,
   );
-
+  const volumeRows = useMemo(
+    () =>
+      volumeScenarios.map((volume) => ({
+        volume,
+        results: calculateAtVolume(
+          inputs,
+          volume,
+          activePreset.breakdownLabels,
+        ),
+      })),
+    [activePreset.breakdownLabels, inputs, volumeScenarios],
+  );
   const handleChange = (key: keyof PricingInputs, value: number) => {
     setInputs((current) => {
-      const max = key === "paymentFee" || key === "targetMargin" ? 99 : undefined;
+      const max =
+        key === "paymentFee" ||
+        key === "marketplaceFee" ||
+        key === "targetMargin"
+          ? 99
+          : undefined;
       const nextValue = clampNumber(value, 0, max);
       const next = {
         ...current,
@@ -656,11 +1029,34 @@ export default function PricingMarginCalculator() {
     handleChange("discount", clampNumber(value, 0, 100));
   };
 
+  const handleTooltipToggle = (id: string) => {
+    setActiveTooltip(id === "" ? null : id);
+  };
+
   const loadPreset = (presetKey: string) => {
     const key = presetKey as PresetKey;
     setActivePresetKey(key);
     setInputs(pricingPresets[key].values);
+    setVolumeScenarios(buildVolumeScenarios(pricingPresets[key].values.monthlySales));
     setActiveBreakdownLabel(null);
+  };
+
+  const resetActiveInputs = () => {
+    setInputs(blankPricingInputs);
+    setVolumeScenarios(buildVolumeScenarios(blankPricingInputs.monthlySales));
+    setActiveBreakdownLabel(null);
+  };
+
+  const handleVolumeScenarioChange = (index: number, value: number) => {
+    setVolumeScenarios((current) =>
+      current.map((volume, itemIndex) =>
+        itemIndex === index ? Math.round(clampNumber(value, 0)) : volume,
+      ),
+    );
+  };
+
+  const resetVolumeScenarios = () => {
+    setVolumeScenarios(buildVolumeScenarios(inputs.monthlySales));
   };
 
   const primaryValue =
@@ -684,7 +1080,7 @@ export default function PricingMarginCalculator() {
       ? (marginExampleProfit / marginExamplePrice) * 100
       : 0;
   const marginExampleMarkup =
-    marginExampleCost > 0 ? (marginExampleProfit / marginExampleCost) * 100 : 0;
+    markupFromCost(marginExampleProfit, marginExampleCost);
 
   const displayedInputs =
     mode === "Calculate Selling Price"
@@ -724,7 +1120,15 @@ export default function PricingMarginCalculator() {
               money(results.targetProfitPerSale),
             ],
             ["Target Margin", percent(inputs.targetMargin)],
-            ["Markup", percent(results.targetMarkup)],
+            [
+              "Markup",
+              percent(
+                markupFromCost(
+                  results.targetProfitPerSale,
+                  results.targetTrueCost,
+                ),
+              ),
+            ],
             ["Variable Cost Before Fees", money(results.variableCost)],
         ]
       : mode === "Profit Planner"
@@ -743,7 +1147,10 @@ export default function PricingMarginCalculator() {
         : [
             [`True Cost per ${activePreset.unitLabel}`, money(results.trueCost)],
             [`Profit per ${activePreset.unitLabel}`, money(results.profitPerSale)],
-            ["Markup", percent(results.markup)],
+            [
+              "Markup",
+              percent(markupFromCost(results.profitPerSale, results.trueCost)),
+            ],
             ["Payment Fees", money(results.paymentFeeAmount)],
           ];
 
@@ -788,12 +1195,15 @@ export default function PricingMarginCalculator() {
             </button>
           ))}
           <button
-            onClick={() => setInputs(pricingPresets[activePresetKey].values)}
+            onClick={resetActiveInputs}
             type="button"
           >
             Reset {activePreset.unitLabel}
           </button>
         </div>
+        <p className="presetNote body">
+          Typical starting values. Edit them to match your business.
+        </p>
       </section>
 
       <section className="calculatorWorkspace">
@@ -812,9 +1222,11 @@ export default function PricingMarginCalculator() {
           <div className="calculatorFieldsGrid">
             {displayedInputs.map((input) => (
               <NumericInput
+                activeTooltip={activeTooltip}
                 input={input}
                 key={input.key}
                 onChange={handleChange}
+                onTooltipToggle={handleTooltipToggle}
                 value={inputs[input.key]}
               />
             ))}
@@ -835,8 +1247,18 @@ export default function PricingMarginCalculator() {
           </div>
 
           <div className="calculatorSummaryCards">
-            {supportingCards.map(([label, value, unit]) => (
-              <MetricCard key={label} label={label} unit={unit} value={value} />
+            {supportingCards.map(([label, value, unit], index) => (
+              <MetricCard
+                activeTooltip={activeTooltip}
+                key={label}
+                label={label}
+                onTooltipToggle={handleTooltipToggle}
+                tooltipId={`summary-${index}-${label
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, "-")}`}
+                unit={unit}
+                value={value}
+              />
             ))}
           </div>
         </div>
@@ -856,6 +1278,118 @@ export default function PricingMarginCalculator() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="breakEvenHighlight" aria-labelledby="break-even-highlight">
+        <div>
+          <p className="eyebrow">
+            Break-even
+            <InfoTooltip
+              active={activeTooltip === "highlight-break-even"}
+              content={
+                tooltipForLabel("Break-even Units") as TooltipContent
+              }
+              id="highlight-break-even"
+              onToggle={handleTooltipToggle}
+            />
+          </p>
+          <h2 id="break-even-highlight" className="section-title">
+            {numericValue(results.breakEvenSales)}
+          </h2>
+        </div>
+        <div>
+          <p className="body-large">
+            {Number.isFinite(results.breakEvenSales)
+              ? `You need approximately ${countWithUnit(
+                  results.breakEvenSales,
+                  activePreset.unitSingular,
+                  activePreset.unitPlural,
+                )} per month before the business stops losing money.`
+              : "Break-even cannot be reached until each sale produces positive profit."}
+          </p>
+          <a href="#cost-breakdown">See cost breakdown</a>
+        </div>
+      </section>
+
+      <section className="scenarioPanel" aria-labelledby="volume-comparison">
+        <div className="scenarioHeader">
+          <p className="eyebrow">Volume Scenarios</p>
+          <h2 id="volume-comparison" className="section-title">
+            What happens when volume changes?
+          </h2>
+          <p className="body">
+            Compare revenue, variable cost, fixed cost and net profit at
+            different monthly volumes. The rows use your current price and cost
+            inputs.
+          </p>
+        </div>
+
+        <div className="volumeTableWrap">
+          <table className="volumeTable">
+            <caption className="srOnly">
+              Profit outcomes at different monthly volumes
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Volume</th>
+                <th scope="col">Revenue</th>
+                <th scope="col">
+                  Variable Cost
+                  <InfoTooltip
+                    active={activeTooltip === "volume-variable-cost"}
+                    content={tooltipForLabel("Variable Cost") as TooltipContent}
+                    id="volume-variable-cost"
+                    onToggle={handleTooltipToggle}
+                  />
+                </th>
+                <th scope="col">
+                  Fixed Costs
+                  <InfoTooltip
+                    active={activeTooltip === "volume-fixed-costs"}
+                    content={tooltipForLabel("Fixed Costs") as TooltipContent}
+                    id="volume-fixed-costs"
+                    onToggle={handleTooltipToggle}
+                  />
+                </th>
+                <th scope="col">Net Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {volumeRows.map((row, index) => (
+                <tr key={index}>
+                  <td>
+                    <label>
+                      <span className="srOnly">
+                        Monthly {activePreset.unitPlural} for scenario {index + 1}
+                      </span>
+                      <input
+                        inputMode="numeric"
+                        min="0"
+                        onChange={(event) =>
+                          handleVolumeScenarioChange(
+                            index,
+                            Number(event.currentTarget.value),
+                          )
+                        }
+                        step="1"
+                        type="number"
+                        value={row.volume}
+                      />
+                    </label>
+                  </td>
+                  <td>{money(row.results.monthlyRevenue)}</td>
+                  <td>{money(row.results.monthlyVariableCosts)}</td>
+                  <td>{money(row.results.fixedCosts)}</td>
+                  <td>{money(row.results.estimatedMonthlyProfit)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <button className="textButton" onClick={resetVolumeScenarios} type="button">
+          Reset volume steps
+        </button>
       </section>
 
       <section className="calculatorBreakdownPanel" aria-labelledby="cost-breakdown">
@@ -1043,19 +1577,52 @@ export default function PricingMarginCalculator() {
 
         <div className="discountCards">
           <MetricCard
+            activeTooltip={activeTooltip}
             label={`Original ${activePreset.unitLabel} Price`}
+            onTooltipToggle={handleTooltipToggle}
+            tooltipId="discount-original-price"
             value={money(inputs.sellingPrice)}
           />
-          <MetricCard label="Discounted Price" value={money(results.discountedPrice)} />
-          <MetricCard label="Original Profit" value={money(results.profitPerSale)} />
-          <MetricCard label="Discounted Profit" value={money(results.discountedProfit)} />
           <MetricCard
+            activeTooltip={activeTooltip}
+            label="Discounted Price"
+            onTooltipToggle={handleTooltipToggle}
+            tooltipId="discount-discounted-price"
+            value={money(results.discountedPrice)}
+          />
+          <MetricCard
+            activeTooltip={activeTooltip}
+            label="Original Profit"
+            onTooltipToggle={handleTooltipToggle}
+            tooltipId="discount-original-profit"
+            value={money(results.profitPerSale)}
+          />
+          <MetricCard
+            activeTooltip={activeTooltip}
+            label="Discounted Profit"
+            onTooltipToggle={handleTooltipToggle}
+            tooltipId="discount-discounted-profit"
+            value={money(results.discountedProfit)}
+          />
+          <MetricCard
+            activeTooltip={activeTooltip}
             label={`Profit Lost per ${activePreset.unitLabel}`}
+            onTooltipToggle={handleTooltipToggle}
+            tooltipId="discount-profit-lost"
             value={money(results.profitLostPerSale)}
           />
-          <MetricCard label="Profit Reduction" value={percent(results.profitReduction)} />
           <MetricCard
+            activeTooltip={activeTooltip}
+            label="Profit Reduction"
+            onTooltipToggle={handleTooltipToggle}
+            tooltipId="discount-profit-reduction"
+            value={percent(results.profitReduction)}
+          />
+          <MetricCard
+            activeTooltip={activeTooltip}
             label={`Additional ${activePreset.unitPlural} Required`}
+            onTooltipToggle={handleTooltipToggle}
+            tooltipId="discount-additional-volume-required"
             value={salesNumber(results.additionalSalesRequired)}
           />
         </div>
@@ -1092,7 +1659,15 @@ export default function PricingMarginCalculator() {
 
         <div className="marginExample">
           <article>
-            <span>True Cost</span>
+            <span>
+              True Cost
+              <InfoTooltip
+                active={activeTooltip === "education-true-cost"}
+                content={tooltipForLabel("Variable Cost") as TooltipContent}
+                id="education-true-cost"
+                onToggle={handleTooltipToggle}
+              />
+            </span>
             <strong>{money(marginExampleCost)}</strong>
           </article>
           <article>
@@ -1107,7 +1682,15 @@ export default function PricingMarginCalculator() {
 
         <div className="educationCopyGrid">
           <article className="educationTextCard">
-            <span>Margin</span>
+            <span>
+              Margin
+              <InfoTooltip
+                active={activeTooltip === "education-margin"}
+                content={tooltipForLabel("Margin") as TooltipContent}
+                id="education-margin"
+                onToggle={handleTooltipToggle}
+              />
+            </span>
             <p className="body-large">
               Margin compares profit with selling price. Here,{" "}
               {money(marginExampleProfit)} profit divided by{" "}
@@ -1116,51 +1699,20 @@ export default function PricingMarginCalculator() {
             </p>
           </article>
           <article className="educationTextCard">
-            <span>Markup</span>
+            <span>
+              Markup
+              <InfoTooltip
+                active={activeTooltip === "education-markup"}
+                content={tooltipForLabel("Markup") as TooltipContent}
+                id="education-markup"
+                onToggle={handleTooltipToggle}
+              />
+            </span>
             <p className="body-large">
               Markup compares profit with cost. The same{" "}
               {money(marginExampleProfit)} profit divided by{" "}
               {money(marginExampleCost)} creates a {percent(marginExampleMarkup)}{" "}
               markup.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section
-        className="marginEducation educationSplitPanel"
-        aria-labelledby="fixed-variable-costs"
-      >
-        <div className="educationHeader">
-          <p className="eyebrow">Cost Structure</p>
-          <h2 id="fixed-variable-costs" className="section-title">
-            Variable costs decide the {activePreset.unitSingular}. Fixed costs
-            decide the month.
-          </h2>
-        </div>
-
-        <div className="educationMetricGrid">
-          <article>
-            <span>Variable Cost per {activePreset.unitLabel}</span>
-            <strong>{money(results.trueCost)}</strong>
-            <p className="body">
-              Costs that move with each {activePreset.unitSingular}, including
-              fees.
-            </p>
-          </article>
-          <article>
-            <span>Monthly Fixed Costs</span>
-            <strong>{money(results.fixedCosts)}</strong>
-            <p className="body">
-              Costs that exist before the first {activePreset.unitSingular} is
-              sold.
-            </p>
-          </article>
-          <article>
-            <span>Break-even {titleCaseFirst(activePreset.unitPlural)}</span>
-            <strong>{salesNumber(results.breakEvenSales)}</strong>
-            <p className="body">
-              The monthly volume required before profit starts.
             </p>
           </article>
         </div>

@@ -74,7 +74,7 @@ export const defaultPricingInputs: PricingInputs = {
   marketingCost: 0,
   monthlySales: 300,
   profitGoal: 10000,
-  discount: 0,
+  discount: 10,
 };
 
 export const pricingPresets: Record<
@@ -109,7 +109,7 @@ export const pricingPresets: Record<
       marketingCost: 0,
       monthlySales: 5200,
       profitGoal: 8000,
-      discount: 0,
+      discount: 10,
     },
   },
   restaurant: {
@@ -137,7 +137,7 @@ export const pricingPresets: Record<
       marketingCost: 0,
       monthlySales: 1800,
       profitGoal: 18000,
-      discount: 0,
+      discount: 10,
     },
   },
   retail: {
@@ -153,7 +153,7 @@ export const pricingPresets: Record<
       shipping: 7,
       otherCosts: 0,
       paymentFee: 2.4,
-      marketplaceFee: 8,
+      marketplaceFee: 12,
       returnsAllowance: 3,
       sellingPrice: 99,
       targetMargin: 48,
@@ -165,7 +165,7 @@ export const pricingPresets: Record<
       marketingCost: 0,
       monthlySales: 420,
       profitGoal: 12000,
-      discount: 0,
+      discount: 10,
     },
   },
   consulting: {
@@ -193,7 +193,7 @@ export const pricingPresets: Record<
       marketingCost: 4200,
       monthlySales: 18,
       profitGoal: 15000,
-      discount: 0,
+      discount: 10,
     },
   },
 };
