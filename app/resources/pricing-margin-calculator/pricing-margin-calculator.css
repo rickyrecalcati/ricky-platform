@@ -315,6 +315,7 @@
 .tooltipWrap:focus-within .tooltipBubble,
 .tooltipActive .tooltipBubble {
   opacity: 1;
+  pointer-events: auto;
   transform: translateX(-50%);
 }
 

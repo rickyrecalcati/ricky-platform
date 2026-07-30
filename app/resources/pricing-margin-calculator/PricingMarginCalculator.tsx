@@ -602,6 +602,45 @@ function calculateAtVolume(
   );
 }
 
+function buildVolumeVariableTooltip(
+  results: ReturnType<typeof calculatePricing>,
+  unitSingular: string,
+): TooltipContent {
+  const costParts = results.breakdown
+    .filter((item) => item.kind === "cost" && item.value > 0)
+    .map((item) => `${item.label} (${money(item.value)})`);
+
+  return {
+    title: "Variable Cost",
+    text:
+      costParts.length > 0
+        ? `Adds ${costParts.join(", ")} for each ${unitSingular}, then multiplies that cost by the volume in each row.`
+        : `No variable costs are currently entered. Add direct costs above to see what each ${unitSingular} costs before profit.`,
+  };
+}
+
+function buildVolumeFixedTooltip(
+  inputs: PricingInputs,
+  preset: IndustryPreset,
+): TooltipContent {
+  const fixedParts = preset.monthlyFields
+    .filter(
+      (field) =>
+        field.key !== "monthlySales" &&
+        field.key !== "profitGoal" &&
+        inputs[field.key] > 0,
+    )
+    .map((field) => `${field.label} (${money(inputs[field.key])})`);
+
+  return {
+    title: "Fixed Costs",
+    text:
+      fixedParts.length > 0
+        ? `Adds ${fixedParts.join(", ")}. These monthly costs stay the same across the volume scenarios.`
+        : "No monthly fixed costs are currently entered. Add rent, overheads, software or other fixed costs above to include them here.",
+  };
+}
+
 function safeInputValue(value: number) {
   return Number.isFinite(value) ? value : 0;
 }
@@ -660,6 +699,7 @@ function MetricCard({
   activeTooltip,
   label,
   onTooltipToggle,
+  showTooltip = true,
   tooltipId,
   unit,
   value,
@@ -667,11 +707,12 @@ function MetricCard({
   activeTooltip?: string | null;
   label: string;
   onTooltipToggle?: (id: string) => void;
+  showTooltip?: boolean;
   tooltipId?: string;
   unit?: string;
   value: string;
 }) {
-  const tooltip = tooltipForLabel(label);
+  const tooltip = showTooltip ? tooltipForLabel(label) : undefined;
   const cardTooltipId =
     tooltipId ?? `metric-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
@@ -705,6 +746,7 @@ function InfoTooltip({
   id: string;
   onToggle: (id: string) => void;
 }) {
+  const tooltipRef = useRef<HTMLSpanElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const [bubbleStyle, setBubbleStyle] = useState<CSSProperties>({});
 
@@ -773,9 +815,35 @@ function InfoTooltip({
     };
   }, [openTooltip]);
 
+  useEffect(() => {
+    if (!active) {
+      return undefined;
+    }
+
+    const closeWhenOutside = (event: PointerEvent | TouchEvent) => {
+      const tooltip = tooltipRef.current;
+      const target = event.target;
+
+      if (tooltip && target instanceof Node && tooltip.contains(target)) {
+        return;
+      }
+
+      onToggle("");
+    };
+
+    document.addEventListener("pointerdown", closeWhenOutside, true);
+    document.addEventListener("touchstart", closeWhenOutside, true);
+
+    return () => {
+      document.removeEventListener("pointerdown", closeWhenOutside, true);
+      document.removeEventListener("touchstart", closeWhenOutside, true);
+    };
+  }, [active, onToggle]);
+
   return (
     <span
       className={`tooltipWrap${active ? " tooltipActive" : ""}`}
+      ref={tooltipRef}
       style={bubbleStyle}
     >
       <button
@@ -835,7 +903,23 @@ function InfoTooltip({
       >
         ?
       </button>
-      <span className="tooltipBubble" id={`${id}-tooltip`} role="tooltip">
+      <span
+        className="tooltipBubble"
+        id={`${id}-tooltip`}
+        onMouseDown={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+        }}
+        onPointerDown={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+        }}
+        onTouchStart={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+        }}
+        role="tooltip"
+      >
         <strong className="tooltipTitle">{content.title}</strong>
         {content.text}
       </span>
@@ -978,6 +1062,14 @@ export default function PricingMarginCalculator() {
   const summary = summaryText(mode, inputs, results, activePreset);
   const activeBreakdown = results.breakdown.find(
     (item) => item.label === activeBreakdownLabel,
+  );
+  const volumeVariableTooltip = useMemo(
+    () => buildVolumeVariableTooltip(results, activePreset.unitSingular),
+    [activePreset.unitSingular, results],
+  );
+  const volumeFixedTooltip = useMemo(
+    () => buildVolumeFixedTooltip(inputs, activePreset),
+    [activePreset, inputs],
   );
   const volumeRows = useMemo(
     () =>
@@ -1253,6 +1345,7 @@ export default function PricingMarginCalculator() {
                 key={label}
                 label={label}
                 onTooltipToggle={handleTooltipToggle}
+                showTooltip={!label.startsWith("Break-even")}
                 tooltipId={`summary-${index}-${label
                   .toLowerCase()
                   .replace(/[^a-z0-9]+/g, "-")}`}
@@ -1337,7 +1430,7 @@ export default function PricingMarginCalculator() {
                   Variable Cost
                   <InfoTooltip
                     active={activeTooltip === "volume-variable-cost"}
-                    content={tooltipForLabel("Variable Cost") as TooltipContent}
+                    content={volumeVariableTooltip}
                     id="volume-variable-cost"
                     onToggle={handleTooltipToggle}
                   />
@@ -1346,7 +1439,7 @@ export default function PricingMarginCalculator() {
                   Fixed Costs
                   <InfoTooltip
                     active={activeTooltip === "volume-fixed-costs"}
-                    content={tooltipForLabel("Fixed Costs") as TooltipContent}
+                    content={volumeFixedTooltip}
                     id="volume-fixed-costs"
                     onToggle={handleTooltipToggle}
                   />
