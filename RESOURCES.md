@@ -37,11 +37,6 @@ Hospitality
 - Restaurant Closing Checklist
 - Manager Handover Template
 
-AI
-- ChatGPT Prompt Pack for Managers
-- AI Meeting Assistant
-- AI Productivity Toolkit
-
 Personal Growth
 - Annual Review Workbook
 - Decision Journal

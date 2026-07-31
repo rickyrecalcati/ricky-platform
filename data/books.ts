@@ -142,20 +142,7 @@ const bookCatalog: Book[] = [
             "Understand how AI may reshape work and society and how to adapt without fear or hype.",
         },
       ],
-      relatedResources: [
-        {
-          title: "ChatGPT Prompt Pack for Managers",
-          href: "/resources/chatgpt-prompt-pack-for-managers",
-        },
-        {
-          title: "AI Meeting Assistant",
-          href: "/resources/ai-meeting-assistant",
-        },
-        {
-          title: "AI Productivity Toolkit",
-          href: "/resources/ai-productivity-toolkit",
-        },
-      ],
+      relatedResources: [],
       faqTitle: "Questions before you read.",
       faq: [
         {
@@ -177,7 +164,7 @@ const bookCatalog: Book[] = [
       finalLabel: "Published",
       finalTitle: "Read No Robots Required on Kindle.",
       finalBody:
-        "Get the series on Amazon Kindle or explore the free AI resources for practical workflows and prompts.",
+        "Get the series on Amazon Kindle.",
     },
   },
   {

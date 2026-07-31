@@ -1282,16 +1282,16 @@ Earnings season starts now. That's the actual test. Everything else this week wa
         description: "Build systems that make businesses easier to operate.",
       },
       {
-        title: "AI Productivity Toolkit",
-        href: "/resources/ai-productivity-toolkit",
+        title: "Decision Framework",
+        href: "/resources/decision-framework",
         description:
-          "Learn where AI can remove repetitive work without removing accountability.",
+          "A practical framework for making clearer decisions under uncertainty.",
       },
       {
-        title: "ChatGPT Prompt Pack for Managers",
-        href: "/resources/chatgpt-prompt-pack-for-managers",
+        title: "Weekly Business Review",
+        href: "/resources/weekly-business-review",
         description:
-          "Practical prompts to improve planning, communication and decision-making.",
+          "A weekly review template for staying focused on what matters most.",
       },
       {
         title: "Business Health Scorecard",
@@ -1779,10 +1779,10 @@ Great businesses don’t build systems because they distrust people. They build 
         description: "Build systems that make hospitality businesses easier to operate.",
       },
       {
-        title: "AI Productivity Toolkit",
-        href: "/resources/ai-productivity-toolkit",
+        title: "Weekly Business Review",
+        href: "/resources/weekly-business-review",
         description:
-          "Practical AI workflows that save time without adding complexity.",
+          "A weekly review template for staying focused on what matters most.",
       },
       {
         title: "The Hidden Cost of Complexity",

@@ -49,9 +49,6 @@ RESOURCES = (
     ("restaurant-opening-checklist", "Restaurant Opening Checklist"),
     ("restaurant-closing-checklist", "Restaurant Closing Checklist"),
     ("manager-handover-template", "Manager Handover Template"),
-    ("chatgpt-prompt-pack-for-managers", "ChatGPT Prompt Pack for Managers"),
-    ("ai-meeting-assistant", "AI Meeting Assistant"),
-    ("ai-productivity-toolkit", "AI Productivity Toolkit"),
     ("annual-review-workbook", "Annual Review Workbook"),
     ("decision-journal", "Decision Journal"),
     ("reading-tracker", "Reading Tracker"),
@@ -616,8 +613,6 @@ def draw_cover(canvas, doc, title, subtitle):
     resource_label = (
         "PRACTICAL HOSPITALITY RESOURCE"
         if title.startswith("Restaurant") or title.startswith("Manager")
-        else "PRACTICAL AI RESOURCE"
-        if title.startswith("AI") or title.startswith("ChatGPT")
         else "PERSONAL GROWTH WORKBOOK"
         if title in {"Annual Review Workbook", "Decision Journal", "Reading Tracker"}
         else "PRACTICAL BUSINESS RESOURCE"

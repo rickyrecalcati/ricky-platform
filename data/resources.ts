@@ -1,7 +1,6 @@
 export type ResourceCategory =
   | "Business"
   | "Hospitality"
-  | "AI"
   | "Personal Growth"
   | "Investing";
 
@@ -306,96 +305,6 @@ export const resources: Resource[] = [
     relatedArticles: [serviceArticle, systemsArticle],
   },
   {
-    slug: "chatgpt-prompt-pack-for-managers",
-    title: "ChatGPT Prompt Pack for Managers",
-    category: "AI",
-    status: "Available",
-    fileType: "PDF",
-    fileUrl: "/resources/chatgpt-prompt-pack-for-managers.pdf",
-    description:
-      "A curated collection of prompts for meetings, planning, reporting and daily management.",
-    heroDescription:
-      "A practical prompt pack for managers who want AI to support clearer communication, planning and follow-through.",
-    whoFor: [
-      "Managers starting to use AI at work.",
-      "Operators who want useful prompts without technical complexity.",
-      "Leaders improving meeting notes, planning and reporting.",
-    ],
-    included: [
-      "Meeting preparation prompts.",
-      "Planning and prioritisation prompts.",
-      "Reporting and summary prompts.",
-      "Daily management workflow prompts.",
-    ],
-    worksWellWith: [
-      "Weekly business reviews.",
-      "Manager handovers.",
-      "Team planning sessions.",
-    ],
-    relatedBooks: [scalingHospitality],
-    relatedArticles: [systemsArticle, complexityArticle],
-  },
-  {
-    slug: "ai-meeting-assistant",
-    title: "AI Meeting Assistant",
-    category: "AI",
-    status: "Available",
-    fileType: "PDF",
-    fileUrl: "/resources/ai-meeting-assistant.pdf",
-    description:
-      "Use AI to capture meetings, identify actions and improve accountability.",
-    heroDescription:
-      "A focused AI workflow for turning meeting discussion into useful notes, decisions and accountable next steps.",
-    whoFor: [
-      "Managers who run regular meetings.",
-      "Teams that leave meetings without clear ownership.",
-      "Operators improving accountability without more admin.",
-    ],
-    included: [
-      "Meeting capture workflow.",
-      "Action extraction prompts.",
-      "Decision summary prompts.",
-      "Follow-up and accountability checklist.",
-    ],
-    worksWellWith: [
-      "Leadership meetings.",
-      "Weekly reviews.",
-      "Project check-ins.",
-    ],
-    relatedBooks: [scalingHospitality],
-    relatedArticles: [systemsArticle, serviceArticle],
-  },
-  {
-    slug: "ai-productivity-toolkit",
-    title: "AI Productivity Toolkit",
-    category: "AI",
-    status: "Available",
-    fileType: "PDF",
-    fileUrl: "/resources/ai-productivity-toolkit.pdf",
-    description:
-      "Practical AI workflows that save time without adding complexity.",
-    heroDescription:
-      "A calm, practical toolkit for using AI to reduce repetitive work, improve clarity and protect attention.",
-    whoFor: [
-      "Operators and creators exploring AI workflows.",
-      "Managers who want time savings without overcomplicating work.",
-      "Small teams building better daily systems.",
-    ],
-    included: [
-      "Task batching prompts.",
-      "Writing and editing workflows.",
-      "Research and summary prompts.",
-      "Simple review routines for AI output.",
-    ],
-    worksWellWith: [
-      "Weekly planning.",
-      "Content creation.",
-      "Operational reporting.",
-    ],
-    relatedBooks: [scalingHospitality, secondAct],
-    relatedArticles: [systemsArticle, lifeArticle],
-  },
-  {
     slug: "annual-review-workbook",
     title: "Annual Review Workbook",
     category: "Personal Growth",
@@ -580,7 +489,6 @@ export const resources: Resource[] = [
 export const resourceCategories: ResourceCategory[] = [
   "Business",
   "Hospitality",
-  "AI",
   "Personal Growth",
   "Investing",
 ];

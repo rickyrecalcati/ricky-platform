@@ -17,7 +17,7 @@ import {
 export const metadata = createPageMetadata({
   title: "Ricky Recalcati | Books, Articles and Practical Resources",
   description:
-    "Explore Ricky Recalcati's books, articles and free resources on business, operations, investing, AI and personal growth.",
+    "Explore Ricky Recalcati's books, articles and free resources on business, operations, investing and personal growth.",
   path: "/",
 });
 

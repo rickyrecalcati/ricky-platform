@@ -34,7 +34,7 @@ const links = {
   secondAct: absoluteUrl("/books/the-second-act"),
   investmentThesis: absoluteUrl("/resources/investment-thesis-template"),
   businessHealth: absoluteUrl("/resources/business-health-scorecard"),
-  aiProductivity: absoluteUrl("/resources/ai-productivity-toolkit"),
+  weeklyBusinessReview: absoluteUrl("/resources/weekly-business-review"),
   betterSystems: absoluteUrl(
     "/articles/why-better-systems-build-better-businesses",
   ),
@@ -309,8 +309,8 @@ export default function WelcomeEmail({
                     label: "Business Health Scorecard",
                   },
                   {
-                    href: links.aiProductivity,
-                    label: "AI Productivity Toolkit",
+                    href: links.weeklyBusinessReview,
+                    label: "Weekly Business Review",
                   },
                 ]}
               />

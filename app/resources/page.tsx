@@ -16,7 +16,7 @@ import "./resources.css";
 export const metadata = createPageMetadata({
   title: "Resources",
   description:
-    "Download free practical resources, templates and worksheets for business systems, decision-making, AI workflows and personal growth.",
+    "Download free practical resources, templates and worksheets for business systems, decision-making, investing and personal growth.",
   path: "/resources",
 });
 
