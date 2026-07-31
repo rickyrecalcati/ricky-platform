@@ -52,6 +52,14 @@
   border-bottom: 1px solid rgba(244, 239, 230, 0.12);
 }
 
+.resourceCategoryHeader > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  gap: 18px;
+}
+
 .resourceCategoryHeader span {
   color: rgba(244, 239, 230, 0.58);
   font-size: 0.9rem;
@@ -61,6 +69,35 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(1.35rem, 3vw, 2rem);
+}
+
+.resourcesExploreButton {
+  justify-self: start;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(202, 166, 76, 0.26);
+  border-radius: 999px;
+  background: rgba(202, 166, 76, 0.08);
+  color: var(--color-gold);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background 0.22s var(--ease-premium),
+    border-color 0.22s var(--ease-premium),
+    color 0.22s var(--ease-premium),
+    transform 0.22s var(--ease-premium);
+}
+
+.resourcesExploreButton:hover,
+.resourcesExploreButton:focus-visible {
+  border-color: rgba(202, 166, 76, 0.52);
+  background: rgba(202, 166, 76, 0.16);
+  color: var(--color-cream-bright);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 640px) {
@@ -76,5 +113,11 @@
   .resourceCategoryHeader {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .resourceCategoryHeader > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
   }
 }

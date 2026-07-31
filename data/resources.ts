@@ -99,6 +99,36 @@ export const resources: Resource[] = [
     relatedArticles: [systemsArticle, complexityArticle],
   },
   {
+    slug: "compound-interest-calculator",
+    title: "Compound Interest Calculator",
+    category: "Investing",
+    resourceType: "tool",
+    status: "Available",
+    fileType: "Interactive Tool",
+    description:
+      "Estimate investment growth, contributions, fees, inflation and the cost of waiting.",
+    heroDescription:
+      "A client-side investing tool for modelling how regular contributions, time, fees and inflation can affect long-term portfolio value.",
+    whoFor: [
+      "Long-term investors planning regular contributions.",
+      "People comparing fees, returns and investment timelines.",
+      "Business owners and operators thinking about capital allocation.",
+    ],
+    included: [
+      "Compound growth projection.",
+      "Contribution, fee and inflation breakdowns.",
+      "Year-by-year portfolio table.",
+      "Cost-of-waiting view.",
+    ],
+    worksWellWith: [
+      "Investment planning.",
+      "Portfolio reviews.",
+      "Long-term savings decisions.",
+    ],
+    relatedBooks: [scalingHospitality],
+    relatedArticles: [ownershipArticle, bitcoinArticle, lifeArticle],
+  },
+  {
     slug: "weekly-business-review",
     title: "Weekly Business Review",
     category: "Business",

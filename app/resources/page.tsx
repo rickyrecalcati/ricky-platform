@@ -1,6 +1,6 @@
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import ResourceCard from "../../components/ResourceCard";
+import ResourceCategoryGroup from "../../components/ResourceCategoryGroup";
 import {
   getResourcesByCategory,
   resourceCategories,
@@ -71,18 +71,11 @@ export default function ResourcesPage() {
             const categoryResources = getResourcesByCategory(category);
 
             return (
-              <section className="resourceCategoryGroup" key={category}>
-                <div className="resourceCategoryHeader">
-                  <p className="eyebrow">{category}</p>
-                  <span>{categoryResources.length} resources</span>
-                </div>
-
-                <div className="resourcesGrid">
-                  {categoryResources.map((resource) => (
-                    <ResourceCard resource={resource} key={resource.slug} />
-                  ))}
-                </div>
-              </section>
+              <ResourceCategoryGroup
+                category={category}
+                key={category}
+                resources={categoryResources}
+              />
             );
           })}
         </div>
