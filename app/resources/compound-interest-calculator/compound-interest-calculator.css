@@ -1,4 +1,5 @@
 .compoundCalculatorPage {
+  overflow-x: clip;
   max-width: var(--content-max);
   margin: 0 auto;
   padding: var(--section-pad-y) var(--section-pad-x);
@@ -966,11 +967,12 @@
 
   .compoundTableWrap {
     display: block;
-    width: 100%;
-    max-width: 100%;
+    width: min(100%, calc(100vw - (var(--section-pad-x) * 2) - 2px));
+    max-width: min(100%, calc(100vw - (var(--section-pad-x) * 2) - 2px));
     min-width: 0;
     overflow-x: auto;
     overflow-y: hidden;
+    overscroll-behavior-x: contain;
     padding-bottom: 8px;
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
