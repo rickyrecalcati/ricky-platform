@@ -136,9 +136,12 @@
 
 .compoundInputGroup h3 {
   margin: 0;
-  color: var(--color-cream-bright);
-  font-size: 1rem;
-  letter-spacing: 0.02em;
+  color: var(--color-gold);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 
 .compoundFieldsGrid {
@@ -150,22 +153,72 @@
 .compoundField {
   display: grid;
   align-content: start;
-  gap: 9px;
+  gap: 10px;
   min-width: 0;
 }
 
 .compoundFieldLabel {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
   color: var(--color-cream-bright);
   font-size: 0.98rem;
   font-weight: 800;
   line-height: 1.25;
 }
 
-.compoundFieldHelp {
-  min-height: 2.8em;
-  color: rgba(244, 239, 230, 0.58);
-  font-size: 0.93rem;
-  line-height: 1.45;
+.compoundInputTooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.compoundInputTooltipTrigger {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(202, 166, 76, 0.32);
+  border-radius: 999px;
+  background: rgba(202, 166, 76, 0.08);
+  color: var(--color-gold);
+  cursor: help;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.compoundInputTooltipBubble {
+  position: absolute;
+  z-index: 8;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  width: min(260px, calc(100vw - 48px));
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(202, 166, 76, 0.26);
+  border-radius: 8px;
+  background: #171512;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
+  color: rgba(244, 239, 230, 0.78);
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: none;
+  transform: translate(-50%, 6px);
+  transition:
+    opacity 0.18s var(--ease-premium),
+    transform 0.18s var(--ease-premium);
+}
+
+.compoundInputTooltip:hover .compoundInputTooltipBubble,
+.compoundInputTooltip:focus-within .compoundInputTooltipBubble {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .compoundInputWrap,
@@ -206,6 +259,16 @@
   font: inherit;
   font-size: 1.12rem;
   outline: 0;
+}
+
+.compoundInputWrap input::-webkit-outer-spin-button,
+.compoundInputWrap input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.compoundInputWrap input[type="number"] {
+  appearance: textfield;
 }
 
 .compoundSelectWrap {
@@ -374,14 +437,16 @@
 
 .compoundChartGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.28fr);
-  gap: clamp(1.25rem, 3vw, 2rem);
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2.4vw, 1.35rem);
   align-items: end;
   min-width: 0;
 }
 
 .compoundChartBars {
-  display: flex;
+  --chart-bars: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--chart-bars), minmax(clamp(14px, 2.4vw, 30px), 1fr));
   align-items: end;
   gap: clamp(4px, 0.8vw, 10px);
   width: 100%;
@@ -401,7 +466,7 @@
   display: grid;
   grid-template-rows: 1fr auto;
   gap: 8px;
-  min-width: clamp(14px, 2.4vw, 30px);
+  min-width: 0;
   height: 340px;
   padding: 0;
   border: 0;
@@ -478,13 +543,13 @@
 
 .compoundChartTooltip dl {
   display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 9px;
   margin: 0;
 }
 
 .compoundChartTooltip div {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   gap: 16px;
   color: rgba(244, 239, 230, 0.72);
   font-size: 0.92rem;
@@ -499,14 +564,6 @@
   color: var(--color-cream-bright);
 }
 
-.compoundTableHeader {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.compoundTextButton,
 .compoundTextLink {
   display: inline-flex;
   align-items: center;
@@ -532,8 +589,6 @@
   white-space: nowrap;
 }
 
-.compoundTextButton:hover,
-.compoundTextButton:focus-visible,
 .compoundTextLink:hover,
 .compoundTextLink:focus-visible {
   border-color: rgba(202, 166, 76, 0.52);
@@ -546,6 +601,42 @@
   display: grid;
   gap: 16px;
   min-width: 0;
+}
+
+.compoundTableActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.compoundExportButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(202, 166, 76, 0.24);
+  border-radius: 999px;
+  background: rgba(202, 166, 76, 0.07);
+  color: var(--color-gold);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition:
+    background 0.22s var(--ease-premium),
+    border-color 0.22s var(--ease-premium),
+    color 0.22s var(--ease-premium),
+    transform 0.22s var(--ease-premium);
+}
+
+.compoundExportButton:hover,
+.compoundExportButton:focus-visible {
+  border-color: rgba(202, 166, 76, 0.5);
+  background: rgba(202, 166, 76, 0.14);
+  color: var(--color-cream-bright);
+  transform: translateY(-1px);
 }
 
 .compoundTableWrap {
@@ -676,6 +767,10 @@
   gap: 18px;
 }
 
+.compoundLinksHeader {
+  margin-bottom: clamp(1.5rem, 3vw, 2.15rem);
+}
+
 .compoundArticleGrid {
   grid-template-columns: 1fr;
 }
@@ -747,8 +842,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .compoundTextButton,
   .compoundTextLink,
+  .compoundExportButton,
   .barTotal,
   .compoundInputWrap,
   .compoundSelectWrap {
@@ -786,9 +881,10 @@
     order: -1;
   }
 
-  .compoundTableHeader {
-    display: grid;
+  .compoundChartTooltip dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
 }
 
 @media (max-width: 620px) {
@@ -821,10 +917,20 @@
 
   .compoundChartBar {
     height: 280px;
-    min-width: 20px;
   }
 
-  .compoundFieldHelp {
-    min-height: auto;
+  .compoundChartTooltip dl {
+    grid-template-columns: 1fr;
+  }
+
+  .compoundInputTooltipBubble {
+    right: -10px;
+    left: auto;
+    transform: translateY(6px);
+  }
+
+  .compoundInputTooltip:hover .compoundInputTooltipBubble,
+  .compoundInputTooltip:focus-within .compoundInputTooltipBubble {
+    transform: translateY(0);
   }
 }

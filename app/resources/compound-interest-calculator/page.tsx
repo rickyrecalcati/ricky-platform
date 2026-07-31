@@ -221,7 +221,7 @@ export default function CompoundInterestCalculatorPage() {
         </section>
 
         <section className="compoundLinks" aria-labelledby="compound-links">
-          <div>
+          <div className="compoundLinksHeader">
             <p className="eyebrow">Keep Exploring</p>
             <h2 id="compound-links" className="section-title">
               Build the habit around the number.

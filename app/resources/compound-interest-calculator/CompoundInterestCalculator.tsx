@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import {
   calculateCompoundInterest,
   calculateWaitingCosts,
@@ -173,6 +173,23 @@ function updateNumber(
   });
 }
 
+function InputTooltip({ text }: { text: string }) {
+  return (
+    <span className="compoundInputTooltip">
+      <button
+        aria-label={text}
+        className="compoundInputTooltipTrigger"
+        type="button"
+      >
+        ?
+      </button>
+      <span className="compoundInputTooltipBubble" role="tooltip">
+        {text}
+      </span>
+    </span>
+  );
+}
+
 function NumericInput({
   field,
   inputs,
@@ -183,14 +200,17 @@ function NumericInput({
   onChange: (next: CompoundInputs) => void;
 }) {
   const value = inputs[field.key];
+  const [displayValue, setDisplayValue] = useState(String(value));
   const invalid =
     (field.min !== undefined && value < Number(field.min)) ||
     (field.max !== undefined && value > Number(field.max));
 
   return (
     <label className="compoundField">
-      <span className="compoundFieldLabel">{field.label}</span>
-      <span className="compoundFieldHelp">{field.help}</span>
+      <span className="compoundFieldLabel">
+        {field.label}
+        <InputTooltip text={field.help} />
+      </span>
       <span className="compoundInputWrap" data-invalid={invalid}>
         {field.prefix ? <span aria-hidden="true">{field.prefix}</span> : null}
         <input
@@ -199,12 +219,31 @@ function NumericInput({
           max={field.max}
           min={field.min}
           name={field.key}
-          onChange={(event) =>
-            onChange(updateNumber(inputs, field.key, Number(event.currentTarget.value)))
-          }
+          onBlur={() => {
+            setDisplayValue(String(inputs[field.key]));
+          }}
+          onChange={(event) => {
+            const nextValue = event.currentTarget.value;
+            setDisplayValue(nextValue);
+
+            if (nextValue === "" || nextValue === "-" || nextValue === "." || nextValue === "-.") {
+              onChange(updateNumber(inputs, field.key, 0));
+              return;
+            }
+
+            const parsedValue = Number(nextValue);
+            if (Number.isFinite(parsedValue)) {
+              onChange(updateNumber(inputs, field.key, parsedValue));
+            }
+          }}
+          onFocus={() => {
+            if (inputs[field.key] === 0) {
+              setDisplayValue("");
+            }
+          }}
           step={field.step ?? "0.01"}
-          type="number"
-          value={Number.isFinite(value) ? value : 0}
+          type="text"
+          value={displayValue}
         />
         {field.suffix ? <span aria-hidden="true">{field.suffix}</span> : null}
       </span>
@@ -227,8 +266,10 @@ function SelectField<T extends string>({
 }) {
   return (
     <label className="compoundField">
-      <span className="compoundFieldLabel">{label}</span>
-      <span className="compoundFieldHelp">{help}</span>
+      <span className="compoundFieldLabel">
+        {label}
+        <InputTooltip text={help} />
+      </span>
       <span className="compoundSelectWrap">
         <select
           onChange={(event) => onChange(event.currentTarget.value as T)}
@@ -269,6 +310,44 @@ function activeRowOrLast(rows: CompoundYearRow[], activeYear: number | null) {
   return rows.find((row) => row.year === activeYear) ?? rows.at(-1) ?? null;
 }
 
+function csvCell(value: string | number) {
+  const stringValue = String(value);
+  return /[",\n]/.test(stringValue) ? `"${stringValue.replaceAll('"', '""')}"` : stringValue;
+}
+
+function exportYearTable(rows: CompoundYearRow[]) {
+  const headers = [
+    "Year",
+    "Opening Balance",
+    "Contributions",
+    "Investment Return",
+    "Fees",
+    "Closing Balance",
+    "After Inflation",
+  ];
+  const csvRows = rows.map((row) => [
+    row.year,
+    row.openingBalance,
+    row.contributions,
+    row.investmentReturn,
+    row.fees,
+    row.closingBalance,
+    row.inflationAdjustedBalance,
+  ]);
+  const csv = [headers, ...csvRows]
+    .map((row) => row.map(csvCell).join(","))
+    .join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "compound-interest-year-by-year.csv";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
 function GrowthChart({
   rows,
 }: {
@@ -298,7 +377,12 @@ function GrowthChart({
       </div>
 
       <div className="compoundChartGrid">
-        <div className="compoundChartBars" role="list" aria-label="Year by year portfolio values">
+        <div
+          className="compoundChartBars"
+          role="list"
+          aria-label="Year by year portfolio values"
+          style={{ "--chart-bars": visibleRows.length } as CSSProperties}
+        >
           {visibleRows.map((row) => {
             const totalHeight = Math.max(4, (row.closingBalance / maxValue) * 100);
             const contributionShare =
@@ -374,31 +458,33 @@ function GrowthChart({
 }
 
 function YearTable({ rows }: { rows: CompoundYearRow[] }) {
-  const [ascending, setAscending] = useState(true);
-  const sortedRows = [...rows].sort((first, second) =>
-    ascending ? first.year - second.year : second.year - first.year,
-  );
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <section className="compoundTablePanel" aria-labelledby="year-table-title">
-      <div className="compoundPanelHeader compoundTableHeader">
-        <div>
-          <p className="eyebrow">Year By Year</p>
-          <h2 id="year-table-title" className="section-title">
-            The path matters as much as the endpoint.
-          </h2>
-        </div>
-        <button
-          className="compoundTextButton"
-          onClick={() => setAscending((current) => !current)}
-          type="button"
-        >
-          Sort {ascending ? "Newest First" : "Oldest First"}
-        </button>
+      <div className="compoundPanelHeader">
+        <p className="eyebrow">Year By Year</p>
+        <h2 id="year-table-title" className="section-title">
+          The path matters as much as the endpoint.
+        </h2>
       </div>
 
-      <details className="compoundTableDetails" open>
+      <details
+        className="compoundTableDetails"
+        onToggle={(event) => setIsExpanded(event.currentTarget.open)}
+      >
         <summary>Show year-by-year breakdown</summary>
+        {isExpanded ? (
+          <div className="compoundTableActions">
+            <button
+              className="compoundExportButton"
+              onClick={() => exportYearTable(rows)}
+              type="button"
+            >
+              Export Table
+            </button>
+          </div>
+        ) : null}
         <div className="compoundTableWrap">
           <table className="compoundTable">
             <thead>
@@ -413,7 +499,7 @@ function YearTable({ rows }: { rows: CompoundYearRow[] }) {
               </tr>
             </thead>
             <tbody>
-              {sortedRows.map((row) => (
+              {rows.map((row) => (
                 <tr key={row.year}>
                   <td>{row.year}</td>
                   <td>{money(row.openingBalance)}</td>
