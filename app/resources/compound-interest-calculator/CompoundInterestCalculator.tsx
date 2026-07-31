@@ -501,13 +501,13 @@ function YearTable({ rows }: { rows: CompoundYearRow[] }) {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.year}>
-                  <td data-label="Year">{row.year}</td>
-                  <td data-label="Opening Balance">{money(row.openingBalance)}</td>
-                  <td data-label="Contributions">{money(row.contributions)}</td>
-                  <td data-label="Investment Return">{money(row.investmentReturn)}</td>
-                  <td data-label="Fees">{money(row.fees)}</td>
-                  <td data-label="Closing Balance">{money(row.closingBalance)}</td>
-                  <td data-label="After Inflation">{money(row.inflationAdjustedBalance)}</td>
+                  <td>{row.year}</td>
+                  <td>{money(row.openingBalance)}</td>
+                  <td>{money(row.contributions)}</td>
+                  <td>{money(row.investmentReturn)}</td>
+                  <td>{money(row.fees)}</td>
+                  <td>{money(row.closingBalance)}</td>
+                  <td>{money(row.inflationAdjustedBalance)}</td>
                 </tr>
               ))}
             </tbody>

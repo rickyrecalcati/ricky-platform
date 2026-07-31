@@ -912,11 +912,13 @@
   }
 
   .compoundChartBars {
-    grid-template-columns: repeat(var(--chart-bars), minmax(8px, 1fr));
-    gap: 4px;
+    grid-template-columns: repeat(var(--chart-bars), minmax(16px, 1fr));
+    gap: 6px;
     min-height: 280px;
-    overflow-x: visible;
+    overflow-x: auto;
     padding-inline: 10px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
   }
 
   .compoundChartBar {
@@ -924,9 +926,7 @@
   }
 
   .barYear {
-    font-size: 0.58rem;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    font-size: 0.62rem;
   }
 
   .compoundChartTooltip dl {
@@ -945,64 +945,13 @@
   }
 
   .compoundTableWrap {
-    overflow-x: visible;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
   }
 
   .compoundTable {
-    display: block;
-    min-width: 0;
-    border-collapse: separate;
-    font-size: 0.9rem;
-  }
-
-  .compoundTable thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
-
-  .compoundTable tbody {
-    display: grid;
-    gap: 12px;
-  }
-
-  .compoundTable tr {
-    display: grid;
-    gap: 0;
-    padding: 0.95rem;
-    border: 1px solid rgba(244, 239, 230, 0.1);
-    border-radius: 8px;
-    background: rgba(244, 239, 230, 0.03);
-  }
-
-  .compoundTable td {
-    display: flex;
-    justify-content: space-between;
-    gap: 14px;
-    border-bottom: 1px solid rgba(244, 239, 230, 0.08);
-    padding: 10px 0;
-    text-align: right;
-    white-space: normal;
-  }
-
-  .compoundTable td:first-child {
-    text-align: right;
-  }
-
-  .compoundTable td:last-child {
-    border-bottom: 0;
-  }
-
-  .compoundTable td::before {
-    content: attr(data-label);
-    color: rgba(244, 239, 230, 0.54);
-    font-size: 0.68rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    text-align: left;
-    text-transform: uppercase;
+    min-width: 820px;
   }
 }
