@@ -429,6 +429,95 @@ const realEstateVsSp500Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue004Sections: ArticleContentSection[] = [
+  {
+    heading: "Quick recap",
+    body: [
+      "Stocks finished the week higher, but the final print made July look calmer than it felt. The S&P 500 gained about 1% for the week, the Nasdaq rose 1.6%, and the Dow added 1%. Even so, the S&P 500 still posted its first negative July since 2014.",
+      "That contrast matters. A strong closing week can change the mood without changing the month. The market ended July with a bounce, but the path there was uneven: Big Tech earnings carried the rebound, semiconductors remained under pressure, long bond yields pushed higher, and the macro data gave investors a less comfortable mix of slower growth and sticky inflation.",
+    ],
+    table: {
+      headers: ["Market", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,489.72", "+1.0%"],
+        ["Nasdaq Composite", "25,373.85", "+1.6%"],
+        ["Dow Jones Industrial Average", "52,485.03", "+1.0%"],
+        ["Bitcoin", "Around $63,080", "Down on Friday, still positive for July"],
+        ["Gold", "Around $4,050 per ounce", "Roughly flat, near support"],
+        ["Brent crude", "Around $90 per barrel", "Lower than midweek levels, still elevated"],
+      ],
+    },
+  },
+  {
+    heading: "The market wanted proof, not promises",
+    body: [
+      "Two weeks ago, investors punished heavy AI capital spending. This week, they rewarded it.",
+      "That sounds inconsistent until you look at what changed. The spending plans did not suddenly become smaller. Amazon, Microsoft, Meta and Alphabet are still pointing toward extraordinary levels of infrastructure investment. What changed was the evidence attached to the spending. When revenue, cloud demand, margin discipline or operating leverage appeared alongside the capex guidance, investors were willing to treat the spending as investment rather than leakage.",
+      "That is the difference between ambition and proof. Markets can tolerate enormous spending when they believe the money is widening an advantage. They become much less forgiving when the spending looks like a tax required to stay in the race.",
+      "Amazon’s results were received positively because investors could see demand behind the investment. Apple, despite beating estimates, slipped because the outlook did not carry the same sense of acceleration. The lesson was not that AI capex is good or bad in isolation. The lesson was that capital spending now has to arrive with evidence.",
+    ],
+    callout:
+      "The difference between AI spending as risk and AI spending as reassurance is the proof sitting beside it.",
+  },
+  {
+    heading: "Breadth improved while the old leaders stalled",
+    body: [
+      "The headline index did not tell the whole story.",
+      "Over the last three months, the equal-weight S&P 500 has reportedly outperformed the Magnificent Seven by a wide margin. Smaller companies and the rest of the market have been doing more of the work while the largest technology names moved sideways or absorbed the pressure from earnings, valuation and AI spending concerns.",
+      "That is healthier than a rally carried by seven names alone, but it is also more complicated. A broadening market can signal resilience. It can also signal that leadership is rotating because the previous winners are running into harder questions.",
+      "Semiconductors show the tension clearly. The group bounced late in the week, but still closed out a difficult month. According to MarketWatch, one major semiconductor ETF posted its worst month since 2002. The source draft described the month as the worst for chipmakers since 2008, which needs manual verification depending on the index being used. Either way, the message is clear enough: the most crowded part of the AI trade has become less effortless.",
+    ],
+  },
+  {
+    heading: "The macro data was less comforting than the earnings tape",
+    body: [
+      "The week’s most important tension was not inside a single earnings report. It was between growth and inflation.",
+      "The source draft puts Q2 GDP growth at 1.5%, below a 2% forecast and lower than Q1. It also puts core PCE inflation at 3.3% year over year. Those figures need manual verification before publication as final economic data, but the combination is what matters for the argument: slower growth beside sticky inflation is not the setup equity investors usually want.",
+      "The bond market noticed. Long-dated Treasury yields rose, with the 30-year yield reportedly reaching its highest level since 2007 and the 10-year moving above 4.7%. Higher long-term yields matter because they change the discount rate on future cash flows. That affects every asset, but especially companies whose valuation depends on profits arriving far into the future.",
+      "This is why the week felt strange. Equity investors focused on earnings beats and AI demand. Bond investors were looking at inflation, fiscal pressure, policy uncertainty and a central bank with limited room to declare victory. Both can be right for a while. They cannot diverge forever.",
+    ],
+  },
+  {
+    heading: "AI spending is becoming a capital allocation test",
+    body: [
+      "The market has moved past the easy part of the AI story.",
+      "Early in a technology cycle, investors often reward exposure. The companies closest to the theme get the benefit of the doubt because the opportunity is large and the final economics are still unclear. That phase can last longer than skeptics expect, especially when revenue growth is visible.",
+      "Eventually, though, exposure is not enough. Investors begin asking more old-fashioned questions. What is the return on the capital being deployed? How much of the spending is defensive? How much is creating new revenue? How much future profit is already reflected in today’s price?",
+      "The railway booms of the nineteenth century, the telecom buildout of the late 1990s and the cloud infrastructure race all carried versions of the same lesson. Transformational infrastructure can be real while the investment returns are uneven. The technology can change the world and still punish investors who paid the wrong price for the wrong balance sheet.",
+      "That is where the AI story is becoming more interesting. The question is not whether AI matters. It does. The question is which companies can turn capital intensity into durable economics.",
+    ],
+  },
+  {
+    heading: "Bitcoin was quieter than the headline suggested",
+    body: [
+      "Bitcoin fell late in the week and traded around $63,000, but the monthly picture was less dramatic. The source draft notes that it remained up for July, with analysts pointing to reduced leveraged positioning after June’s washout.",
+      "That distinction matters because not every price decline carries the same information. A selloff driven by forced liquidations is different from a pullback after leverage has already been cleaned out. The first can create mechanical selling. The second can look weaker on the surface while reflecting a healthier market structure underneath.",
+      "That does not make Bitcoin safe, predictable or immune to macro pressure. It remains highly volatile. But for investors studying market behaviour, positioning often explains the speed of a move better than the headline reason attached to it.",
+    ],
+  },
+  {
+    heading: "My take",
+    body: [
+      "This was a week about proof.",
+      "Investors were not rejecting AI spending. They were separating companies that can explain the spending from companies asking for trust. They were not ignoring the macro picture. They were choosing, for one week, to give earnings more weight than bond yields. They were not celebrating July. They were reacting to the final few sessions of a month that was more fragile than the closing tape suggested.",
+      "That is why long-term investors should be careful with simple labels. This was not a clean risk-on week. It was not a broad rejection of technology. It was not a simple rotation into value. It was a market trying to reconcile strong corporate earnings with a less forgiving cost of capital.",
+      "When long yields rise, growth slows and inflation stays sticky, the hurdle rate for every investment decision moves higher. Businesses have to justify capital spending. Investors have to justify valuation. Managers have to justify growth that consumes more cash than it returns.",
+      "The winners in the next phase will not simply be the companies spending the most. They will be the ones that can show why the spending deserves to exist.",
+    ],
+    quote:
+      "A strong final week can improve the mood. It cannot rewrite the structure of the month.",
+  },
+  {
+    heading: "One lesson",
+    body: [
+      "Always check the period, not just the latest print.",
+      "The S&P 500 finished the week higher, but July still ended red. If you only looked at Friday, you would have missed the more useful story. The same mistake happens in business all the time. One strong sales week can hide a weak month. One good customer review can distract from deteriorating service. One profitable project can obscure a process that is becoming harder to run.",
+      "Good analysis starts by asking what the latest data point is sitting inside. Is it a reversal, a bounce, a continuation or noise? The answer changes how much weight the number deserves.",
+      "Markets reward attention to detail because most people prefer a clean story. July did not offer one. It offered something more valuable: a reminder that the final number is rarely the whole truth.",
+    ],
+  },
+];
+
 const balanceSheetIssue003Sections: ArticleContentSection[] = [
   {
     heading: "Quick recap",
@@ -750,6 +839,85 @@ const costcoBusinessBreakdownSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-004-market-wanted-proof",
+    title: "Balance Sheet #004: The Market Wanted Proof",
+    cardTitle: "Issue 004: The Market Wanted Proof",
+    cardExcerpt:
+      "Big Tech earnings steadied markets, but higher yields and sticky inflation made July harder to dismiss.",
+    category: "Finance",
+    tags: ["Balance Sheet", "Markets", "AI", "Investing", "Finance"],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 4,
+    weekCovered: "Week of July 27–31, 2026",
+    weekEnding: "2026-07-31",
+    headline: "The market wanted proof.",
+    featured: true,
+    excerpt:
+      "Big Tech earnings steadied markets, but higher yields and sticky inflation made July harder to dismiss.",
+    metaTitle: "Balance Sheet #004: The Market Wanted Proof",
+    metaDescription:
+      "Balance Sheet #004 reviews Big Tech earnings, AI capex, bond yields, sticky inflation and why July’s final rally hid a harder market story for investors.",
+    date: "2026-08-03",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #004: The Market Wanted Proof",
+      "Big Tech earnings steadied markets, but higher yields and sticky inflation made July harder to dismiss.",
+      balanceSheetIssue004Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The difference between AI spending as risk and AI spending as reassurance is the proof sitting beside it.",
+    sections: balanceSheetIssue004Sections,
+    sources: [
+      {
+        title: "AP, How major US stock indexes fared Friday 7/31/2026",
+        href: "https://apnews.com/article/37d8d182f02f0fcdcf9f7db67e6dfadd",
+      },
+      {
+        title:
+          "AP, Amazon to boost spending on AI and other technology after strong Q2 results",
+        href: "https://apnews.com/article/b4ce02b4666a35b8975823c5c22072ee",
+      },
+      {
+        title:
+          "MarketWatch, S&P 500 ends with its first July decline since 2014",
+        href: "https://www.marketwatch.com/story/s-p-500-heads-for-the-first-july-decline-since-2014-here-are-the-stocks-that-led-the-selloff-5677f63b",
+      },
+      {
+        title:
+          "Financial Times, Big Tech AI spending spree tops $1tn",
+        href: "https://www.ft.com/content/dcf3873e-7b32-4a24-a90d-3bccf1d2c996",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #003: The AI Cash Test",
+        href: "/articles/balance-sheet-003-ai-cash-test",
+        description:
+          "The previous issue on AI spending, oil pressure and the cash-flow test facing markets.",
+      },
+      {
+        title: "Why Broadcom Is No Longer Just a Chip Company",
+        href: "/articles/why-broadcom-is-no-longer-just-a-chip-company",
+        description:
+          "A Business Breakdown on the less glamorous infrastructure layer of the AI boom.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio objectively instead of emotionally.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-003-ai-cash-test",
     title: "Balance Sheet #003: The AI Cash Test",
