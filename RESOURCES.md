@@ -29,7 +29,6 @@ Current Resources
 
 Business
 - Weekly Business Review
-- Decision Framework
 - Business Health Scorecard
 
 Hospitality

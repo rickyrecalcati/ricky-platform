@@ -43,7 +43,7 @@ Your goal isn’t perfection.
 
 Your goal is improving your thinking.
 
-## The Decision Framework
+## Decision Checklist
 
 Before every important decision ask yourself:
 

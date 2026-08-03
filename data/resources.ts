@@ -157,35 +157,6 @@ export const resources: Resource[] = [
     relatedArticles: [systemsArticle, complexityArticle],
   },
   {
-    slug: "decision-framework",
-    title: "Decision Framework",
-    category: "Business",
-    fileType: "PDF",
-    fileUrl: "/resources/decision-framework.pdf",
-    description:
-      "A practical framework for making clearer, more confident decisions under uncertainty.",
-    heroDescription:
-      "A structured decision tool for slowing down the right questions, weighing trade-offs and moving forward with more confidence.",
-    whoFor: [
-      "Operators making decisions with imperfect information.",
-      "Managers who need a repeatable way to compare options.",
-      "Entrepreneurs deciding what to do next when the answer is not obvious.",
-    ],
-    included: [
-      "Problem definition prompts.",
-      "Option comparison fields.",
-      "Risk and reversibility checks.",
-      "A decision record for future review.",
-    ],
-    worksWellWith: [
-      "Hiring decisions.",
-      "Operational changes.",
-      "Investment and growth choices.",
-    ],
-    relatedBooks: [scalingHospitality, secondAct],
-    relatedArticles: [lifeArticle, systemsArticle],
-  },
-  {
     slug: "business-health-scorecard",
     title: "Business Health Scorecard",
     category: "Business",

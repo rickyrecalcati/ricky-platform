@@ -1450,12 +1450,6 @@ Earnings season starts now. That's the actual test. Everything else this week wa
         description: "Build systems that make businesses easier to operate.",
       },
       {
-        title: "Decision Framework",
-        href: "/resources/decision-framework",
-        description:
-          "A practical framework for making clearer decisions under uncertainty.",
-      },
-      {
         title: "Weekly Business Review",
         href: "/resources/weekly-business-review",
         description:

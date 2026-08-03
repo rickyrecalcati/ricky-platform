@@ -44,7 +44,6 @@ FORCED_PAGE_BREAK_BEFORE = {"Continue Exploring"}
 
 RESOURCES = (
     ("weekly-business-review", "Weekly Business Review"),
-    ("decision-framework", "Decision Framework"),
     ("business-health-scorecard", "Business Health Scorecard"),
     ("restaurant-opening-checklist", "Restaurant Opening Checklist"),
     ("restaurant-closing-checklist", "Restaurant Closing Checklist"),
@@ -920,7 +919,7 @@ def decision_journal_story(markdown):
 
     story.extend(
         story_page(
-            section_heading("The Decision Framework"),
+            section_heading("Decision Checklist"),
             paragraph("Before every important decision ask yourself:", "body"),
             *[
                 note_block(question, 1)
