@@ -518,6 +518,100 @@ const balanceSheetIssue004Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue005Sections: ArticleContentSection[] = [
+  {
+    heading: "Quick recap",
+    body: [
+      "Stocks had their strongest week since April, and the reason was not especially comforting.",
+      "The S&P 500 closed at a record 7,757.64, up 3.6% for the week. The Nasdaq gained 5.2%, helped by a rebound in software and semiconductor names, while the Dow added 3%. Bitcoin moved higher but remained pinned near $65,000. Gold traded near record territory. Brent crude stayed elevated as geopolitical tension kept energy risk alive.",
+      "The surface story was strength. The deeper story was more awkward: markets rallied because the July jobs report was weak enough to make higher-for-longer interest rates harder to defend.",
+    ],
+    table: {
+      headers: ["Market", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,757.64", "+3.6%"],
+        ["Nasdaq Composite", "26,690.62", "+5.2%"],
+        ["Dow Jones Industrial Average", "54,036.93", "+3.0%"],
+        ["Bitcoin", "Around $64,940", "Up 2.8%, still near $65K"],
+        ["Gold", "Around $4,300 to $4,350 per ounce", "Near record highs"],
+        ["Brent crude", "Above $83 per barrel", "Higher on renewed geopolitical tension"],
+      ],
+    },
+  },
+  {
+    heading: "The bad news rally",
+    body: [
+      "The United States lost 23,000 jobs in July, against expectations for a gain of roughly 80,000 to 85,000. In a normal reading, that is not good news. It means hiring stalled, demand for labour weakened, and the economy may be losing momentum faster than headline indicators suggested.",
+      "Yet stocks rallied hard.",
+      "That is the strange logic of rate-sensitive markets. Investors were not celebrating a weaker labour market for its own sake. They were celebrating what weakness might force the Federal Reserve to do. If employment softens enough, the argument for holding rates higher for longer becomes more difficult, even if inflation has not fully returned to target.",
+      "This is not new. Markets have often rallied on disappointing economic data when the policy response looked more important than the data itself. The risk is that investors begin treating weakness as good news right up until the weakness becomes too large for cheaper money to offset.",
+      "That line is never obvious in real time. It is why bad-news rallies deserve respect, but not comfort.",
+    ],
+    callout:
+      "Wall Street did not celebrate a strong economy this week. It celebrated the possibility of easier money.",
+  },
+  {
+    heading: "The second sentence mattered more than the headline",
+    body: [
+      "The unemployment rate fell to 4.1%, which sounds strong until you ask why.",
+      "It did not fall because the job market suddenly improved. It fell because labour force participation declined to 61.4%. AP reported that 264,000 people left the labour force, while MarketWatch noted that the broader decline in participation has become one of the more worrying details inside the employment data.",
+      "That is the kind of number that rewards slower reading. A lower unemployment rate can mean more people found jobs. It can also mean fewer people are looking. The first interpretation suggests strength. The second points to fragility.",
+      "For investors, this matters because the labour market is not just an economic statistic. It is the bridge between household income, consumer spending, credit quality, corporate revenue and political pressure. A weaker labour market can help the rate-cut story in the short term while damaging the earnings story if it continues long enough.",
+      "The market chose to focus on the first part this week. The second part has not disappeared.",
+    ],
+  },
+  {
+    heading: "Policy risk moved from rates to supply chains",
+    body: [
+      "Trade policy added another layer to the week.",
+      "The White House announced new measures on imported solar products, including a 15% tariff and price floors, aimed at supporting domestic manufacturing. Solar stocks rallied on the announcement, helped by the prospect that policy could make local production more competitive against lower-cost imports.",
+      "This is where markets become harder to read. The same policy can be bullish for one group of companies and inflationary or margin-negative for another. Tariffs can protect domestic producers while raising input costs elsewhere. They can encourage supply-chain investment while making global trade less efficient.",
+      "The investment lesson is not that tariffs are good or bad in every case. It is that policy is increasingly part of capital allocation. Companies exposed to semiconductors, solar, energy, data centres and critical materials are no longer operating in purely commercial markets. They are operating inside strategic industries, where governments care about capacity, resilience and dependence.",
+      "That can create opportunity. It can also make the rules change faster than investors expect.",
+    ],
+  },
+  {
+    heading: "Technology bounced, but the test did not go away",
+    body: [
+      "The Nasdaq’s 5.2% weekly gain was helped by a rebound in software and chip stocks after a rough stretch. Nvidia had one of its strongest weeks in more than a year, and SpaceX shares surged late in the week after a volatile post-IPO period.",
+      "The bounce matters, but it does not erase the question that has been building across the past few Balance Sheet issues. Technology companies are being asked to prove that capital intensity can become durable profit. AI infrastructure spending may be necessary, but necessary spending is not automatically attractive spending.",
+      "That distinction is important. A company can be strategically right and still financially stretched. A sector can be essential and still overvalued. An investment theme can be real while the expected returns are uneven.",
+      "The best technology businesses will show how today’s infrastructure becomes tomorrow’s cash flow. The weaker stories will ask investors to accept higher spending because the opportunity sounds large. Markets may tolerate that for a while, especially when rate expectations are falling, but the bill still has to be paid.",
+    ],
+  },
+  {
+    heading: "Gold sent a different signal",
+    body: [
+      "Gold’s strength was the week’s quieter message.",
+      "The source draft notes a sharp single-session move and prices near record highs. The exact intraday move needs manual verification, but the broader signal is worth studying: when geopolitical tension, oil risk and rate-cut expectations moved together, gold drew serious attention while Bitcoin remained stuck near $65,000.",
+      "Both assets are often discussed as hedges against currency debasement, inflation and uncertainty. In practice, they do not behave the same way. Gold has centuries of institutional memory behind it. Central banks own it. Investors understand the role it plays in periods when confidence gets thinner.",
+      "Bitcoin may still develop into a deeper monetary asset over time, but this week was a reminder that narratives and behaviour are not identical. When investors wanted a safe-haven expression, traditional gold looked more trusted than digital scarcity.",
+      "That does not settle the long-term debate. It simply shows where capital went when the market had to choose.",
+    ],
+  },
+  {
+    heading: "My take",
+    body: [
+      "The uncomfortable truth is that this week’s rally depended on a weak number being weak in just the right way.",
+      "If the labour market softens enough to stop rate hikes or bring forward cuts, equities can benefit. If it softens enough to damage earnings, credit and consumer spending, the same data becomes a problem. Investors were betting that the policy response will arrive before the economic damage becomes too large.",
+      "That bet has worked before. It has also failed before. The difference usually comes down to inflation.",
+      "Next week’s CPI and PPI data matter because they will test whether the market can keep telling both parts of the story at once: growth is soft enough for the Fed to become less restrictive, but inflation is cool enough to allow it. If inflation comes in hot, the rate-cut narrative runs into the one thing that can stop it quickly.",
+      "For long-term investors, the lesson is not to trade every jobs report. It is to understand what the market is actually celebrating. This week it was not growth. It was liquidity.",
+    ],
+    quote:
+      "A market cheering job losses is not calm. It is making a bet about the policy response.",
+  },
+  {
+    heading: "One lesson",
+    body: [
+      "A number can be true and still mislead you if you stop reading too early.",
+      "The unemployment rate fell to 4.1%. That headline reads as strength. The reason it fell was weaker participation, not a surge in hiring. That changes the meaning of the number.",
+      "The same discipline applies to earnings reports, portfolio results and business dashboards. Revenue can rise while margins deteriorate. Profit can improve because investment was deferred. Customer numbers can grow while retention weakens. A project can finish on time because quality was sacrificed quietly.",
+      "The first figure is rarely the whole story. Good analysis begins with the second sentence.",
+    ],
+  },
+];
+
 const balanceSheetIssue003Sections: ArticleContentSection[] = [
   {
     heading: "Quick recap",
@@ -839,6 +933,95 @@ const costcoBusinessBreakdownSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-005-bad-news-rally",
+    title: "Balance Sheet #005: The Bad News Rally",
+    cardTitle: "Issue 005: The Bad News Rally",
+    cardExcerpt:
+      "Stocks hit records after a weak jobs report, because markets were betting on easier money.",
+    category: "Finance",
+    tags: ["Balance Sheet", "Markets", "Jobs", "Gold", "Investing", "Finance"],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 5,
+    weekCovered: "Week of August 3–7, 2026",
+    weekEnding: "2026-08-07",
+    headline: "The bad news rally.",
+    featured: true,
+    excerpt:
+      "Stocks hit records after a weak jobs report, because markets were betting on easier money.",
+    metaTitle: "Balance Sheet #005: The Bad News Rally",
+    metaDescription:
+      "Balance Sheet #005 examines weak jobs, record stocks, rate-cut hopes, gold’s surge and why markets sometimes rally for uncomfortable reasons for investors.",
+    date: "2026-08-10",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #005: The Bad News Rally",
+      "Stocks hit records after a weak jobs report, because markets were betting on easier money.",
+      balanceSheetIssue005Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "A market cheering job losses is not calm. It is making a bet about the policy response.",
+    sections: balanceSheetIssue005Sections,
+    sources: [
+      {
+        title: "AP, How major US stock indexes fared Friday 8/7/2026",
+        href: "https://apnews.com/article/9d586bdbf1fb230dcf1f915dcaf50858",
+      },
+      {
+        title:
+          "AP, US job market stalled in July as employers cut 23,000 jobs",
+        href: "https://apnews.com/article/9c2d147c14bc428458be5a1e83e54957",
+      },
+      {
+        title:
+          "MarketWatch, Labor force participation falls to 61.4%",
+        href: "https://www.marketwatch.com/livecoverage/july-2026-jobs-report-today-live-updates/card/this-is-a-pretty-clear-sign-of-a-not-great-jobs-market-rJUjP3xBVtE6uUI6EJcZ",
+      },
+      {
+        title:
+          "Barron’s, Solar stocks jump as tariffs boost US manufacturing",
+        href: "https://www.barrons.com/articles/solar-stocks-trump-tariffs-first-solar-t1-energy-1077472d",
+      },
+      {
+        title:
+          "Investopedia, SpaceX stock surges to close out a volatile week",
+        href: "https://www.investopedia.com/market-update-spacex-stock-surges-to-close-out-a-wild-week-of-trading-spcx-12036739",
+      },
+      {
+        title:
+          "Investor’s Business Daily, Nasdaq leaps as rate-hike odds sink",
+        href: "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-july-jobs-report-cloudflare-stock/",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #004: The Market Wanted Proof",
+        href: "/articles/balance-sheet-004-market-wanted-proof",
+        description:
+          "The previous issue on AI capex, earnings proof and the harder market story beneath July.",
+      },
+      {
+        title: "Why Broadcom Is No Longer Just a Chip Company",
+        href: "/articles/why-broadcom-is-no-longer-just-a-chip-company",
+        description:
+          "A Business Breakdown on infrastructure, concentration risk and the economics beneath the AI trade.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio objectively instead of emotionally.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Estimate how time, contributions, fees and inflation affect long-term wealth.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-004-market-wanted-proof",
     title: "Balance Sheet #004: The Market Wanted Proof",
