@@ -932,7 +932,168 @@ const costcoBusinessBreakdownSections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue006Sections: ArticleContentSection[] = [
+  {
+    heading: "The rally looked calm. The consumer did not.",
+    body: [
+      "The market ended the week looking almost too comfortable. The S&P 500 posted its third straight weekly gain, briefly touched a fresh record on Thursday, and closed the week at 7,785.76. The Nasdaq added a little more. Small caps did better than both, with the Russell 2000 rising more than 3%. Volatility drifted lower, as if investors had decided the hard part of the year was already behind them.",
+      "That is the kind of tape that can make risk feel smaller than it is. Records at the index level are clean and easy to understand. The underlying story was less tidy. The Dow fell for the week, healthcare and industrials weakened, Bitcoin slipped while gold moved higher, and the consumer data that arrived on Friday was difficult to ignore.",
+      "Markets can rally for good reasons. They can also rally because the immediate obstacle has been removed while the longer problem has simply moved further down the road. This week looked closer to the second version.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly Move"],
+      rows: [
+        ["S&P 500", "7,785.76", "+0.4%, third straight winning week"],
+        ["Nasdaq", "26,729.16", "+0.1%"],
+        ["Dow Jones", "53,732.41", "-0.6%"],
+        ["Bitcoin", "Around $62,800", "Down more than 2%"],
+        ["Gold", "Around $4,375/oz", "+0.6%, near a 10-week high"],
+        ["Brent crude", "Around $88/bbl", "First weekly gain in three"],
+      ],
+    },
+  },
+  {
+    heading: "Inflation cooperated, but that was not the whole story",
+    body: [
+      "The inflation data gave investors what they wanted. July CPI rose 0.1% month over month and 3.4% year over year, matching expectations. Producer prices also eased more than expected. After months of worrying that inflation would force the Federal Reserve to stay tighter for longer, the data made a September rate hike look less likely.",
+      "That should have been straightforwardly positive. Lower inflation reduces pressure on policy. Lower policy pressure supports asset prices. The market did not need much more than that to keep the rally alive.",
+      "Then retail sales arrived.",
+      "July retail sales fell 0.6%, compared with expectations for a small gain. The University of Michigan’s preliminary consumer sentiment reading also weakened sharply, according to the source data used for this issue. Cooling inflation is helpful, but it becomes more complicated when the same cooling begins to show up in household behaviour. Lower inflation caused by improving supply conditions is one thing. Lower inflation accompanied by a more cautious consumer is another.",
+      "That distinction matters because the American market is still priced for a version of the economy that avoids the worst trade-off. Investors want inflation to fall enough for the Fed to step back, while growth remains firm enough to protect earnings. This week did not disprove that possibility, but it made the path narrower.",
+    ],
+    quote:
+      "Records at the index level can sit on top of a much shakier picture underneath. This week, the shakiness showed up in the consumer, not the market.",
+  },
+  {
+    heading: "The difference between a good cut and a bad cut",
+    body: [
+      "Rate cuts are usually treated as good news for equities, but the reason for the cut matters more than the cut itself.",
+      "If rates fall because inflation has eased while the economy remains healthy, that is a favourable backdrop. Discount rates move lower, borrowing conditions improve, and earnings do not need to be marked down aggressively. If rates fall because the consumer is weakening, employment is softening and companies begin protecting margins by slowing investment, the same rate cut carries a very different message.",
+      "The market has spent several weeks leaning toward the first interpretation. Friday’s retail and sentiment data introduced the second.",
+      "This is not a recession call. One week of data should not carry that much weight. It is, however, a reminder that markets often move before the language around them catches up. The first stage of a growth scare rarely looks like panic. It usually looks like investors explaining weak data as good news because it improves the odds of easier policy.",
+      "That explanation can be right for a while. It can also become fragile quickly.",
+    ],
+  },
+  {
+    heading: "Small caps and AI kept the surface firm",
+    body: [
+      "The healthier part of the week came from breadth. Small caps led, which suggests investors were not simply hiding inside the largest technology stocks. A Russell 2000 surge of more than 3% is not a defensive move. It usually reflects greater confidence in domestic growth, financing conditions, or both.",
+      "The AI infrastructure trade also continued to show life. CoreWeave jumped after reporting that second-quarter revenue more than doubled on strong hyperscaler demand for AI compute. Whatever concerns remain about capital intensity, customer concentration and long-term returns, the near-term demand signal is still strong.",
+      "That is why this week was not cleanly bearish. Markets were not ignoring everything. They were distinguishing between areas where spending remains visible and areas where the consumer looks more tired. AI infrastructure still has a spending engine behind it. Retail sales suggest the household engine deserves closer inspection.",
+      "Next week’s Target and Walmart earnings should matter for that reason. They will not answer every question about the consumer, but they will offer a more grounded read than sentiment surveys alone. Nvidia’s report on August 26 will then provide the next major test of the AI spending story. The market is trying to balance both questions at once: can the consumer hold up, and can AI spending keep justifying itself?",
+    ],
+  },
+  {
+    heading: "Bitcoin and gold sent different messages",
+    body: [
+      "Bitcoin was the odd asset out. It fell more than 2% during a week when equities touched records and gold climbed toward a 10-week high. That divergence is worth more than a shrug.",
+      "Part of the move was specific to crypto. Spot ETF outflows and a delayed tokenization framework weighed on sentiment. The broader lesson is that assets marketed under similar narratives do not always behave the same way when conditions shift. Bitcoin is often discussed as digital gold, but this week it did not trade like gold. It traded like an asset affected by its own flows, regulatory timing and market plumbing.",
+      "That matters for portfolio thinking. Correlation is easy to observe after the fact and dangerous to rely on before the fact. Assets that appear connected during calm periods can separate when investors most expect them to move together.",
+      "Gold’s strength, meanwhile, suggested demand for traditional protection remained alive. It does not prove anything by itself. It does, however, fit the broader picture of a market that looked calm at the index level while investors quietly hedged against a less comfortable macro path.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "A rally built on falling volatility is not the same as a rally built on strength. Low volatility can mean investors are confident. It can also mean they have stopped looking closely.",
+      "This week’s calm depended on a generous interpretation of the data: inflation is cooling, the Fed has less reason to tighten, small caps are participating, and AI demand remains strong. That interpretation may prove right. The risk is that consumer weakness turns the same evidence into a different story.",
+      "The same discipline applies outside markets. A business can look calm because the system is healthy, or because problems have not yet reached the dashboard. Sales can look fine while customer intent weakens. A project can look controlled while the early warning signs sit in details nobody checks. Calm is useful information only after you understand what produced it.",
+      "The market ended the week near records. That matters. But the better question is not whether the index made a new high. It is whether the assumptions beneath that high are becoming stronger or more fragile.",
+    ],
+  },
+];
+
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-006-calm-market-weaker-consumer",
+    title: "Balance Sheet #006: The Calm Market and the Weaker Consumer",
+    cardTitle: "Issue 006: The Calm Market",
+    cardExcerpt:
+      "Stocks reached records, but weak retail sales and softer sentiment made the calm look less convincing.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Consumer",
+      "Inflation",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 6,
+    weekCovered: "Week of August 10–14, 2026",
+    weekEnding: "2026-08-14",
+    headline: "The calm market and the weaker consumer.",
+    featured: true,
+    excerpt:
+      "Stocks reached records, but weak retail sales and softer sentiment made the calm look less convincing.",
+    metaTitle: "Balance Sheet #006: The Calm Market and the Weaker Consumer",
+    metaDescription:
+      "Balance Sheet #006 examines record stocks, weak retail sales, cooler inflation, gold, Bitcoin and why calm markets can hide fragile assumptions.",
+    date: "2026-08-17",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #006: The Calm Market and the Weaker Consumer",
+      "Stocks reached records, but weak retail sales and softer sentiment made the calm look less convincing.",
+      balanceSheetIssue006Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "Calm is useful information only after you understand what produced it.",
+    sections: balanceSheetIssue006Sections,
+    sources: [
+      {
+        title: "AP, How major US stock indexes fared Friday 8/14/2026",
+        href: "https://apnews.com/article/41b7cf2acc6562758183b1c5eae73635",
+      },
+      {
+        title:
+          "Kiplinger, July CPI report lowers September rate-hike odds",
+        href: "https://www.kiplinger.com/investing/economy/cpi-report-july-2026-what-to-expect",
+      },
+      {
+        title:
+          "MarketWatch, Wholesale inflation flattens out in July",
+        href: "https://www.marketwatch.com/story/wholesale-inflation-flattens-out-in-july-and-price-pressure-ease-c0ea1b91",
+      },
+      {
+        title: "WSJ, U.S. stocks down after retail sales data",
+        href: "https://www.wsj.com/finance/stocks/u-s-stocks-down-after-retail-sales-data-22d85d95",
+      },
+      {
+        title:
+          "Investopedia, CoreWeave stock soars as revenue doubles on AI-driven demand",
+        href: "https://www.investopedia.com/market-update-coreweave-stock-soars-as-revenue-doubles-on-ai-driven-demand-crwv-12058016",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #005: The Bad News Rally",
+        href: "/articles/balance-sheet-005-bad-news-rally",
+        description:
+          "The previous issue on weak jobs, record stocks and the market’s hunger for easier money.",
+      },
+      {
+        title: "Why Broadcom Is No Longer Just a Chip Company",
+        href: "/articles/why-broadcom-is-no-longer-just-a-chip-company",
+        description:
+          "A Business Breakdown on infrastructure, concentration risk and the economics beneath the AI trade.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio objectively instead of emotionally.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Estimate how time, contributions, fees and inflation affect long-term wealth.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-005-bad-news-rally",
     title: "Balance Sheet #005: The Bad News Rally",
