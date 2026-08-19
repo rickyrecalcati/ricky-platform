@@ -1003,7 +1003,214 @@ const balanceSheetIssue006Sections: ArticleContentSection[] = [
   },
 ];
 
+const uberDeepDiveSections: ArticleContentSection[] = [
+  {
+    heading: "Uber is no longer trying to prove demand exists.",
+    body: [
+      "For most of Uber’s public life, the argument around the company was simple and uncomfortable: people loved the product, but it was not obvious shareholders would ever love the economics.",
+      "The app worked. Riders came back. Drivers supplied capacity when incentives were high enough. Uber Eats became a habit in millions of homes. Yet for years, the company carried the reputation of a business that had discovered enormous demand without proving that demand could translate into durable owner returns.",
+      "That version of Uber is not the company investors are looking at now. In 2025, Uber reported $193.5 billion of Gross Bookings, $52.0 billion of revenue, $5.6 billion of operating income, $8.7 billion of adjusted EBITDA and $9.8 billion of free cash flow. In the second quarter of 2026, Gross Bookings grew 24% year over year to $58.0 billion, trips grew 18% to 3.9 billion, and free cash flow was $2.8 billion.",
+      "The business has changed. The harder question is whether the stock market has already paid for that change, and whether the next version of Uber is more attractive or more fragile than the last one.",
+    ],
+    quote:
+      "Uber’s old problem was whether the product could become a profitable business. Its new problem is whether a profitable business can justify the expectations now attached to it.",
+  },
+  {
+    heading: "Gross Bookings are not revenue, and that distinction matters",
+    body: [
+      "Uber’s economic engine begins with Gross Bookings, which is the total dollar value of rides, delivery orders and freight transactions handled through the platform before driver earnings, merchant payments, incentives, discounts, tolls, taxes and other items are stripped out. It is a measure of platform scale, not money Uber keeps.",
+      "Reported revenue is much smaller because Uber usually acts as the agent connecting riders, eaters, drivers, couriers and merchants. The driver or merchant provides the underlying service. Uber records the portion it earns for arranging the transaction, plus other revenue streams such as advertising and certain logistics activity.",
+      "This is why Uber’s second-quarter 2026 Gross Bookings of $58.0 billion became $14.2 billion of revenue. A simple take rate, revenue divided by Gross Bookings, was roughly 24.5% for the quarter. That blended number hides important differences across Mobility, Delivery and Freight, but it gives the right first lesson: Uber is not a transport company collecting every dollar spent on transport. It is a marketplace taking a share of the activity it coordinates.",
+      "That share is valuable only if the marketplace remains liquid. Riders need short wait times and acceptable prices. Drivers need enough utilisation and earnings to stay active. Restaurants need incremental demand without destroying their margins. Couriers need reliable work. If one side weakens, the platform can quickly become less attractive to the others.",
+    ],
+    table: {
+      headers: ["Q2 2026 Metric", "Result", "Why it matters"],
+      rows: [
+        ["Gross Bookings", "$58.0 billion", "Total transaction value on the platform"],
+        ["Revenue", "$14.2 billion", "The amount Uber records after payments to marketplace participants"],
+        ["Trips", "3.9 billion", "A measure of platform usage and frequency"],
+        ["Monthly active platform consumers", "208 million", "The size of Uber’s active customer base"],
+        ["Adjusted EBITDA", "$2.8 billion", "Management’s preferred measure of operating profitability"],
+        ["Free cash flow", "$2.8 billion", "Cash generated after capital expenditure"],
+      ],
+    },
+  },
+  {
+    heading: "Mobility remains the profit engine",
+    body: [
+      "Mobility is still the core of Uber. It is the business most people understand instinctively: open the app, request a car, take the trip. Beneath that simple experience sits a dense local marketplace where timing, geography and price matter constantly.",
+      "The strength of Mobility is not just brand awareness. It is operational density. More riders attract more drivers. More drivers reduce waiting times. Shorter waits improve the rider experience. More rides increase driver utilisation. Higher utilisation can make the platform more attractive for drivers, which supports availability again.",
+      "That loop is often called a network effect, but the phrase needs care. Uber’s advantage is not as permanent as a social network where everyone is locked into the same identity graph. Drivers can use multiple apps. Riders can keep Lyft, taxis or local alternatives on their phones. Switching costs are low.",
+      "The defensibility is better described as a combination of marketplace liquidity, scale economies, brand, pricing data and habit. Uber is difficult to dislodge where it has enough supply and demand in the same city at the same time. It is not impossible to challenge. That distinction matters because a weak network effect can still produce a strong business if density and execution remain superior.",
+      "In Q2 2026, Mobility generated $29.0 billion of Gross Bookings and $7.4 billion of revenue. More importantly, the segment produced $2.2 billion of operating income, up 28% year over year. Delivery is larger than it used to be and strategically important, but Mobility is still where Uber’s marketplace economics look cleanest.",
+    ],
+  },
+  {
+    heading: "Delivery adds frequency, but the economics are different",
+    body: [
+      "Uber Eats changed the company because it gave customers another reason to open the app. A rider might need transport a few times a week. A household might order food, groceries or convenience items more frequently. That additional habit matters.",
+      "Delivery also creates a wider platform. Consumers, restaurants, grocers, retailers, couriers and advertisers all sit inside the same network. Uber One, the company’s membership program, tries to tie those behaviours together by making ride and delivery benefits feel like one relationship rather than two separate apps.",
+      "The economics are not identical to Mobility. Food delivery involves merchants with their own margin pressure, couriers with different utilisation patterns, and heavy competition from DoorDash and regional players. The order may be frequent, but the operating problem is messier.",
+      "Even so, the segment is no longer just a growth project. In Q2 2026, Delivery Gross Bookings grew 26% to $27.5 billion, revenue grew 28% to $5.2 billion, and segment operating income grew 38% to $1.1 billion. That is a meaningful change from the old view that delivery marketplaces could scale volume without producing much profit.",
+      "The pending Delivery Hero transaction, announced in July 2026, would push this logic further by extending Uber’s mobility and delivery platform across more international markets. The strategic case is scale, geographic reach and a larger everyday-use network. The risk is that large cross-border acquisitions introduce complexity at exactly the moment investors want proof that Uber can keep converting growth into cash.",
+    ],
+  },
+  {
+    heading: "Freight is not the centre of the thesis",
+    body: [
+      "Uber Freight should be kept in proportion. It is part of the company’s attempt to apply marketplace logic to logistics, but it is not currently the reason investors own Uber.",
+      "In Q2 2026, Freight produced $1.6 billion of Gross Bookings and $1.6 billion of revenue, but segment operating income was negative $24 million. The loss was small relative to the rest of Uber, yet the segment still lacks the same clarity as Mobility or the improving contribution from Delivery.",
+      "The most useful way to think about Freight is optionality. If Uber can improve density and software value in logistics, Freight could become more interesting over time. If it remains low-margin and operationally heavy, it will deserve less attention than the headline revenue suggests.",
+    ],
+  },
+  {
+    heading: "The financial transformation is real",
+    body: [
+      "The most important change at Uber is not the autonomous vehicle story. It is the financial transformation that made the autonomous vehicle story investable in the first place.",
+      "A company burning cash has limited strategic freedom. A company generating nearly $10 billion of free cash flow in a year can buy back stock, invest in partners, pursue acquisitions and absorb setbacks without constantly returning to capital markets. Uber has moved from proving demand to allocating cash.",
+      "The drivers of that improvement appear to be several things working together: larger trip volumes, better marketplace efficiency, lower relative incentives, higher contribution from Delivery, advertising, membership, operating leverage and cost discipline. No single lever explains the shift. That is encouraging because multi-cause improvement is often more durable than a one-off cost cut.",
+      "There are still quality-of-earnings questions. Adjusted EBITDA excludes stock-based compensation, which was $1.8 billion in 2025. That is a real economic cost even when it does not consume cash immediately. Uber has also benefited from working-capital dynamics and investment revaluations that can make reported net income move in ways that do not reflect core operating performance.",
+      "Free cash flow deserves attention because Uber’s model is relatively asset-light compared with owning fleets, kitchens or warehouses. Capital expenditure was modest relative to operating cash flow in 2025. If that remains true, incremental revenue can convert into attractive cash generation. But investors should watch whether buybacks reduce the share count meaningfully after stock-based compensation, or merely offset dilution from employee awards.",
+    ],
+    table: {
+      headers: ["FY2025 Metric", "Result"],
+      rows: [
+        ["Gross Bookings", "$193.5 billion"],
+        ["Revenue", "$52.0 billion"],
+        ["Income from operations", "$5.6 billion"],
+        ["Adjusted EBITDA", "$8.7 billion"],
+        ["Free cash flow", "$9.8 billion"],
+        ["Stock-based compensation", "$1.8 billion"],
+      ],
+    },
+  },
+  {
+    heading: "Autonomous vehicles are both threat and opportunity",
+    body: [
+      "The draft version of this article framed Uber as a company quietly betting its future on cars nobody drives. That is directionally right, but it needs nuance.",
+      "Autonomous vehicles could damage Uber if the companies that control the cars also control the customer relationship. If Waymo, Tesla or another autonomous operator can build enough consumer demand directly, Uber risks becoming less central to the trip. Removing the driver does not automatically make Uber more profitable if the owner of the vehicle captures the economics Uber once hoped to keep.",
+      "The opposite case is also plausible. Autonomous fleets still need utilisation. A robotaxi sitting idle is an expensive asset doing nothing. Uber’s argument is that it can provide demand, routing, payments, customer support and marketplace management across cities where different autonomous operators may have different strengths. In that world, Uber becomes the distribution layer for many fleets rather than the owner of one fleet.",
+      "Recent partnerships point in that direction. Uber has announced autonomous vehicle work with partners including Waymo, Wayve and Pony.ai, and has described a future hybrid marketplace where human drivers and autonomous vehicles coexist. The Zipline partnership extends the same idea into delivery: Uber wants the customer interface and dispatch logic while partners provide specialised autonomous hardware.",
+      "The bear case is that the strongest autonomous operators eventually decide Uber is training wheels. The bull case is that no single operator can efficiently solve demand, regulation, payments, routing, support and local marketplace liquidity everywhere. The truth will probably vary by market.",
+      "That is why Waymo matters. It is one of Uber’s most credible autonomous partners, and secondary reports about tension or reduced exclusivity should be taken seriously. They do not break the thesis on their own, but they raise the standard of proof. Uber needs to show that its autonomous strategy is a portfolio, not a dependency.",
+    ],
+  },
+  {
+    heading: "The valuation question is no longer whether Uber can make money",
+    body: [
+      "A few years ago, the central investment question was whether Uber could become profitable at all. That question has largely been answered. The more important question now is what level of growth and cash flow the current price already assumes.",
+      "At around $75 per share in mid-August 2026, Uber was trading meaningfully below its recent highs. Secondary market data put the stock roughly a quarter below its 52-week high, while analyst targets remained materially higher. That creates the appearance of a bargain.",
+      "But cheapness is not measured only against a former high. It is measured against future cash flows. Uber’s Q3 2026 outlook called for Gross Bookings of $58.25 billion to $60.25 billion, representing 18% to 22% year-over-year constant-currency growth, and adjusted EBITDA of $2.86 billion to $2.96 billion. Those are strong numbers, but the direction matters. If growth decelerates while margin expansion slows, the market will not value Uber like an early-stage compounder.",
+      "The bull case is straightforward. Uber has enormous scale, improving profitability, a large active customer base, an increasingly useful membership program, growing delivery economics, advertising upside, international optionality and a credible role in autonomous transportation. If free cash flow keeps growing and buybacks reduce the share count, the stock can work even without heroic assumptions.",
+      "The bear case is not that Uber is broken. It is that the best version of the story may already be embedded in the multiple. Regulation could raise labour costs. Drivers and riders can multi-home. DoorDash remains formidable in delivery. Autonomous vehicle partners may capture more economics than Uber expects. Delivery Hero could add complexity. Stock-based compensation and buybacks need watching. Growth can remain good while the investment return disappoints if the entry price assumes great.",
+      "That is the difference between a great product, a good business and a good investment. Uber is clearly the first. It increasingly looks like the second. The third depends on whether the company can keep turning marketplace scale into free cash flow while defending its role in a transport network that may eventually need fewer human drivers.",
+    ],
+  },
+  {
+    heading: "My read",
+    body: [
+      "Uber today is a stronger business than its reputation from the loss-making years suggests. The marketplace is larger, the economics are cleaner, and the company now generates enough cash to make real capital allocation choices. That should change how investors think about it.",
+      "I would not reduce the thesis to autonomous vehicles, but I would not ignore them either. AVs are the swing factor that could either expand Uber’s addressable market or compress its role in the value chain. The company does not need to build the winning robotaxi. It does need the winning robotaxis to need Uber.",
+      "That is the sentence I would keep returning to. If autonomous fleets need Uber’s demand, distribution and marketplace infrastructure, Uber becomes more important as transport automates. If they do not, the company may still be a very good mobility and delivery platform, but the valuation should not receive full credit for an autonomous future it does not control.",
+      "The stock may well prove attractive from here, especially if free cash flow compounds and the recent selloff has gone too far. But this is not a simple buy-the-dip story. It is a test of what Uber is becoming. The old Uber won by making movement feel effortless for customers. The next Uber has to prove the same thing to capital.",
+    ],
+  },
+];
+
 export const articles: Article[] = [
+  {
+    slug: "uber-platform-economics-autonomous-future",
+    title: "Uber’s Harder Question: What Happens When the Cars Drive Themselves?",
+    cardTitle: "Uber’s Harder Question",
+    cardExcerpt:
+      "Uber has become a cash-generating platform. The harder question is whether autonomous vehicles make it more powerful or less essential.",
+    category: "Finance",
+    tags: [
+      "Finance",
+      "Uber",
+      "Business Analysis",
+      "Valuation",
+      "Autonomous Vehicles",
+      "Free Cash Flow",
+    ],
+    excerpt:
+      "Uber has become a cash-generating platform. The harder question is whether autonomous vehicles make it more powerful or less essential.",
+    metaTitle: "Uber Stock Analysis: Platform Economics and Autonomous Risk",
+    metaDescription:
+      "Uber has moved from cash-burning app to profitable platform. This deep dive examines its economics, valuation, autonomous strategy and investment risks.",
+    date: "2026-08-19",
+    readingTime: estimateReadingTime(
+      "Uber’s Harder Question: What Happens When the Cars Drive Themselves?",
+      "Uber has become a cash-generating platform. The harder question is whether autonomous vehicles make it more powerful or less essential.",
+      uberDeepDiveSections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The company does not need to build the winning robotaxi. It does need the winning robotaxis to need Uber.",
+    sections: uberDeepDiveSections,
+    sources: [
+      {
+        title:
+          "Uber Technologies, Second Quarter 2026 Earnings Release",
+        href: "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Second-Quarter-2026/default.aspx",
+      },
+      {
+        title: "Uber Technologies, 2025 Form 10-K",
+        href: "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm",
+      },
+      {
+        title:
+          "Uber Technologies, Acquisition Offer for Delivery Hero",
+        href: "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Acquisition-Offer-for-Delivery-Hero/default.aspx",
+      },
+      {
+        title:
+          "Waymo, Waymo on Uber in Austin and Atlanta",
+        href: "https://waymo.com/waymo-on-uber/",
+      },
+      {
+        title:
+          "Uber, Autonomous vehicles are coming to more cities",
+        href: "https://www.uber.com/us/en/blog/av-more-cities/",
+      },
+      {
+        title:
+          "Uber, Verne and Pony.ai partnership announcement",
+        href: "https://investor.uber.com/news-events/news/press-release-details/2026/Verne-Pony-ai-and-Uber-Partner-to-Launch-Europes-First-Commercial-Robotaxi-Service/",
+      },
+      {
+        title:
+          "Axios, Uber and Zipline target one million Uber Eats drone deliveries per day",
+        href: "https://www.axios.com/2026/08/17/uber-zipline-eats-drone-delivery",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Company Research Worksheet",
+        href: "/resources/company-research-worksheet",
+        description:
+          "Research businesses using a repeatable framework.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+      {
+        title: "Why Broadcom Is No Longer Just a Chip Company",
+        href: "/articles/why-broadcom-is-no-longer-just-a-chip-company",
+        description:
+          "A company analysis on infrastructure, concentration risk and the AI trade.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio objectively instead of emotionally.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-006-calm-market-weaker-consumer",
     title: "Balance Sheet #006: The Calm Market and the Weaker Consumer",
