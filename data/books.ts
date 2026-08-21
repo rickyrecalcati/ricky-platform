@@ -63,7 +63,7 @@ const bookCatalog: Book[] = [
   {
     slug: "the-accidental-manager",
     title: "The Accidental Manager",
-    category: "Business",
+    category: "Personal Development",
     status: "Published",
     format: "Kindle + Paperback",
     amazonUrl: "https://www.amazon.com/dp/B0HFX7XC5Z",
@@ -80,7 +80,7 @@ const bookCatalog: Book[] = [
     metaDescription:
       "A practical leadership book for people who became managers without formal training, covering trust, feedback, delegation and accountability.",
     page: {
-      heroEyebrow: "Standalone book",
+      heroEyebrow: "E-book & Paperback",
       heroHeadline:
         "A practical guide for people who became managers before they were taught how to manage.",
       heroDescription:
@@ -88,7 +88,7 @@ const bookCatalog: Book[] = [
       coverKicker: "Ricky Recalcati",
       coverTagline: "Practical leadership for new and accidental managers",
       credibility: [
-        "Standalone book",
+        "E-book & Paperback",
         "Practical management guidance",
         "Written for new leaders",
         "Available in paperback and Kindle",
@@ -157,6 +157,7 @@ const bookCatalog: Book[] = [
     status: "Published",
     format: "Kindle",
     amazonUrl: "https://www.amazon.com/dp/B0H1LPJ3P1",
+    coverImage: "/books/no-robots-required-cover.png",
     featured: true,
     publicationYear: "2026",
     series: true,
@@ -177,7 +178,7 @@ const bookCatalog: Book[] = [
         "Plain-English AI guidance",
         "No technical background required",
         "Practical examples and exercises",
-        "Published on Kindle",
+        "Available on Kindle",
       ],
       whyTitle: "AI should feel useful before it feels impressive.",
       whyBody:
@@ -256,7 +257,7 @@ const bookCatalog: Book[] = [
             "No Robots Required is available through Amazon Kindle.",
         },
       ],
-      finalLabel: "Published",
+      finalLabel: "Available Now",
       finalTitle: "Read No Robots Required on Kindle.",
       finalBody:
         "Get the series on Amazon Kindle.",
@@ -269,6 +270,7 @@ const bookCatalog: Book[] = [
     status: "Published",
     format: "Kindle",
     amazonUrl: "https://www.amazon.com/dp/B0GYV4C57Y",
+    coverImage: "/books/scaling-hospitality-cover.png",
     featured: true,
     publicationYear: "2026",
     series: true,
@@ -404,7 +406,7 @@ const bookCatalog: Book[] = [
         "Personal growth",
         "Hopeful and practical",
         "Reflective guidance",
-        "Published on Kindle",
+        "Available on Kindle",
       ],
       whyTitle: "A practical book for rebuilding with intention.",
       whyBody:
@@ -473,7 +475,7 @@ const bookCatalog: Book[] = [
           answer: "Hopeful, warm, reflective and practical.",
         },
       ],
-      finalLabel: "Published",
+      finalLabel: "Available Now",
       finalTitle: "Read The Second Act on Kindle.",
       finalBody:
         "Get the series on Amazon Kindle or join Balance Sheet for thoughtful ideas on business, investing and better decisions.",

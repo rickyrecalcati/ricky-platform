@@ -24,20 +24,6 @@
   max-width: 840px;
 }
 
-.freeResourcesHeader p:first-child {
-  margin-bottom: 18px;
-}
-
-.freeResourcesHeader h2 {
-  --section-title-size: clamp(42px, 4vw, 64px);
-}
-
-.freeResourcesHeader .body-large {
-  --body-large-color: #cbc4b8;
-  max-width: 680px;
-  margin-top: 20px;
-}
-
 .freeResourcesGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

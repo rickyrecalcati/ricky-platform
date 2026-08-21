@@ -31,19 +31,6 @@
   align-items: center;
 }
 
-.bookDetailStatusBadge {
-  --eyebrow-color: #111;
-  --eyebrow-size: 0.68rem;
-  --eyebrow-spacing: 0.14em;
-  min-height: 28px;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: rgba(244, 239, 230, 0.9);
-  border: 1px solid rgba(202, 166, 76, 0.28);
-  display: inline-flex;
-  align-items: center;
-}
-
 .bookDetailHero h1 {
   margin-top: 18px;
 }

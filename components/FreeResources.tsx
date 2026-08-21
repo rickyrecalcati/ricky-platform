@@ -7,17 +7,10 @@ const featuredResources = resources.slice(0, 3);
 
 export default function FreeResources() {
   return (
-    <section className="freeResources premiumSection" aria-labelledby="free-resources-title">
+    <section className="freeResources premiumSection" aria-label="Free Resources">
       <div className="freeResourcesHeader premiumReveal">
         <div>
           <p className="eyebrow">Free Resources</p>
-          <h2 id="free-resources-title" className="section-title">
-            Useful tools for the work in front of you.
-          </h2>
-          <p className="body-large">
-            Templates, worksheets and checklists for reviews, planning,
-            operations and personal reflection.
-          </p>
         </div>
 
         <Link className="luxuryButton luxuryButtonSecondary" href="/resources">

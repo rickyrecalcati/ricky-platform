@@ -15,13 +15,10 @@ const latestArticles = [...articles]
 
 export default function LatestArticles() {
   return (
-    <section className="latestArticles premiumSection" aria-labelledby="latest-articles-title">
+    <section className="latestArticles premiumSection" aria-label="Latest Articles">
       <div className="latestArticlesHeader premiumReveal">
         <div>
           <p className="eyebrow">Latest Articles</p>
-          <h2 id="latest-articles-title" className="section-title">
-            Essays for clearer work and stronger judgement.
-          </h2>
         </div>
 
         <Link className="luxuryButton luxuryButtonSecondary" href="/articles">

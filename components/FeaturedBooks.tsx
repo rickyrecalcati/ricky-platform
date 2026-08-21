@@ -17,7 +17,6 @@ export default function FeaturedBooks() {
     <section className="featuredBooks premiumSection">
       <div className="featuredHeader premiumReveal">
         <p className="eyebrow">Featured Books</p>
-        <h2 className="section-title">Series for operators, creators and long-term builders.</h2>
       </div>
 
       <div className="bookGrid">

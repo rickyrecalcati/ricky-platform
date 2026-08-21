@@ -21,11 +21,6 @@ export default function Newsletter() {
             of headlines, you&apos;ll get the stories that mattered, why they
             matter, and the lessons worth carrying into the week ahead.
           </p>
-
-          <p className="newsletterText body-large">
-            For founders, operators, long-term investors and curious readers,
-            Balance Sheet is written to save time and sharpen the week ahead.
-          </p>
         </div>
 
         <p className="newsletterEmphasis body">

@@ -91,9 +91,6 @@ export default async function BookPage({ params }: BookPageProps) {
         <div className="bookDetailHeroContent">
           <div className="bookDetailMeta">
             <p className="bookDetailEyebrow eyebrow">{page.heroEyebrow}</p>
-            {book.status === "Published" ? (
-              <span className="bookDetailStatusBadge eyebrow">{book.status}</span>
-            ) : null}
           </div>
           <h1 className="display-title">{book.title}</h1>
           <h2 className="bookDetailHeroHeadline section-title">

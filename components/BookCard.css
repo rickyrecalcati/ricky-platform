@@ -94,11 +94,6 @@
   border: 1px solid rgba(244, 239, 230, 0.14);
 }
 
-.bookBadgeLight {
-  --eyebrow-color: #111;
-  background: rgba(244, 239, 230, 0.86);
-}
-
 .premiumBookBody {
   padding: 8px 28px 32px;
   color: #111;

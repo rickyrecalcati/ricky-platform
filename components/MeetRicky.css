@@ -39,27 +39,6 @@
   --body-large-line: 1.76;
 }
 
-.meetRickyPillars {
-  max-width: 760px;
-  margin-top: 34px;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid rgba(202, 166, 76, 0.24);
-  border-radius: 8px;
-  background: rgba(202, 166, 76, 0.18);
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
-}
-
-.meetRickyPillars li {
-  --body-color: var(--color-cream-bright);
-  padding: 20px 22px;
-  background: rgba(255, 255, 255, 0.035);
-  font-weight: 700;
-}
-
 .meetRickyActions {
   margin-top: 36px;
   display: flex;
@@ -86,10 +65,6 @@
 @media (max-width: 640px) {
   .meetRicky h2 {
     --section-title-size: 2.6rem;
-  }
-
-  .meetRickyPillars {
-    grid-template-columns: 1fr;
   }
 
   .meetRickyActions .luxuryButton {

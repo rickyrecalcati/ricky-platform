@@ -16,14 +16,6 @@
   text-align: center;
 }
 
-.featuredHeader p {
-  margin-bottom: 18px;
-}
-
-.featuredHeader h2 {
-  --section-title-size: clamp(42px, 4vw, 64px);
-}
-
 .bookGrid {
   max-width: 1300px;
   margin: 0 auto;

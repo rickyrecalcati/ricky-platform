@@ -2,13 +2,6 @@ import Link from "next/link";
 import QuoteRotator from "./QuoteRotator";
 import "./MeetRicky.css";
 
-const platformPillars = [
-  "Build stronger companies",
-  "Improve judgement",
-  "Create more room to think",
-  "Use experience well",
-];
-
 export default function MeetRicky() {
   return (
     <section className="meetRicky premiumSection" aria-labelledby="meet-ricky-title">
@@ -32,14 +25,6 @@ export default function MeetRicky() {
             that shaped his career.
           </p>
         </div>
-
-        <ul className="meetRickyPillars" aria-label="The platform exists to help people">
-          {platformPillars.map((pillar) => (
-            <li className="body" key={pillar}>
-              {pillar}
-            </li>
-          ))}
-        </ul>
 
         <div className="meetRickyActions">
           <Link className="luxuryButton luxuryButtonPrimary" href="/about">

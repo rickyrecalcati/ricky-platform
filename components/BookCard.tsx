@@ -22,7 +22,6 @@ export default function BookCard({ book }: BookCardProps) {
         <div className="premiumBookCover">
           <div className="premiumBookCoverTop">
             <span className="bookBadge bookBadgeDark eyebrow">{book.category}</span>
-            <span className="bookBadge bookBadgeLight eyebrow">{book.status}</span>
           </div>
 
           <strong className="section-title">{book.title}</strong>
