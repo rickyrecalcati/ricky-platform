@@ -98,8 +98,10 @@
 }
 
 .bookDetailBookCover {
-  width: 330px;
-  aspect-ratio: 3 / 4.35;
+  position: relative;
+  overflow: hidden;
+  width: 360px;
+  aspect-ratio: 992 / 1586;
   padding: 34px 30px;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent 9%),
@@ -117,6 +119,11 @@
   transform-style: preserve-3d;
 }
 
+.bookDetailBookCover:has(.bookDetailCoverImage) {
+  padding: 0;
+  background: #f4efe6;
+}
+
 .bookDetailBookCover::after {
   content: "";
   position: absolute;
@@ -128,6 +135,12 @@
   border-radius: 0 8px 8px 0;
   transform: rotateY(82deg);
   transform-origin: left;
+}
+
+.bookDetailCoverImage {
+  object-fit: cover;
+  object-position: center;
+  backface-visibility: hidden;
 }
 
 .bookDetailBookCover span {
@@ -455,7 +468,7 @@
   }
 
   .bookDetailBookCover {
-    width: min(280px, 82vw);
+    width: min(320px, 82vw);
   }
 
   .bookDetailBookCover strong {

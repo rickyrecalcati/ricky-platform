@@ -44,18 +44,112 @@ export type Book = {
   title: string;
   category: string;
   status: "Published" | "Coming Soon";
-  format?: "Kindle";
+  format?: "Kindle" | "Kindle + Paperback";
   amazonUrl?: string;
+  coverImage?: string;
+  featured?: boolean;
   publicationYear: string;
   series: boolean;
   booksInSeries?: number;
   cardCtaLabel?: string;
   subtitle: string;
   description: string;
+  metaTitle?: string;
+  metaDescription?: string;
   page: BookPageContent;
 };
 
 const bookCatalog: Book[] = [
+  {
+    slug: "the-accidental-manager",
+    title: "The Accidental Manager",
+    category: "Business",
+    status: "Published",
+    format: "Kindle + Paperback",
+    amazonUrl: "https://www.amazon.com/dp/B0HFX7XC5Z",
+    coverImage: "/books/the-accidental-manager-cover.png",
+    featured: true,
+    publicationYear: "2026",
+    series: false,
+    cardCtaLabel: "Learn More",
+    subtitle: "A practical book for people learning to lead while doing the job.",
+    description:
+      "A practical management book for people who became responsible for a team before anyone taught them how to manage one.",
+    metaTitle:
+      "The Accidental Manager by Ricky Recalcati | Practical Leadership Book",
+    metaDescription:
+      "A practical leadership book for people who became managers without formal training, covering trust, feedback, delegation and accountability.",
+    page: {
+      heroEyebrow: "Standalone book",
+      heroHeadline:
+        "A practical guide for people who became managers before they were taught how to manage.",
+      heroDescription:
+        "The Accidental Manager is for people moving from doing the work to leading the work, with clear guidance on expectations, feedback, delegation, trust and difficult conversations.",
+      coverKicker: "Ricky Recalcati",
+      coverTagline: "Practical leadership for new and accidental managers",
+      credibility: [
+        "Standalone book",
+        "Practical management guidance",
+        "Written for new leaders",
+        "Available in paperback and Kindle",
+      ],
+      whyTitle: "Most people are asked to manage before they are taught how.",
+      whyBody:
+        "Many managers do not step into leadership after a neat training program. They are promoted because they were reliable, capable or experienced, then suddenly find themselves responsible for people, standards, conversations and decisions that feel very different from the work they used to do. The Accidental Manager is written for that moment. It helps new and informal managers think more deliberately about expectations, trust, delegation, feedback and accountability without pretending leadership is about having every answer.",
+      audienceTitle: "For people learning management while doing the job.",
+      audience: [
+        "New managers moving from individual contributor to team leader.",
+        "Supervisors, shift leaders and operators who are responsible for people without formal management training.",
+        "Business owners who need clearer routines for expectations, feedback and accountability.",
+        "Experienced team members who want to lead without copying bad management habits they have seen before.",
+      ],
+      learnTitle: "A grounded way to lead people and manage the work.",
+      learn: [
+        "How management changes when you stop only doing the work and start shaping the work.",
+        "How to set expectations without becoming rigid or unclear.",
+        "How to delegate responsibility while staying close enough to support the outcome.",
+        "How to give feedback before small problems become difficult conversations.",
+        "How to build trust through consistency, fairness and follow-through.",
+        "How to manage accountability without pretending leadership requires certainty.",
+      ],
+      relatedResources: [
+        {
+          title: "Weekly Business Review",
+          href: "/resources/weekly-business-review",
+        },
+        {
+          title: "Business Health Scorecard",
+          href: "/resources/business-health-scorecard",
+        },
+        {
+          title: "Manager Handover Template",
+          href: "/resources/manager-handover-template",
+        },
+      ],
+      faqTitle: "Questions before you read.",
+      faq: [
+        {
+          question: "Who is this book for?",
+          answer:
+            "It is written for people who have become responsible for a team, shift, department or business area without being formally trained to manage people.",
+        },
+        {
+          question: "Is it only for first-time managers?",
+          answer:
+            "No. It is also useful for supervisors, operators, founders and experienced managers who want a more deliberate approach to expectations, feedback and accountability.",
+        },
+        {
+          question: "Is The Accidental Manager available now?",
+          answer:
+            "Yes. The Accidental Manager is available through Amazon in paperback and Kindle.",
+        },
+      ],
+      finalLabel: "Available Now",
+      finalTitle: "Buy The Accidental Manager on Amazon.",
+      finalBody:
+        "Get the standalone book in paperback or Kindle.",
+    },
+  },
   {
     slug: "no-robots-required",
     title: "No Robots Required",
@@ -63,6 +157,7 @@ const bookCatalog: Book[] = [
     status: "Published",
     format: "Kindle",
     amazonUrl: "https://www.amazon.com/dp/B0H1LPJ3P1",
+    featured: true,
     publicationYear: "2026",
     series: true,
     booksInSeries: 5,
@@ -174,6 +269,7 @@ const bookCatalog: Book[] = [
     status: "Published",
     format: "Kindle",
     amazonUrl: "https://www.amazon.com/dp/B0GYV4C57Y",
+    featured: true,
     publicationYear: "2026",
     series: true,
     booksInSeries: 5,
@@ -386,6 +482,7 @@ const bookCatalog: Book[] = [
 ];
 
 const bookOrder = [
+  "the-accidental-manager",
   "scaling-hospitality",
   "no-robots-required",
   "the-second-act",

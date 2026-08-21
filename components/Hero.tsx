@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import "./Hero.css";
 
@@ -27,32 +28,23 @@ export default function Hero() {
       </div>
 
       <div className="bookStage premiumReveal premiumRevealDelay">
-        <div
+        <Link
+          href="/books/the-accidental-manager"
           className="bookMockup"
-          aria-label="Scaling Hospitality featured series book cover"
-          role="img"
-          tabIndex={0}
+          aria-label="Explore The Accidental Manager featured book"
         >
-          <span className="heroBookBadge eyebrow">Featured Series</span>
+          <span className="heroBookBadge eyebrow">Featured Book</span>
           <div className="bookCover">
-            <div className="bookCoverTop">
-              <span className="bookCategory eyebrow">Business</span>
-              <span className="bookAuthor eyebrow">Ricky Recalcati</span>
-            </div>
-
-            <div className="bookTitleBlock">
-              <h2 className="section-title">
-                Scaling
-                <br />
-                Hospitality
-              </h2>
-              <div className="bookRule"></div>
-              <p className="body">Growth, consistency and calm leadership for hospitality operators.</p>
-            </div>
-
-            <div className="bookSeriesLabel eyebrow">5 e-book series</div>
+            <Image
+              src="/books/the-accidental-manager-cover.png"
+              alt="The Accidental Manager by Ricky Recalcati book cover"
+              fill
+              priority
+              sizes="(max-width: 620px) 82vw, (max-width: 1000px) 330px, 350px"
+              className="bookCoverImage"
+            />
           </div>
-        </div>
+        </Link>
       </div>
     </section>
   );

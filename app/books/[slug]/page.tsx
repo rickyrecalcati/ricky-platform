@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "../../../components/Navbar/Navbar";
@@ -28,7 +29,7 @@ function AmazonBookLink({ bookTitle, href }: { bookTitle: string; href: string }
       className="bookDetailButton bookDetailButtonPrimary"
       href={href}
     >
-      Read on Amazon Kindle
+      Buy on Amazon
     </TrackedAmazonLink>
   );
 }
@@ -50,8 +51,8 @@ export async function generateMetadata({
   }
 
   return createPageMetadata({
-    title: book.series ? `${book.title} Series` : book.title,
-    description: book.description,
+    title: book.metaTitle ?? (book.series ? `${book.title} Series` : book.title),
+    description: book.metaDescription ?? book.description,
     path: `/books/${book.slug}`,
   });
 }
@@ -109,11 +110,24 @@ export default async function BookPage({ params }: BookPageProps) {
           </div>
         </div>
 
-        <div className="bookDetailCoverStage" aria-label={`${book.title} book cover placeholder`}>
+        <div className="bookDetailCoverStage" aria-label={`${book.title} book cover`}>
           <div className="bookDetailBookCover">
-            <span className="eyebrow">{page.coverKicker}</span>
-            <strong className="section-title">{book.title}</strong>
-            <small className="body">{page.coverTagline}</small>
+            {book.coverImage ? (
+              <Image
+                src={book.coverImage}
+                alt={`${book.title} by Ricky Recalcati book cover`}
+                fill
+                priority
+                sizes="(max-width: 700px) 82vw, (max-width: 1100px) 330px, 360px"
+                className="bookDetailCoverImage"
+              />
+            ) : (
+              <>
+                <span className="eyebrow">{page.coverKicker}</span>
+                <strong className="section-title">{book.title}</strong>
+                <small className="body">{page.coverTagline}</small>
+              </>
+            )}
           </div>
         </div>
       </section>

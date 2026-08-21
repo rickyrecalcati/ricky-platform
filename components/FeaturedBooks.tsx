@@ -11,7 +11,7 @@ function bookCardLabel(book: (typeof books)[number]) {
 }
 
 export default function FeaturedBooks() {
-  const featuredBooks = books.filter((book) => book.series);
+  const featuredBooks = books.filter((book) => book.featured);
 
   return (
     <section className="featuredBooks premiumSection">
@@ -35,7 +35,7 @@ export default function FeaturedBooks() {
               </p>
               <p className="body">{book.description}</p>
               <Link href={`/books/${book.slug}`}>
-                {book.series ? "Explore Series" : "Learn More"} →
+                {book.series ? "Explore Series" : book.cardCtaLabel ?? "Learn More"} →
               </Link>
             </div>
           </article>
