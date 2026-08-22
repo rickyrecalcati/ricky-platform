@@ -2,29 +2,35 @@ import Link from "next/link";
 import NewsletterSignupForm from "./NewsletterSignupForm";
 import "./Footer.css";
 
-export default function Footer() {
+type FooterProps = {
+  hideNewsletter?: boolean;
+};
+
+export default function Footer({ hideNewsletter = false }: FooterProps) {
   return (
-    <footer className="footer">
+    <footer className={hideNewsletter ? "footer footerWithoutNewsletter" : "footer"}>
 
       <div className="footerTop">
 
-        <div className="footerBrand">
+        {!hideNewsletter ? (
+          <div className="footerBrand">
 
-          <div className="footerNewsletter" id="footer-newsletter">
-            <p className="footerNewsletterTag eyebrow">Join Balance Sheet</p>
-            <h2 className="section-title">
-              A clear Monday review of business, markets and investing.
-            </h2>
-            <NewsletterSignupForm
-              buttonText="Subscribe"
-              className="footerNewsletterForm"
-              messageClassName="footerNewsletterMessage body"
-              placeholder="Your email address"
-              sourceAnchor="footer-newsletter"
-            />
+            <div className="footerNewsletter" id="footer-newsletter">
+              <p className="footerNewsletterTag eyebrow">Join Balance Sheet</p>
+              <h2 className="section-title">
+                A clear Monday review of business, markets and investing.
+              </h2>
+              <NewsletterSignupForm
+                buttonText="Subscribe"
+                className="footerNewsletterForm"
+                messageClassName="footerNewsletterMessage body"
+                placeholder="Your email address"
+                sourceAnchor="footer-newsletter"
+              />
+            </div>
+
           </div>
-
-        </div>
+        ) : null}
 
         <div className="footerLinks">
 

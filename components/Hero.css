@@ -45,6 +45,57 @@
   white-space: nowrap;
 }
 
+.heroNewsletter {
+  max-width: 520px;
+  margin-top: 26px;
+}
+
+.heroNewsletterLabel {
+  --eyebrow-size: 0.72rem;
+  --eyebrow-spacing: 0.18em;
+  margin-bottom: 12px;
+}
+
+.heroNewsletterForm {
+  display: flex;
+  gap: 10px;
+}
+
+.heroNewsletterForm input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 0 17px;
+  border: 1px solid rgba(244, 239, 230, 0.16);
+  border-radius: 999px;
+  background: rgba(244, 239, 230, 0.96);
+  color: #111;
+  font-size: 14px;
+}
+
+.heroNewsletterForm input::placeholder {
+  color: #7a746b;
+}
+
+.heroNewsletterForm button {
+  min-width: 112px;
+  min-height: 46px;
+  padding-inline: 22px;
+}
+
+.heroNewsletterForm button:disabled,
+.heroNewsletterForm input:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.heroNewsletterMessage {
+  --body-color: var(--color-cream-bright);
+  --body-size: 14px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
 .bookStage {
   position: relative;
   display: flex;
@@ -191,6 +242,14 @@
 
   .heroButtons {
     gap: 12px;
+  }
+
+  .heroNewsletterForm {
+    flex-direction: column;
+  }
+
+  .heroNewsletterForm button {
+    width: 100%;
   }
 
   .bookStage::before {

@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import NewsletterSignupForm from "./NewsletterSignupForm";
 import "./Hero.css";
 
 export default function Hero() {
   return (
     <section className="hero premiumSection">
       <div className="heroContent premiumReveal">
-        <p className="heroTag eyebrow">BUSINESS • OPERATIONS • INVESTING • FICTION</p>
+        <p className="heroTag eyebrow">BUSINESS • OPERATIONS • INVESTING</p>
 
         <h1 className="display-title">
           Writing for operators, founders and readers who think long term.
@@ -24,6 +25,17 @@ export default function Hero() {
           <Link className="secondaryButton luxuryButton luxuryButtonSecondary" href="#newsletter">
             Free Resources
           </Link>
+        </div>
+
+        <div className="heroNewsletter" aria-label="Subscribe to Balance Sheet">
+          <p className="heroNewsletterLabel eyebrow">Join Balance Sheet</p>
+          <NewsletterSignupForm
+            buttonText="Subscribe"
+            className="heroNewsletterForm"
+            messageClassName="heroNewsletterMessage body"
+            placeholder="Your email address"
+            sourceAnchor="hero-newsletter"
+          />
         </div>
       </div>
 

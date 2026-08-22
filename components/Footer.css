@@ -16,6 +16,15 @@
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
+.footerWithoutNewsletter .footerTop {
+  grid-template-columns: 1fr;
+}
+
+.footerWithoutNewsletter .footerLinks {
+  max-width: 760px;
+  margin-left: auto;
+}
+
 .footerNewsletter {
   max-width: 460px;
 }

@@ -389,6 +389,7 @@ const bookCatalog: Book[] = [
     status: "Published",
     format: "Kindle",
     amazonUrl: "https://www.amazon.com/dp/B0H421SGPW",
+    coverImage: "/books/the-second-act-cover.png",
     publicationYear: "2026",
     series: true,
     booksInSeries: 5,
