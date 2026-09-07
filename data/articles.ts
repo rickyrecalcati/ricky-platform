@@ -1003,6 +1003,72 @@ const balanceSheetIssue006Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue007Sections: ArticleContentSection[] = [
+  {
+    heading: "The week in markets",
+    body: [
+      "The most important market story last week looked, at first glance, like straightforward good news. The U.S. economy added 162,000 jobs in August, far ahead of expectations, while unemployment held at 4.1%. June and July were revised higher by a combined 55,000 jobs. After months of softer labour data, the economy suddenly looked more durable than investors had assumed.",
+      "The market did not celebrate it.",
+      "That reaction is the useful part. A strong jobs report would usually support the case for resilient earnings, steady consumer demand and a lower probability of recession. Last week it carried a different message because investors were not looking for strength. They were looking for permission for the Federal Reserve to stop tightening.",
+      "The S&P 500 finished the week up 0.1%, the Nasdaq gained 0.4% and the Dow slipped 0.3%. Those moves look modest, but the calm headline hid a sharper shift in expectations. Treasury yields rose after the jobs report, rate-hike odds moved higher, and the market moved from hoping inflation data would confirm a pause to wondering whether the Fed still had enough evidence to raise rates again at its September 15-16 meeting.",
+      "That is the strange logic of late-cycle markets. Good news can become bad news when the market is positioned for relief rather than resilience.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,718.60", "+0.1%"],
+        ["Nasdaq", "26,506.99", "+0.4%"],
+        ["Dow Jones", "53,414.25", "-0.3%"],
+        ["Bitcoin", "~$79,700", "+4.3%, third straight winning week"],
+        ["Gold", "~$4,600-$4,650/oz", "Choppy, pressured mid-week by rate concerns"],
+        ["WTI Crude", "~$88-$90/bbl", "Highest since late July"],
+      ],
+    },
+    quote:
+      "A jobs report can be genuinely strong and still unsettle stocks. It depends on what the market needed the Fed to do next.",
+  },
+  {
+    heading: "The Fed split became the signal",
+    body: [
+      "The better question is not whether the jobs report was strong. It was. The better question is why one data release created so much uncertainty.",
+      "The answer is that the Federal Reserve now has two credible stories in front of it. One says inflation remains too sticky, oil is rising again, the labour market has recovered and policy should stay firm. The other says disinflation is still developing, employment had already softened through the summer, and another hike risks tightening into a slower economy just as the lagged effect of earlier policy is still working through the system.",
+      "Markets can live with a hawkish Fed. They can live with a dovish Fed. What they dislike is a Fed that appears visibly divided nine trading days before a decision.",
+      "That is why public disagreement between Kevin Warsh and Christopher Waller mattered. Warsh leaned into the inflation risk. Waller argued that recent inflation data had shown enough improvement to justify patience if the next print confirmed the trend. The market did not need either person to be right by themselves. It needed to understand which interpretation had become dominant inside the central bank.",
+      "By Friday, it did not have that answer. September rate expectations moved toward a coin flip, which is another way of saying the market had stopped trading a policy path and started trading uncertainty itself. The next two data points, producer prices on September 10 and consumer prices on September 11, now carry more weight than they normally would because they are being asked to settle an argument the Fed has not settled internally.",
+    ],
+  },
+  {
+    heading: "Oil turned policy risk into business risk",
+    body: [
+      "Oil made the Fed's job harder. WTI crude moved toward $88-$90 a barrel, its highest level since late July, after renewed U.S.-Iran tensions revived concern about supply disruption. Energy shocks are awkward for central banks because they can lift headline inflation while weakening household spending power at the same time.",
+      "That combination is unpleasant for investors. Higher oil prices can support energy companies and shipping names in the short run, but they also behave like a tax on consumers and businesses that cannot easily pass the cost through. Airlines, logistics operators, restaurants, retailers and manufacturers all feel the pressure differently, but the direction is similar. More money spent on fuel leaves less room elsewhere.",
+      "The rally in tanker and shipping stocks was a direct market read on expected disruption. It was also a reminder that geopolitical risk is not abstract once it reaches freight rates, delivery costs and working capital. A conflict that begins as a headline can become an operating cost surprisingly quickly.",
+      "For long-term investors, this is where macro becomes practical. The question is rarely whether a company is affected by oil, rates or currency moves in some general sense. The useful question is where those changes enter the income statement. Do they raise input costs? Do they reduce volume? Do they change customer behaviour? Do they force management to choose between margin and growth?",
+      "Markets often discuss geopolitics as if it sits outside business fundamentals. It does not. It becomes fundamentals when it changes prices, supply chains, confidence or capital costs.",
+    ],
+  },
+  {
+    heading: "Bitcoin and gold are starting to rhyme",
+    body: [
+      "The more interesting long-term signal came from Bitcoin and gold. Bitcoin rose for a third straight week, while gold remained near elevated levels despite mid-week pressure from rate fears. The BTC-to-gold ratio moved above 18, according to CoinDesk, as both assets attracted demand from investors worried less about the next Fed meeting and more about currency debasement over time.",
+      "This is not the usual simple story. Gold and Bitcoin are often discussed as rivals. One is ancient, physical and institutionally familiar. The other is digital, volatile and still young by asset-class standards. They do not share the same ownership base, risk profile or history. Yet they can rhyme when the concern underneath them is not growth, recession or even rates, but confidence in the purchasing power of money itself.",
+      "That does not make Bitcoin digital gold in any clean sense. It does not make gold obsolete either. It simply means investors sometimes reach for scarce assets when government debt, fiscal pressure and monetary policy start to feel connected. The debasement trade is not a prediction that fiat currency fails. It is a quieter fear that governments with large debt burdens may prefer inflation, financial repression or easier money over the harder politics of restraint.",
+      "The risk is reading too much into one week. Bitcoin is still affected by flows, regulation and speculative positioning. Gold is still sensitive to real yields and central-bank demand. Both can fall hard when the rate backdrop changes. But the correlation matters because it tells us what investors are starting to watch.",
+      "A market that buys both Bitcoin and gold together is not only trading next month's inflation print. It is asking a broader question about how debt gets resolved over years, not days.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "When an institution's own experts publicly disagree, the disagreement is not a distraction from the real signal. It is the signal.",
+      "Warsh and Waller were reading the same economy and reaching different conclusions about what should matter most. That tells investors something important. The decision is genuinely close. The evidence is mixed enough for intelligent people to weigh it differently. The next move is not obvious, even to the people paid to make it.",
+      "The same idea applies outside markets. In a business, disagreement between capable operators often reveals more than a forced consensus. If one person sees demand and another sees margin pressure, both may be right. If one leader wants to grow and another wants to protect cash, the tension may be telling you that the operating environment has changed. The goal is not to erase disagreement quickly. It is to understand what the disagreement is showing you.",
+      "Last week, the market wanted a clean answer from a messy economy. It did not get one. Jobs were stronger. Oil was higher. Inflation data became more important. Bitcoin and gold hinted at a slower concern building beneath the rate debate.",
+      "That is the kind of week worth remembering. Not because it settled anything, but because it showed what happens when the market's preferred story meets evidence that refuses to stay in one lane.",
+    ],
+  },
+];
+
 const uberDeepDiveSections: ArticleContentSection[] = [
   {
     heading: "Uber is no longer trying to prove demand exists.",
@@ -1118,6 +1184,101 @@ const uberDeepDiveSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-007-fed-split-became-the-signal",
+    title: "Balance Sheet #007: The Fed Split Became the Signal",
+    cardTitle: "Issue 007: The Fed Split",
+    cardExcerpt:
+      "A strong jobs report unsettled markets because it made the Fed's next move genuinely harder to call.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Federal Reserve",
+      "Jobs",
+      "Oil",
+      "Bitcoin",
+      "Gold",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 7,
+    weekCovered: "Week of August 31-September 4, 2026",
+    weekEnding: "2026-09-04",
+    headline: "The Fed split became the signal.",
+    featured: true,
+    excerpt:
+      "A strong jobs report unsettled markets because it made the Fed's next move genuinely harder to call.",
+    metaTitle: "Balance Sheet #007: The Fed Split Became the Signal",
+    metaDescription:
+      "Balance Sheet #007 examines a strong jobs report, Fed disagreement, oil pressure, Bitcoin, gold and why policy uncertainty became the market signal.",
+    date: "2026-09-07",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #007: The Fed Split Became the Signal",
+      "A strong jobs report unsettled markets because it made the Fed's next move genuinely harder to call.",
+      balanceSheetIssue007Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The market wanted a clean answer from a messy economy. It did not get one.",
+    sections: balanceSheetIssue007Sections,
+    sources: [
+      {
+        title:
+          "BLS, Employment Situation Summary for August 2026",
+        href: "https://www.bls.gov/news.release/empsit.htm",
+      },
+      {
+        title:
+          "CME FedWatch, Target rate probabilities for the September 2026 meeting",
+        href: "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+      },
+      {
+        title:
+          "EIA, Petroleum and other liquids spot prices",
+        href: "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm",
+      },
+      {
+        title:
+          "CoinDesk, Bitcoin and gold rally as the debasement trade returns",
+        href: "https://www.coindesk.com/",
+      },
+      {
+        title:
+          "CoinShares, Digital asset fund flows weekly report",
+        href: "https://coinshares.com/research/",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #006: The Calm Market and the Weaker Consumer",
+        href: "/articles/balance-sheet-006-calm-market-weaker-consumer",
+        description:
+          "The previous issue on record markets, soft retail data and fragile calm.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Estimate how time, contributions, fees and inflation affect long-term wealth.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio with discipline instead of emotion.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+    ],
+  },
   {
     slug: "uber-platform-economics-autonomous-future",
     title: "Uber’s Harder Question: What Happens When the Cars Drive Themselves?",
