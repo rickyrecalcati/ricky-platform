@@ -1069,6 +1069,116 @@ const balanceSheetIssue007Sections: ArticleContentSection[] = [
   },
 ];
 
+const figmaBusinessBreakdownSections: ArticleContentSection[] = [
+  {
+    heading: "The stock looks broken. The business does not.",
+    body: [
+      "Figma is an unusual public-market setup because the chart and the operating results are telling very different stories.",
+      "The stock has fallen sharply from its post-IPO high and recently traded much closer to its 52-week low than to the price investors briefly assigned it after listing. That usually suggests something inside the business has cracked: growth slowing, customers pulling back, margins weakening, competition biting, or management lowering expectations.",
+      "That is not what the latest reported numbers suggest. The company reported Q2 2026 revenue of $370.1 million, up 48% year over year, ahead of consensus expectations cited in the source draft. Gross margin remained around 85%, and net dollar retention was reported at 136%. Those are not distressed software metrics. They are closer to the numbers investors usually pay a premium to own.",
+      "The interesting question, then, is not whether Figma is a good product. That part is already clear to anyone who has watched it become the default workspace for many design and product teams. The better question is whether the public market is punishing Figma for business risk, valuation risk, or simply the messiness that follows a highly volatile IPO.",
+    ],
+    quote:
+      "A stock can look broken because the business is weakening, or because the market paid the wrong price for a very good business.",
+  },
+  {
+    heading: "What Figma actually sells",
+    body: [
+      "Figma sells collaborative product-development software. That sounds narrower than the business actually is.",
+      "The original wedge was design. Figma Design moved product design into the browser and made the workflow multiplayer. Instead of passing static files between designers, product managers, engineers and executives, teams could work inside the same environment at the same time. That was not just a user-interface improvement. It changed the coordination cost of building digital products.",
+      "The suite has expanded from that starting point. Dev Mode helps translate design decisions into engineering handoff. FigJam serves brainstorming and workshops. Figma Slides moves presentations into the same collaborative orbit. The common thread is not a single design tool. It is a shared workspace for teams that create, discuss, refine and ship digital products.",
+      "That distinction matters because Figma’s economic value comes from sitting in the workflow, not merely from selling a prettier canvas. A tool used by one designer can be replaced like software. A workspace used by designers, engineers, product managers and stakeholders becomes harder to remove because the switching cost is social and operational, not just technical.",
+    ],
+  },
+  {
+    heading: "The economic unit is the collaborative team",
+    body: [
+      "For many software companies, the unit of analysis is a seat. For Figma, the more useful unit is the collaborative team.",
+      "A single designer can start using the product. The value increases when that designer brings in another designer, then an engineer, then a product manager, then a founder, marketer or customer-facing person who needs to review the work. The workflow spreads because collaboration is the product. That is different from software that becomes more expensive only because a procurement team buys more licences.",
+      "This helps explain why net dollar retention matters so much. A 136% net dollar retention rate means the existing customer base is expanding spend meaningfully over time after churn and contraction. In plain English, Figma can grow even before it wins new customers because current customers are adding seats, adopting more products, or using more paid functionality.",
+      "That is the mark of a strong software business, but it is not magic. It depends on Figma continuing to own the shared workspace as design moves closer to code, AI and product operations. If the workflow fragments, the expansion engine weakens. If Figma keeps widening the job it performs for teams, the existing customer base can continue doing much of the growth work.",
+    ],
+    table: {
+      headers: ["Metric", "Reported level", "What it suggests"],
+      rows: [
+        ["Q2 2026 revenue", "$370.1 million", "Growth remains strong at meaningful scale"],
+        ["Revenue growth", "+48% year over year", "The business is still expanding quickly"],
+        ["Gross margin", "Around 85%", "Software economics remain high quality"],
+        ["Net dollar retention", "136%", "Existing customers are expanding spend"],
+        ["52-week range", "$16.60-$71.48", "The stock has been driven by severe post-IPO volatility"],
+      ],
+    },
+  },
+  {
+    heading: "AI did not kill the design tool. It changed the pricing question.",
+    body: [
+      "A year ago, the easy bear case for design software was that AI would make many design tools less valuable. If interfaces could be generated from prompts, perhaps the canvas would matter less. If code could be produced directly, perhaps design handoff would become less important. It was a plausible fear, especially for a company whose value was tied to the way teams create digital products.",
+      "Figma’s response has been to pull AI into the workflow rather than treat it as a separate product category. The draft notes that management credited AI credit monetisation for part of the recent growth acceleration. That is strategically important because it suggests AI may become an upsell layer on top of the existing collaborative workspace, not merely a substitute for it.",
+      "This is where Figma’s position is different from a standalone AI design generator. The company already has the team, files, comments, components, design systems and development handoff inside the product. AI features become more useful when they operate inside that context. A generated mock-up is interesting. A generated idea that fits the team’s actual design system, workflow and review process is more valuable.",
+      "The risk is that AI also lowers the barrier for competitors. Adobe, Canva, startups and AI-native tools are all trying to compress the path from idea to interface. If the industry moves toward cheaper generation and away from collaborative systems of record, Figma’s advantage could narrow. But if AI increases the amount of product experimentation and makes collaboration even more important, Figma may end up with a larger opportunity than before.",
+    ],
+    callout:
+      "The key question is whether AI reduces the need for Figma, or increases the amount of work that happens inside Figma.",
+  },
+  {
+    heading: "The moat is workflow gravity, not just design quality",
+    body: [
+      "It is tempting to describe Figma’s moat as collaboration. That is true, but incomplete.",
+      "Collaboration can be copied as a feature. Workflow gravity is harder. Figma becomes more defensible when files, comments, components, libraries, design systems, engineering handoff and team habits accumulate inside the product. The longer a team builds around it, the more expensive a switch becomes, even if the monthly software bill is not the largest line item in the budget.",
+      "The advantage is not unbreakable. Adobe still has distribution and deep creative-software relationships. Canva is strong with non-designers and broader visual communication. AI-native products can attack parts of the workflow from below. Engineering tools can attack from the code side. A procurement team can still ask why the organisation is paying for another subscription.",
+      "But the best software companies often win by becoming the place where work lives. Figma has a credible claim to that position for product design and adjacent workflows. The durability of the business depends on whether it can remain the system of collaboration as the definition of design expands.",
+    ],
+  },
+  {
+    heading: "The bull case",
+    body: [
+      "The bull case starts with quality. Fast revenue growth, high gross margins and strong net retention are a rare combination. Many companies can grow quickly by spending heavily or discounting aggressively. Fewer can grow quickly while retaining software-like margins and expanding existing customers at this rate.",
+      "The second part of the bull case is that Figma’s market may be larger than traditional design software. If the product becomes a broader collaboration layer for design, product, engineering and presentation workflows, then the addressable market is not limited to professional designers. It includes anyone involved in shaping digital products.",
+      "The third part is valuation compression. A stock falling from the $70s to the low $20s while reported fundamentals remain strong is materially different from a stock falling because the business has stalled. If the business keeps compounding and the market eventually separates IPO turbulence from operating performance, the rerating can be powerful.",
+      "That is why the analyst setup in the draft is worth noting. An average target around $35.78 compared with a recent price near $22 implies substantial upside if the business continues to execute. Analyst targets are not truth. They are expectations. But they do show that current sentiment is not uniformly bearish despite the stock’s collapse.",
+    ],
+  },
+  {
+    heading: "The bear case",
+    body: [
+      "The bear case is not that Figma is a weak business. It is that the public market may still not know how to price it.",
+      "Post-IPO stocks can be messy for reasons that have little to do with product quality. Early enthusiasm can set the opening price too high. Lockup expirations can create selling pressure. Employees and early investors may sell for diversification. New shareholders may demand a wider margin of safety after watching the stock fall once already. A wide 52-week range is evidence that sentiment and positioning have mattered enormously.",
+      "Insider selling deserves attention without becoming the entire thesis. Executives and early employees sell stock for many reasons, including taxes, diversification and pre-arranged plans. Still, insider selling into a large drawdown can make outside investors less willing to assume the stock is obviously cheap.",
+      "Competition is the deeper issue. Adobe, Canva and AI-native design tools are not standing still. If design creation becomes cheaper and easier, Figma must prove that its collaboration layer remains the scarce part of the workflow. If customers decide that generated output matters more than shared systems, the value could migrate elsewhere.",
+      "There is also a valuation risk hidden inside the apparent bargain. A 48% grower with 85% gross margins can still be expensive if investors assume too many years of exceptional growth. A lower stock price reduces that risk. It does not remove it.",
+    ],
+  },
+  {
+    heading: "What the current price seems to be asking",
+    body: [
+      "At a recent price around $22, the market is no longer treating Figma like a flawless IPO. That is healthy. The question is whether it is now treating the company too harshly.",
+      "For the current price to work, Figma probably does not need perfection. It needs to show that recent revenue acceleration is real rather than a one-quarter effect, that AI monetisation can expand average revenue without damaging customer trust, and that net retention remains high as the company grows into a larger base.",
+      "For the stock to work extremely well, Figma likely needs to become more than the dominant design canvas. It needs to become a broader product-development workspace with multiple paid surfaces: design, developer handoff, ideation, presentations and AI usage. That would justify a larger revenue base and make the company harder to compare with a narrower design-tool peer group.",
+      "The danger is that the market may swing from one mistake to another. It may have overpaid for excitement after the IPO. It may now be underpricing the quality of the underlying business because the chart looks damaged. Neither conclusion should be accepted casually. The right question is whether the next few quarters confirm that Figma’s growth is durable, not merely impressive.",
+    ],
+  },
+  {
+    heading: "What investors should watch",
+    body: [
+      "There are a few variables that matter more than the stock’s day-to-day volatility.",
+      "First, net dollar retention. If it stays high, the expansion engine remains intact. If it falls quickly, the market will question whether Figma’s customer base is maturing faster than expected.",
+      "Second, AI revenue quality. Usage-based AI credits can boost growth, but investors should watch whether the revenue is repeatable, margin-accretive and connected to deeper workflow adoption rather than short-term experimentation.",
+      "Third, operating leverage. High gross margins are valuable only if the company can eventually convert them into durable free cash flow. Growth spending is acceptable at this stage, but the path toward profitability should become clearer over time.",
+      "Fourth, competition from both ends. Adobe and Canva bring distribution. AI-native tools bring speed. Engineering platforms bring proximity to code. Figma’s task is to remain the shared workspace that ties those pressures together rather than the feature that gets squeezed between them.",
+      "Fifth, dilution and insider selling. Shareholders own per-share economics, not headline revenue growth. If stock-based compensation and insider exits become too visible, they can weigh on the multiple even if revenue keeps growing.",
+    ],
+  },
+  {
+    heading: "My read",
+    body: [
+      "Figma looks like a high-quality software business whose stock is still recovering from a chaotic introduction to public markets.",
+      "That does not make it automatically cheap. It does make the setup more interesting than the chart suggests. The business has strong growth, strong gross margins, strong customer expansion and a credible answer to the AI threat. The stock has severe volatility, insider-selling concerns and the burden of proving that recent acceleration can continue.",
+      "The distinction matters. A great product is not the same as a great business, and a great business is not the same as a great investment. Figma is clearly a great product. The reported numbers suggest it may also be a very strong business. Whether it is a great investment from here depends on whether the market is now pricing IPO trauma more heavily than the future economics deserve.",
+      "If I were following this company, I would spend less time asking whether the stock can return to its old highs and more time asking whether Figma can keep expanding from design tool into product-development operating system. That is the real thesis. If the answer is yes, the current chart may eventually look like noise. If the answer is no, even a lower share price may not be enough.",
+    ],
+  },
+];
+
 const uberDeepDiveSections: ArticleContentSection[] = [
   {
     heading: "Uber is no longer trying to prove demand exists.",
@@ -1184,6 +1294,89 @@ const uberDeepDiveSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "why-figmas-business-looks-stronger-than-its-stock",
+    title: "Why Figma’s Business Looks Stronger Than Its Stock",
+    cardTitle: "Why Figma’s Business Looks Stronger Than Its Stock",
+    cardExcerpt:
+      "Figma’s stock has collapsed from its post-IPO high, but the operating numbers still look unusually strong.",
+    category: "Business",
+    tags: [
+      "Business",
+      "Business Breakdown",
+      "Figma",
+      "SaaS",
+      "Software",
+      "Investing",
+      "Valuation",
+    ],
+    series: "Business Breakdown",
+    seriesDescription:
+      "A recurring analysis of companies, business models and the economics that make them work.",
+    excerpt:
+      "Figma’s stock has collapsed from its post-IPO high, but the operating numbers still look unusually strong.",
+    metaTitle: "Figma Stock Analysis: Business Model, Valuation and AI Risk",
+    metaDescription:
+      "A Business Breakdown of Figma’s stock, business model, AI monetisation, net retention, valuation and why the company looks stronger than its chart.",
+    date: "2026-09-12",
+    readingTime: estimateReadingTime(
+      "Why Figma’s Business Looks Stronger Than Its Stock",
+      "Figma’s stock has collapsed from its post-IPO high, but the operating numbers still look unusually strong.",
+      figmaBusinessBreakdownSections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "A stock can look broken because the business is weakening, or because the market paid the wrong price for a very good business.",
+    sections: figmaBusinessBreakdownSections,
+    sources: [
+      {
+        title: "Figma Investor Relations, financial results and filings",
+        href: "https://investor.figma.com/",
+      },
+      {
+        title: "Figma SEC filings",
+        href: "https://www.sec.gov/edgar/search/#/q=Figma",
+      },
+      {
+        title: "StockAnalysis.com, Figma Inc. stock data",
+        href: "https://stockanalysis.com/stocks/fig/",
+      },
+      {
+        title: "MarketBeat, Figma analyst ratings and price targets",
+        href: "https://www.marketbeat.com/stocks/NYSE/FIG/",
+      },
+      {
+        title: "Yahoo Finance, Figma Inc. quote and statistics",
+        href: "https://finance.yahoo.com/quote/FIG/",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Why Costco Is Harder to Copy Than It Looks",
+        href: "/articles/why-costco-is-harder-to-copy-than-it-looks",
+        description:
+          "A Business Breakdown on operating discipline, membership economics and trust.",
+      },
+      {
+        title: "Why Broadcom Is No Longer Just a Chip Company",
+        href: "/articles/why-broadcom-is-no-longer-just-a-chip-company",
+        description:
+          "A Business Breakdown on infrastructure, software cash flow and the AI trade.",
+      },
+      {
+        title: "Company Research Worksheet",
+        href: "/resources/company-research-worksheet",
+        description:
+          "Research businesses using a repeatable framework.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-007-fed-split-became-the-signal",
     title: "Balance Sheet #007: The Fed Split Became the Signal",
