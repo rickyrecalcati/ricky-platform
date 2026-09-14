@@ -1069,6 +1069,81 @@ const balanceSheetIssue007Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue008Sections: ArticleContentSection[] = [
+  {
+    heading: "The week in markets",
+    body: [
+      "The market spent most of the shortened week acting as if it already knew the answer. Oil was rising, yields were climbing, producer prices had accelerated, and investors were bracing for the August consumer inflation report to confirm the worst version of the story.",
+      "Then CPI arrived, and the answer was not good so much as tolerable.",
+      "Headline CPI rose 0.4% in August and 3.4% from a year earlier, matching the broad expectation. Core CPI, which strips out food and energy, rose 0.3% for the month while the annual core rate eased to 2.4% from 2.5%. That was not a clean victory over inflation. It was simply not the upside shock markets had spent four days preparing for.",
+      "That was enough. The S&P 500 rose 0.9% on Friday, the Dow added 1%, and the Nasdaq gained 1%, clawing back a meaningful share of the week’s losses. Even after the bounce, the S&P 500 finished down 0.8%, the Nasdaq lost 0.7%, and the Dow fell 1.6%, its worst week since March.",
+      "Sometimes markets do not rally because the news is good. They rally because the news is less bad than the position investors had built around it.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,656.98", "-0.8%"],
+        ["Nasdaq", "26,333.04", "-0.7%"],
+        ["Dow Jones", "52,573.29", "-1.6%, worst week since March"],
+        ["Bitcoin", "~$78,700", "Held below $80,000 resistance most of the week"],
+        ["Gold", "~$4,500/oz", "Steady inside its late-summer range"],
+        ["Brent Crude", "Topped $108 intraday, near $100 Friday", "Pulled back after a sharp weekly surge"],
+      ],
+    },
+    quote:
+      "A relief rally is not the same thing as a healthy rally. It tells you what investors feared, not necessarily what has improved.",
+  },
+  {
+    heading: "The bar for good news had fallen",
+    body: [
+      "The most revealing part of the week was not the CPI number itself. It was the market’s reaction to a number that landed close to expectations.",
+      "That reaction says something about positioning. Four straight down days had already priced in a more uncomfortable inflation surprise. Brent crude had briefly topped $108 as Middle East tensions kept pressure on energy markets. The 10-year Treasury yield moved close to 5%. Producer prices rose 0.4% in August and 5.4% over the year, with the BLS pointing to energy and transportation pressure beneath the headline.",
+      "By Friday morning, investors did not need a soft inflation report to feel better. They only needed confirmation that inflation was not accelerating faster than feared.",
+      "That is a lower standard. It also creates a more fragile market. When expectations have been marked down far enough, ordinary news can feel like good news. The danger is that relief gets mistaken for resolution.",
+      "Inflation is still above target. Energy prices are still pressuring headline numbers. Core monthly inflation was a little firmer than investors would prefer. The market’s Friday rally did not remove those facts. It only showed that the prior four days had leaned too far into a worse outcome.",
+    ],
+  },
+  {
+    heading: "The Fed still has a problem",
+    body: [
+      "The CPI report calmed equities, but it did not make the Federal Reserve’s decision easier. If anything, it left the Fed with a familiar problem: inflation is no longer running away, but it is not yet safely back where policymakers want it.",
+      "That distinction matters. A central bank can look through a temporary energy shock if the rest of the inflation picture is clearly cooling. It becomes harder when producer prices, oil, freight costs and core services all keep enough pressure in the system to threaten another round of pass-through.",
+      "Markets understood that. Rate-hike expectations moved sharply higher by the end of the week, with futures pricing showing the probability of a September hike moving into the high-80% range. That is the uncomfortable trade-off sitting beneath Friday’s rally. Equities liked that CPI was not worse. Bonds still saw enough inflation pressure to keep tightening firmly on the table.",
+      "This is why the Fed decision now carries more than the usual headline importance. A hike would tell investors the central bank is prioritising inflation credibility over short-term market comfort. A hold would invite questions about whether policymakers are willing to tolerate elevated inflation while oil and long yields are already doing damage.",
+      "Neither option is clean.",
+    ],
+  },
+  {
+    heading: "Oil is the part rates cannot fix",
+    body: [
+      "The oil story deserves more attention than it received beneath the inflation headlines.",
+      "Higher rates can cool demand. They can slow credit creation, soften housing, pressure valuations and reduce discretionary spending. They cannot create barrels of oil, reopen shipping routes or resolve geopolitical conflict. That makes supply-driven energy inflation particularly awkward for central banks.",
+      "If oil keeps rising, the Fed faces a problem it can influence only indirectly. Raising rates may reduce demand at the margin, but it will not solve a supply disruption. Holding rates steady may protect growth, but it risks allowing energy pressure to bleed into expectations, wages and business pricing decisions.",
+      "For companies, this becomes more practical than theoretical. Higher fuel and freight costs hit logistics, airlines, retailers, restaurants, manufacturers and households in different ways. Some businesses can pass costs through. Others absorb them. Some see demand weaken before they can reprice. That is how macro stress becomes margin pressure.",
+      "The market’s Friday bounce did not change that. Oil backing off from the week’s highs helped sentiment, but the level remained high enough to keep inflation risk alive. The relevant question is not whether crude pulled back on one day. It is whether energy remains high long enough to change behaviour.",
+    ],
+  },
+  {
+    heading: "Bitcoin stayed trapped below the line",
+    body: [
+      "Bitcoin spent the week in its own version of the same holding pattern.",
+      "Buyers defended support near the high-$77,000 area, but the asset could not clear the psychological resistance around $80,000 or push convincingly toward the next band near $82,000. The CPI report mattered for crypto as much as it mattered for equities because the same rate expectations sit underneath both risk appetite and liquidity-sensitive assets.",
+      "That does not mean Bitcoin trades like a technology stock. It means the market still treats it as sensitive to financial conditions. When rate-hike odds rise, the hurdle rate for speculative and duration-like assets rises too. When inflation comes in less badly than feared, risk appetite can return, but only up to a point.",
+      "The useful signal is that Bitcoin did not break down, but it also did not break out. In a week when gold remained steady and oil dominated the macro conversation, Bitcoin looked less like the leading edge of risk appetite and more like an asset waiting for the Fed to define the next liquidity regime.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "Relief is not the same as good news.",
+      "Friday’s rally happened because CPI was not worse than feared. That is different from saying inflation is solved, oil is harmless, yields are comfortable or the Fed is done. The market was reacting to the gap between fear and reality. That gap can produce powerful moves, but it can also produce false comfort.",
+      "The same mistake happens in business. A bad month that is less bad than expected can feel like progress. A customer complaint that is less severe than feared can feel like vindication. A cost increase that is manageable for now can feel like control. In each case, the emotional response is real, but it may not match the underlying trend.",
+      "The discipline is to ask what actually changed. Did the situation improve, or did expectations simply get worse beforehand? Did the risk disappear, or did it merely arrive in a less dramatic form?",
+      "That is the question this week leaves behind. The market avoided the worst version of the inflation story. It did not escape the story.",
+    ],
+  },
+];
+
 const figmaBusinessBreakdownSections: ArticleContentSection[] = [
   {
     heading: "The stock looks broken. The business does not.",
@@ -1294,6 +1369,100 @@ const uberDeepDiveSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-008-less-bad-was-good-enough",
+    title: "Balance Sheet #008: Less Bad Was Good Enough",
+    cardTitle: "Issue 008: Less Bad Was Good Enough",
+    cardExcerpt:
+      "Markets rallied after CPI was not worse than feared, but oil, yields and Fed expectations kept the relief fragile.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Inflation",
+      "Federal Reserve",
+      "Oil",
+      "Bitcoin",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 8,
+    weekCovered: "Week of September 8-11, 2026",
+    weekEnding: "2026-09-11",
+    headline: "Less bad was good enough.",
+    featured: true,
+    excerpt:
+      "Markets rallied after CPI was not worse than feared, but oil, yields and Fed expectations kept the relief fragile.",
+    metaTitle: "Balance Sheet #008: Less Bad Was Good Enough",
+    metaDescription:
+      "Balance Sheet #008 examines CPI relief, producer prices, oil pressure, Fed rate expectations, Bitcoin and why less-bad news can move markets.",
+    date: "2026-09-14",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #008: Less Bad Was Good Enough",
+      "Markets rallied after CPI was not worse than feared, but oil, yields and Fed expectations kept the relief fragile.",
+      balanceSheetIssue008Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The market avoided the worst version of the inflation story. It did not escape the story.",
+    sections: balanceSheetIssue008Sections,
+    sources: [
+      {
+        title:
+          "BLS, Consumer Price Index Summary for August 2026",
+        href: "https://www.bls.gov/news.release/cpi.htm",
+      },
+      {
+        title:
+          "BLS, Producer Price Index Summary for August 2026",
+        href: "https://www.bls.gov/news.release/ppi.htm",
+      },
+      {
+        title:
+          "CME FedWatch, Target rate probabilities for the September 2026 meeting",
+        href: "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+      },
+      {
+        title:
+          "EIA, Petroleum and other liquids spot prices",
+        href: "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm",
+      },
+      {
+        title:
+          "Yahoo Finance, U.S. market data",
+        href: "https://finance.yahoo.com/",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #007: The Fed Split Became the Signal",
+        href: "/articles/balance-sheet-007-fed-split-became-the-signal",
+        description:
+          "The previous issue on jobs, Fed disagreement, oil pressure and Bitcoin.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Estimate how time, contributions, fees and inflation affect long-term wealth.",
+      },
+      {
+        title: "Portfolio Review Template",
+        href: "/resources/portfolio-review-template",
+        description:
+          "Review your portfolio with discipline instead of emotion.",
+      },
+      {
+        title: "Investment Thesis Template",
+        href: "/resources/investment-thesis-template",
+        description:
+          "Clarify your reasons, risks and expectations before investing.",
+      },
+    ],
+  },
   {
     slug: "why-figmas-business-looks-stronger-than-its-stock",
     title: "Why Figma’s Business Looks Stronger Than Its Stock",
