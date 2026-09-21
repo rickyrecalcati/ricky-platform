@@ -1069,6 +1069,79 @@ const balanceSheetIssue007Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue009Sections: ArticleContentSection[] = [
+  {
+    heading: "The week in markets",
+    body: [
+      "The Federal Reserve raised interest rates this week for the first time since 2023. The quarter-point increase lifted the target range to 3.75%-4.00% and ended a long stretch in which Wall Street had mostly debated when rates would fall, not whether they might rise again.",
+      "That shift matters more than the size of the move. A single quarter-point increase does not transform the economy. What changes is the range of outcomes investors must consider. Further tightening is no longer a remote possibility, and the cost of capital may stay restrictive for longer than many valuations had assumed.",
+      "The market did not respond with one clean verdict. Stocks fell early in the week as the Fed decision approached and concern about the pace of frontier AI development weighed on technology shares. They weakened again after the announcement, recovered on Thursday, then drifted through Friday's triple-witching expiration. By the close, the Dow had lost 1.7%, the S&P 500 was almost flat, and the Nasdaq had gained 0.7%.",
+      "That combination is the important part. The index commonly treated as most sensitive to interest rates finished higher, while the supposedly steadier Dow suffered the largest decline. This was not broad resilience. It was concentrated resilience.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "~7,650", "-0.1%"],
+        ["Nasdaq", "~26,520", "+0.7%"],
+        ["Dow Jones", "51,682.64", "-1.7%"],
+        ["Bitcoin", "~$81,000", "+6% after a volatile week"],
+        ["Gold", "~$4,421/oz", "+0.5%, near recent highs"],
+        ["Brent Crude", "~$95-$100/bbl", "Elevated on supply concerns"],
+      ],
+    },
+    quote:
+      "A market can sit near a record while the average stock quietly loses ground. The index and the market are not always telling the same story.",
+  },
+  {
+    heading: "The index is hiding the market",
+    body: [
+      "Large indices are often discussed as if they were a democratic vote on the economy. They are not. They are weighted collections of companies, and the largest members can overwhelm what is happening beneath them.",
+      "That is what made this week's divergence worth studying. Large technology companies, including Nvidia, helped the Nasdaq finish in positive territory. At the same time, the Russell 2000 declined and cyclical sectors such as industrials, materials, real estate and consumer discretionary extended a run of weakness. The S&P 500 remained close to its high because strength at the top offset deterioration elsewhere.",
+      "Narrow leadership is not proof that a market is about to fall. Concentrated markets can remain concentrated for longer than investors expect, especially when the leading companies continue to produce superior earnings and cash flow. But narrow breadth changes the character of the risk. An index supported by a small group has fewer places to absorb disappointment when one of those leaders stumbles.",
+      "This is why an index level is a useful headline and an incomplete diagnosis. Breadth asks how many companies are participating. Sector performance asks where investors are willing to take risk. Small caps offer a rough view of how businesses with less financial strength are handling the same rate environment. Together, those measures can reveal stress that the headline index obscures.",
+      "For a long-term investor, the lesson is not to abandon large companies because they are large. It is to understand what is producing the return. A portfolio that appears diversified across dozens of holdings can still depend on the same handful of earnings stories, interest-rate assumptions or capital-spending cycles.",
+    ],
+  },
+  {
+    heading: "Higher rates are meeting the wrong kind of inflation",
+    body: [
+      "The Fed's problem is that much of the current inflation pressure is arriving through energy and geopolitics. Brent crude remained near $95-$100 a barrel as Middle East supply concerns persisted. The Bank of Japan also raised its policy rate during the week, while the Bank of England kept its stance restrictive and warned about inflation risk.",
+      "Central banks can weaken demand. They can make mortgages, business loans and new investment more expensive. They can cool hiring and reduce the willingness to pay higher prices. They cannot produce oil, reopen shipping routes or repair damaged infrastructure.",
+      "That does not mean a central bank should ignore an energy shock. If higher fuel and freight costs spread into wages, services and expectations, temporary inflation can become persistent. The difficulty is that rates fight the second-round effects by putting more pressure on the rest of the economy. The cure works through weaker demand, even when demand did not cause the original problem.",
+      "This is where monetary policy becomes business analysis. Expensive energy raises transport and production costs. Higher interest rates raise financing costs. A company facing both must decide whether to increase prices, accept lower margins, reduce investment or find genuine operating efficiencies. Businesses with strong balance sheets and pricing power have choices. Heavily indebted companies selling discretionary products have fewer.",
+      "The Fed's hike therefore matters beyond the next market move. It changes the test facing individual businesses. The question is no longer only whether revenue can grow. It is whether that growth still creates value when money, inventory, transport and expansion all cost more.",
+    ],
+  },
+  {
+    heading: "Bitcoin's reversal belonged to Bitcoin",
+    body: [
+      "Bitcoin finished the week near $81,000 after a sharp reversal, but the sequence matters. The Senate's attempt to advance the CLARITY Act failed on Tuesday, and Bitcoin initially fell as the prospect of durable federal market-structure rules receded. The later recovery appears to have been driven by short covering and renewed demand rather than enthusiasm about the vote itself.",
+      "That distinction is easy to lose when a weekly chart compresses several different events into one line. The asset fell on disappointing regulatory news, found buyers, forced bearish positions to unwind, and ended materially higher. The final price does not tell you which part of the journey mattered or why.",
+      "This is also why Bitcoin should not be forced into every equity-market narrative. It remains sensitive to liquidity and interest rates, but crypto-specific regulation, exchange positioning, ETF flows and leverage can dominate for days at a time. Its strongest move of the week occurred while the largest macro story was tighter central-bank policy, yet its path was shaped by a legislative setback and the positioning that followed.",
+      "For investors, causality matters more than a neat story. Two assets can rise in the same week for entirely different reasons. Treating the shared direction as proof of a shared thesis can create confidence where there is only coincidence.",
+    ],
+  },
+  {
+    heading: "What a narrow market asks of an investor",
+    body: [
+      "Markets near record highs create their own psychological pressure. Cash feels unproductive, caution feels expensive, and a rising index appears to settle arguments that remain unresolved underneath it.",
+      "The temptation is to treat price as confirmation. If the index is close to a record after a Fed hike, perhaps the economy is strong enough to absorb higher rates. If technology keeps rising, perhaps concentration does not matter. If Bitcoin recovers after bad legislative news, perhaps regulation no longer matters either.",
+      "Each conclusion may eventually prove correct, but this week's evidence does not establish any of them. What it shows is a market that can still reward a small group of strong companies while becoming less forgiving elsewhere. It shows central banks responding to inflation they can influence only indirectly. It shows one asset recovering for reasons largely separate from the week's dominant macro story.",
+      "A long-term investor does not need to predict the next correction to respond intelligently. The useful work is more ordinary: know where portfolio returns are coming from, understand which holdings depend on cheap capital, and distinguish business quality from index momentum. Concentration is manageable when it is visible. It becomes dangerous when diversification exists only in the number of ticker symbols on the screen.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "A headline number is a starting point, not a conclusion.",
+      "The S&P 500 finished the week close to its record, yet smaller companies and several cyclical sectors continued to weaken. The Nasdaq rose despite a Fed hike, but much of that strength came from a narrow group of large technology businesses. Bitcoin climbed, but only after falling on the failure of legislation that was supposed to help legitimise its market structure.",
+      "None of these facts is contradictory once the underlying parts are separated. The contradiction appears only when one number is asked to describe an entire system.",
+      "The same mistake appears in business. Total revenue can rise while a core product loses customers. Profit can improve because maintenance was deferred. Customer satisfaction can look stable while the most valuable clients quietly leave. An aggregate can be accurate and still conceal the change that matters most.",
+      "When the headline looks reassuring, inspect what is carrying it. When the average looks weak, find out which parts are creating the drag. Good decisions begin when the summary stops being the end of the analysis.",
+    ],
+  },
+];
+
 const balanceSheetIssue008Sections: ArticleContentSection[] = [
   {
     heading: "The week in markets",
@@ -1369,6 +1442,94 @@ const uberDeepDiveSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-009-the-index-is-hiding-the-market",
+    title: "Balance Sheet #009: The Index Is Hiding the Market",
+    cardTitle: "Issue 009: The Index Is Hiding the Market",
+    cardExcerpt:
+      "The Fed raised rates, the Nasdaq held firm and much of the market kept weakening beneath the headline indices.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Federal Reserve",
+      "Market Breadth",
+      "Interest Rates",
+      "Oil",
+      "Bitcoin",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 9,
+    weekCovered: "Week of September 14-18, 2026",
+    weekEnding: "2026-09-18",
+    headline: "The index is hiding the market.",
+    featured: true,
+    excerpt:
+      "The Fed raised rates, the Nasdaq held firm and much of the market kept weakening beneath the headline indices.",
+    metaTitle: "Balance Sheet #009: The Index Is Hiding the Market",
+    metaDescription:
+      "Balance Sheet #009 examines the Fed's rate hike, narrow market breadth, oil-driven inflation and why record indices can hide weakness beneath the surface.",
+    date: "2026-09-21",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #009: The Index Is Hiding the Market",
+      "The Fed raised rates, the Nasdaq held firm and much of the market kept weakening beneath the headline indices.",
+      balanceSheetIssue009Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "A market can sit near a record while the average stock quietly loses ground. The index and the market are not always telling the same story.",
+    sections: balanceSheetIssue009Sections,
+    sources: [
+      {
+        title: "Federal Reserve, FOMC statement issued September 16, 2026",
+        href: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+      },
+      {
+        title: "Federal Reserve, September 2026 economic projections",
+        href: "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      },
+      {
+        title: "Bank of Japan, monetary policy meeting materials",
+        href: "https://www.boj.or.jp/en/mopo/mpmsche_minu/",
+      },
+      {
+        title: "EIA, petroleum and other liquids spot prices",
+        href: "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm",
+      },
+      {
+        title: "Associated Press, U.S. market performance for September 18, 2026",
+        href: "https://apnews.com/article/da0dbe004b6f83c36e7d1626a9741a92",
+      },
+      {
+        title: "Axios, Senate vote on the CLARITY Act",
+        href: "https://www.axios.com/2026/09/15/clarity-act-senate-no",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #008: Less Bad Was Good Enough",
+        href: "/articles/balance-sheet-008-less-bad-was-good-enough",
+        description:
+          "The previous issue on inflation relief, oil pressure and the difference between better news and lower expectations.",
+      },
+      {
+        title: "Real Estate vs. the S&P 500",
+        href: "/articles/real-estate-vs-sp-500-long-term-returns",
+        description:
+          "A long-term look at returns, leverage, liquidity and the risks hidden inside simple comparisons.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Model how time, regular contributions, fees and inflation affect long-term investment growth.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-008-less-bad-was-good-enough",
     title: "Balance Sheet #008: Less Bad Was Good Enough",
