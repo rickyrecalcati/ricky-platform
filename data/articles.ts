@@ -1069,6 +1069,77 @@ const balanceSheetIssue007Sections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue010Sections: ArticleContentSection[] = [
+  {
+    heading: "The week in markets",
+    body: [
+      "Stocks finished higher, but the most consequential move happened in bonds. The S&P 500 gained 1.2% for the week, the Nasdaq rose 2.1%, and the Dow added 0.3%, ending a three-week losing streak. The 10-year Treasury yield, meanwhile, closed at 5.18%, its highest level since July 2007.",
+      "Friday's rally was helped by a retreat in oil and renewed hope that diplomatic contact could reduce pressure around the Persian Gulf. Large technology companies did most of the work. Meta rose almost 13% for the week as enthusiasm around Muse and its expanding hardware ecosystem accelerated, while Microsoft gained after presenting a more unified Copilot built around Home, Code and Autopilot.",
+      "The temptation is to describe this as resilience. Stocks absorbed a sharp rise in yields, expensive oil and the prospect of tighter monetary policy, then finished close to record territory. That description is accurate as far as it goes. It does not answer the more important question: what price will investors eventually demand for taking equity risk when a 10-year government bond offers more than 5%?",
+      "That question will not be settled by one Friday rally. It sits underneath every valuation, capital-spending plan and financing decision in the market.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,743.41", "+1.21%"],
+        ["Nasdaq", "27,068.72", "+2.06%"],
+        ["Dow Jones", "51,828.62", "+0.28%"],
+        ["Bitcoin", "~$81,000-$82,000", "Held near recent highs after a volatile week"],
+        ["Gold", "~$4,300/oz", "Pressured late in the week by higher real yields"],
+        ["10-year Treasury yield", "5.18%", "Highest close since July 2007"],
+      ],
+    },
+    quote:
+      "A 5% Treasury yield does not make growth impossible. It makes the price paid for growth matter again.",
+  },
+  {
+    heading: "Five percent changes the math",
+    body: [
+      "For much of the period after the global financial crisis, investors became accustomed to comparing equities with unusually low bond yields. When the return available from government debt was close to zero, paying a high price for profits expected many years in the future could still look reasonable. There was little income available elsewhere, and the discount rate applied to those future profits was low.",
+      "A 5.18% 10-year yield changes that comparison. Treasury bonds are not free of price risk, particularly if they are sold before maturity, but their yield remains a central benchmark for the price of money. When that benchmark rises, future earnings are worth less in today's dollars and investors can demand more compensation before accepting the uncertainty of equities.",
+      "This pressure is strongest for companies whose valuation depends on profits far into the future. A mature business producing substantial cash today can be assessed against what it already earns. A richly valued growth company asks investors to wait. The higher the risk-free benchmark, the more expensive that waiting becomes.",
+      "None of this means technology stocks must fall whenever yields rise. Earnings growth can outrun the valuation headwind. A company can also surprise the market with a product that expands its addressable market or improves the economics of an existing one. The point is that the burden of proof rises. A compelling story must now compete with an actual return available elsewhere.",
+    ],
+  },
+  {
+    heading: "AI enthusiasm meets the cost of capital",
+    body: [
+      "Meta supplied the clearest example of that tension. Its shares gained almost 13% during the week as Muse climbed the app rankings and the company added new capabilities and hardware around the personal AI agent. Investors were not merely reacting to another chatbot. They were considering whether Meta could turn its enormous consumer distribution into a new layer for shopping, communication and personal computing.",
+      "That is a legitimate strategic possibility. Meta already owns attention, identity, messaging and a large advertising network. An agent that can act across those surfaces could deepen the value of the ecosystem. It could also create new problems around trust, privacy and platform access, as Amazon's decision to block Muse from shopping on its site made clear.",
+      "Microsoft's announcement was less dramatic but pointed in the same direction. The company presented a new Copilot experience organised around Home, Code and Autopilot, bringing chat, Office, software creation and persistent agents into a more coherent product. This was partly simplification. The Copilot name had spread across enough products that clarity itself became useful.",
+      "The market rewarded both stories even as yields rose. That is not necessarily a contradiction. It is a reminder that valuation has two moving parts: the cash flows a business may produce and the rate used to value them. This week, investors raised their expectations for parts of the AI ecosystem faster than the bond market raised the discount rate.",
+      "The harder question comes later. The AI investment cycle is capital intensive. Data centres, chips, energy, networks and financing all cost money. If the 10-year yield remains above 5%, the industry will need to prove not only that demand is real, but that the returns on hundreds of billions of dollars of investment remain attractive after funding costs rise.",
+    ],
+  },
+  {
+    heading: "Oil offered relief, not resolution",
+    body: [
+      "Oil helped equities into the end of the week. Reports of renewed diplomatic movement between the United States and Iran reduced some of the immediate fear around Persian Gulf supply, and crude prices eased. Lower oil supports stocks through several channels: it softens inflation pressure, helps consumers, protects company margins and gives central banks more room to avoid further tightening.",
+      "The problem is that diplomatic signals are reversible. A report that talks may resume is not an agreement, and an agreement is not the same as a durable reopening of supply routes. Friday's price move reflected a change in perceived risk rather than a permanent change in energy supply.",
+      "That distinction matters because the bond market is carrying several pressures at once. Persistent inflation is one. Heavy government borrowing is another. AI infrastructure adds an unusually large private demand for capital, while expensive energy raises the risk that central banks keep policy restrictive. These forces do not need to peak in the same week to reinforce one another over time.",
+      "The rally therefore rested on real relief, but relief of a fragile kind. Oil stopped making the problem worse for a day. The cost of long-term capital remained close to a two-decade high.",
+    ],
+  },
+  {
+    heading: "What would prove the market wrong?",
+    body: [
+      "Resilience and complacency often look identical while prices are rising. Both can produce a market that absorbs difficult news, rewards the strongest companies and remains close to a record. The difference appears only when the assumptions underneath the rally are tested.",
+      "A resilient market can survive high yields because earnings continue to grow, margins hold and companies generate enough cash to fund investment without weakening their balance sheets. A complacent market simply assumes those things will happen. It treats every warning as temporary and every rebound as confirmation.",
+      "For a long-term investor, the useful response is not to guess which label applies today. It is to identify the evidence that would separate them. If yields remain above 5%, do earnings estimates still rise? If oil stays expensive, which companies can protect margins? If AI spending continues at its current scale, does revenue grow quickly enough to produce acceptable returns on that capital? If the answers weaken while prices keep rising, resilience starts to look more like denial.",
+      "This is a better discipline than reacting to every market move. It replaces a vague feeling about risk with conditions that can be observed. It also makes it harder to change the explanation after the fact simply because the price moved against you.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "Before calling a run of good outcomes resilience, decide what would change your mind.",
+      "The market rose this week despite a 5.18% Treasury yield, volatile oil and renewed concern about the cost of capital. That may prove to be strength. It may also reflect confidence that AI growth and diplomatic progress will arrive quickly enough to offset those pressures. The distinction cannot be read from the index alone.",
+      "The same problem appears in business. A team can keep hitting targets while maintenance is deferred, customer concentration rises or employees absorb an unsustainable workload. Results remain good until the hidden cost becomes visible. Calling that resilience too early prevents leaders from asking what is carrying the performance and how long it can continue.",
+      "The discipline is simple: write down the evidence that supports your view and the evidence that would disprove it. Then keep watching both. Conviction is useful when it survives contact with facts. Without that test, it is only a story you have become comfortable repeating.",
+    ],
+  },
+];
+
 const balanceSheetIssue009Sections: ArticleContentSection[] = [
   {
     heading: "The week in markets",
@@ -1442,6 +1513,95 @@ const uberDeepDiveSections: ArticleContentSection[] = [
 ];
 
 export const articles: Article[] = [
+  {
+    slug: "balance-sheet-010-five-percent-changes-the-math",
+    title: "Balance Sheet #010: Five Percent Changes the Math",
+    cardTitle: "Issue 010: Five Percent Changes the Math",
+    cardExcerpt:
+      "Stocks rose as AI enthusiasm returned, but a 5.18% Treasury yield changed the price investors must pay for future growth.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Treasury Yields",
+      "Interest Rates",
+      "Artificial Intelligence",
+      "Meta",
+      "Microsoft",
+      "Oil",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 10,
+    weekCovered: "Week of September 21-25, 2026",
+    weekEnding: "2026-09-25",
+    headline: "Five percent changes the math.",
+    featured: true,
+    excerpt:
+      "Stocks rose as AI enthusiasm returned, but a 5.18% Treasury yield changed the price investors must pay for future growth.",
+    metaTitle: "Balance Sheet #010: Five Percent Changes the Math",
+    metaDescription:
+      "Balance Sheet #010 examines the 5.18% Treasury yield, AI-led stock gains, oil relief and why a higher price of money changes the case for growth stocks.",
+    date: "2026-09-28",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #010: Five Percent Changes the Math",
+      "Stocks rose as AI enthusiasm returned, but a 5.18% Treasury yield changed the price investors must pay for future growth.",
+      balanceSheetIssue010Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "A 5% Treasury yield does not make growth impossible. It makes the price paid for growth matter again.",
+    sections: balanceSheetIssue010Sections,
+    sources: [
+      {
+        title: "U.S. Treasury, Daily Treasury Par Yield Curve Rates",
+        href: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve",
+      },
+      {
+        title: "Morningstar, Weekly Market Update for September 25, 2026",
+        href: "https://www.morningstar.com/markets/weekly-market-update-stocks-gain-109-technology-rises-energy-falls",
+      },
+      {
+        title: "Meta, Introducing Muse",
+        href: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      },
+      {
+        title: "Microsoft, Introducing the new Copilot with Home, Code and Autopilot",
+        href: "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+      },
+      {
+        title: "Associated Press, Oil and bond yields ease as markets approach record highs",
+        href: "https://apnews.com/article/1f1a267bf4556c01513f506914eb6359",
+      },
+      {
+        title: "Yahoo Finance, U.S. market data",
+        href: "https://finance.yahoo.com/",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #009: The Index Is Hiding the Market",
+        href: "/articles/balance-sheet-009-the-index-is-hiding-the-market",
+        description:
+          "The previous issue on the Fed's rate hike, narrow market breadth and the weakness hidden beneath record indices.",
+      },
+      {
+        title: "Real Estate vs. the S&P 500",
+        href: "/articles/real-estate-vs-sp-500-long-term-returns",
+        description:
+          "A long-term comparison of returns, leverage, liquidity and the risks hidden inside simple averages.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Model how time, contributions, fees and inflation affect long-term investment growth.",
+      },
+    ],
+  },
   {
     slug: "balance-sheet-009-the-index-is-hiding-the-market",
     title: "Balance Sheet #009: The Index Is Hiding the Market",
