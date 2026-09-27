@@ -1631,7 +1631,7 @@ export const articles: Article[] = [
     metaTitle: "How AppLovin Built an Ad Empire Without Owning the Audience",
     metaDescription:
       "AppLovin reaches over a billion daily users without owning the audience. Its real advantage is the auction connecting advertisers, apps and performance data.",
-    date: "2026-09-30",
+    date: "2026-09-23",
     readingTime: estimateReadingTime(
       "How AppLovin Built an Ad Empire Without Owning the Audience",
       "AppLovin does not own a social network or search engine. Its advantage comes from controlling the auction between advertisers, apps and performance data.",

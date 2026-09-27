@@ -34,7 +34,12 @@ function getCategoryParam(category?: string | string[]) {
 export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
   const params = await searchParams;
   const activeCategory = getCategoryParam(params?.category);
-  const categories = [...new Set(articles.map((article) => article.category))];
+  const orderedArticles = [...articles].sort((firstArticle, secondArticle) =>
+    secondArticle.date.localeCompare(firstArticle.date),
+  );
+  const categories = [
+    ...new Set(orderedArticles.map((article) => article.category)),
+  ];
 
   return (
     <main>
@@ -56,7 +61,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
             itemListJsonLd(
               "Articles by Ricky Recalcati",
               "/articles",
-              articles.map((article) => ({
+              orderedArticles.map((article) => ({
                 name: article.title,
                 path: `/articles/${article.slug}`,
                 description: article.metaDescription ?? article.excerpt,
@@ -81,7 +86,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
 
         <ArticleCategoryFilters
           activeCategory={activeCategory}
-          articles={articles}
+          articles={orderedArticles}
           categories={categories}
         />
       </section>
