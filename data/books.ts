@@ -61,6 +61,87 @@ export type Book = {
 
 const bookCatalog: Book[] = [
   {
+    slug: "the-digital-estate",
+    title: "The Digital Estate",
+    category: "Personal Development",
+    status: "Published",
+    format: "Kindle + Paperback",
+    amazonUrl: "https://www.amazon.com/dp/B0HG799DK8",
+    coverImage: "/books/the-digital-estate-cover.jpg",
+    publicationYear: "2026",
+    series: false,
+    cardCtaLabel: "Learn More",
+    subtitle:
+      "What Happens to Your Passwords, Photos, Money and Online Life When You Die?",
+    description:
+      "A practical guide to organising your online accounts, digital assets and instructions so the people you trust are not left searching, guessing or locked out.",
+    metaTitle:
+      "The Digital Estate by Ricky Recalcati | Digital Estate Planning Book",
+    metaDescription:
+      "Organise passwords, photos, financial accounts and online assets with The Digital Estate, a practical digital estate planning guide by Ricky Recalcati.",
+    page: {
+      heroEyebrow: "E-book & Paperback",
+      heroHeadline:
+        "Make the invisible parts of your life easier for the people you leave behind.",
+      heroDescription:
+        "The Digital Estate is a practical guide to finding, organising and protecting the accounts, assets, memories and instructions that now live behind screens. It is available now in Kindle and paperback editions.",
+      coverKicker: "Ricky Recalcati",
+      coverTagline: "A practical guide to the life you keep online",
+      credibility: [
+        "E-book & Paperback",
+        "A practical 30-day plan",
+        "Passwords, photos and money",
+        "Available in paperback and Kindle",
+      ],
+      whyTitle: "Your family should not have to reconstruct your digital life.",
+      whyBody:
+        "Most of us have built a second life behind passwords: email accounts, photo libraries, financial records, subscriptions, cloud files, devices and online businesses. Very little of it appears in a traditional filing cabinet, and much of it may be difficult to find when somebody else needs to step in. I wrote The Digital Estate to turn that vague problem into a manageable plan. It helps you decide what exists, where it can be found, who should handle it and what should happen next, without creating an unsafe master list of passwords or asking your family to guess at your intentions.",
+      audienceTitle: "For anyone whose important life no longer fits in a filing cabinet.",
+      audience: [
+        "People who want to organise their own digital affairs before a crisis forces the issue.",
+        "Partners and parents who share finances, photos, devices or online accounts with their family.",
+        "Business owners whose domains, payment systems, cloud files and customer records depend too heavily on memory.",
+        "Anyone already trying to make sense of a loved one's online life after death or incapacity.",
+      ],
+      learnTitle: "A clear plan for what exists, who can act and what should happen.",
+      learn: [
+        "How to build a useful inventory of devices, accounts, digital assets and important records.",
+        "How to plan access without storing every password in one vulnerable document.",
+        "How to prepare email, two-factor authentication, recovery methods and trusted contacts.",
+        "How to handle photos, personal files, subscriptions and social accounts with privacy in mind.",
+        "How to document financial accounts, cryptocurrency, domains and online business systems.",
+        "How to complete a practical 30-day plan that another person could actually follow.",
+      ],
+      faqTitle: "Questions before you read.",
+      faq: [
+        {
+          question: "Who is The Digital Estate for?",
+          answer:
+            "It is for anyone with important accounts, devices, financial records, photos or business systems online. It is equally useful for people planning ahead and those already helping with a loved one's affairs.",
+        },
+        {
+          question: "Does the book tell me to write down all my passwords?",
+          answer:
+            "No. The book focuses on building a secure map of what exists, where access instructions are stored and who is authorised to act. It does not recommend keeping every credential in an exposed master list.",
+        },
+        {
+          question: "Is this legal or financial advice?",
+          answer:
+            "No. Laws, platform policies and estate arrangements vary. The book helps you organise the practical digital layer and identify questions that may need professional legal or financial advice.",
+        },
+        {
+          question: "Which formats are available?",
+          answer:
+            "The Digital Estate is available now in both Kindle and paperback editions through Amazon.",
+        },
+      ],
+      finalLabel: "Available Now",
+      finalTitle: "Buy The Digital Estate on Amazon.",
+      finalBody:
+        "Get the standalone book in paperback or Kindle.",
+    },
+  },
+  {
     slug: "the-accidental-manager",
     title: "The Accidental Manager",
     category: "Personal Development",
@@ -485,6 +566,7 @@ const bookCatalog: Book[] = [
 ];
 
 const bookOrder = [
+  "the-digital-estate",
   "the-accidental-manager",
   "scaling-hospitality",
   "no-robots-required",
