@@ -61,9 +61,104 @@ export type Book = {
 
 const bookCatalog: Book[] = [
   {
+    slug: "no-one-taught-me-this-at-work",
+    title: "No One Taught Me This at Work",
+    category: "Career Development",
+    status: "Published",
+    format: "Kindle + Paperback",
+    amazonUrl: "https://www.amazon.com/dp/B0HM61JQP9",
+    coverImage: "/books/no-one-taught-me-this-at-work-cover.jpg",
+    publicationYear: "2026",
+    series: false,
+    cardCtaLabel: "Learn More",
+    subtitle:
+      "The Unwritten Rules of Building a Career, Working With People and Getting Ahead",
+    description:
+      "A practical guide to the parts of working life nobody formally explains, from building trust and communicating clearly to earning opportunities and choosing what comes next.",
+    metaTitle:
+      "No One Taught Me This at Work by Ricky Recalcati | Career Development Book",
+    metaDescription:
+      "Learn the unwritten rules of work, communication and career development in No One Taught Me This at Work, a practical book by Ricky Recalcati.",
+    page: {
+      heroEyebrow: "E-book & Paperback",
+      heroHeadline:
+        "The lessons that usually arrive after the mistake, the missed opportunity or the difficult conversation.",
+      heroDescription:
+        "No One Taught Me This at Work explains the unwritten rules behind reliable work, professional trust, clearer communication and a career you choose deliberately. It is available now in Kindle and paperback editions.",
+      coverKicker: "Ricky Recalcati",
+      coverTagline: "The unwritten rules of working life",
+      credibility: [
+        "E-book & Paperback",
+        "Five practical parts",
+        "34 focused chapters",
+        "Available in paperback and Kindle",
+      ],
+      whyTitle: "Work asks people to understand rules that nobody stops to explain.",
+      whyBody:
+        "Most careers are shaped by lessons that sit outside a job description. Doing good work matters, but so do reliability, judgement, communication, commercial awareness and the ability to handle difficult conversations. I wrote this book because many of those lessons are learned through avoidable mistakes or years of watching how workplaces really operate. It brings them into the open through recognisable situations, practical examples and questions readers can use in the work they are dealing with now.",
+      audienceTitle: "For people who want to understand work, not simply endure it.",
+      audience: [
+        "People beginning their careers who want a more honest picture of how workplaces operate.",
+        "Experienced employees whose effort is not translating into recognition, trust or opportunity.",
+        "Professionals preparing for promotion, a pay conversation or a change of direction.",
+        "New managers and team leaders learning how responsibility changes the work they need to do.",
+      ],
+      learnTitle: "Better judgement for the situations no induction manual covers.",
+      learn: [
+        "Why doing good work is only part of building a credible professional reputation.",
+        "How to manage commitments, difficult colleagues and uncomfortable conversations without creating more friction.",
+        "How to communicate clearly, contribute in meetings and present ideas people can assess.",
+        "How businesses make money and why commercial understanding improves everyday decisions.",
+        "How to approach promotions, salary discussions, loyalty and the decision to leave.",
+        "How to delegate, make decisions with incomplete information and build a career that fits your life.",
+      ],
+      relatedResources: [
+        {
+          title: "Annual Review Workbook",
+          href: "/resources/annual-review-workbook",
+        },
+        {
+          title: "Manager Handover Template",
+          href: "/resources/manager-handover-template",
+        },
+        {
+          title: "Weekly Business Review",
+          href: "/resources/weekly-business-review",
+        },
+      ],
+      faqTitle: "Questions before you read.",
+      faq: [
+        {
+          question: "Who is this book for?",
+          answer:
+            "It is written for people at any career stage who want to understand the unwritten expectations behind reliable work, professional relationships, recognition and advancement.",
+        },
+        {
+          question: "Is it only for people seeking a promotion?",
+          answer:
+            "No. The book covers advancement, but it also deals with everyday work: keeping commitments, disagreeing well, handling difficult colleagues, communicating clearly and deciding what kind of career you actually want.",
+        },
+        {
+          question: "Is this a management book?",
+          answer:
+            "Not exclusively. The final section examines what changes as responsibility grows, but most of the book is useful before someone has a management title.",
+        },
+        {
+          question: "Which formats are available?",
+          answer:
+            "No One Taught Me This at Work is available now in both Kindle and paperback editions through Amazon.",
+        },
+      ],
+      finalLabel: "Available Now",
+      finalTitle: "Buy No One Taught Me This at Work on Amazon.",
+      finalBody:
+        "Get the standalone book in paperback or Kindle.",
+    },
+  },
+  {
     slug: "the-digital-estate",
     title: "The Digital Estate",
-    category: "Personal Development",
+    category: "Estate Planning",
     status: "Published",
     format: "Kindle + Paperback",
     amazonUrl: "https://www.amazon.com/dp/B0HG799DK8",
@@ -566,6 +661,7 @@ const bookCatalog: Book[] = [
 ];
 
 const bookOrder = [
+  "no-one-taught-me-this-at-work",
   "the-digital-estate",
   "the-accidental-manager",
   "scaling-hospitality",

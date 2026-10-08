@@ -30,7 +30,19 @@ export default function Footer({ hideNewsletter = false }: FooterProps) {
             </div>
 
           </div>
-        ) : null}
+        ) : (
+          <div className="footerBrand footerLatestBook">
+            <p className="footerNewsletterTag eyebrow">Latest Book</p>
+            <h2 className="section-title">No One Taught Me This at Work</h2>
+            <p className="body">
+              The unwritten rules of building a career, working with people and
+              getting ahead.
+            </p>
+            <Link href="/books/no-one-taught-me-this-at-work">
+              Explore the book →
+            </Link>
+          </div>
+        )}
 
         <div className="footerLinks">
 
@@ -41,17 +53,6 @@ export default function Footer({ hideNewsletter = false }: FooterProps) {
             <Link href="/articles">Articles</Link>
             <Link href="/resources">Resources</Link>
             <Link href="/about">About</Link>
-
-          </div>
-
-          <div>
-
-            <h3 className="eyebrow">Books</h3>
-
-            <Link href="/books/the-digital-estate">The Digital Estate</Link>
-            <Link href="/books/the-accidental-manager">The Accidental Manager</Link>
-            <Link href="/books/scaling-hospitality">Scaling Hospitality</Link>
-            <Link href="/books/no-robots-required">No Robots Required</Link>
 
           </div>
 
