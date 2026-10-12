@@ -1162,6 +1162,86 @@ const appLovinBusinessBreakdownSections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue011Sections: ArticleContentSection[] = [
+  {
+    heading: "The week in markets",
+    body: [
+      "The S&P 500 reached another record this week, but the companies doing the lifting were not the ones usually associated with confidence. The index gained 1.2%, the Dow rose 0.9% and the Nasdaq added 0.6%. Utilities, consumer staples and energy led, while technology finished slightly lower and the Russell 2000 lost 0.9%.",
+      "That is an unusual combination. The headline index said optimism. The sector leadership said caution. Investors were still willing to own equities, but they preferred businesses with steadier demand, dividends or direct exposure to expensive energy.",
+      "The bond market supplied the reason for that caution. The 10-year Treasury yield closed at 5.24% after touching its highest level since 2002. Brent crude settled at $104.72 a barrel on Friday. Stocks finished higher despite both pressures, but they did so by changing what they rewarded.",
+      "A rising market is not always a risk-seeking market. Sometimes the index advances because capital is moving toward the parts considered most capable of surviving what comes next.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,811.54", "+1.2%"],
+        ["Nasdaq", "27,366.17", "+0.6%"],
+        ["Dow Jones", "51,654.95", "+0.9%"],
+        ["Russell 2000", "2,806.98", "-0.9%"],
+        ["Bitcoin", "~$82,100", "Down roughly 2.8%"],
+        ["10-year Treasury yield", "5.24%", "Near its highest level since 2002"],
+        ["Brent crude", "$104.72/bbl", "Remained above $100"],
+      ],
+    },
+    quote:
+      "A market can reach a record because investors are confident, or because they are crowding into the safest parts of the index. The level alone cannot tell you which.",
+  },
+  {
+    heading: "The record concealed a change in mood",
+    body: [
+      "The week unfolded in two distinct parts. Stocks began with momentum from the previous Friday's weak employment report. The Bureau of Labor Statistics reported only 29,000 new payrolls in September and revised July and August down by a combined 60,000. That reduced the immediate pressure for another rate increase and helped push the S&P 500 to a record on Tuesday.",
+      "The relief did not last cleanly. Technology shares sold off on Thursday as investors reconsidered AI valuations, while oil and Treasury yields kept the cost-of-capital problem in view. The market recovered on Friday after signs that the United States and Iran were holding productive discussions and that no attack would take place before the November elections. Oil remained expensive, but the perceived risk of an immediate escalation eased.",
+      "This is why weekly returns can flatten a complicated story. The S&P 500 rose 1.2%, but that single figure combined a record, a technology selloff, a defensive rotation and a geopolitical relief rally. None of those developments means quite the same thing for a long-term investor.",
+      "The index was resilient. The route it took was less reassuring than the destination.",
+    ],
+  },
+  {
+    heading: "Defensive leadership changes the meaning of a rally",
+    body: [
+      "Utilities and consumer staples are usually bought for different reasons than high-growth technology companies. Their revenues tend to be steadier, their dividends matter more, and demand for their products is less dependent on economic enthusiasm. Energy benefits when oil rises, but expensive oil can simultaneously weaken the rest of the economy.",
+      "When those groups lead an index to a record, the message is not that investors have abandoned risk. It is that they have become more selective about where they are willing to carry it. They still want equity exposure, but they are asking for visible cash flows, resilience or protection from the forces making everything else harder.",
+      "Small caps reinforce that interpretation. The Russell 2000 fell 0.9% during a week when the S&P 500 set a record. Smaller companies are often more sensitive to domestic financing conditions, bank lending and economic growth. Their weakness does not invalidate the rally, but it narrows the claim that the record represents broad confidence.",
+      "For investors, breadth is not a timing signal on its own. Defensive leadership can persist, and large indices can keep rising while participation changes beneath them. Its value is diagnostic. It tells you what kind of earnings, balance sheets and business models the market currently trusts.",
+    ],
+  },
+  {
+    heading: "Five percent yields and $100 oil reach the income statement",
+    body: [
+      "The combination of a 5.24% Treasury yield and oil above $100 is not merely a valuation problem. It eventually reaches company income statements through borrowing costs, fuel, freight, consumer spending and the price required to justify new investment.",
+      "Delta offered a useful example. The airline reported record September-quarter revenue and said demand remained strong. It also absorbed more than $500 million of additional fuel costs compared with the guidance it had issued in July. Its full-year adjusted earnings outlook moved from $6.50-$7.50 per share in July to $5.10-$5.60 in October. The business did not suddenly lose demand. The economics around that demand became more expensive.",
+      "Humana moved in the opposite direction after reporting a substantial improvement in Medicare Advantage quality ratings. The company said 95% of its members were enrolled in plans rated four stars or higher for 2027, up sharply from the previous position. That result mattered because the ratings influence bonus payments and the economics of future plans. In a week dominated by macro pressure, a company-specific improvement could still overwhelm the broader mood.",
+      "These examples belong together. Markets are not one trade. High rates and oil create a demanding backdrop, but individual companies still move according to the quality of their economics and the information that changes those economics. The harder environment raises the standard; it does not erase company analysis.",
+    ],
+  },
+  {
+    heading: "Bitcoin did not follow the record",
+    body: [
+      "Bitcoin ended near $82,100 after beginning the week closer to $85,800. Spot Bitcoin exchange-traded funds recorded heavy outflows across Wednesday and Thursday, and the price briefly fell close to $80,000 before recovering part of the decline.",
+      "The divergence matters because Bitcoin is often treated as a simple expression of risk appetite. This week, equities reached a record while Bitcoin weakened. The difference was not mysterious. Crypto had its own flow pressure at the same time that equity investors were rotating toward defensive sectors.",
+      "Correlation is useful until it becomes a substitute for examining what is actually moving an asset. Bitcoin, gold, technology shares and defensive equities can respond to the same macro conditions in different ways because their owners, positioning and immediate catalysts are different.",
+      "A diversified portfolio is not diversified merely because its holdings have different names. The behaviour of each asset depends on the risk currently being priced, and that relationship can change when it is needed most.",
+    ],
+  },
+  {
+    heading: "The next test is inflation",
+    body: [
+      "September consumer-price data are due on Wednesday, just as the third-quarter earnings season begins. The timing matters. The weak jobs report reduced pressure for an October rate increase, but higher energy prices create a credible path for headline inflation to accelerate again.",
+      "A hot inflation reading would put the Federal Reserve back into the uncomfortable position of choosing between a softer labour market and renewed price pressure. It would also test whether equities can keep treating a yield above 5% as a background concern rather than a direct competitor for capital.",
+      "Earnings will provide the other half of the answer. If companies can protect margins and keep growing cash flow, high yields become a headwind that strong businesses can absorb. If estimates begin falling while financing and energy costs remain elevated, the record index will have less fundamental support than its level suggests.",
+      "Long-term investors do not need to predict one CPI release. They do need to understand the assumptions underneath the prices they own. This market assumes earnings can carry more weight while money remains expensive. The coming reporting season will show which companies are strong enough to do it.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "Look at who is leading, not only whether the market is rising.",
+      "The same weekly gain can describe very different markets. A rally led by technology and smaller companies suggests investors are willing to reach for growth. A rally led by utilities, staples and energy suggests they are still participating while preparing for a more difficult environment.",
+      "The distinction also applies to a business. Revenue growth can come from the strongest product, temporary discounting, a price increase or one unusually large customer. The total tells you what happened. The composition tells you how repeatable it may be.",
+      "Headline numbers are useful summaries, but they are poor explanations. Before deciding what a result means, look at what produced it. This week's record was real. So was the caution underneath it.",
+    ],
+  },
+];
+
 const balanceSheetIssue010Sections: ArticleContentSection[] = [
   {
     heading: "The week in markets",
@@ -1689,6 +1769,99 @@ export const articles: Article[] = [
         href: "/resources/business-health-scorecard",
         description:
           "Assess the operating strength, financial health and resilience of a business before the headline numbers hide the risks.",
+      },
+    ],
+  },
+  {
+    slug: "balance-sheet-011-a-record-high-built-on-caution",
+    title: "Balance Sheet #011: A Record High Built on Caution",
+    cardTitle: "Issue 011: A Record High Built on Caution",
+    cardExcerpt:
+      "The S&P 500 reached a record, but defensive sectors led while Treasury yields and oil kept the cost of capital uncomfortably high.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Market Breadth",
+      "Treasury Yields",
+      "Interest Rates",
+      "Oil",
+      "Bitcoin",
+      "Inflation",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 11,
+    weekCovered: "Week of October 5-9, 2026",
+    weekEnding: "2026-10-09",
+    headline: "A record high built on caution.",
+    featured: true,
+    excerpt:
+      "The S&P 500 reached a record, but defensive sectors led while Treasury yields and oil kept the cost of capital uncomfortably high.",
+    metaTitle: "Balance Sheet #011: A Record High Built on Caution",
+    metaDescription:
+      "Balance Sheet #011 examines a record S&P 500, defensive leadership, 5% Treasury yields and what the rally reveals about investor confidence and risk today.",
+    date: "2026-10-12",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #011: A Record High Built on Caution",
+      "The S&P 500 reached a record, but defensive sectors led while Treasury yields and oil kept the cost of capital uncomfortably high.",
+      balanceSheetIssue011Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "A market can reach a record because investors are confident, or because they are crowding into the safest parts of the index. The level alone cannot tell you which.",
+    sections: balanceSheetIssue011Sections,
+    sources: [
+      {
+        title: "Associated Press, How major U.S. stock indexes fared October 9, 2026",
+        href: "https://apnews.com/article/dafbd0c4037ee10e2a9e305f3cfa8e70",
+      },
+      {
+        title: "Associated Press, Wall Street finishes its record-setting week with gains",
+        href: "https://apnews.com/article/5d0f953dbf96febb0690c1aef23fa8a9",
+      },
+      {
+        title: "Federal Reserve, H.15 Selected Interest Rates",
+        href: "https://www.federalreserve.gov/releases/h15/current/",
+      },
+      {
+        title: "U.S. Bureau of Labor Statistics, September 2026 Employment Situation",
+        href: "https://www.bls.gov/news.release/archives/empsit_10022026.htm",
+      },
+      {
+        title: "Delta Air Lines, September Quarter 2026 Financial Results",
+        href: "https://ir.delta.com/news/news-details/2026/Delta-Air-Lines-Announces-September-Quarter-2026-Financial-Results/default.aspx",
+      },
+      {
+        title: "Humana, 2027 Medicare Advantage Star Ratings",
+        href: "https://policy.humana.com/news-and-resources/news-press/2026/humana-announces-improved-cms-star-ratings-with-95-percent-of",
+      },
+      {
+        title: "BLS, 2026 release calendar",
+        href: "https://www.bls.gov/schedule/2026/home.htm",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #010: Five Percent Changes the Math",
+        href: "/articles/balance-sheet-010-five-percent-changes-the-math",
+        description:
+          "The previous issue on why a Treasury yield above 5% raises the burden of proof for growth stocks and AI investment.",
+      },
+      {
+        title: "Real Estate vs. the S&P 500",
+        href: "/articles/real-estate-vs-sp-500-long-term-returns",
+        description:
+          "A long-term comparison of returns, leverage, liquidity and the risks hidden inside simple averages.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Model how time, contributions, fees and inflation affect long-term investment growth.",
       },
     ],
   },
