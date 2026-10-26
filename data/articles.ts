@@ -1162,6 +1162,82 @@ const appLovinBusinessBreakdownSections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue013Sections: ArticleContentSection[] = [
+  {
+    heading: "The week in markets",
+    body: [
+      "For three days, this looked like an ordinary week. Then Thursday changed the question investors were asking about artificial intelligence.",
+      "The Nasdaq fell 2.6%, its steepest daily decline since June, while the S&P 500 lost 1.2%. The Philadelphia Semiconductor Index dropped 6.7%, with the weakness spreading across the companies that supply the infrastructure behind the AI build-out. Earnings were not broadly disappointing. Of the S&P 500 companies that had reported by Thursday, 83% had beaten analyst expectations. Stocks fell anyway.",
+      "The weekly picture was more divided. The S&P 500 finished down 0.5% and the Nasdaq lost 0.7%, both recording a second consecutive weekly decline. The Dow gained 0.4%, while the Russell 2000 rose 2%. The market was not abandoning equities so much as moving away from the businesses carrying the largest capital commitments and the greatest expectations.",
+      "Oil added another constraint. Brent crude finished above $116 a barrel on Friday, its highest level since 2022, while the 10-year Treasury yield ended close to 5%. Expensive energy and expensive capital are uncomfortable companions for any investment cycle built on spending today for returns expected years from now.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,623.68", "-0.5%"],
+        ["Nasdaq", "25,955.34", "-0.7%"],
+        ["Dow Jones", "52,215.16", "+0.4%"],
+        ["Russell 2000", "2,775.90", "+2.0%"],
+        ["Bitcoin", "~$81,600", "Roughly flat"],
+        ["Gold", "~$4,000/oz", "Down roughly 4%"],
+        ["Brent crude", ">$116/bbl", "Highest since 2022"],
+        ["10-year Treasury yield", "~5.0%", "Eased after approaching 5.15%"],
+      ],
+    },
+    quote:
+      "Last quarter the market asked whether AI spending would pay off. This week it asked who is paying for it, and the cash flow statement supplied the answer.",
+  },
+  {
+    heading: "Meta changed the question",
+    body: [
+      "Meta reported $64.6 billion in quarterly revenue, an increase of 26% from a year earlier. Advertising remained strong, daily users grew and the company said its AI investments were already improving engagement and monetisation. By the standards investors had used for most of the AI boom, those figures should have been enough.",
+      "They were not. Meta spent $34.91 billion on capital expenditure during the quarter and reported negative free cash flow of $2.12 billion, its first cash outflow in more than a decade. It narrowed its 2026 capital-spending outlook to $135-$145 billion and said aggressive investment would continue beyond this year. The shares fell 7% on Thursday and finished the week sharply lower.",
+      "The reaction was not a verdict that Meta's AI investment will fail. It was a recognition that success now has to clear a more demanding financial test. Revenue growth can justify heavy spending for a time, but once cash generation turns negative, investors must judge the size, timing and reliability of the eventual return.",
+      "That is a different argument from asking whether AI products are useful. Useful technology can still produce unattractive economics when the cost of building and financing it rises faster than the cash it generates.",
+    ],
+  },
+  {
+    heading: "Profit can flatter; cash cannot",
+    body: [
+      "An income statement measures economic activity over a period. A cash flow statement shows what actually entered and left the business. The two can diverge for sensible reasons, particularly when a company is investing heavily in assets intended to produce returns over many years. The divergence still matters because servers, data centres, leases and power infrastructure must be paid for before their future value is known.",
+      "Meta remains profitable and holds more than $82 billion in cash, cash equivalents and marketable securities. It is not facing an immediate financing problem. The significance lies elsewhere: one of the world's strongest advertising businesses consumed cash during a quarter of exceptional revenue growth because the infrastructure bill was larger still.",
+      "The market had spent much of the past two years rewarding the size of AI ambition. This week it began pricing the funding burden attached to that ambition. That shift reaches beyond Meta. Chipmakers, data-centre operators, cloud providers and utilities all sit inside the same chain of commitments. One company's capital expenditure becomes another company's revenue, but the system remains healthy only if enough of the spending eventually produces cash returns for the customer at the end of the chain.",
+    ],
+  },
+  {
+    heading: "The rest of the market held up better",
+    body: [
+      "The Russell 2000 gained 2% while the Nasdaq fell. Energy and consumer staples also continued to outperform parts of technology and communication services. That rotation matters because it suggests the sell-off was concentrated around capital intensity and valuation rather than a wholesale rejection of risk.",
+      "Smaller companies are not naturally insulated from high rates or expensive fuel. Many are more exposed to both. Their relative strength therefore says less about a suddenly healthy economy than it does about positioning. Investors had crowded into a narrow group of AI beneficiaries, and the first serious cash-flow challenge gave them a reason to look elsewhere.",
+      "Breadth can improve because more companies are becoming attractive, or because the previous leaders are becoming less attractive. The index alone does not distinguish between the two. Long-term investors need to know whether money is rotating toward genuine earnings strength or simply escaping a crowded trade.",
+    ],
+  },
+  {
+    heading: "Gold and Bitcoin refused the usual script",
+    body: [
+      "Bitcoin finished the week close to where it began, near $81,600, after briefly trading around $84,000. Gold fell roughly 4% and ended near $4,000 an ounce, even though stocks weakened and Treasury yields declined late in the week.",
+      "Gold would normally be expected to benefit from that combination. Its failure to do so is a reminder that safe-haven labels are descriptions of long-term tendencies, not promises about a particular week. Positioning, liquidity needs and earlier gains can overwhelm the relationship investors expect to see.",
+      "The same is true of Bitcoin. Early exchange-traded fund inflows did not produce a lasting breakout above recent resistance. Assets do not move because a narrative says they should. They move because buyers and sellers act on that narrative at a particular price, with a particular amount of leverage and liquidity behind them.",
+    ],
+  },
+  {
+    heading: "The next test",
+    body: [
+      "The Federal Reserve meets on October 27 and 28, while Alphabet, Microsoft and Amazon report during the same week. Together, those events will test both sides of the market's concern.",
+      "The Fed will address the cost of capital. The hyperscalers will show how much capital they intend to keep spending, how quickly AI revenue is developing and whether operating cash flow can keep pace. If Meta's quarter was an isolated cash-flow trough, the market may treat Thursday's sell-off as an overreaction. If the same pattern appears across several companies, investors will have to reconsider how much future return has already been assumed.",
+      "None of this settles the long-term value of artificial intelligence. It does restore a discipline that every investment boom eventually encounters: an important technology and an attractive investment are not automatically the same thing. The bridge between them is cash flow.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "Profit and cash are not the same thing, and the gap between them is where risk often hides.",
+      "A company can report growing revenue and accounting profit while a new product, location or expansion programme consumes more cash than the rest of the business produces. That may be sensible when the investment has a credible return and the balance sheet can support the wait. It becomes dangerous when management treats growth itself as proof that the economics work.",
+      "Follow the cash from the customer through the operation and into the investment required to support the next sale. Ask how long the money remains tied up, what assumptions are needed to earn it back and who funds the gap in between. Profit explains whether the model works on paper. Cash determines whether the business can keep going long enough to prove it.",
+    ],
+  },
+];
+
 const balanceSheetIssue011Sections: ArticleContentSection[] = [
   {
     heading: "The week in markets",
@@ -1769,6 +1845,96 @@ export const articles: Article[] = [
         href: "/resources/business-health-scorecard",
         description:
           "Assess the operating strength, financial health and resilience of a business before the headline numbers hide the risks.",
+      },
+    ],
+  },
+  {
+    slug: "balance-sheet-013-when-growth-starts-consuming-cash",
+    title: "Balance Sheet #013: When Growth Starts Consuming Cash",
+    cardTitle: "Issue 013: When Growth Starts Consuming Cash",
+    cardExcerpt:
+      "Meta's revenue kept growing, but negative free cash flow changed the question investors were asking about the AI build-out.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Artificial Intelligence",
+      "Meta",
+      "Free Cash Flow",
+      "Capital Expenditure",
+      "Oil",
+      "Bitcoin",
+      "Gold",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 13,
+    weekCovered: "Week of October 19-23, 2026",
+    weekEnding: "2026-10-23",
+    headline: "The AI trade met the cash flow statement.",
+    featured: true,
+    excerpt:
+      "Meta's revenue kept growing, but negative free cash flow changed the question investors were asking about the AI build-out.",
+    metaTitle: "Balance Sheet #013: When Growth Starts Consuming Cash",
+    metaDescription:
+      "Balance Sheet #013 examines Meta's negative free cash flow, the cost of the AI build-out and why strong revenue no longer answers every investor question.",
+    date: "2026-10-26",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #013: When Growth Starts Consuming Cash",
+      "Meta's revenue kept growing, but negative free cash flow changed the question investors were asking about the AI build-out.",
+      balanceSheetIssue013Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "Last quarter the market asked whether AI spending would pay off. This week it asked who is paying for it, and the cash flow statement supplied the answer.",
+    sections: balanceSheetIssue013Sections,
+    sources: [
+      {
+        title: "Associated Press, How major U.S. stock indexes fared October 23, 2026",
+        href: "https://apnews.com/article/wall-street-stocks-dow-nasdaq-e07c72bc5cbe5dffe352ddf30054e35f",
+      },
+      {
+        title: "Reuters, AI doubts ignite a technology sell-off",
+        href: "https://www.reuters.com/business/nasdaq-futures-drop-over-1-ai-worries-resurface-oil-climbs-2026-10-22/",
+      },
+      {
+        title: "Meta, Third Quarter 2026 Financial Results",
+        href: "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx",
+      },
+      {
+        title: "Meta, Third Quarter 2026 Form 8-K",
+        href: "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066700/meta-09302026xexhibit991.htm",
+      },
+      {
+        title: "Federal Reserve, 2026 FOMC meeting calendar",
+        href: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      },
+      {
+        title: "BabyPips, Financial and forex weekly recap for October 19-23, 2026",
+        href: "https://www.babypips.com/analysis/financial-forex-market-weekly-recap-october-23-2026",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #011: A Record High Built on Caution",
+        href: "/articles/balance-sheet-011-a-record-high-built-on-caution",
+        description:
+          "Why defensive market leadership and expensive capital mattered beneath a record index.",
+      },
+      {
+        title: "How AppLovin Built an Ad Empire Without Owning the Audience",
+        href: "/articles/how-applovin-built-an-ad-empire-without-owning-the-audience",
+        description:
+          "How prediction, auctions and cash generation combine inside one of advertising's most unusual platforms.",
+      },
+      {
+        title: "Compound Interest Calculator",
+        href: "/resources/compound-interest-calculator",
+        description:
+          "Model how time, contributions, fees and inflation affect long-term investment growth.",
       },
     ],
   },
