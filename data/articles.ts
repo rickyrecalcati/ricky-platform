@@ -1162,6 +1162,83 @@ const appLovinBusinessBreakdownSections: ArticleContentSection[] = [
   },
 ];
 
+const balanceSheetIssue014Sections: ArticleContentSection[] = [
+  {
+    heading: "The week in markets",
+    body: [
+      "The week opened on optimism and closed with a bill. The Federal Reserve held rates steady on Wednesday, the largest cloud companies reported one after another, and by Friday the market was no longer rewarding growth without asking what it cost.",
+      "The S&P 500 fell 0.6% for its third consecutive weekly decline. The Nasdaq lost 2%, taking its October decline beyond 5%, while the Dow slipped 0.9%. Friday did most of the damage: the Nasdaq dropped 2.9% as Intel collapsed after weak guidance and the sell-off spread through semiconductors, hardware and other companies tied to the AI investment cycle.",
+      "The broader market was much calmer. The Russell 2000 gained 1.3% for the week and the equal-weight S&P 500 rose 0.8%. Nine of the eleven major S&P sectors finished higher. This was not a general retreat from equities. It was a repricing of the companies carrying the largest capital commitments and the highest expectations.",
+      "Oil and interest rates made that repricing harder to ignore. WTI crude ended near $104 a barrel, Brent remained above $113 and the 10-year Treasury yield finished close to 5%. The cost of financing the AI build-out remained high at the same time as the required spending moved higher again.",
+    ],
+    table: {
+      headers: ["Index / Asset", "Level", "Weekly move"],
+      rows: [
+        ["S&P 500", "7,580.07", "-0.6%"],
+        ["Nasdaq", "25,437.00", "-2.0%"],
+        ["Dow Jones", "51,770.31", "-0.9%"],
+        ["Russell 2000", "2,811.84", "+1.3%"],
+        ["Bitcoin", "~$77,000", "Down more than 4%"],
+        ["Gold", "~$3,880/oz", "Down roughly 3-4%"],
+        ["WTI crude", "$104.12/bbl", "Fourth consecutive weekly gain"],
+        ["10-year Treasury yield", "4.98%", "Little changed"],
+      ],
+    },
+    quote:
+      "The market is not punishing AI spending in isolation. It is distinguishing between investment that current cash flow can support and investment that consumes cash faster than the business produces it.",
+  },
+  {
+    heading: "The cash-flow test arrived",
+    body: [
+      "One week ago, Meta changed the market's question. Revenue grew 26%, yet the company reported negative free cash flow because capital spending had become so large. This week, Alphabet and Amazon showed that the tension was not confined to one company.",
+      "Alphabet reported $127.6 billion in revenue, up 25%, and produced $42.3 billion of operating cash flow. It still recorded negative free cash flow of $9.1 billion after capital expenditure. The shares suffered their worst day since the company went public, not because demand disappeared, but because the cost of serving that demand had moved ahead of current cash generation.",
+      "Amazon presented a similar contrast. AWS revenue grew 39.3%, its fastest rate in nearly five years, and Amazon reported its highest operating margin on record. Cash capital expenditure reached $75.9 billion for the quarter, however, and trailing twelve-month free cash flow fell to an outflow of $42.4 billion.",
+      "Those are not weak businesses. They are enormously profitable companies making investments they believe will expand future revenue and cash flow. The market's concern is about timing and scale. The larger the spending becomes, the more future success is required merely to justify the capital already committed.",
+    ],
+  },
+  {
+    heading: "Microsoft showed the distinction",
+    body: [
+      "Microsoft gave investors the comparison they needed. Azure revenue increased 48%, and the company generated approximately $18.6 billion in free cash flow during the quarter. The shares barely moved for the week while Alphabet and Amazon came under heavier pressure.",
+      "The difference was not that Microsoft avoided capital expenditure. It spent aggressively too, including $45.2 billion of capital expenditure during the quarter. The difference was that strong cloud growth arrived alongside enough current cash generation to make the spending easier to finance and defend.",
+      "This is why the argument is not simply that high capital expenditure is bad. A company should invest when it has a credible opportunity to deepen its advantage. The relevant questions are whether the core business can fund the investment, how long the assets will remain productive and what return the spending must eventually earn.",
+      "Growth funded by customers gives management time and strategic freedom. Growth funded by repeated borrowing or equity issuance makes the business more dependent on market conditions. The same project can look very different when the cost of capital changes.",
+    ],
+  },
+  {
+    heading: "This was not a crash everywhere",
+    body: [
+      "The Nasdaq's Friday fall was severe, but calling the entire week a market crash would miss the most informative part of the tape. Small caps gained, the equal-weight index rose and most sectors finished higher. The damage was concentrated in mega-cap technology, software and the hardware companies linked to the same investment cycle.",
+      "That divergence confirms a pattern visible for several weeks. The headline indices had become increasingly dependent on a small group of companies whose valuations assumed both sustained AI demand and acceptable returns on unprecedented spending. When the cash-flow evidence weakened, those same companies carried the downside.",
+      "Concentration creates this asymmetry. A handful of stocks can make an index look stronger than the average company on the way up and more fragile than the average company on the way down. Investors who own a broad index still need to understand which businesses are driving its return and which assumptions those businesses share.",
+    ],
+  },
+  {
+    heading: "The Fed did not provide relief",
+    body: [
+      "The Federal Reserve held its target rate at 3.75%-4.00% in a 10-2 decision, with two officials preferring another quarter-point increase. The decision was expected. The dissents and the Fed's continued concern about inflation mattered more.",
+      "Oil above $100 keeps that concern alive by raising transport, production and household costs. A 10-year Treasury yield near 5% also gives investors a meaningful return outside equities and raises the discount rate applied to future profits. Both forces make long-duration growth assets less forgiving when current cash flow disappoints.",
+      "The AI trade therefore faces two tests at once. Companies must prove that infrastructure spending will create durable revenue, and they must do so while the price of financing remains high. An attractive technological opportunity does not suspend the arithmetic of capital allocation.",
+    ],
+  },
+  {
+    heading: "Bitcoin met a different kind of risk",
+    body: [
+      "Bitcoin fell more than 4% to around $77,000 after Binance disclosed that attackers had removed approximately $6.3 billion in digital assets from its hot wallets. The exchange halted withdrawals, said it would cover customer losses and began replacing the stolen assets from its own funds and reserves.",
+      "The incident is separate from the AI sell-off, but it carries a related lesson. Asset prices depend not only on the underlying thesis but also on the infrastructure that holds, finances and distributes the asset. Counterparty risk can remain invisible until an operational failure makes it immediate.",
+      "Gold also weakened, falling toward $3,880 an ounce. Its decline despite stress in technology shares reinforces the point from last week: safe-haven behaviour is conditional. Positioning, liquidity and the path of interest rates can matter more in the short term than the label attached to an asset.",
+    ],
+  },
+  {
+    heading: "The lesson",
+    body: [
+      "Judge growth by what it cost, not only by how quickly it arrived.",
+      "Azure and AWS both produced exceptional growth. Alphabet also reported another quarter of double-digit revenue expansion. The market treated the companies differently because growth rates alone no longer answered the question investors cared about. They wanted to know how much cash remained after paying for the infrastructure behind that growth.",
+      "The same discipline applies to any business. A new location, product or sales channel can increase revenue while weakening the company if inventory, equipment, labour and customer-acquisition costs consume cash faster than the project returns it. Measure the growth, then measure the capital required to create it. The second number often tells you more about the quality of the first.",
+    ],
+  },
+];
+
 const balanceSheetIssue013Sections: ArticleContentSection[] = [
   {
     heading: "The week in markets",
@@ -1845,6 +1922,105 @@ export const articles: Article[] = [
         href: "/resources/business-health-scorecard",
         description:
           "Assess the operating strength, financial health and resilience of a business before the headline numbers hide the risks.",
+      },
+    ],
+  },
+  {
+    slug: "balance-sheet-014-ai-trade-funding-limit",
+    title: "Balance Sheet #014: The AI Trade Found Its Funding Limit",
+    cardTitle: "Issue 014: The AI Trade Found Its Funding Limit",
+    cardExcerpt:
+      "Exceptional cloud growth was no longer enough. Investors wanted proof that the companies funding the AI build-out could still convert it into cash.",
+    category: "Finance",
+    tags: [
+      "Balance Sheet",
+      "Markets",
+      "Nasdaq",
+      "Artificial Intelligence",
+      "Alphabet",
+      "Microsoft",
+      "Amazon",
+      "Free Cash Flow",
+      "Capital Expenditure",
+      "Bitcoin",
+      "Investing",
+      "Finance",
+    ],
+    series: "Balance Sheet",
+    seriesDescription:
+      "A weekly review of the most important developments across markets, business and investing, with context, interpretation and a long-term perspective.",
+    issueNumber: 14,
+    weekCovered: "Week of October 26-30, 2026",
+    weekEnding: "2026-10-30",
+    headline: "Growth met the cost of funding it.",
+    featured: true,
+    excerpt:
+      "Exceptional cloud growth was no longer enough. Investors wanted proof that the companies funding the AI build-out could still convert it into cash.",
+    metaTitle: "Balance Sheet #014: The AI Trade Found Its Funding Limit",
+    metaDescription:
+      "Balance Sheet #014 examines the Nasdaq sell-off, Big Tech's AI spending and why investors now care as much about free cash flow as cloud growth today.",
+    date: "2026-11-01",
+    readingTime: estimateReadingTime(
+      "Balance Sheet #014: The AI Trade Found Its Funding Limit",
+      "Exceptional cloud growth was no longer enough. Investors wanted proof that the companies funding the AI build-out could still convert it into cash.",
+      balanceSheetIssue014Sections,
+    ),
+    author: "Ricky Recalcati",
+    pullQuote:
+      "The market is not punishing AI spending in isolation. It is distinguishing between investment that current cash flow can support and investment that consumes cash faster than the business produces it.",
+    sections: balanceSheetIssue014Sections,
+    sources: [
+      {
+        title: "Associated Press, How major U.S. stock indexes fared October 30, 2026",
+        href: "https://apnews.com/article/a01d3551e794fed1a0c317c20bc3f0a2",
+      },
+      {
+        title: "Alphabet, Third Quarter 2026 Financial Results",
+        href: "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm",
+      },
+      {
+        title: "Microsoft, Fiscal Year 2027 First Quarter Results",
+        href: "https://www.microsoft.com/en-us/Investor/earnings/FY-2027-Q1/press-release-webcast",
+      },
+      {
+        title: "Reuters, Microsoft's cloud growth and cash flow",
+        href: "https://www.reuters.com/business/retail-consumer/microsoft-beats-quarterly-cloud-revenue-estimates-2026-10-28/",
+      },
+      {
+        title: "Amazon, Third Quarter 2026 Financial Results",
+        href: "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx",
+      },
+      {
+        title: "Associated Press, Federal Reserve holds rates steady",
+        href: "https://apnews.com/article/c06793b0c50641444701d5d098ccc2c8",
+      },
+      {
+        title: "Binance, Security Incident Update",
+        href: "https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7",
+      },
+      {
+        title: "Reuters, Binance begins replacing assets after the breach",
+        href: "https://www.reuters.com/legal/government/binance-says-90-stolen-assets-replenished-2026-10-31/",
+      },
+    ],
+    relatedContent: [
+      {
+        title: "Balance Sheet #013: When Growth Starts Consuming Cash",
+        href: "/articles/balance-sheet-013-when-growth-starts-consuming-cash",
+        description:
+          "The previous issue on Meta, negative free cash flow and the funding burden behind AI ambition.",
+      },
+      {
+        title: "Balance Sheet #010: Five Percent Changes the Math",
+        href: "/articles/balance-sheet-010-five-percent-changes-the-math",
+        description:
+          "Why a Treasury yield near 5% raises the standard applied to growth and long-duration investment.",
+      },
+      {
+        title: "How AppLovin Built an Ad Empire Without Owning the Audience",
+        href: "/articles/how-applovin-built-an-ad-empire-without-owning-the-audience",
+        description:
+          "A company analysis focused on allocation, operating leverage and durable cash generation.",
       },
     ],
   },
